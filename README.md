@@ -1,19 +1,19 @@
-## RIB Propiedades - Frontend
+# RIB Propiedades - Frontend
 
 
 
-# Stack utilizado
+## Stack utilizado
 
 
-# Pasos para correr la aplicación
+## Pasos para correr la aplicación
 
 ```bash
 npm run dev
 ```
 
 
-# Deploy
+## Deploy
 
-# Configuración
+## Configuración
 
-# Variables de entorno
+## Variables de entorno

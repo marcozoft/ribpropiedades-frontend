@@ -1,0 +1,6 @@
+// Server components
+export { Navbar} from "./navbar/Navbar";
+
+// Client components
+export { ActiveLink } from "./active-link/ActiveLink";
+
