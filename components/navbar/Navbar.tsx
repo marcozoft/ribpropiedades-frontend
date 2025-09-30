@@ -10,6 +10,7 @@ const navItems = [
   { path: '/servicios',         text: 'Servicios' },
   { path: '/contacto',          text: 'Contacto' },
   { path: '/favoritas',         text: 'Favoritas' },
+  { path: '/mapa',              text: 'Mapa de propiedades' },
 ]
 
 
