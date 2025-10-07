@@ -1,6 +1,5 @@
 import Link from "next/link"
-import { ActiveLink } from ".."
-
+import { NavbarItem } from "./NavbarItem"
 
 const navItems = [
   { path: '/quienes-somos',     text: 'RIB' },
@@ -10,23 +9,16 @@ const navItems = [
   { path: '/servicios',         text: 'Servicios' },
   { path: '/contacto',          text: 'Contacto' },
   { path: '/favoritas',         text: 'Favoritas' },
-  { path: '/mapa',              text: 'Mapa de propiedades' },
+  // { path: '/mapa',              text: 'Mapa de propiedades' },
 ]
 
 
 export const Navbar = () => {
   
   return (
-    <nav className="flex bg-blue-800 bg-opacity-30 p-2 rounded">
-      
-      <Link href={'/'} className="flex items-center">
-        <span>Home&nbsp;</span>
-      </Link>
-
+    <nav className="flex px-5 items-center justify-between">
       {
-        navItems.map( navItem => (
-          <ActiveLink key={navItem.path} {...navItem} />
-        ))
+        navItems.map( (item) => (<NavbarItem key={item.path} {...item} /> ))
       } 
       <div className="flex flex-1"></div>
     </nav>
