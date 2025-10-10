@@ -1,5 +1,6 @@
-import Link from "next/link"
+import Image from "next/image"
 import { NavbarItem } from "./NavbarItem"
+import Link from "next/link"
 
 const navItems = [
   { path: '/quienes-somos',     text: 'RIB' },
@@ -9,6 +10,10 @@ const navItems = [
   { path: '/servicios',         text: 'Servicios' },
   { path: '/contacto',          text: 'Contacto' },
   { path: '/favoritas',         text: 'Favoritas' },
+
+  { path: '/propiedades',       text: 'Todas' },
+
+
   // { path: '/mapa',              text: 'Mapa de propiedades' },
 ]
 
@@ -16,11 +21,18 @@ const navItems = [
 export const Navbar = () => {
   
   return (
-    <nav className="flex px-5 items-center justify-between">
+    <nav className="px-5 flex flew-row bg-foreground">
+      <Link href='/propiedades'>
+        <Image
+          src="/images/iso-header-tablet.png" 
+          alt="RIB Inmobiliaria"
+          height={38}
+          width={71}
+        />
+      </Link>
       {
         navItems.map( (item) => (<NavbarItem key={item.path} {...item} /> ))
-      } 
-      <div className="flex flex-1"></div>
+      }
     </nav>
   )
 }

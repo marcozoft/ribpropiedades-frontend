@@ -1,7 +1,7 @@
-import { Propiedad } from "./";
+import { Propiedad, PropiedadBasico } from "./";
 
 export interface PropiedadesResponse {
-    propiedades: Partial<Propiedad>[];
+    propiedades: PropiedadBasico[];
     paginacion:  Paginacion;
 }
 

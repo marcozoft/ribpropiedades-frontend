@@ -1,7 +1,8 @@
-import { PropiedadDetalle } from "@/components";
+// import { PropiedadDetalle } from "@/src/components";
 
 export default function Page() {
     return (
-        <PropiedadDetalle />
+        <p>hola mundo</p>
+        // <PropiedadDetalle />
     );
 }

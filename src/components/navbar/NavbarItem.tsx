@@ -8,11 +8,12 @@ type NavbarItemProps = {
 }
 
 export const NavbarItem = ({path, text}: NavbarItemProps) => {
-  return (
-    <button className='px-5 mx-1 py-2 font-semibold hover:border-b-5 h-[38px]'>
+    return (
         <Link key={path} href={path}>
-            <span>{text}</span>
+            <div className='hidden lg:flex px-5 mx-1 py-2 font-medium whitespace-nowrap text-background hover:border-b-5 h-[38px]'>
+                <span>{text}</span>
+            </div>
         </Link>
-    </button>
-  )
+
+    )
 }
