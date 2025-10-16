@@ -3,7 +3,7 @@ import { Propiedad } from "./propiedad";
 export interface PropiedadDetalleResponse {
     propiedad:      Propiedad;
     imagenes:       Imagen[];
-    planos:         any[];
+    // planos:         any[];
     emprendimiento: Emprendimiento;
 }
 
@@ -18,7 +18,7 @@ export interface Emprendimiento {
     masterplan:        string;
     destacado:         number;
     imagenes:          Imagen[];
-    planos:            any[];
+    // planos:            any[];
 }
 
 export interface Imagen {

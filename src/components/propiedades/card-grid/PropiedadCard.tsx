@@ -1,9 +1,7 @@
 import { PropiedadBasico } from '@/src/interfaces'
 import Image from 'next/image'
 import React from 'react'
-import { FajaPromocional } from './FajaPromocional'
-import { IndicadorNumerico } from './IndicadorNumerico'
-import { IndicadorPrecio } from './IndicadorPrecio'
+import { FajaPromocional, IndicadorNumerico, IndicadorPrecio } from '.';
 
 
 const BASE_URL = `https://ribpropiedades.com.ar`
