@@ -1,0 +1,358 @@
+import { PropiedadDetalleResponse } from "../interfaces";
+
+export const propiedadDetalleResponseSeed: PropiedadDetalleResponse = 
+{
+   "propiedad": {
+      "id": 434098,
+      "codigo": "2189",
+      "inmueble": "casa",
+      "tipo_inmueble": "casa",
+      "operacion": "venta",
+      "moneda": "dolares",
+      "precio": 690000,
+      "precio_publico": 1,
+      "financiacion": 0,
+      "financiacion_detalles": "",
+      "exclusiva": 0,
+      "faja_promocional": "4_domitorios_en_suite",
+      "vigencia": "Activa",
+      "estado_habitacional": "",
+      "id_usuario": 8,
+      "produccion": "",
+      "sucursal": "sucursal_1",
+      "visible_web": "si",
+      "titulo_venta":"Excelente Propiedad Moderna en Construcción Avanzada Barrio La Calesa",
+      "descripcion_corta":"",
+      "descripcion_larga":"<div><font color=\"#626262\" face=\"Ubuntu, sans-serif\"><span style=\"font-size: 13.008px;\">Excelente propiedad moderna en construcción con entrega en Diciembre 2025. Desarrollada en 2 plantas sobre lote de 955 m2. Aberturas de aluminio doble vidrio A30 color negro, calefacción por losa radiante, pre instalación de aires acondicionados en todos los ambientes, pisos en porcelanato, revestimiento exterior en Hormigón y techos en losa.&nbsp;<\/span><\/font><\/div><div><font color=\"#626262\" face=\"Ubuntu, sans-serif\"><span style=\"font-size: 13.008px;\">Importante porche de entrada, puerta principal de hierro pivotante con cerradura electrónica, hall con placard de recepción, luminosos living y comedor integrados con salida a la galería. Toilette de recepción. Cocina semi integrada con mesada de granito e isla central, grifería extensible Peirano y amoblamientos completos. Dependencias completas y amplio lavadero con mesada de granito gris, bacha Johnson y salida a la cochera.&nbsp;<\/span><\/font><\/div><div><font color=\"#626262\" face=\"Ubuntu, sans-serif\"><span style=\"font-size: 13.008px;\">En PA, una luminosa y amplia master suite con vestidor, con sanitarios Ferrum Marina y doble bacha Piazza. Luego 3 suites junior con vestidor\/placard, sanitarios Ferrum Bari, griferías Peirano Black, y mesadas de granito negro.&nbsp;<\/span><\/font><\/div><div><font color=\"#626262\" face=\"Ubuntu, sans-serif\"><span style=\"font-size: 13.008px;\">En el exterior, una gran galería con sector de parrilla con mesada y bacha,Johnson. La piscina revestida con solarium atérmico e iluminada, un amplio jardín completamente parquizado, 2 cocheras semicubiertas y amplio espacio guarda coche.<\/span><\/font><\/div>",
+      "pais": "AR",
+      "zona": "Pilar",
+      "localidad": "",
+      "id_emprendimiento": 515,
+      "subbarrio": "",
+      "direccion_publica": "",
+      "direccion_exacta": "",
+      "direccion_altura": "",
+      "direccion_unidad": "",
+      "piso": "",
+      "mapa_latitud": "-34.46107712791516",
+      "mapa_longitud": "-58.960499487487795",
+      "vision360": "",
+      "propietario_nota": 0,
+      "sup_total": 372,
+      "sup_cubierta": 277,
+      "sup_semi_cubierta": 95,
+      "sup_descubierta": 0,
+      "sup_terreno": 955,
+      "sup_fondo": 0,
+      "sup_construible": 0,
+      "sup_edificable": 0,
+      "sup_frente": 0,
+      "sup_contrafrente": 0,
+      "sup_balcon": 0,
+      "sup_hectareas": 0,
+      "sup_tierras_altas": 0,
+      "sup_tierras_bajas": 0,
+      "sup_lateral_derecho": 0,
+      "sup_lateral_izquierdo": 0,
+      "sup_cochera": 0,
+      "sup_baulera": 0,
+      "sup_entrepiso": 0,
+      "sup_despachos": "",
+      "expensas": "",
+      "expensas_detalles": "<div><br><\/div>",
+      "expensas_incluidas": 0,
+      "expensas_mes": 0,
+      "expensas_ano": 0,
+      "expensas_monto": 0,
+      "obra_sanitaria": "",
+      "gas": "",
+      "telefono": 0,
+      "internet": 0,
+      "cable": 0,
+      "electricidad": 0,
+      "asfalto": 0,
+      "agua_corriente": 0,
+      "agua_caliente": "0",
+      "seguridad": "",
+      "piscina": "si",
+      "piscina_cerco": "",
+      "piscina_calefaccion": "",
+      "piscina_medidas": "",
+      "piscina_tipo": "iluminada",
+      "piscina_vista": 0,
+      "estilo": "Moderno",
+      "plantas": 2,
+      "ambientes": 0,
+      "dormitorios": 4,
+      "dormitorio_suite": 4,
+      "unidades_pisos": "",
+      "banos": 0,
+      "bano_check": 0,
+      "bano_toilette_check": 0,
+      "bano_servicio_check": 0,
+      "bano_externo_check": 0,
+      "banos_servicio": 0,
+      "banos_texto": "",
+      "cochera": "si",
+      "cocheras": 2,
+      "cochera_tipo": "semi_cubierta",
+      "estado": "excelente",
+      "edificio_estado": "",
+      "antiguedad": "A estrenar",
+      "zonificacion": "",
+      "naves": 0,
+      "entrada_vehiculos": "",
+      "tipo_entrada": "",
+      "porton_tipo": "",
+      "porton_medidas": "",
+      "montacargas": "",
+      "fuerza_motriz": "",
+      "lote": "central",
+      "lote_vista": "",
+      "tipo_zona": "residencial",
+      "porche": 0,
+      "hall_entrada": 0,
+      "living": 0,
+      "amueblada": 0,
+      "escritorio": 0,
+      "family": 0,
+      "comedor_diario": 0,
+      "dependencia_servicio": 0,
+      "entrada_servicio": 0,
+      "balcones": 0,
+      "galeria": 0,
+      "toilette": 0,
+      "chimenea": 0,
+      "cocina": "",
+      "cocina_detalles": "<div><br><\/div>",
+      "cocina_muebles": "",
+      "lavadero": 0,
+      "terraza": 0,
+      "quincho": 0,
+      "riego": 0,
+      "parrilla": 0,
+      "revestimiento": "hormign",
+      "calefaccion": "losa_radiante",
+      "aire_acondicionado": "pre_instalacin_de_aire_acondicionado",
+      "deposito": 0,
+      "of_cocina": 0,
+      "of_ducha": 0,
+      "sol_jardin": 0,
+      "techo": "loza",
+      "aberturas": "Aluminio DVH",
+      "casa_casero": 0,
+      "casa_huespedes": 0,
+      "acceso": "",
+      "cerca_ruta": 0,
+      "suelos": 0,
+      "pastura_perenne": 0,
+      "potreros": 0,
+      "sembrado": 0,
+      "manga": 0,
+      "balanza": 0,
+      "alambrado_perimetral": 0,
+      "motores": 0,
+      "galpones": 0,
+      "molinos": 0,
+      "silos": 0,
+      "maquinas": 0,
+      "picadero": 0,
+      "bebederos": 0,
+      "caballerizas": 0,
+      "lagunas": 0,
+      "casa_principal": 0,
+      "local_en": "",
+      "rubro_permitido": "",
+      "despachos": 0,
+      "subdivisiones": 0,
+      "planta_libre": 0,
+      "pallier": 0,
+      "entrepiso": 0,
+      "banos_por_genero": 0,
+      "vivienda_anexa": 0,
+      "patio": 0,
+      "baulera": 0,
+      "sala_reuniones": 0,
+      "edificio_tipo": "",
+      "estado_edificio": "",
+      "edificio_pisos": 0,
+      "edificio_ascensores": 0,
+      "sum": 0,
+      "gimnasio": 0,
+      "escaleras": 0,
+      "arquitecto": "",
+      "luminosidad": "",
+      "lote_ubicacion": "",
+      "lote_asfalto": "",
+      "orientacion": "",
+      "demolicion": "",
+      "apto_profesional": 0,
+      "altura_techo": "",
+      "oficinas": 0,
+      "vestuarios": "",
+      "comedor_empleados": "",
+      "tipo_pisos": "Porcelanato",
+      "video": "",
+      "activo": null,
+      "destacado": 0,
+      "orden": 2,
+      "orden_destacado": 0
+   },
+   "imagenes": [
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-0.jpg",
+         "orden": 1,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-1.jpg",
+         "orden": 2,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-2.jpg",
+         "orden": 3,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-3.jpg",
+         "orden": 4,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-4.jpg",
+         "orden": 5,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-5.jpg",
+         "orden": 6,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-6.jpg",
+         "orden": 7,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-7.jpg",
+         "orden": 8,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-8.jpg",
+         "orden": 9,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-9.jpg",
+         "orden": 10,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-10.jpg",
+         "orden": 11,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-11.jpg",
+         "orden": 12,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-12.jpg",
+         "orden": 13,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216241_imagen-13.jpg",
+         "orden": 14,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216254_imagen-0.jpg",
+         "orden": 15,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216254_imagen-1.jpg",
+         "orden": 16,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216254_imagen-2.jpg",
+         "orden": 17,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216254_imagen-3.jpg",
+         "orden": 18,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216254_imagen-4.jpg",
+         "orden": 19,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216254_imagen-5.jpg",
+         "orden": 20,
+         "texto": ""
+      },
+      {
+         "imagen": "uploads\/images\/gallery_1756216254_imagen-6.jpg",
+         "orden": 21,
+         "texto": ""
+      }
+   ],
+   // "planos": [],
+   "emprendimiento": {
+      "id": 515,
+      "nombre": "Pilará ",
+      "descripcion_corta": "Pilará es un emprendimiento que lleva más de 15 años de desarrollo, con seis comunidades consolidadas. Es un proyecto desplegado sobre un campo de una geografía entrañable a minutos del centro de Pilar. Su diseño urbano, realizado por el estudio Robirosa, y sus jardines y paisajismo diseñado por el estudio Thays lo convierten en un lugar único.",
+      "descripcion_larga": "<div><div><font face=\"Ubuntu, sans-serif\">Pilará es un emprendimiento que lleva más de 15 años de desarrollo, con seis comunidades consolidadas. Es un proyecto desplegado sobre un campo de una geografía entrañable a minutos del centro de Pilar. Su diseño urbano, realizado por el estudio Robirosa, y sus jardines y paisajismo diseñado por el estudio Thays lo convierten en un lugar único.<\/font><\/div><div><font face=\"Ubuntu, sans-serif\">Más de 600 familias disfrutan hoy de Pilará, de su infraestructura de vanguardia y calidad, con paisajes abiertos, bosques, 14 canchas de tenis, la primera cancha de golf diseñada personalmente por Jack Nicklaus en Latinoamérica, canchas de polo, canchas de fútbol y mucho más.<\/font><\/div><\/div>",
+      "zona": "Pilar",
+      "imagen": "uploads\/images\/pilar_1739457070_imagen.jpg",
+      "logo": "uploads\/images\/pilar_1739457070_logo.jpg",
+      "masterplan": "",
+      "destacado": 0,
+      "imagenes": [
+         {
+            "imagen": "uploads\/images\/gallery_1739457108_imagen-0.jpg",
+            "orden": 1,
+            "texto": ""
+         },
+         {
+            "imagen": "uploads\/images\/gallery_1739457116_imagen-0.jpg",
+            "orden": 2,
+            "texto": ""
+         },
+         {
+            "imagen": "uploads\/images\/gallery_1739457122_imagen-0.jpg",
+            "orden": 3,
+            "texto": ""
+         },
+         {
+            "imagen": "uploads\/images\/gallery_1739457127_imagen-0.jpg",
+            "orden": 4,
+            "texto": ""
+         },
+         {
+            "imagen": "uploads\/images\/gallery_1739457134_imagen-0.jpg",
+            "orden": 5,
+            "texto": ""
+         },
+         {
+            "imagen": "uploads\/images\/gallery_1739457158_imagen-0.jpg",
+            "orden": 6,
+            "texto": ""
+         },
+         {
+            "imagen": "uploads\/images\/gallery_1739457172_imagen-0.jpg",
+            "orden": 7,
+            "texto": ""
+         }
+      ],
+      // "planos": []
+   }
+}

@@ -11,8 +11,6 @@ const navItems = [
   { path: '/contacto',          text: 'Contacto' },
   { path: '/favoritas',         text: 'Favoritas' },
 
-  { path: '/propiedades',       text: 'Todas' },
-
 
   // { path: '/mapa',              text: 'Mapa de propiedades' },
 ]
@@ -22,14 +20,14 @@ export const Navbar = () => {
   
   return (
     <nav className="px-5 flex flew-row bg-foreground">
-      <Link href='/propiedades'>
+      {/* <Link href='/propiedades'> */}
         <Image
           src="/images/iso-header-tablet.png" 
           alt="RIB Inmobiliaria"
           height={38}
           width={71}
         />
-      </Link>
+      {/* </Link> */}
       {
         navItems.map( (item) => (<NavbarItem key={item.path} {...item} /> ))
       }

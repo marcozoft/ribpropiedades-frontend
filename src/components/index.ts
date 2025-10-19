@@ -1,12 +1,14 @@
-
-// Server components
+// UI components
 export { Navbar} from "./navbar/Navbar";
 export { Footer } from "./Footer";
 
 
-// Componentes de negocio
+// Grilla de propiedades
+export { PropiedadesGrid } from "./propiedades/PropiedadesGrid";
+
+// Propiedad card
 export { PropiedadCard } from "./propiedades/card-grid/PropiedadCard";
 
-export { FajaPromocional } from "./propiedades/card-grid/FajaPromocional";
+// Detalle full page
+export { PropiedadFullPage } from "./propiedades/detalle-full-page/PropiedadFullPage";
 
-export { PropiedadDetalle } from "./propiedades/detalle-full-page/PropiedadDetalle";

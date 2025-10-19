@@ -1,4 +1,4 @@
-export interface Propiedad {
+export interface PropiedadDetalle {
     aberturas:             string;
     acceso:                string;
     activo:                null;
@@ -89,7 +89,7 @@ export interface Propiedad {
     id_emprendimiento:     number;
     id_usuario:            number;
     id:                    number;
-    imagen_principal:      string;
+    // imagen_principal:      string;
     inmueble:              string;
     internet:              number;
     lagunas:               number;

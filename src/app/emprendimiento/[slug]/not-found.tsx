@@ -3,7 +3,7 @@ export default function NotFound() {
 
   return (
     <div>
-        Not found propiedad
+        Not found emprendimiento
     </div>    
   );
 }
