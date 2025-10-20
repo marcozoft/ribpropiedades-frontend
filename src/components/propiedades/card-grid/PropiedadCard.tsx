@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import { FajaPromocional, IndicadorNumerico, IndicadorPrecio } from '.';
 import Link from 'next/link';
-import { generateHrefPropiedad, generateSlug } from '@/src/utils';
+import { generateHrefPropiedad } from '@/src/utils';
 
 
 const BASE_URL = `https://ribpropiedades.com.ar`

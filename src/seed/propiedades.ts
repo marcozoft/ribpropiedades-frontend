@@ -135,7 +135,7 @@ export const propiedadesSeeed: PropiedadesResponse =
             "dormitorios": 4,
             "dormitorio_suite": 2,
             "banos": 0,
-            "cochera": "si",
+            "cochera": 'si',
             "cocheras": 2,
             "imagen_principal": "uploads\/images\/gallery_1746473027_imagen-0.jpg"
          },
@@ -162,7 +162,7 @@ export const propiedadesSeeed: PropiedadesResponse =
             "dormitorios": 0,
             "dormitorio_suite": 0,
             "banos": 0,
-            "cochera": "",
+            "cochera": 'si',
             "cocheras": 0,
             "imagen_principal": "uploads\/images\/gallery_1746041111_imagen-0.jpg"
          },
