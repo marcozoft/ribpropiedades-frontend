@@ -27,5 +27,13 @@ body {
 }
 
 .debug {
-  @apply border-2 border-violet-950
+  @apply border-2 border-violet-950;
+  
+  @apply bg-blue-50;
+  @apply sm:bg-blue-300;
+  @apply md:bg-blue-400;
+  @apply lg:bg-blue-600;
+  @apply xl:bg-blue-900;
+
+
 }
