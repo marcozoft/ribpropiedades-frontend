@@ -2,6 +2,8 @@ import { PropiedadBasico } from '@/src/interfaces'
 import Image from 'next/image'
 import React from 'react'
 import { FajaPromocional, IndicadorNumerico, IndicadorPrecio } from '.';
+import Link from 'next/link';
+import { generateHrefPropiedad } from '@/src/utils';
 
 
 const BASE_URL = `https://ribpropiedades.com.ar`
@@ -17,11 +19,12 @@ export const PropiedadCard = ({
    precio,
    sup_total,
    titulo_venta,
+   id,
 }: PropiedadBasico) => {
 
    return (
       <div className="relative mx-auto w-full">
-         <a href="#" className="relative inline-block w-full">
+         <Link href={generateHrefPropiedad(id, titulo_venta)} className="relative inline-block w-full">
             <div className="rounded-lg bg-white p-4 shadow">
                <div className="relative flex justify-center overflow-hidden rounded-sm">
 
@@ -52,7 +55,7 @@ export const PropiedadCard = ({
                   </div>
                </div>
             </div>
-         </a>
+         </Link>
       </div>
    )
 }

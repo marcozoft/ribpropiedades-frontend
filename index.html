@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RIB Inmobiliaria — Home</title>
+
+  <!-- Tailwind Play CDN (rápido para prototipos) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tipografías (opcional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --brand: #0f172a; --accent: #06b6d4; }
+    body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    /* Pequeño helper para imagenes de los cards (corta y cubre) */
+    .card-img { height: 200px; object-fit: cover; width: 100%; border-radius: 0.5rem; }
+  </style>
+</head>
+<body class="antialiased text-slate-800 bg-slate-50">
+
+  <!-- NAVBAR -->
+  <header class="bg-white shadow-sm sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-4">
+          <!-- Logo (placeholder) -->
+          <a href="#" class="flex items-center gap-3">
+            <img src="https://via.placeholder.com/48x48?text=RIB" alt="RIB Logo" class="w-12 h-12 rounded-md object-cover">
+            <div>
+              <span class="block font-bold text-lg">RIB Inmobiliaria</span>
+              <span class="text-xs text-slate-500">MARCOZOFT 2025</span>
+            </div>
+          </a>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a class="hover:text-accent" href="#">Quienes somos</a>
+          <a class="hover:text-accent" href="#">Emprendimientos</a>
+          <a class="hover:text-accent" href="#">Tasaciones</a>
+          <a class="hover:text-accent" href="#">Servicios</a>
+          <a class="hover:text-accent" href="#">Contacto</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="tel:+5491134201500" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 border rounded-md text-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l3.6 7.59a1 1 0 0 0 .9.41H21"></path></svg>
+            +54 911 3420 1500
+          </a>
+
+          <!-- Mobile menu button -->
+          <button id="mobileBtn" class="md:hidden p-2 rounded-md hover:bg-slate-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t">
+      <div class="px-4 py-3 space-y-2">
+        <a class="block" href="#">Quienes somos</a>
+        <a class="block" href="#">Emprendimientos</a>
+        <a class="block" href="#">Tasaciones</a>
+        <a class="block" href="#">Servicios</a>
+        <a class="block" href="#">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative">
+    <div class="bg-[url('https://via.placeholder.com/1600x700?text=Hero+Image')] bg-cover bg-center h-[60vh] md:h-[70vh] flex items-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div class="text-white/95 bg-black/40 p-8 rounded-lg backdrop-blur-sm">
+            <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">¿Buscás la casa de tus sueños?</h1>
+            <p class="mt-4 text-lg md:text-xl">Hacemos realidad tu sueño. Explorá nuestro catálogo.</p>
+            <div class="mt-6 flex gap-3">
+              <a href="#" class="inline-block px-5 py-3 bg-teal-400 hover:bg-teal-500 text-slate-900 font-semibold rounded-md">Busquemos juntos</a>
+              <a href="#" class="inline-block px-5 py-3 border border-white/40 rounded-md text-white">Contactanos</a>
+            </div>
+          </div>
+
+          <div class="hidden md:block">
+            <!-- Card with contact and quick menu -->
+            <div class="bg-white rounded-lg shadow p-6">
+              <div class="flex items-center gap-3">
+                <img src="https://via.placeholder.com/80x80?text=Oficina" alt="Oficina" class="w-20 h-20 rounded-md object-cover">
+                <div>
+                  <p class="text-sm text-slate-500">Edificio Bureau Pilar Norte</p>
+                  <p class="font-semibold">Of. 255, Piso 2 · Pilar, Buenos Aires</p>
+                </div>
+              </div>
+
+              <div class="mt-4 border-t pt-4 space-y-3">
+                <div class="text-sm text-slate-600">Favoritas · Términos y Condiciones</div>
+                <div class="text-lg font-bold">+54 911 3420 1500</div>
+                <div class="mt-2 grid grid-cols-2 gap-2">
+                  <button class="px-3 py-2 rounded bg-slate-100 text-sm">Quienes somos</button>
+                  <button class="px-3 py-2 rounded bg-slate-100 text-sm">Emprendimientos</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / FEATURES -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-lg shadow p-6">
+        <h3 class="font-bold text-lg">Countries, Barrios &amp; Clubes de campo</h3>
+        <p class="mt-2 text-sm text-slate-600">RIB Inmobiliaria, te presenta la mejor oferta inmobiliaria para conocer los barrios, el mercado y el proceso de decidir sobre tu futuro.</p>
+        <a href="#" class="mt-4 inline-block text-teal-600 font-semibold">VER MÁS →</a>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <h3 class="font-bold text-lg">Proyectos de Inversión, Fracciones &amp; Desarrollos</h3>
+        <p class="mt-2 text-sm text-slate-600">Conocé los mejores Proyectos de Inversión, Complejos de Usos Mixtos, Fracciones y Desarrollos de Zona Norte.</p>
+        <a href="#" class="mt-4 inline-block text-teal-600 font-semibold">VER MÁS →</a>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <h3 class="font-bold text-lg">Tasaciones</h3>
+        <p class="mt-2 text-sm text-slate-600">Averiguá cuánto puede valer tu hogar ahora. Si estás pensando en vender, verificar su posición de capital, o simplemente interesarte por el mercado.</p>
+        <a href="#" class="mt-4 inline-block text-teal-600 font-semibold">VER MÁS →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTIES / CARDS -->
+  <section class="bg-slate-50 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-2xl font-bold">Descubrí nuestra exclusiva selección</h2>
+          <p class="text-sm text-slate-600">RIB Selección — Propiedades destacadas</p>
+        </div>
+        <div>
+          <a href="#" class="text-sm font-semibold text-teal-600">Ver más lanzamientos →</a>
+        </div>
+      </div>
+
+      <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Card 1 -->
+        <article class="bg-white rounded-lg shadow p-4">
+          <img class="card-img rounded" src="https://via.placeholder.com/600x400?text=Casa+Pilar%C3%A1" alt="Casa Pilará">
+          <div class="mt-4">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-lg">u$d 590.000</span>
+              <span class="text-sm text-green-600 font-semibold">VENTA · A ESTRENAR</span>
+            </div>
+            <h3 class="mt-2 font-semibold">Excelente Propiedad en Pilará. Moderna.</h3>
+            <p class="mt-1 text-sm text-slate-600">Barrio La Calesa · Dormitorios 3 · Baños 2 · 289 m²</p>
+            <div class="mt-3 text-sm text-slate-500">Osvaldo Sobico · Titular. MAT 5901</div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="bg-white rounded-lg shadow p-4">
+          <img class="card-img rounded" src="https://via.placeholder.com/600x400?text=Propiedad+Racionalista" alt="Propiedad Racionalista">
+          <div class="mt-4">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-lg">u$d 399.000</span>
+              <span class="text-sm text-teal-600 font-semibold">VENTA</span>
+            </div>
+            <h3 class="mt-2 font-semibold">Excelente Propiedad Racionalista</h3>
+            <p class="mt-1 text-sm text-slate-600">Sobre 1700 m² · Dormitorios 4 · Baños 3 · 430 m²</p>
+            <div class="mt-3 text-sm text-slate-500">Julieta Rozas · Directora Comercial. MAT 7490</div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="bg-white rounded-lg shadow p-4">
+          <img class="card-img rounded" src="https://via.placeholder.com/600x400?text=Mayling+Club+de+Campo" alt="Mayling">
+          <div class="mt-4">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-lg">u$d 430.000</span>
+              <span class="text-sm text-teal-600 font-semibold">VENTA</span>
+            </div>
+            <h3 class="mt-2 font-semibold">Impecable Propiedad Neoclásica a estrenar</h3>
+            <p class="mt-1 text-sm text-slate-600">Dormitorios 3 · Baños 3 · 234 m²</p>
+            <div class="mt-3 text-sm text-slate-500">Julieta Rozas · Directora Comercial. MAT 7490</div>
+          </div>
+        </article>
+
+        <!-- Más cards (duplicá / ajustá según necesidad) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- RIB Selección (Proyectos) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h3 class="text-xl font-bold">Distrito Campus I</h3>
+        <p class="mt-2 text-slate-600">Exclusiva ubicación frente a la Universidad Austral e IAE y a pocos metros del Hospital Austral, Shopping Las Palmas, Jumbo, Easy, Hoteles, Parque Empresarial Austral y más. Distrito Campus 1 consta de 53 unidades de 1 y 2 ambientes.</p>
+        <a href="#" class="mt-4 inline-block text-teal-600 font-semibold">Ver más →</a>
+      </div>
+      <div>
+        <img src="https://via.placeholder.com/800x450?text=Distrito+Campus+I" alt="Distrito Campus I" class="w-full rounded-lg shadow">
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="bg-white py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-2xl font-bold text-center">Opiniones de nuestros clientes</h3>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <blockquote class="p-6 rounded-lg border">
+          <p class="text-slate-700">"Está muy bueno"</p>
+          <footer class="mt-3 text-sm text-slate-500">Wilson Mamani Ance</footer>
+        </blockquote>
+
+        <blockquote class="p-6 rounded-lg border">
+          <p class="text-slate-700">"Excelente atención. Acompañamiento en todo momento. Muy recomendable."</p>
+          <footer class="mt-3 text-sm text-slate-500">Gustavo May</footer>
+        </blockquote>
+
+        <blockquote class="p-6 rounded-lg border">
+          <p class="text-slate-700">"La atención y disposición para buscar lo que uno necesita, los hacen únicos."</p>
+          <footer class="mt-3 text-sm text-slate-500">Maria Eugenia Baron</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-3 gap-8">
+      <div>
+        <h4 class="font-bold text-lg">RIB Inmobiliaria</h4>
+        <p class="mt-2 text-sm text-slate-300">RIB, haciendo la casa de tus sueños una realidad.</p>
+        <p class="mt-4 text-sm text-slate-400">Edificio Bureau Pilar Norte · Of. 255, Piso 2 · Ruta Panamericana Km 49.5, Pilar · Buenos Aires</p>
+      </div>
+
+      <div>
+        <h5 class="font-semibold">Menu</h5>
+        <ul class="mt-3 space-y-2 text-sm text-slate-300">
+          <li><a href="#" class="hover:text-white">Quienes somos</a></li>
+          <li><a href="#" class="hover:text-white">Emprendimientos</a></li>
+          <li><a href="#" class="hover:text-white">Tasaciones</a></li>
+          <li><a href="#" class="hover:text-white">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-semibold">Contacto</h5>
+        <p class="mt-3 text-sm text-slate-300">+54 911 3420 1500</p>
+        <p class="mt-1 text-sm text-slate-300">Favoritas · Términos y Condiciones</p>
+        <div class="mt-4 text-sm text-slate-400">© RIB Inmobiliaria 2025</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

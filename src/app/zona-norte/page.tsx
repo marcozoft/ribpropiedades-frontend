@@ -1,15 +1,31 @@
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <div>
-          Zona Norte
-        </div>
-      </main>
+import { PropiedadCard, PropiedadesGrid } from "@/src/components";
+import { PropiedadesResponse } from "@/src/interfaces";
+import { propiedadesSeeed } from "@/src/seed/propiedades";
 
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        Footer
-      </footer>
-    </div>
-  );
+const getAllPropiedades = async (): Promise<PropiedadesResponse> => {
+
+   const url = `https://admin.ribpropiedades.com.ar/api/propiedades`
+   const apiKey = 'rib_api_2025_secure_key_d4f8a2e1b9c7x3m5';
+
+   return fetch(url, {
+      headers: {
+         'X-API-Key': apiKey
+      }
+   }).then(resp => resp.json())
+
+}
+
+
+export default async function Propiedades() {
+
+   // Todas las propiedades
+   // const propiedadesResponse = await getAllPropiedades();
+   const propiedadesResponse = propiedadesSeeed;
+   
+   console.log('Propiedades: ', propiedadesResponse);
+
+
+   return (
+      <PropiedadesGrid propiedades={propiedadesResponse.propiedades} />
+   );
 }

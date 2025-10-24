@@ -1,5 +1,15 @@
-import { redirect } from "next/navigation";
+import { CarouselLanzamientos, PropiedadesGrid } from "../components";
+import { Contactanos, Lanzamientos, Nosotros, Seleccion } from "../components/home-secciones";
+import { propiedadesSeeed } from "../seed/propiedades";
 
 export default function HomePage() {
-  redirect('/propiedades')
+  return(
+   <>
+    <Lanzamientos />
+    <Seleccion />
+    <Nosotros />
+    <Contactanos />
+    <PropiedadesGrid propiedades={propiedadesSeeed.propiedades} />
+   </>
+  )
 }

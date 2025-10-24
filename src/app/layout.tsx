@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar, Footer } from "../components";
+import { primaryFont } from "./config/fonts";
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "RIB Inmobiliara",
@@ -19,12 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body
-        className={inter.className}
-      >
+      <body className={primaryFont.className}>
         <Navbar />
         {children}
-      <Footer />
+        <Footer />
       </body>
     </html>
   );
