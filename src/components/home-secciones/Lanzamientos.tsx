@@ -4,14 +4,14 @@ import { CarouselLanzamientos } from '../propiedades/carousel-lanzamientos/Carou
 
 export const Lanzamientos = () => {
   return (
-    <section>
+    <section className='bg-foreground'>
       {/* contenedor relativo para que el h1 quede encima de la imagen */}
       <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[724px] overflow-hidden">
         <Image
           src={'/images/background-diagonal.png'}
           alt=""
           fill
-          className="object-cover"
+          className="object-cover opacity-4"
           priority
         />
 
