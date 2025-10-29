@@ -1,11 +1,13 @@
 import { CarouselLanzamientos, PropiedadesGrid } from "../components";
-import { Contactanos, Filters, Lanzamientos, Nosotros, Seleccion, Servicios, VideoCarousel } from "../components/home-secciones";
+import { Contactanos, Filters, Lanzamientos, Nosotros, Seleccion, Servicios, Video } from "../components/home-secciones";
+import { PlaygroundComponent } from "../components/PlaygroundComponent";
 import { propiedadesSeeed } from "../seed/propiedades";
 
 export default function HomePage() {
   return(
    <>
-    <VideoCarousel />
+    {/* <PlaygroundComponent /> */}
+    <Video />
     <Filters />
     <Lanzamientos />
     <Seleccion />

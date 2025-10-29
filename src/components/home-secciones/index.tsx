@@ -1,6 +1,6 @@
 export { Servicios } from './Servicios';
 export { Filters } from './Filters';
-export { VideoCarousel } from './VideoCarousel';
+export { Video } from './Video';
 export { Contactanos } from './Contactanos';
 export { Lanzamientos } from './Lanzamientos';
 export { Seleccion } from './Seleccion';
