@@ -1,18 +1,22 @@
+import { ReactElement } from "react";
+
+
 type IndicadorProps = {
    nombre:     string;
    valor:      number;
-   unidad?:    string;
+   unidad?:     string;
+   icono:      ReactElement;
 }
 
-// TODO: Formatear con miles el precio
-export const IndicadorNumerico = ({nombre, valor, unidad}:IndicadorProps) => {
+export const IndicadorNumerico = ({nombre, valor, unidad, icono}:IndicadorProps) => {
    return (
       <p className="flex items-center text-gray-800">
-         <span className='font-bold'>{nombre}:</span>
-         <span>{valor}</span>
-         {
-            unidad && <span>{unidad}</span>
-         }
+         <span className=''>{nombre}:</span>
+         <span>
+            {icono}
+            {valor}
+         </span>
+         
       </p>
    )
 }

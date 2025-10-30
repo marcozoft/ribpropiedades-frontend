@@ -1,10 +1,9 @@
 import { PropiedadBasico } from '@/src/interfaces'
 import Image from 'next/image'
-import React from 'react'
-import { FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorPrecio, TituloDeVenta } from '.';
+import { FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion, IndicadorPrecio, TituloDeVenta } from '.';
 import Link from 'next/link';
 import { generateHrefPropiedad } from '@/src/utils';
-import { IndicadorOperacion } from './IndicadorOperacion';
+
 
 // TODO: LLevar al .env
 const BASE_URL = `https://ribpropiedades.com.ar`
@@ -62,8 +61,19 @@ export const PropiedadCard = ({
                </div>
                <div className="justify-center">
                   <div className="mt-4 flex space-x-3 overflow-hidden rounded-lg px-1 py-1">
-                     <IndicadorNumerico nombre='Amb' valor={ambientes}/>
-                     <IndicadorNumerico nombre='Sup Total' valor={sup_total} unidad='m2'/>
+                     {/* Cantidad de ambientes */}
+                     <IndicadorNumerico 
+                        nombre='Ambientes' 
+                        valor={ambientes} 
+                        icono={<i className="flaticon-bed text-black"></i>}
+                     />
+                     {/* superficie total m2 */}
+                     <IndicadorNumerico 
+                        nombre='Sup Total' 
+                        valor={sup_total} 
+                        icono={<i className="flaticon-pin text-black"></i>} 
+                        unidad='m2'
+                     />
                   </div>
                </div>
             </div>

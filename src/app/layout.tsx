@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar, Footer } from "../components";
 import { primaryFont } from "./config/fonts";
+import '@/src/styles/flat-icon/flaticon.css'
+
 
 
 export const metadata: Metadata = {
