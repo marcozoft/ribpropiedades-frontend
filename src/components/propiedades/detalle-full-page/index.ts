@@ -1,4 +1,4 @@
-import { IndicadorNumerico } from '../card-grid/IndicadorNumerico';
+import { IndicadorNumerico } from '../propiedad-card/IndicadorNumerico';
 export { PropiedadFullPage } from "./PropiedadFullPage";
 
 export { SeccionImagenes} from './SeccionImagenes';

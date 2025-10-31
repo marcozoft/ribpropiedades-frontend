@@ -34,6 +34,16 @@ body {
   @apply md:bg-blue-400;
   @apply lg:bg-blue-600;
   @apply xl:bg-blue-900;
+}
 
 
+.stripe-1 {
+  color: white;
+  background: repeating-linear-gradient(
+    45deg,
+    #ededef,
+    #ededef 20px,
+    white 20px,
+    white 40px
+  );
 }

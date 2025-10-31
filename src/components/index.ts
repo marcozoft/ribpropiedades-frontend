@@ -7,10 +7,10 @@ export { Footer } from "./Footer";
 export { PropiedadesGrid } from "./propiedades/PropiedadesGrid";
 
 // Propiedad card
-export { PropiedadCard } from "./propiedades/card-grid/PropiedadCard";
+export { PropiedadCard } from "./propiedades/propiedad-card/PropiedadCard";
 
 // Detalle full page
 export { PropiedadFullPage } from "./propiedades/detalle-full-page/PropiedadFullPage";
 
-// Carouse
-export { CarouselLanzamientos } from './propiedades/carousel-lanzamientos/CarouselLanzamientos';
+// Carousel
+export { CarouselLanzamientosClient } from './propiedades/carousel-lanzamientos/CarouselLanzamientosClient';

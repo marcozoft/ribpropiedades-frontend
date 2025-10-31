@@ -2,6 +2,9 @@
 export type { PropiedadesResponse } from './response-propiedades';
 export type { PropiedadDetalleResponse } from './response-propiedad-id';
 
+// 
+export type { Servicio } from './servicio';
+
 // Dominio
 export type { PropiedadDetalle } from './propiedad-detalle';
 export type { PropiedadBasico } from './propiedad-basico';

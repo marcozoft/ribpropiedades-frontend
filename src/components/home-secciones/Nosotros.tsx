@@ -1,13 +1,23 @@
+import Image from 'next/image'
 import React from 'react'
+import { RoundedButton } from '../ui'
 
 export const Nosotros = () => {
   return (
-    <section className='max-w-6xl mx-auto px-4'>
-      <h2>RIB, Hacienodo realidad tus sueños</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-         Praesentium et eligendi debitis repudiandae odio autem alias aperiam id labore neque! Corporis officiis a in perferendis ducimus, 
-         voluptate nostrum laudantium optio?
-      </p>
+    <section className='max-w-6xl mx-auto px-4 py-10'>
+      <div className='grid grid-cols md:grid-cols-2 md:gap-10 my-4'>
+        <h1 className='text-3xl sm:text-4xl md:text-5xl text-black'>
+          <span className='font-bold'>RIB, </span>haciendo la casa de tus sueños <span className='text-foreground font-bold'>una realidad.</span>
+        </h1>
+        <div className=''>
+          <p className='text-black mb-2'>Nuestro servicio es personalizado, atendemos a cada cliente con profesionalismo, entendiendo sus necesidades 
+            y dándole soluciones a su medida.
+          </p>
+          <RoundedButton text='VER MÁS' href='/'/>
+        </div>
+      </div>
+      <Image src={'/screenshot-video-nosotros.png'} width={1920} height={560} alt="Hacemos tu proyecto realidad" />
+      
     </section>
   )
 }
