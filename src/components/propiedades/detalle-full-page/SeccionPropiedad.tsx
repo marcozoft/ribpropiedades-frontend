@@ -8,7 +8,6 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
 
   const { 
     titulo_venta,
-    descripcion_corta,
     descripcion_larga,
   } = propiedad;
 

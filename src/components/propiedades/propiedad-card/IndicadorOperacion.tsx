@@ -3,7 +3,7 @@ type Props = {
    tipoDeInmueble: string;
 }
 
-export const IndicadorOperacion = ({tipoDeInmueble, tipoDeOperacion}:Props) => {
+export const IndicadorOperacion = ({tipoDeOperacion}:Props) => {
    return (
       <p className="text-foreground text-lg uppercase">{tipoDeOperacion}</p>
    )

@@ -19,13 +19,14 @@ export const PropiedadCard = ({
    precio,
    sup_total,
    titulo_venta,
+   zona,
    id,
 }: PropiedadBasico) => {
 
    return (
-      <div className="relative mx-auto w-full">
+      <div className="relative mx-auto w-full shadow hover:shadow-2xl">
          <Link href={generateHrefPropiedad(id, titulo_venta)} className="relative inline-block w-full">
-            <div className="bg-white p-4 shadow">
+            <div className="bg-white p-4">
                <div className="relative flex justify-center overflow-hidden">
 
                   {/* Imagen */}
@@ -37,7 +38,7 @@ export const PropiedadCard = ({
                   {
                      faja_promocional && <FajaPromocional descripcion={faja_promocional} />
                   }
-                  <IndicadorBarrio barrio='Mayling club de campo' />
+                  <IndicadorBarrio barrio={zona} />
                </div>
 
                <div className="mt-4">

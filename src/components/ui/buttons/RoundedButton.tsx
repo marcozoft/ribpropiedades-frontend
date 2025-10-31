@@ -4,15 +4,18 @@ import Link from "next/link";
 type Props = {
    text: string;
    href: string;
+   className?: string;
 }
 
 
-export const RoundedButton = ({text, href}:Props) => {
+export const RoundedButton = ({ text, href, className }: Props) => {
    return (
-      <button className={`rounded-full bg-foreground text-background py-2 px-5 ${secondaryFont.className} text-xs`}>
-         <Link href={href}>
-            {text}
-         </Link>
-      </button>
+      <Link href={href}>
+         <div className={`rounded-full bg-foreground text-background inline-flex py-2 px-5 ${secondaryFont.className} text-xs ${className}`}>
+            <span>
+               {text}
+            </span>
+         </div>
+      </Link>
    )
 }

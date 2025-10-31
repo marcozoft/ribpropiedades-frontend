@@ -1,13 +1,18 @@
 import { secondaryFont } from "@/src/app/config/fonts"
-import Image from 'next/image';
+import { PropiedadCard, PropiedadesGrid } from '@/src/components';
+import { propiedadesSeeed } from "@/src/seed/propiedades";
 
+// TODO: Armar carousel
 export const Seleccion = () => {
   return (
-    <section className="mx-4 my-4">
+    <section className="px-4 py-20">
       <h1 className="font-bold text-5xl text-center">RIB Selección</h1>
-      <h2 className={`text-center font-bold ${secondaryFont.className}`}>Descubrí nuestra exclusiva selección</h2>
-      <Image src={'/screnshot-seleccion.png'} height={611} width={1797} alt=''/>
-      <Image className='' src='/screenshot-scroll.png' height={15} width={76} alt="" />
+      <h2 className={`text-center font-bold pb-10 ${secondaryFont.className}`}>Descubrí nuestra exclusiva selección</h2>
+      <div className="px-4 bg-white mt-5 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {
+          propiedadesSeeed.propiedades.slice(0, 4).map(prop => <PropiedadCard key={prop.id} {...prop} />)
+        }
+      </div>
    </section>
   )
 }

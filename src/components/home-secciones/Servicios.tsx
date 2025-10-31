@@ -1,4 +1,3 @@
-import { secondaryFont } from "@/src/app/config/fonts"
 import { ServicioCard } from "../ui";
 import { Servicio } from "@/src/interfaces";
 

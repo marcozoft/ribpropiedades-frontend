@@ -4,7 +4,7 @@ import Image from "next/image"
 // TODO: Acomodar size
 export const Video = () => {
   return (
-    <div className="w-full h-[810px]">
+    <div className="w-full">
       {/* <div className="max-w-7xl mx-auto px-4"> */}
         <video 
           className="w-full"
