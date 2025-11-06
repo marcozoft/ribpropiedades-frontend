@@ -1,29 +1,34 @@
-import { secondaryFont } from '@/src/app/config/fonts'
-import { CarouselLanzamientosClient } from '../propiedades/carousel-lanzamientos/CarouselLanzamientosClient'
-import { propiedadesSeeed } from '@/src/seed/propiedades'
+"use client";
 
-// TODO: Definir fondo
+import { useRef, useState } from "react";
+import { CarouselLanzamientosClient, CarouselHandle } from "../propiedades/carousel-lanzamientos/CarouselLanzamientosClient";
+import { propiedadesSeeed } from "@/src/seed/propiedades";
+
 export const Lanzamientos = () => {
+  const carouselRef = useRef<CarouselHandle | null>(null);
+  const [index, setIndex] = useState(0);
+
   return (
     <section className='bg-foreground px-4 py-10'>
-      {/* contenedor relativo para que el h1 quede encima de la imagen */}
-      {/* <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[724px] overflow-hidden"> */}
-        {/* <Image
-          src={'/images/background-diagonal.png'}
-          alt=""
-          fill
-          className="object-cover opacity-4"
-          priority
-        /> */}
+      <div className="max-w-6xl mx-auto flex items-center justify-between mb-4">
+        <h1 className="text-white text-2xl">Lanzamientos</h1>
 
-        {/* overlay centrado con el título encima de la imagen */}
-        <div className="flex flex-col items-start max-w-6xl mx-auto justify-center px-4 pt-8">
-          <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-background">RIB Lanzamientos</h1>
-          <h2 className={`mt-2 font-bold text-background pb-4 ${secondaryFont.className}`}>Descubrí las mejores oportunidades de inversión</h2>
-         <CarouselLanzamientosClient propiedades={propiedadesSeeed.propiedades} />
+        {/* controles externos */}
+        <div className="flex gap-2">
+          <button onClick={() => carouselRef.current?.prev()} className="px-3 py-1 bg-white/10 text-white rounded">Prev</button>
+          <button onClick={() => carouselRef.current?.next()} className="px-3 py-1 bg-white/10 text-white rounded">Next</button>
+          <button onClick={() => carouselRef.current?.goTo(0)} className="px-3 py-1 bg-white/10 text-white rounded">First</button>
+          <span className="text-white ml-4">Índice: {index}</span>
         </div>
+      </div>
 
-      {/* </div> */}
+      {/* modo controlado: pasamos currentIndex y onChange */}
+      <CarouselLanzamientosClient
+        ref={carouselRef}
+        propiedades={propiedadesSeeed.propiedades}
+        currentIndex={index}
+        onChange={(i) => setIndex(i)}
+      />
     </section>
-  )
-}
+  );
+};
