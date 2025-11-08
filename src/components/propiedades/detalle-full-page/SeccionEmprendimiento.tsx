@@ -1,5 +1,6 @@
+import { secondaryFont } from "@/src/app/config/fonts";
 import { EmprendimientoBasico } from "@/src/interfaces"
-import Link from "next/link";
+import { RoundedButton } from '../../ui/buttons/RoundedButton';
 
 type SeccionEmprendimientoProps = {
   emprendimiento: EmprendimientoBasico
@@ -16,9 +17,9 @@ export const SeccionEmprendimiento = ({emprendimiento}: SeccionEmprendimientoPro
 
   return (
     <div>
-        <h1 className="font-semibold text-2xl mt-4">Acerca de {nombre}</h1>
-        <p>{descripcion_corta}</p>
-        <Link href={'/emprendimientos/2542'}>Conocé el barrio</Link>
+        <h2 className="font-bold text-black text-xl my-4"><span className="text-foreground">|&nbsp;</span>Acerca de {nombre}</h2>
+        <p className={`${secondaryFont.className} text-black text-lg`}>{descripcion_corta}</p>
+        <RoundedButton href={'/emprendimientos/2542'} text="Conocé el barrio"/>
     </div>
   )
 }

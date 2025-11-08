@@ -11,7 +11,7 @@ type Props = {
 export const RoundedButton = ({ text, href, className }: Props) => {
    return (
       <Link href={href}>
-         <div className={`rounded-full bg-foreground text-background inline-flex py-2 px-5 ${secondaryFont.className} text-xs ${className}`}>
+         <div className={`bg-foreground text-background inline-flex py-2 px-5 ${secondaryFont.className} text-xs ${className}`}>
             <span>
                {text}
             </span>
