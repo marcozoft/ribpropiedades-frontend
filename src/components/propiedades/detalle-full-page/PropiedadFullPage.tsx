@@ -17,10 +17,17 @@ export const PropiedadFullPage = ({propiedadResponse}: PropiedadDetalleProps) =>
         titulo={propiedadResponse.propiedad.titulo_venta}
         operacion={propiedadResponse.propiedad.operacion}
       />
-      <section className='max-w-6xl mx-auto px-4 py-10'>
-        <SeccionPropiedad propiedad={propiedadResponse.propiedad}/>
-        <SeccionEmprendimiento emprendimiento={propiedadResponse.emprendimiento}/>
-      </section>
+      <div className='max-w-6xl mx-auto flex px-4 py-8'>
+        {/* <section className='max-w-6xl mx-auto px-4 py-10'> */}
+        <section className='xl:basis-2/3 px-4'>
+          <SeccionPropiedad propiedad={propiedadResponse.propiedad}/>
+          <SeccionEmprendimiento emprendimiento={propiedadResponse.emprendimiento}/>
+        </section>
+
+        <section className='hidden xl:flex xl:basis-1/3 bg-background items-center'>
+          <p>Formulario de contacto</p>
+        </section>
+      </div>
     </div>
   )
 }

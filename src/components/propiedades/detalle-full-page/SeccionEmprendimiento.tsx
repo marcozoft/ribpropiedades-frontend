@@ -16,7 +16,7 @@ export const SeccionEmprendimiento = ({emprendimiento}: SeccionEmprendimientoPro
 
 
   return (
-    <div>
+    <div className="mt-10">
         <h2 className="font-bold text-black text-xl my-4"><span className="text-foreground">|&nbsp;</span>Acerca de {nombre}</h2>
         <p className={`${secondaryFont.className} text-black text-lg`}>{descripcion_corta}</p>
         <RoundedButton href={'/emprendimientos/2542'} text="Conocé el barrio"/>

@@ -1,6 +1,5 @@
 import { Imagen } from "@/src/interfaces"
 import { CarouselFullPage } from "./CarouselFullPageClient";
-import Link from 'next/link';
 import { RoundedButton } from "../../ui";
 
 type SeccionImagenesProps = {
@@ -17,8 +16,8 @@ export const SeccionImagenes = ({ imagenes, titulo, operacion }: SeccionImagenes
         <span className="hidden lg:flex bg-gray-600 text-white uppercase font-semibold text-sm py-0.4 px-2">{operacion}</span>
         <h1 className="text-2xl lg:text-4xl text-black font-semibold text-center m-5">{titulo}</h1>
         <RoundedButton href={'#descripcion'} text="VER MÁS"/>
-        
       </div>
+    
       <div className='sm:basis-3/4 bg-blue-600'>
         <CarouselFullPage imagenes={imagenes} />
       </div>

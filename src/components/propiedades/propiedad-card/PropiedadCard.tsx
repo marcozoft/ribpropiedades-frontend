@@ -50,7 +50,8 @@ export const PropiedadCard = ({
                   />
 
                   {/* Precio */}
-                  <IndicadorPrecio 
+                  <IndicadorPrecio
+                     className='text-black' 
                      precio={precio} 
                      precio_condicion={precio_publico} 
                      sinEspecificar='Consultar' 
