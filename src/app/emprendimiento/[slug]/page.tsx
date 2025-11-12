@@ -17,10 +17,7 @@ const getPropertyById = async (id: number): Promise<PropiedadDetalleResponse> =>
 export default async function Page(props: PageProps<'/propiedad/[slug]'>) {
 
     const { slug } = await props.params;
-    const propiedad = await getPropertyById( extractIdFromSlug(slug) );
-    
-    console.log(propiedad);
-    
+    const propiedad = await getPropertyById( extractIdFromSlug(slug) );    
 
     return (
         <PropiedadFullPage propiedadResponse={propiedad} />

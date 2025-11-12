@@ -8,8 +8,6 @@ type PropiedadDetalleProps = {
 
 export const PropiedadFullPage = ({propiedadResponse}: PropiedadDetalleProps) => {
 
-  console.log(propiedadResponse.propiedad);
-
   return (
     <div className='bg-white'>
       <SeccionImagenes 

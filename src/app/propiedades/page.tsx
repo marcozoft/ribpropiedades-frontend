@@ -29,8 +29,6 @@ export default async function Propiedades() {
    const propiedadesResponse = await getAllPropiedades();
    // const propiedadesResponse = propiedadesSeeed;
 
-   console.log('Propiedades: ', propiedadesResponse);
-
 
    return (
       <div className="bg-white">
