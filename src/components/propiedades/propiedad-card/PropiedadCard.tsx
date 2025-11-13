@@ -11,7 +11,9 @@ const BASE_URL = `https://ribpropiedades.com.ar`
 export const PropiedadCard = ({
    ambientes,
    codigo,
+   dormitorios,
    faja_promocional,
+   id,
    imagen_principal,
    inmueble,
    operacion,
@@ -20,7 +22,6 @@ export const PropiedadCard = ({
    sup_total,
    titulo_venta,
    zona,
-   id,
 }: PropiedadBasico) => {
 
    return (
@@ -63,17 +64,25 @@ export const PropiedadCard = ({
                </div>
                <div className="justify-center">
                   <div className="mt-4 flex space-x-3 overflow-hidden rounded-lg px-1 py-1">
+
+                     {/* Cantidad de dormitorios */}
+                     <IndicadorNumerico 
+                        nombre='Dormitorios' 
+                        valor={dormitorios} 
+                        icono={<i className="flaticon-bed text-black"></i>}
+                     />
+
                      {/* Cantidad de ambientes */}
                      <IndicadorNumerico 
                         nombre='Ambientes' 
                         valor={ambientes} 
-                        icono={<i className="flaticon-bed text-black"></i>}
+                        icono={<i className="flaticon-home text-black"></i>}
                      />
                      {/* superficie total m2 */}
                      <IndicadorNumerico 
                         nombre='Sup Total' 
                         valor={sup_total} 
-                        icono={<i className="flaticon-pin text-black"></i>} 
+                        icono={<i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>} 
                         unidad='m2'
                      />
                   </div>

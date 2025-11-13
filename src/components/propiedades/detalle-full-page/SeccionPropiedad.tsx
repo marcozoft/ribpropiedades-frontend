@@ -1,7 +1,7 @@
 import { secondaryFont } from "@/src/app/config/fonts";
 import { PropiedadDetalle } from "@/src/interfaces"
 import { IndicadorPrecio } from "../propiedad-card";
-import { DetallesGrid, YouTubeVideoCard } from './.';
+import { DetallesGrid, YouTubeVideoCard, GoogleMapsCard } from './.';
 
 type SeccionPropiedadProps = {
   propiedad: PropiedadDetalle
@@ -15,7 +15,9 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
     descripcion_larga,
     precio,
     precio_publico,
-    video
+    video,
+    mapa_latitud,
+    mapa_longitud,
   } = propiedad;
 
   return (    
@@ -57,9 +59,22 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
           { descripcion: 'Aberturas',               clave: 'aberturas'},
         ]}/>
 
-      {/* Video */}
-      <h2 className="font-bold text-black text-xl my-8"><span className="text-foreground">|&nbsp;</span>Video</h2>
-      <YouTubeVideoCard youTubeId={video}/>
+      {/* Video (opcional) */}
+      {
+        video && (
+          <>
+            <h2 className="font-bold text-black text-xl my-8"><span className="text-foreground">|&nbsp;</span>Video</h2>
+            <YouTubeVideoCard youTubeId={video}/>
+          </>
+        )
+      }
+      {/* Google Maps */}
+      <h2 className="font-bold text-black text-xl my-8"><span className="text-foreground">|&nbsp;</span>Ubicación</h2>
+      <GoogleMapsCard 
+        lng={mapa_longitud}
+        lat={mapa_latitud}
+      />
+
 
 
     </section>

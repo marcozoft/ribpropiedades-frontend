@@ -11,15 +11,17 @@ export const SeccionEmprendimiento = ({emprendimiento}: SeccionEmprendimientoPro
   const { 
     nombre,
     descripcion_corta,
+    id,
   } = emprendimiento;
 
-
+  console.log({emprendimiento});
+  
 
   return (
     <div className="mt-10">
         <h2 className="font-bold text-black text-xl my-4"><span className="text-foreground">|&nbsp;</span>Acerca de {nombre}</h2>
         <p className={`${secondaryFont.className} text-black text-lg`}>{descripcion_corta}</p>
-        <RoundedButton href={'/emprendimientos/2542'} text="Conocé el barrio"/>
+        <RoundedButton className='my-4' href={`/emprendimiento/${id}`} text="Conocé el barrio"/>
     </div>
   )
 }

@@ -1,4 +1,6 @@
+export { GoogleMapsCard } from './GoogleMapsCard';
 export { YouTubeVideoCard } from './YouTubeVideoCard';
+
 
 export { DetallesGrid } from './DetallesGrid';
 export { PropiedadFullPage } from "./PropiedadFullPage";
