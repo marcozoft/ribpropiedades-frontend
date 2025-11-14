@@ -13,4 +13,4 @@ export { PropiedadCard } from "./propiedades/propiedad-card/PropiedadCard";
 export { PropiedadFullPage } from "./propiedades/detalle-full-page/PropiedadFullPage";
 
 // Carousel
-export { CarouselLanzamientosClient } from './propiedades/carousel-lanzamientos/CarouselLanzamientosClient';
+export { CarouselLanzamientos } from './propiedades/carousel-lanzamientos/CarouselLanzamientos';

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar, Footer } from "../components";
-import { primaryFont } from "./config/fonts";
+import { primaryFont } from "../config/fonts";
 import '@/src/styles/flat-icon/flaticon.css'
 
 
@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={primaryFont.className}>
+    <html lang="es" className="scroll-smooth">
+      <body className={`${primaryFont.className}`}>
         <Navbar />
         {children}
         <Footer />

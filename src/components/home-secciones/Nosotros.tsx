@@ -13,7 +13,7 @@ export const Nosotros = () => {
           <p className='text-black mb-2'>Nuestro servicio es personalizado, atendemos a cada cliente con profesionalismo, entendiendo sus necesidades 
             y dándole soluciones a su medida.
           </p>
-          <RoundedButton text='VER MÁS' href='/'/>
+          <RoundedButton text='VER MÁS' href='/nosotros'/>
         </div>
       </div>
       <Image src={'/screenshot-video-nosotros.png'} width={1920} height={560} alt="Hacemos tu proyecto realidad" />

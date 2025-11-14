@@ -9,7 +9,8 @@ type IndicadorProps = {
 }
 
 export const IndicadorNumerico = ({nombre, valor, icono}:IndicadorProps) => {
-   return (
+      
+   return valor === 0 ? null : (
       <div className="text-black">
          <div>
             <p className="flex items-center">

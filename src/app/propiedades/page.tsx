@@ -1,19 +1,21 @@
-import { PropiedadesGrid } from "@/src/components";
-import { secondaryFont } from "../config/fonts";
+import { PropiedadCard, PropiedadesGrid } from "@/src/components";
 import { PropiedadesResponse } from "@/src/interfaces";
-import { API_KEY, API_URL, BASE_URL } from "@/src/constants/constants";
-
+import { propiedadesSeeed } from "@/src/seed/propiedades";
+import { secondaryFont } from "../../config/fonts";
 
 const getAllPropiedades = async (): Promise<PropiedadesResponse> => {
+
+   const baseUrl = `https://admin.ribpropiedades.com.ar/api/propiedades`
+   const apiKey = 'rib_api_2025_secure_key_d4f8a2e1b9c7x3m5';
 
    const queryParams = new URLSearchParams({
       'page': '1'
    });
    // queryParams.append('page','1');
 
-   return fetch(`${API_URL}/propiedades?${queryParams}`, {
+   return fetch(`${baseUrl}?${queryParams}`, {
       headers: {
-         'X-API-Key': API_KEY
+         'X-API-Key': apiKey
       },
 
    }).then(resp => resp.json())
@@ -21,25 +23,12 @@ const getAllPropiedades = async (): Promise<PropiedadesResponse> => {
 }
 
 
-export default async function Page({ searchParams }: {
-   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}) {
+export default async function Propiedades() {
 
-   const { 
-      pagina, 
-      operacion, 
-      zona,
-      precio_min,
-      precio_max,
-      ambientes,
-      orden = 'precio_desc'
-   } = await searchParams;
-   // console.log({ pagina, sort, query });
-
+   // Todas las propiedades
    const propiedadesResponse = await getAllPropiedades();
+   // const propiedadesResponse = propiedadesSeeed;
 
-   console.log(propiedadesResponse);
-   
 
    return (
       <div className="bg-white">
@@ -47,28 +36,11 @@ export default async function Page({ searchParams }: {
             <div className="max-w-6xl mx-auto px-4">
                <div className="py-24">
                   <h1 className="text-5xl text-black font-bold">Listado de propiedades</h1>
-                  <p>pagina: {pagina}</p>
-                  <p>operacion: {operacion}</p>
-                  <p>zona: {zona}</p>
-                  <p>precio_min:{precio_min}</p>
-                  <p>precio_max max:{precio_max}</p>
-                  <p>ambientes: {ambientes}</p>
-                  <p>orden: {orden}</p>
+                  <h2 className={`${secondaryFont.className} text-black text-lg mt-3`}>Listado &nbsp; &gt; &nbsp; Listado de propiedades</h2>
                </div>
             </div>
          </div>
          <PropiedadesGrid propiedades={propiedadesResponse.propiedades} />
       </div>
-   )
-
+   );
 }
-
-// destacadas: Si es 1, devuelve solo propiedades destacadas (sin paginación, ordenadas por orden_destacado)
-// page: Número de página (default: 1, ignorado si destacadas=1)
-// tipo: Tipo de operación (VENTA, ALQUILER, ALQUILER_TEMPORAL)
-// zona: Nombre de la zona
-// tipo_propiedad: Tipo de propiedad (CASA, DEPARTAMENTO, etc.)
-// precio_min: Precio mínimo
-// precio_max: Precio máximo
-// ambientes: Número de ambientes
-// orden: Criterio de ordenamiento (precio_asc, precio_desc, fecha_desc, fecha_asc, codigo_asc, codigo_desc) - ignorado si destacadas=1
