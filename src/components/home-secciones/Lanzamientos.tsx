@@ -1,6 +1,7 @@
-import { secondaryFont } from '@/src/app/config/fonts'
-import { CarouselLanzamientosClient } from '../propiedades/carousel-lanzamientos/CarouselLanzamientosClient'
+import { secondaryFont } from '@/src/config/fonts'
 import { propiedadesSeeed } from '@/src/seed/propiedades'
+import { CarouselLanzamientos } from '../propiedades/carousel-lanzamientos/CarouselLanzamientos'
+
 
 // TODO: Definir fondo
 export const Lanzamientos = () => {
@@ -20,7 +21,7 @@ export const Lanzamientos = () => {
         <div className="flex flex-col items-start max-w-6xl mx-auto justify-center px-4 pt-8">
           <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-background">RIB Lanzamientos</h1>
           <h2 className={`mt-2 font-bold text-background pb-4 ${secondaryFont.className}`}>Descubrí las mejores oportunidades de inversión</h2>
-         <CarouselLanzamientosClient propiedades={propiedadesSeeed.propiedades} />
+         <CarouselLanzamientos propiedades={propiedadesSeeed.propiedades} />
         </div>
 
       {/* </div> */}

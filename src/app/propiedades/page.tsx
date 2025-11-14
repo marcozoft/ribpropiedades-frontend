@@ -1,7 +1,7 @@
 import { PropiedadCard, PropiedadesGrid } from "@/src/components";
 import { PropiedadesResponse } from "@/src/interfaces";
 import { propiedadesSeeed } from "@/src/seed/propiedades";
-import { secondaryFont } from "../config/fonts";
+import { secondaryFont } from "../../config/fonts";
 
 const getAllPropiedades = async (): Promise<PropiedadesResponse> => {
 

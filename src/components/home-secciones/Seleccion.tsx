@@ -1,4 +1,4 @@
-import { secondaryFont } from "@/src/app/config/fonts"
+import { secondaryFont } from "@/src/config/fonts"
 import { PropiedadCard, PropiedadesGrid } from '@/src/components';
 import { propiedadesSeeed } from "@/src/seed/propiedades";
 

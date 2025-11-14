@@ -1,4 +1,4 @@
-import { secondaryFont } from "@/src/app/config/fonts";
+import { secondaryFont } from "@/src/config/fonts";
 import { EmprendimientoBasico } from "@/src/interfaces"
 import { RoundedButton } from '../../ui/buttons/RoundedButton';
 
