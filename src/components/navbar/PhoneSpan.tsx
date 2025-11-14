@@ -1,4 +1,4 @@
-import { secondaryFont } from "@/src/app/config/fonts";
+import { secondaryFont } from "@/src/config/fonts";
 
 type Props = {
   phone: string;

@@ -1,5 +1,5 @@
 export { Contactanos } from './Contactanos';
-export { Filters } from './Filters';
+export { Buscador } from './Buscador';
 export { Lanzamientos } from './Lanzamientos';
 export { Nosotros } from "./Nosotros";
 export { Opiniones } from './Opiniones';

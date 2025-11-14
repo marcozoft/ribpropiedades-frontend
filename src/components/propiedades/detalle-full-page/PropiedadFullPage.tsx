@@ -8,15 +8,16 @@ type PropiedadDetalleProps = {
 
 export const PropiedadFullPage = ({propiedadResponse}: PropiedadDetalleProps) => {
 
-  console.log(propiedadResponse.propiedad);
-
   return (
     <div className='bg-white'>
+      {/* Carouse imagenes + titulo + precio */}
       <SeccionImagenes 
         imagenes={propiedadResponse.imagenes} 
         titulo={propiedadResponse.propiedad.titulo_venta}
         operacion={propiedadResponse.propiedad.operacion}
       />
+
+      {/* Secciones propiedad + emprendimiento */}
       <div className='max-w-6xl mx-auto flex px-4 py-8'>
         {/* <section className='max-w-6xl mx-auto px-4 py-10'> */}
         <section className='xl:basis-2/3 px-4'>
@@ -24,12 +25,11 @@ export const PropiedadFullPage = ({propiedadResponse}: PropiedadDetalleProps) =>
           <SeccionEmprendimiento emprendimiento={propiedadResponse.emprendimiento}/>
         </section>
 
+        {/* formulario de contacto */}
         <section className='hidden xl:flex xl:basis-1/3 bg-background items-center'>
-          <p>Formulario de contacto</p>
+          <p className=''>Formulario de contacto</p>
         </section>
       </div>
     </div>
   )
 }
-
-        // <div className="flex flex-col items-start max-w-6xl mx-auto justify-center px-4 pt-8">
