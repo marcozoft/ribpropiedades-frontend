@@ -47,3 +47,24 @@ body {
     white 40px
   );
 }
+
+/* Rayas características de la marca - Fondo violeta con líneas blancas */
+.stripe-marca {
+  background: repeating-linear-gradient(45deg, #ededef, #ededef 20px, #fff 20px, #fff 40px);
+}
+
+/* Animación de pulso sutil para el botón de video */
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
