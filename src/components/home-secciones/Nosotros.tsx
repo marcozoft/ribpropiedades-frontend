@@ -17,7 +17,6 @@ export const Nosotros = () => {
         </div>
       </div>
       <Image src={'/screenshot-video-nosotros.png'} width={1920} height={560} alt="Hacemos tu proyecto realidad" />
-      
     </section>
   )
 }

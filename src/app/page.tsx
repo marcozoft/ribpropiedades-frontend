@@ -1,12 +1,10 @@
-import { PropiedadesGrid } from "../components";
-import { Contactanos, Buscador, Lanzamientos, Nosotros, Opiniones, Seleccion, Servicios, Video } from "../components/home-secciones";
-import { propiedadesSeeed } from "../seed/propiedades";
+import { Contactanos, SeccionBuscador, Lanzamientos, Nosotros, Opiniones, Seleccion, Servicios, Video } from "../components/home-secciones";
 
 export default function HomePage() {
   return(
    <>
     <Video />
-    <Buscador />
+    <SeccionBuscador />
     <Lanzamientos />
     <Seleccion />
     <Nosotros />

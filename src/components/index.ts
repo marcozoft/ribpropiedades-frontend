@@ -1,6 +1,6 @@
 // UI components
 export { Navbar} from "./navbar/Navbar";
-export { Footer } from "./Footer";
+export { Footer } from "./footer/Footer";
 
 
 // Grilla de propiedades
@@ -14,3 +14,6 @@ export { PropiedadFullPage } from "./propiedades/detalle-full-page/PropiedadFull
 
 // Carousel
 export { CarouselLanzamientos } from './propiedades/carousel-lanzamientos/CarouselLanzamientos';
+
+// Buscador
+export { Buscador } from "./buscador/Buscador";

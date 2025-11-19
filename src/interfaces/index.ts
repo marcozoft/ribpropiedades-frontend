@@ -11,3 +11,5 @@ export type { PropiedadBasico } from './propiedad-basico';
 export type { EmprendimientoBasico } from './emprendimiento-basico';
 export type { Imagen } from './imagen';
 
+// Enums
+export { Operacion } from './operacion-enum';
