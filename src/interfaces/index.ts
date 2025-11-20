@@ -12,4 +12,4 @@ export type { EmprendimientoBasico } from './emprendimiento-basico';
 export type { Imagen } from './imagen';
 
 // Enums
-export { Operacion } from './operacion-enum';
+export { Operacion } from './enums';
