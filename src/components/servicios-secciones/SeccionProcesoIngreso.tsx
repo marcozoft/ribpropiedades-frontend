@@ -76,7 +76,7 @@ export const SeccionProcesoIngreso = () => {
             {/* Imagen de fondo */}
             <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/servicios/decision-principal.jpg"
+                src="/images/servicios/decision-principal-02.jpg"
                 alt="Asesoramiento inmobiliario"
                 fill
                 className="object-cover"
@@ -86,7 +86,7 @@ export const SeccionProcesoIngreso = () => {
             {/* Imagen superpuesta con animación */}
             <div className="absolute -bottom-8 -left-8 w-48 h-48 md:w-64 md:h-64 rounded-lg overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500">
               <Image
-                src="/images/servicios/decision-secundaria.jpg"
+                src="/images/servicios/decision-secundaria-02.jpg"
                 alt="Profesionales RIB"
                 fill
                 className="object-cover"
