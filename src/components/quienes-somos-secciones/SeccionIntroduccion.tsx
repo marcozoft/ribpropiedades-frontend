@@ -8,6 +8,15 @@ export const SeccionIntroduccion = () => {
   const [seccionActiva, setSeccionActiva] = useState<string>('concepto');
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
+  const handleSeccionClick = (seccion: string) => {
+    setSeccionActiva(seccion);
+    // Hacer scroll al contenedor de descripción
+    const elemento = document.getElementById('contenido-dinamico');
+    if (elemento) {
+      elemento.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  };
+
   const handleVideoClick = () => {
     setIsVideoOpen(true);
   };
@@ -71,44 +80,52 @@ export const SeccionIntroduccion = () => {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <li>
                 <div
+                  onClick={() => handleSeccionClick('concepto')}
                   onMouseEnter={() => setSeccionActiva('concepto')}
                   className="flex items-center gap-3 p-3 rounded transition-all duration-300 cursor-pointer hover:bg-foreground group"
                 >
                   <i className="flaticon-home-2 text-foreground group-hover:text-white text-2xl transition-colors"></i>
-                  <span className="text-gray-700 group-hover:text-white font-medium transition-colors">El Concepto RIB</span>
+                  <span className="text-gray-700 group-hover:text-white font-medium transition-colors flex-1">El Concepto RIB</span>
+                  <span className="text-gray-400 group-hover:text-white/70 text-xl font-bold">...</span>
                 </div>
               </li>
               <li>
                 <div
+                  onClick={() => handleSeccionClick('mision')}
                   onMouseEnter={() => setSeccionActiva('mision')}
                   className="flex items-center gap-3 p-3 rounded transition-all duration-300 cursor-pointer hover:bg-foreground group"
                 >
                   <i className="flaticon-mountain text-foreground group-hover:text-white text-2xl transition-colors"></i>
-                  <span className="text-gray-700 group-hover:text-white font-medium transition-colors">Nuestra Misión</span>
+                  <span className="text-gray-700 group-hover:text-white font-medium transition-colors flex-1">Nuestra Misión</span>
+                  <span className="text-gray-400 group-hover:text-white/70 text-xl font-bold">...</span>
                 </div>
               </li>
               <li>
                 <div
+                  onClick={() => handleSeccionClick('objetivos')}
                   onMouseEnter={() => setSeccionActiva('objetivos')}
                   className="flex items-center gap-3 p-3 rounded transition-all duration-300 cursor-pointer hover:bg-foreground group"
                 >
                   <i className="flaticon-heart text-foreground group-hover:text-white text-2xl transition-colors"></i>
-                  <span className="text-gray-700 group-hover:text-white font-medium transition-colors">Nuestros Objetivos</span>
+                  <span className="text-gray-700 group-hover:text-white font-medium transition-colors flex-1">Nuestros Objetivos</span>
+                  <span className="text-gray-400 group-hover:text-white/70 text-xl font-bold">...</span>
                 </div>
               </li>
               <li>
                 <div
+                  onClick={() => handleSeccionClick('servicio')}
                   onMouseEnter={() => setSeccionActiva('servicio')}
                   className="flex items-center gap-3 p-3 rounded transition-all duration-300 cursor-pointer hover:bg-foreground group"
                 >
                   <i className="flaticon-secure text-foreground group-hover:text-white text-2xl transition-colors"></i>
-                  <span className="text-gray-700 group-hover:text-white font-medium transition-colors">Nuestro Servicio</span>
+                  <span className="text-gray-700 group-hover:text-white font-medium transition-colors flex-1">Nuestro Servicio</span>
+                  <span className="text-gray-400 group-hover:text-white/70 text-xl font-bold">...</span>
                 </div>
               </li>
             </ul>
 
             {/* Contenido dinámico con animación y altura fija */}
-            <div className="min-h-[200px] h-[200px] overflow-y-auto">
+            <div id="contenido-dinamico" className="min-h-[200px] h-[200px] overflow-y-auto scroll-mt-4">
               {/* El concepto RIB */}
               {seccionActiva === 'concepto' && (
                 <div className="bg-foreground/5 border-l-4 border-foreground p-4 rounded animate-in fade-in slide-in-from-top-2 duration-300">
