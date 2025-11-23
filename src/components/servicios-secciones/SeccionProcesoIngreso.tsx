@@ -20,13 +20,13 @@ const items: ItemDecision[] = [
     numero: 2,
     titulo: 'Revisión de documentación',
     descripcion: 'Realizamos una revisión profunda de la documentación para poder conocer en detalle la situación y corregir cualquier faltante, si lo hubiere.',
-    icono: 'flaticon-document',
+    icono: 'flaticon-official-documents',
   },
   {
     numero: 3,
     titulo: 'Asesoramiento normativo',
     descripcion: 'Asesoramos a nuestro Cliente sobre las nuevas normas de AFIP para vender su propiedad.',
-    icono: 'flaticon-protection',
+    icono: 'flaticon-secure',
   },
 ];
 
