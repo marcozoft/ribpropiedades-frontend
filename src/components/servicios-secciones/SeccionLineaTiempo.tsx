@@ -79,8 +79,7 @@ export const SeccionLineaTiempo = () => {
                   }
                 `}
               >
-                <span className="hidden lg:inline">{servicio.tituloTab}</span>
-                <span className="lg:hidden">0{servicio.id}</span>
+                {servicio.tituloTab}
               </button>
             ))}
           </div>

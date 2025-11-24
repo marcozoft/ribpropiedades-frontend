@@ -15,9 +15,9 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  font-size: 1.56em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-/* 
 .flaticon-add-to-cart:before {
   content: ""; }
 
@@ -47,10 +47,8 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 
 .flaticon-bed-1:before {
   content: ""; }
-*/
 .flaticon-bed:before {
   content: ""; }
-/*
 .flaticon-beds:before {
   content: ""; }
 
@@ -86,10 +84,8 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 
 .flaticon-deal:before {
   content: ""; }
-*/
 .flaticon-dining-table-with-chairs:before {
   content: ""; }
-/*
 .flaticon-double-bed:before {
   content: ""; }
 
@@ -137,10 +133,8 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 
 .flaticon-home-3:before {
   content: ""; }
-*/
 .flaticon-home:before {
   content: ""; }
-/*
 .flaticon-hospital:before {
   content: ""; }
 
@@ -230,10 +224,8 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 
 .flaticon-phone-call:before {
   content: ""; }
-*/
 .flaticon-pin:before {
   content: ""; }
-/*
 .flaticon-plane:before {
   content: ""; }
 
@@ -269,10 +261,8 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 
 .flaticon-slumber:before {
   content: ""; }
-*/
 .flaticon-square-shape-design-interface-tool-symbol:before {
   content: ""; }
-/*
 .flaticon-stethoscope:before {
   content: ""; }
 
@@ -299,4 +289,3 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 
 .flaticon-washer:before {
   content: ""; }
-*/
