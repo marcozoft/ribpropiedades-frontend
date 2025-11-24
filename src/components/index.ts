@@ -15,5 +15,8 @@ export { PropiedadFullPage } from "./propiedades/detalle-full-page/PropiedadFull
 // Carousel
 export { CarouselLanzamientos } from './propiedades/carousel-lanzamientos/CarouselLanzamientos';
 
+export { TituloDescriptivo } from "./propiedades/TituloDescriptivo";
+
+
 // Buscador
 export { Buscador } from "./buscador/Buscador";
