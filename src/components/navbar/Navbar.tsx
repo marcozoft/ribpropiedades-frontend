@@ -29,6 +29,7 @@ export const Navbar = () => {
           />
         </Link>
         <div className="flex gap-2 items-center">
+          {/* TODO: Pasar todo a png o todo a svg */}
           <PhoneSpan className='hidden md:flex' phone="+54 911 3420 1500" />
           <SocialNetworkItem src="/images/navbar-instagram.png" href="/" alt="instagram logo"/>
           <SocialNetworkItem src="/images/navbar-facebook.png"  href="/" alt="facebook logo"/>

@@ -1,5 +1,5 @@
 import { API_KEY, API_URL } from "../constants/constants";
-import { FiltrosResponse, Operacion, PropiedadesResponse } from "../interfaces";
+import { FiltrosResponse, PropiedadesResponse } from "../interfaces";
 import { SearchParams } from '@/src/interfaces';
 
 export const getAllPropiedades = async (searchParams:SearchParams): Promise<PropiedadesResponse> => {

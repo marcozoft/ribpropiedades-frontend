@@ -1,5 +1,3 @@
-import { Operacion } from "@/src/interfaces"
-
 type Props = {
    tipo_inmueble?: string;
    operacion?: string;

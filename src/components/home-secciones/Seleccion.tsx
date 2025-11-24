@@ -1,5 +1,5 @@
 import { secondaryFont } from "@/src/config/fonts"
-import { PropiedadCard, PropiedadesGrid } from '@/src/components';
+import { PropiedadCard } from '@/src/components';
 import { propiedadesSeeed } from "@/src/seed/propiedades";
 
 // TODO: Armar carousel
