@@ -9,14 +9,14 @@ export const SeccionHeroTasaciones = () => {
       {/* Imagen de fondo */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/servicios/background-servicios.jpg"
+          src="/images/tasaciones/background-tasaciones.webp"
           alt="RIB Propiedades Tasaciones"
           fill
           className="object-cover"
           priority
         />
         {/* Overlay negro transparente */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
