@@ -8,7 +8,7 @@ type Props = {
 
 export const YouTubeVideoCard = ({youTubeId, width, height }: Props) => {
 
-   console.log({youTubeId});
+   // console.log({youTubeId});
    
 
    return (

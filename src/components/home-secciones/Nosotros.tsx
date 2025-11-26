@@ -19,9 +19,9 @@ export const Nosotros = () => {
       </div>
       {/* <Image src={'/screenshot-video-nosotros.png'} width={1920} height={560} alt="Hacemos tu proyecto realidad" /> */}
       
-      <div className='flex justify-center'>
-        <div className="w-full">
-          <YouTubeVideoCard width={1920} youTubeId='QOaBMryzEK4'/>
+      <div className='flex justify-center max-w-6xl mx-auto'>
+        <div className="">
+          <YouTubeVideoCard width={720} youTubeId='QOaBMryzEK4'/>
         </div>
       </div>
     </section>
