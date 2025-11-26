@@ -1,42 +1,29 @@
-import { PropiedadCard, PropiedadesGrid } from "@/src/components";
-import { PropiedadesResponse } from "@/src/interfaces";
-import { propiedadesSeeed } from "@/src/seed/propiedades";
+import { PropiedadesGrid, Buscador, TituloDescriptivo } from '@/src/components';
+import { SearchParams } from "@/src/interfaces";
 import { secondaryFont } from "../../config/fonts";
-
-const getAllPropiedades = async (): Promise<PropiedadesResponse> => {
-
-   const baseUrl = `https://admin.ribpropiedades.com.ar/api/propiedades`
-   const apiKey = 'rib_api_2025_secure_key_d4f8a2e1b9c7x3m5';
-
-   const queryParams = new URLSearchParams({
-      'page': '1'
-   });
-   // queryParams.append('page','1');
-
-   return fetch(`${baseUrl}?${queryParams}`, {
-      headers: {
-         'X-API-Key': apiKey
-      },
-
-   }).then(resp => resp.json())
-
-}
+import { getAllPropiedades, getFilterItems } from '@/src/requests';
 
 
-export default async function Propiedades() {
 
-   // Todas las propiedades
-   const propiedadesResponse = await getAllPropiedades();
-   // const propiedadesResponse = propiedadesSeeed;
+export default async function Propiedades({
+   searchParams
+}: {
+   searchParams: Promise<SearchParams>
+}) {
 
+   const filterValues = (await searchParams);
+   const propiedadesResponse = await getAllPropiedades(filterValues);
+   const { filtros } = await getFilterItems();
 
    return (
       <div className="bg-white">
          <div className="bg-background">
             <div className="max-w-6xl mx-auto px-4">
-               <div className="py-24">
-                  <h1 className="text-5xl text-black font-bold">Listado de propiedades</h1>
+               <Buscador {...filtros } />
+               <div className="py-10">
+                  <TituloDescriptivo {...filterValues} cantidad={propiedadesResponse.propiedades.length} />
                   <h2 className={`${secondaryFont.className} text-black text-lg mt-3`}>Listado &nbsp; &gt; &nbsp; Listado de propiedades</h2>
+                  {/* <pre>{ JSON.stringify(searchParams) }</pre> */}
                </div>
             </div>
          </div>

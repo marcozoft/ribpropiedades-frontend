@@ -1,5 +1,6 @@
+// Secciones home
 export { Contactanos } from './Contactanos';
-export { Buscador } from './Buscador';
+export { SeccionBuscador } from './SeccionBuscador';
 export { Lanzamientos } from './Lanzamientos';
 export { Nosotros } from "./Nosotros";
 export { Opiniones } from './Opiniones';

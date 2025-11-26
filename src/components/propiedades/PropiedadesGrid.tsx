@@ -7,7 +7,7 @@ type PropiedadesGridProps = {
 
 export const PropiedadesGrid = ({propiedades}: PropiedadesGridProps) => {
   return (
-    <div className="max-w-6xl mx-auto px-4 bg-white mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="max-w-6xl mx-auto px-4 pb-15 bg-white mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
       {
         propiedades.map(prop => <PropiedadCard key={prop.id} {...prop} />)
       }
