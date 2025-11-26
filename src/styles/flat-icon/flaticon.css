@@ -260,9 +260,11 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 
 .flaticon-slumber:before {
   content: ""; }
+*/
 .flaticon-square-shape-design-interface-tool-symbol:before {
   content: ""; }
-.flaticon-stethoscope:before {
+/*
+  .flaticon-stethoscope:before {
   content: ""; }
 
 .flaticon-support:before {

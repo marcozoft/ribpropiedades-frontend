@@ -29,7 +29,7 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
       </div>
       <div className="flex justify-between mb-10 items-center">
         <h1 className="font-semibold text-4xl mt-4 text-black">{titulo_venta}</h1>
-        <IndicadorPrecio precio={precio} precio_condicion={precio_publico} moneda="u$d" sinEspecificar="Consultar"/>
+        <IndicadorPrecio precio={precio} precio_condicion={precio_publico} moneda="U$D" sinEspecificar="Consultar"/>
       </div>
 
       {/* Descripcion */}
