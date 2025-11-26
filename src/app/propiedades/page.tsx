@@ -20,7 +20,7 @@ export default async function Propiedades({
          <div className="bg-background">
             <div className="max-w-6xl mx-auto px-4">
                <Buscador {...filtros } />
-               <div className="py-15">
+               <div className="py-10">
                   <TituloDescriptivo {...filterValues} cantidad={propiedadesResponse.propiedades.length} />
                   <h2 className={`${secondaryFont.className} text-black text-lg mt-3`}>Listado &nbsp; &gt; &nbsp; Listado de propiedades</h2>
                   {/* <pre>{ JSON.stringify(searchParams) }</pre> */}

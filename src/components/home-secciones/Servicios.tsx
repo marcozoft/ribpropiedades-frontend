@@ -1,5 +1,6 @@
 import { ServicioCard } from "../ui";
 import { Servicio } from "@/src/interfaces";
+import Link from 'next/link';
 
 
 const servicios: Servicio[] = [
@@ -29,6 +30,7 @@ const servicios: Servicio[] = [
 export const Servicios = () => {
    return (
     <section className='stripe-1'>
+      <Link href={'servicios'}>
         <div className="flex flex-col items-center max-w-6xl mx-auto px-4 py-10">
           <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl text-black text-center">RIB Servicios</h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 pt-5">
@@ -37,6 +39,7 @@ export const Servicios = () => {
             }
           </div>
         </div>
+      </Link>
     </section>
    )
 }

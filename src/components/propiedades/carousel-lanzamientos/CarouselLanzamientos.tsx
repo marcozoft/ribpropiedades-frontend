@@ -62,13 +62,13 @@ export const CarouselLanzamientos = ({ propiedades }: CarouselClientProps) => {
         {/* Controles */}
         <button
           onClick={prevSlide}
-          className="absolute top-1/2 left-4 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60"
+          className="absolute top-1/2 left-4 h-15 w-15 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60 cursor-pointer"
         >
           ❮
         </button>
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60"
+          className="absolute top-1/2 right-4 h-15 w-15 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60 cursor-pointer"
         >
           ❯
         </button>
