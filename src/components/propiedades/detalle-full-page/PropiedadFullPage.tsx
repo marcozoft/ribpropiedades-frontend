@@ -28,7 +28,7 @@ export const PropiedadFullPage = ({propiedadResponse}: PropiedadDetalleProps) =>
         </section>
 
         {/* formulario de contacto */}
-        <section className='hidden xl:flex xl:basis-1/3 bg-background items-center px-5'>
+        <section className='hidden xl:flex xl:basis-1/3 bg-background p-5'>
           {/* <p className=''>Formulario de contacto</p> */}
           {/* TODO:Formulario provisorio */}
           <FormularioContacto />

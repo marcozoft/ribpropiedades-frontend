@@ -2,15 +2,17 @@ import { YouTubeEmbed } from '@next/third-parties/google'
 
 type Props = {
    youTubeId: string;
+   height?: number;
+   width?: number;
 }
 
-export const YouTubeVideoCard = ({youTubeId}: Props) => {
+export const YouTubeVideoCard = ({youTubeId, width, height }: Props) => {
 
    console.log({youTubeId});
    
 
    return (
-      <YouTubeEmbed videoid={youTubeId} height={400} params="controls=0" />  
+      <YouTubeEmbed videoid={youTubeId} width={width} height={height} params="autoplay=1" />  
    )
 }
 

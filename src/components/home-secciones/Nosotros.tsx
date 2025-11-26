@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { RoundedButton } from '../ui'
+import { YouTubeVideoCard } from '../propiedades/detalle-full-page'
 
 export const Nosotros = () => {
   return (
@@ -16,7 +17,13 @@ export const Nosotros = () => {
           <RoundedButton text='VER MÁS' href='/quienes-somos'/>
         </div>
       </div>
-      <Image src={'/screenshot-video-nosotros.png'} width={1920} height={560} alt="Hacemos tu proyecto realidad" />
+      {/* <Image src={'/screenshot-video-nosotros.png'} width={1920} height={560} alt="Hacemos tu proyecto realidad" /> */}
+      
+      <div className='flex justify-center'>
+        <div className="w-full">
+          <YouTubeVideoCard width={1920} youTubeId='QOaBMryzEK4'/>
+        </div>
+      </div>
     </section>
   )
 }

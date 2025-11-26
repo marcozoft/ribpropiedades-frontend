@@ -56,7 +56,7 @@ export const PropiedadCard = ({
                      precio={precio} 
                      precio_condicion={precio_publico} 
                      sinEspecificar='Consultar' 
-                     moneda='u$d'
+                     moneda='U$D'
                   />
                </div>
                <div className="mt-4">
@@ -80,7 +80,7 @@ export const PropiedadCard = ({
                      />
                      {/* superficie total m2 */}
                      <IndicadorNumerico 
-                        nombre='Sup Total' 
+                        nombre='Sup. Total' 
                         valor={sup_total} 
                         icono={<i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>} 
                         unidad='m2'
