@@ -29,7 +29,7 @@ const servicios: Servicio[] = [
 
 export const Servicios = () => {
    return (
-    <section className='stripe-1'>
+    <section className='stripe-marca'>
       <Link href={'servicios'}>
         <div className="flex flex-col items-center max-w-6xl mx-auto px-4 py-10">
           <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl text-black text-center">RIB Servicios</h2>

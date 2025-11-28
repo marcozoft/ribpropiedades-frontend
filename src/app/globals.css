@@ -26,33 +26,27 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Clase para colocar de prueba y ver los espacios y breakpoints */
 .debug {
   @apply border-2 border-violet-950;
   
   @apply bg-blue-50;
   @apply sm:bg-blue-300;
   @apply md:bg-blue-400;
-  @apply lg:bg-blue-600;
-  @apply xl:bg-blue-900;
-}
-
-
-.stripe-1 {
-  color: white;
-  background: repeating-linear-gradient(
-    45deg,
-    #ededef,
-    #ededef 20px,
-    white 20px,
-    white 40px
-  );
+  @apply lg:bg-blue-500;
+  @apply xl:bg-blue-600;
+  @apply 2xl:bg-blue-800;
 }
 
 /* Rayas características de la marca - Fondo violeta con líneas blancas */
 .stripe-marca {
-  background: repeating-linear-gradient(45deg, #ededef, #ededef 20px, #fff 20px, #fff 40px);
+  background:
+    repeating-linear-gradient(45deg,
+      #ededef,
+      #ededef 20px,
+      #fff 20px,
+      #fff 40px);
 }
-
 /* Animación de pulso sutil para el botón de video */
 @keyframes pulse-subtle {
   0%, 100% {
