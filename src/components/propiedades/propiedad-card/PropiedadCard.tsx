@@ -60,6 +60,7 @@ export const PropiedadCard = ({
                   />
                </div>
                <div className="mt-4">
+                  {/* Descripcion */}
                   <TituloDeVenta tituloVenta={titulo_venta} />
                </div>
                <div className="justify-center">

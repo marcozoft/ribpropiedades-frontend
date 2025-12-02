@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 import { RoundedButton } from '../ui'
 import { YouTubeVideoCard } from '../propiedades/detalle-full-page'

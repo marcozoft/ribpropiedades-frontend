@@ -1,6 +1,14 @@
 import { Contactanos, SeccionBuscador, Lanzamientos, Nosotros, Opiniones, Seleccion, Servicios, Video } from "../components/home-secciones";
+import { getAllComentarios } from "../requests";
 
-export default function HomePage() {
+
+
+export default async function HomePage() {
+
+  const comentariosResponse = await getAllComentarios();
+  
+
+
   return(
    <>
     <Video />
@@ -10,7 +18,7 @@ export default function HomePage() {
     <Nosotros />
     <Servicios />
     <Contactanos />
-    <Opiniones />
+    <Opiniones comentarios={comentariosResponse.comentarios}  />
    </>
   )
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { secondaryFont } from '@/src/config/fonts';
 
 type Props = {

@@ -279,6 +279,8 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 .flaticon-train:before {
   content: ""; }
 
+*/
+
 .flaticon-user-1:before {
   content: ""; }
 
@@ -290,4 +292,3 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 
 .flaticon-washer:before {
   content: ""; }
-*/

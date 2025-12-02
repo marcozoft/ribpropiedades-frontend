@@ -38,6 +38,7 @@ export const SeccionHeroTasaciones = () => {
           O escríbanos a <a href="mailto:info@ribpropiedades.com.ar" className="text-white font-semibold hover:underline">info@ribpropiedades.com.ar</a> para conectarse ahora.
         </p>
 
+        {/* TODO: Reemplazar a href por Link */}
         {/* Botones de contacto */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <a
