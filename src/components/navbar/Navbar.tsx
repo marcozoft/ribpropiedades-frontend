@@ -6,17 +6,6 @@ import { useState } from "react"
 import { PhoneSpan, MobileMenu } from "."
 import { SocialNetworks } from "../ui";
 
-const navItems = [
-  { path: '/quienes-somos',     text: 'RIB' },
-  { path: '/zona-norte',        text: 'Zona Norte' },
-  { path: '/emprendimientos',   text: 'Emprendimientos' },
-  { path: '/tasaciones',        text: 'Tasaciones' },
-  { path: '/servicios',         text: 'Servicios' },
-  { path: '/contacto',          text: 'Contacto' },
-  { path: '/favoritas',         text: 'Favoritas' },
-]
-
-
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
