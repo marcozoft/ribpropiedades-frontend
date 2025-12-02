@@ -2,13 +2,24 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { secondaryFont } from '@/src/config/fonts'
 import '@/src/styles/icomoon/icomoon.css';
-import { TELEFONO_NUMERO } from '@/src/constants/constants';
-import { SocialNetworks } from '../ui';
+import { TELEFONO_NUMERO, WHATSAPP_LINK } from '@/src/constants/constants';
+import { RoundedButton, SocialNetworks } from '../ui';
 
 
 export const Footer = () => {
    return (
-      <footer className="bg-foreground debug">
+      <footer className="bg-foreground">
+
+         <div className='hidden xl:flex xl:justify-center bg-amber-400 max-w-6xl mx-auto'>
+            <div>
+               <p className='font-extrabold text-4xl text-foreground'>¿Necesitas ayuda para Vender o Alquilar?</p>
+               <p className='text-foreground text-lg'>Consutános para asesorarte sobre Tasaciones.</p>
+            </div>
+               <div>
+                  <RoundedButton text='WhatsApp' href={WHATSAPP_LINK}></RoundedButton>
+               </div>
+         </div>
+
          <div className="flex max-w-6xl mx-auto py-15 px-5 text-white justify-between" >
             {/* Imagen */}
             <div>
@@ -18,20 +29,19 @@ export const Footer = () => {
             {/* Menu */}
             <div className='flex flex-col justify-between'>
                <p className='font-bold text-lg'>Menú</p>
-               <Link className='text-sm' href={'/quienes-somos'}>Quienes somos</Link>
-               <Link className='text-sm' href={'/propiedades'}>Propiedades</Link>
-               <Link className='text-sm' href={'/emprendimientos'}>Emprendimientos</Link>
-               <Link className='text-sm' href={'/tasaciones'}>Tasaciones</Link>
-               <Link className='text-sm' href={'/servicios'}>Servicios</Link>
-               <Link className='text-sm' href={'/contacto'}>Contacto</Link>
+               <Link className='text-sm hover:text-background' href={'/quienes-somos'}>Quienes somos</Link>
+               <Link className='text-sm hover:text-background' href={'/propiedades'}>Propiedades</Link>
+               <Link className='text-sm hover:text-background' href={'/emprendimientos'}>Emprendimientos</Link>
+               <Link className='text-sm hover:text-background' href={'/tasaciones'}>Tasaciones</Link>
+               <Link className='text-sm hover:text-background' href={'/servicios'}>Servicios</Link>
+               <Link className='text-sm hover:text-background' href={'/contacto'}>Contacto</Link>
             </div>
 
             {/* Ubicacion y contacto */}
-            <div className='flex flex-col'>
+            <div className='flex flex-col justify-between'>
                <i className="icon-placeholder text-white text-3xl" />
                <div className="text-sm font-light">
                   {/* <p className='line-clamp-5'>Edificio Bureau Pilar Norte Of. 255, Piso 2 Ruta Panamericana Km 49.5 Pilar Buenos Aires</p> */}
-
                   <p>Edificio Bureau Pilar Norte</p> 
                   <p>Of. 255, Piso 2</p>
                   <p>Ruta Panamericana</p>
@@ -39,9 +49,9 @@ export const Footer = () => {
                   <p>Buenos Aires</p>
                </div>
 
-               <div className='mt-5'>
+               <div className='mt-6'>
                   <i className="icon-call text-white text-3xl" />
-                  <p className='text-sm font-light'>{TELEFONO_NUMERO}</p>
+                  <p className='text-sm font-light mt-1'>{TELEFONO_NUMERO}</p>
                </div>
 
                <div className='my-2 flex flex-row justify-start gap-2'>
