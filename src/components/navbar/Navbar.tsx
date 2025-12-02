@@ -3,7 +3,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-import { PhoneSpan, SocialNetworkItem, MobileMenu } from "."
+import { PhoneSpan, MobileMenu } from "."
+import { SocialNetworks } from "../ui";
 
 const navItems = [
   { path: '/quienes-somos',     text: 'RIB' },
@@ -35,12 +36,7 @@ export const Navbar = () => {
           </Link>
           <div className="flex gap-2 items-center">
             <PhoneSpan className='hidden md:flex' phone="+54 911 3420 1500" />
-            <SocialNetworkItem src="/images/navbar-instagram.png" href="/" alt="instagram logo"/>
-            <SocialNetworkItem src="/images/navbar-facebook.png"  href="/" alt="facebook logo"/>
-            <SocialNetworkItem src="/images/navbar-youtube.svg"   href="/" alt="youtube logo"/>
-            <SocialNetworkItem src="/images/navbar-linkedin.svg"  href="/" alt="linkedin logo"/>
-            <SocialNetworkItem src="/images/navbar-whatsapp.svg"  href="/" alt="whatsapp logo"/>
-            
+            <SocialNetworks />
             {/* Botón hamburguesa */}
             <button
               onClick={() => setIsMenuOpen(true)}
