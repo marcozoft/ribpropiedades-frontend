@@ -1,3 +1,7 @@
+export type { ComentariosResponse } from './OpinionesResponse';
+export type { Comentario } from './OpinionesResponse';
+
+
 // Responses propiedades
 export type { PropiedadesResponse } from './response-propiedades';
 export type { PropiedadDetalleResponse } from './response-propiedad-id';
@@ -23,3 +27,6 @@ export type { Imagen } from './imagen';
 
 // Enums
 export { Operacion } from './enums';
+
+
+// TODO: Acomodar todos estos imports por algun criterio

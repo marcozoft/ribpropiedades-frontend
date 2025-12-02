@@ -13,8 +13,8 @@ export const Footer = () => {
          {/* Banner sobre el borde del footer */}
          <div className="hidden lg:flex lg:justify-center absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-full z-20">
             <div className="bg-background max-w-6xl mx-auto px-8 py-6 flex items-center justify-between">
-               <div className='px-5'>
-                  <p className='font-extrabold text-3xl text-foreground'>¿Necesitas ayuda para vender o alquilar?</p>
+               <div className='px-20'>
+                  <p className='font-extrabold text-3xl text-foreground my-2'>¿Necesitas ayuda para vender o alquilar?</p>
                   <p className='text-foreground text-md'>Consultanos para asesorarte sobre tasaciones.</p>
                </div>
                <div className='px-5'>

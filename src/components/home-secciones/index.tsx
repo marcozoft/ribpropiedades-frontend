@@ -7,3 +7,5 @@ export { Opiniones } from './Opiniones';
 export { Seleccion } from './Seleccion';
 export { Servicios } from './Servicios';
 export { Video } from './Video';
+
+export { CarouselComentarios} from '../carousel-comentarios/CarouselComentarios';
