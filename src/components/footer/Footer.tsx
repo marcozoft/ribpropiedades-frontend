@@ -8,21 +8,24 @@ import { RoundedButton, SocialNetworks } from '../ui';
 
 export const Footer = () => {
    return (
-      <footer className="bg-foreground">
-
-         <div className='hidden xl:flex xl:justify-center bg-amber-400 max-w-6xl mx-auto'>
-            <div>
-               <p className='font-extrabold text-4xl text-foreground'>¿Necesitas ayuda para Vender o Alquilar?</p>
-               <p className='text-foreground text-lg'>Consutános para asesorarte sobre Tasaciones.</p>
-            </div>
-               <div>
-                  <RoundedButton text='WhatsApp' href={WHATSAPP_LINK}></RoundedButton>
+      <footer className="bg-foreground relative">
+ 
+         {/* Banner sobre el borde del footer */}
+         <div className="hidden lg:flex lg:justify-center absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-full z-20">
+            <div className="bg-background max-w-6xl mx-auto px-8 py-6 flex items-center justify-between">
+               <div className='px-5'>
+                  <p className='font-extrabold text-3xl text-foreground'>¿Necesitas ayuda para vender o alquilar?</p>
+                  <p className='text-foreground text-md'>Consultanos para asesorarte sobre tasaciones.</p>
                </div>
+               <div className='px-5'>
+                  <RoundedButton text='WhatsApp' href={WHATSAPP_LINK} />
+               </div>
+            </div>
          </div>
-
-         <div className="flex max-w-6xl mx-auto py-15 px-5 text-white justify-between" >
+ 
+         <div className="flex max-w-6xl mx-auto py-25 px-5 text-white justify-between" >
             {/* Imagen */}
-            <div>
+            <div className='hidden md:flex'>
                <Image src={'/images/footer-logo.png'} width={133} height={260} alt='RIB Logo'></Image>
             </div>
 
@@ -71,6 +74,3 @@ export const Footer = () => {
       </footer>
    )
 }
-
-
-// flex flex-col items-center max-w-6xl mx-auto px-4 py-10
