@@ -1,32 +1,30 @@
 export type { ComentariosResponse } from './OpinionesResponse';
 export type { Comentario } from './OpinionesResponse';
-
+export type { Paginacion } from './Paginacion';
 
 // Responses propiedades
-export type { PropiedadesResponse } from './response-propiedades';
-export type { PropiedadDetalleResponse } from './response-propiedad-id';
+export type { PropiedadesResponse } from './PropiedadesResponse';
+export type { PropiedadDetalleResponse } from './PropiedadDetalleResponse';
 
 // Fitros y buscador
-export type { FiltrosResponse} from './fitros';
-export type { OperacionItemFilter } from './fitros';
-export type { TipoInmuebleItemFilter } from './fitros';
-export type { LocalidadItemFilter } from './fitros';
-export type { EmprendimientoItemFilter } from './fitros';
-export type { DormitorioItemFilter } from './fitros';
+export type { FiltrosResponse} from './FiltrosResponse';
+export type { OperacionItemFilter } from './FiltrosResponse';
+export type { TipoInmuebleItemFilter } from './FiltrosResponse';
+export type { LocalidadItemFilter } from './FiltrosResponse';
+export type { EmprendimientoItemFilter } from './FiltrosResponse';
+export type { DormitorioItemFilter } from './FiltrosResponse';
 
-export type { SearchParams } from './search-params';
+export type { SearchParams } from './SearchParams';
 
 // 
-export type { Servicio } from './servicio';
+export type { Servicio } from './Servicio';
 
 // Dominio
-export type { PropiedadDetalle } from './propiedad-detalle';
-export type { PropiedadBasico } from './propiedad-basico';
-export type { EmprendimientoBasico } from './emprendimiento-basico';
-export type { Imagen } from './imagen';
+export type { PropiedadDetalle } from './PropiedadDetalle';
+export type { PropiedadBasico } from './PropiedadBasico';
+export type { EmprendimientoBasico } from './EmprendimientoBasico';
+export type { Imagen } from './Imagen';
 
-// Enums
-export { Operacion } from './enums';
 
 
 // TODO: Acomodar todos estos imports por algun criterio

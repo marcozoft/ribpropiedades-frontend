@@ -1,6 +1,5 @@
 import { PropiedadDetalleResponse } from '@/src/interfaces'
 import { SeccionEmprendimiento, SeccionImagenes, SeccionPropiedad } from '.'
-import { SeccionFormularioContacto } from '../../contacto-secciones'
 import { FormularioContacto } from './FormularioContacto'
 
 
