@@ -16,7 +16,7 @@ export type { DormitorioItemFilter } from './FiltrosResponse';
 
 export type { SearchParams } from './SearchParams';
 
-// 
+// Otros
 export type { ServicioHome } from './ServicioHome';
 
 // Dominio
