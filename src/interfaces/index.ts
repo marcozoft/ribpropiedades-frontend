@@ -8,11 +8,6 @@ export * from './PropiedadDetalleResponse';
 
 // Fitros y buscador
 export * from './FiltrosResponse';
-export * from './FiltrosResponse';
-export * from './FiltrosResponse';
-export * from './FiltrosResponse';
-export * from './FiltrosResponse';
-export * from './FiltrosResponse';
 
 export * from './SearchParams';
 
