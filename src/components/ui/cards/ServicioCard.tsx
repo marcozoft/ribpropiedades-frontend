@@ -6,7 +6,7 @@ type Props = {
   imageUrl: string; 
 }
 
-export const ServicioCard = ({titulo}:Props) => {
+export const ServicioCard = ({}:Props) => {
   return (
     <div className="">
       {/* <h2 className="">{titulo}</h2> */}
