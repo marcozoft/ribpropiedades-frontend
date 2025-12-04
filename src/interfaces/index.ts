@@ -1,20 +1,20 @@
-export * from './OpinionesResponse';
-export * from './Paginacion';
+export * from './opiniones-response';
+export * from './paginacion';
 
 // Responses propiedades
-export * from './PropiedadesResponse';
-export * from './PropiedadDetalleResponse';
+export * from './propiedades-response';
+export * from './propiedad-detalle-response';
 
 // Fitros y buscador
-export * from './FiltrosResponse';
+export * from './filtros-response';
 
-export * from './SearchParams';
+export * from './search-params';
 
 // Otros
-export * from './ServicioHome';
+export * from './servicio-home';
 
 // Dominio
-export * from './PropiedadDetalle';
-export * from './PropiedadBasico';
-export * from './EmprendimientoBasico';
-export * from './Imagen';
+export * from './propiedad-detalle';
+export * from './propiedad-basico';
+export * from './emprendimiento-basico';
+export * from './imagen';
