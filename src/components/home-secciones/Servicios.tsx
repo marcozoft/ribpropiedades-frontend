@@ -1,9 +1,9 @@
 import { ServicioCard } from "../ui";
-import { ServicioHome } from "@/src/interfaces";
+import { Servicio } from "@/src/interfaces";
 import Link from 'next/link';
 
 
-const servicios: ServicioHome[] = [
+const servicios: Servicio[] = [
    {
       titulo: `Countries, Barrios & Clubes de campo`,
       descripcion: `RIB Inmobiliaria, te presenta la mejor oferta inmobiliaria para conocer los barrios, 
