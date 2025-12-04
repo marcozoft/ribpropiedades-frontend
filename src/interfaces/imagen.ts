@@ -3,3 +3,4 @@ export interface Imagen {
     orden:  number;
     texto:  string;
 }
+
