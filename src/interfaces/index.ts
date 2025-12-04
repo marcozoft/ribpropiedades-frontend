@@ -24,9 +24,3 @@ export type { PropiedadDetalle } from './propiedad-detalle';
 export type { PropiedadBasico } from './propiedad-basico';
 export type { EmprendimientoBasico } from './emprendimiento-basico';
 export type { Imagen } from './imagen';
-
-// Enums
-// export { Operacion } from './enums';
-
-
-// TODO: Acomodar todos estos imports por algun criterio
