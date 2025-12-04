@@ -10,7 +10,7 @@ type Props = {
 
 export const CarouselDetalle = ({titulo, subtitulo, descripcion, href}: Props) => {
   return (
-    <div className='bg-background text-black text-sm p-5'>
+    <div className='bg-background text-black text-sm rounded p-5'>
       <span className={`${secondaryFont.className} text-foreground font-bold`}>{subtitulo}</span>
       <h2 className="text-3xl font-bold py-5">{titulo}</h2>
       <p>{descripcion}</p>

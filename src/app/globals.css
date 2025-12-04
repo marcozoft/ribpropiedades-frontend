@@ -44,10 +44,20 @@ body {
 .stripe-marca {
   background:
     repeating-linear-gradient(45deg,
-      #ededef,
-      #ededef 20px,
-      #fff 20px,
-      #fff 40px);
+      #F8F7FC,
+      #F8F7FC 20px,
+      #F4F4F7 20px,
+      #F4F4F7 40px);
+}
+
+.stripe-marca-morado {
+  background:
+    repeating-linear-gradient(45deg,
+      var(--foreground),
+      var(--foreground) 20px,
+      #630925 20px,
+      #630925 40px
+    )
 }
 /* Animación de pulso sutil para el botón de video */
 @keyframes pulse-subtle {

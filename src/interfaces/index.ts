@@ -8,12 +8,7 @@ export type { PropiedadDetalleResponse } from './PropiedadDetalleResponse';
 
 // Fitros y buscador
 export type { FiltrosResponse} from './FiltrosResponse';
-
-
 export type { SearchParams } from './SearchParams';
-
-// 
-export type { Servicio } from './Servicio';
 
 // Dominio
 export type { PropiedadDetalle } from './PropiedadDetalle';
