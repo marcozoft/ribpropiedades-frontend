@@ -1,5 +1,5 @@
 import Form from "next/form"
-import { ItemFilter } from "@/src/interfaces/filtros";
+import { ItemFilter } from "@/src/interfaces/FiltrosResponse";
 
 type Props = {
    localidades: ItemFilter[];

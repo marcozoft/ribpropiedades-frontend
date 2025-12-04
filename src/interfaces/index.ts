@@ -1,22 +1,22 @@
-export type { ComentariosResponse } from './OpinionesResponse';
-export type { Comentario } from './OpinionesResponse';
+export type { ComentariosResponse } from './ComentariosResponse';
+export type { Comentario } from './ComentariosResponse';
 
 
 // Responses propiedades
-export type { PropiedadesResponse } from './response-propiedades';
-export type { PropiedadDetalleResponse } from './response-propiedad-id';
+export type { PropiedadesResponse } from './PropiedadesResponse';
+export type { PropiedadDetalleResponse } from './PropiedadDetalleResponse';
 
 // Fitros y buscador
-export type { FiltrosResponse} from './filtros';
+export type { FiltrosResponse} from './FiltrosResponse';
 
 
-export type { SearchParams } from './search-params';
+export type { SearchParams } from './SearchParams';
 
 // 
 export type { Servicio } from './Servicio';
 
 // Dominio
-export type { PropiedadDetalle } from './propiedad-detalle';
+export type { PropiedadDetalle } from './PropiedadDetalle';
 export type { PropiedadBasico } from './PropiedadBasico';
-export type { EmprendimientoBasico } from './emprendimiento-basico';
+export type { EmprendimientoBasico } from './EmprendimientoBasico';
 export type { Imagen } from './Imagen';

@@ -1,4 +1,4 @@
-import { PropiedadBasico } from "./";
+import { PropiedadBasico } from '@/src/interfaces';
 
 export interface PropiedadesResponse {
     propiedades: PropiedadBasico[];
