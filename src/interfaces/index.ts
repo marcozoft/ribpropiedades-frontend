@@ -9,6 +9,8 @@ export * from './filtros-response';
 
 export * from './search-params';
 
+export * from './paginacion';
+
 // Otros
 export * from './servicio-home';
 

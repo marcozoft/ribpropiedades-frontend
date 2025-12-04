@@ -1,5 +1,4 @@
-import { Paginacion } from "./paginacion";
-import { PropiedadBasico } from "./propiedad-basico";
+import { Paginacion, PropiedadBasico } from "@/src/interfaces";
 
 export interface PropiedadesResponse {
     propiedades: PropiedadBasico[];

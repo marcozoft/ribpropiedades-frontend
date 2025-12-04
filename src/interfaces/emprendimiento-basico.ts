@@ -1,4 +1,4 @@
-import { Imagen } from '.';
+import { Imagen } from '@/src/interfaces';
 
 export interface EmprendimientoBasico {
     id:                number;
