@@ -35,4 +35,3 @@ export interface EmprendimientoItemFilter {
    valor: number;
    label: string;
 }
-
