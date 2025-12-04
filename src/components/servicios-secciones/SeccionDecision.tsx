@@ -2,33 +2,33 @@
 
 import Image from 'next/image';
 
-interface ItemDecision {
-  numero: number;
-  titulo: string;
-  descripcion: string;
-  icono: string;
-}
+// interface ItemDecision {
+//   numero: number;
+//   titulo: string;
+//   descripcion: string;
+//   icono: string;
+// }
 
-const items: ItemDecision[] = [
-  {
-    numero: 1,
-    titulo: 'Tasación profesional',
-    descripcion: 'Llevamos a cabo una Tasación profesional, fundamentada en experiencia, seriedad y conocimiento, para lograr claridad en la información para nuestro nuevo Cliente. El precio acordado en esta parte del proceso, es un importante compromiso para nosotros.',
-    icono: 'flaticon-home-2',
-  },
-  {
-    numero: 2,
-    titulo: 'Revisión de documentación',
-    descripcion: 'Realizamos una revisión profunda de la documentación para poder conocer en detalle la situación y corregir cualquier faltante, si lo hubiere.',
-    icono: 'flaticon-official-documents',
-  },
-  {
-    numero: 3,
-    titulo: 'Asesoramiento normativo',
-    descripcion: 'Asesoramos a nuestro Cliente sobre las nuevas normas de AFIP para vender su propiedad.',
-    icono: 'flaticon-secure',
-  },
-];
+// const items: ItemDecision[] = [
+//   {
+//     numero: 1,
+//     titulo: 'Tasación profesional',
+//     descripcion: 'Llevamos a cabo una Tasación profesional, fundamentada en experiencia, seriedad y conocimiento, para lograr claridad en la información para nuestro nuevo Cliente. El precio acordado en esta parte del proceso, es un importante compromiso para nosotros.',
+//     icono: 'flaticon-home-2',
+//   },
+//   {
+//     numero: 2,
+//     titulo: 'Revisión de documentación',
+//     descripcion: 'Realizamos una revisión profunda de la documentación para poder conocer en detalle la situación y corregir cualquier faltante, si lo hubiere.',
+//     icono: 'flaticon-official-documents',
+//   },
+//   {
+//     numero: 3,
+//     titulo: 'Asesoramiento normativo',
+//     descripcion: 'Asesoramos a nuestro Cliente sobre las nuevas normas de AFIP para vender su propiedad.',
+//     icono: 'flaticon-secure',
+//   },
+// ];
 
 export const SeccionDecision = () => {
   return (

@@ -5,7 +5,7 @@ type Props = {
    cantidad?: number
 }
 
-export const TituloDescriptivo = ({tipo_inmueble, operacion, localidad, cantidad}: Props) => {
+export const TituloDescriptivo = ({ }: Props) => {
    return (
       <h1 className="text-5xl text-black font-bold">
          {/* TODO */}

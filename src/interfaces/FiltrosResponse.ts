@@ -4,35 +4,14 @@ export interface FiltrosResponse {
 }
 
 export interface Filtros {
-   operaciones:     OperacionItemFilter[];
-   tipos_inmueble:  TipoInmuebleItemFilter[];
-   localidades:     LocalidadItemFilter[];
-   emprendimientos: EmprendimientoItemFilter[];
-   dormitorios:     DormitorioItemFilter[];
+   operaciones:     ItemFilter[];
+   tipos_inmueble:  ItemFilter[];
+   localidades:     ItemFilter[];
+   emprendimientos: ItemFilter[];
+   dormitorios:     ItemFilter[];
 }
 
-export interface OperacionItemFilter {
+export interface ItemFilter {
    valor: number;
    label: string;
 }
-
-export interface TipoInmuebleItemFilter {
-   valor: string;
-   label: string;
-}
-
-export interface LocalidadItemFilter {
-   valor: string;
-   label: string;
-}
-
-export interface DormitorioItemFilter {
-   valor: number;
-   label: string;
-}
-
-export interface EmprendimientoItemFilter {
-   valor: number;
-   label: string;
-}
-
