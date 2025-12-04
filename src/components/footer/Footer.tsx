@@ -8,7 +8,7 @@ import { RoundedButton, SocialNetworks } from '../ui';
 
 export const Footer = () => {
    return (
-      <footer className="bg-foreground relative">
+      <footer className="bg-foreground stripe-marca-morado relative">
  
          {/* Banner sobre el borde del footer */}
          <div className="hidden lg:flex lg:justify-center absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-full z-20">

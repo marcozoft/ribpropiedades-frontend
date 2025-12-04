@@ -30,7 +30,7 @@ export const CarouselLanzamientos = ({ propiedades }: CarouselClientProps) => {
   const prevSlide = () => setCurrent((prev) => (prev - 1 + propiedades.length) % propiedades.length);
 
   return (
-    <div className='flex border-2 bg-white w-full p-3 mx-auto px-4 shadow-2xl'>
+    <div className='flex border-2 bg-white w-full p-3 mx-auto px-4 shadow-2xl rounded'>
 
       <div className="relative w-full mx-auto overflow-hidden">
         {/* Slides */}
@@ -45,7 +45,7 @@ export const CarouselLanzamientos = ({ propiedades }: CarouselClientProps) => {
                 height={360}
                 src={generateSrcImage(prop.imagen_principal)}
                 alt={`Slide ${i + 1}`}
-                className="flex-shrink-0"
+                className="flex-shrink-0 rounded"
               />
               <div className="flex">
                 <CarouselDetalle
