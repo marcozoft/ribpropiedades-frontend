@@ -1,10 +1,10 @@
 import Form from "next/form"
-import { LocalidadItemFilter, OperacionItemFilter, TipoInmuebleItemFilter } from "@/src/interfaces"
+import { ItemFilter } from "@/src/interfaces/filtros";
 
 type Props = {
-   localidades: LocalidadItemFilter[];
-   operaciones: OperacionItemFilter[];
-   tipos_inmueble: TipoInmuebleItemFilter[];
+   localidades: ItemFilter[];
+   operaciones: ItemFilter[];
+   tipos_inmueble: ItemFilter[];
 }
 
 export const Buscador = ({localidades, operaciones, tipos_inmueble}: Props) => {

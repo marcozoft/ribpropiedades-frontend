@@ -7,12 +7,8 @@ export type { PropiedadesResponse } from './response-propiedades';
 export type { PropiedadDetalleResponse } from './response-propiedad-id';
 
 // Fitros y buscador
-export type { FiltrosResponse} from './fitros';
-export type { OperacionItemFilter } from './fitros';
-export type { TipoInmuebleItemFilter } from './fitros';
-export type { LocalidadItemFilter } from './fitros';
-export type { EmprendimientoItemFilter } from './fitros';
-export type { DormitorioItemFilter } from './fitros';
+export type { FiltrosResponse} from './filtros';
+
 
 export type { SearchParams } from './search-params';
 
