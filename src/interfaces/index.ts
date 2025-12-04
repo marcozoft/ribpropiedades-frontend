@@ -1,5 +1,4 @@
 export * from './opiniones-response';
-export * from './paginacion';
 
 // Responses propiedades
 export * from './propiedades-response';
