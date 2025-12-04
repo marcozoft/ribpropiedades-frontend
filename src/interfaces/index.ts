@@ -17,6 +17,6 @@ export type { Servicio } from './Servicio';
 
 // Dominio
 export type { PropiedadDetalle } from './propiedad-detalle';
-export type { PropiedadBasico } from './propiedad-basico';
+export type { PropiedadBasico } from './PropiedadBasico';
 export type { EmprendimientoBasico } from './emprendimiento-basico';
 export type { Imagen } from './Imagen';
