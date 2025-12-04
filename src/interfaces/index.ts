@@ -13,7 +13,7 @@ export type { FiltrosResponse} from './filtros';
 export type { SearchParams } from './search-params';
 
 // 
-export type { Servicio } from './servicio';
+export type { Servicio } from './Servicio';
 
 // Dominio
 export type { PropiedadDetalle } from './propiedad-detalle';
