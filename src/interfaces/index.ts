@@ -19,4 +19,4 @@ export type { Servicio } from './servicio';
 export type { PropiedadDetalle } from './propiedad-detalle';
 export type { PropiedadBasico } from './propiedad-basico';
 export type { EmprendimientoBasico } from './emprendimiento-basico';
-export type { Imagen } from './imagen';
+export type { Imagen } from './Imagen';
