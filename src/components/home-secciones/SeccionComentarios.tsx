@@ -1,12 +1,12 @@
 import { Comentario } from "@/src/interfaces"
 import { CarouselComentarios } from "../carousel-comentarios/CarouselComentarios"
+import { getAllComentarios } from "@/src/requests";
 
-type Props = {
-  comentarios: Comentario[];
-}
 
-export const Opiniones = ({comentarios}: Props) => {
+export const SeccionComentarios = async () => {
   
+  const { comentarios } = await getAllComentarios();
+
   return (
     <section className="bg-white py-30">
       

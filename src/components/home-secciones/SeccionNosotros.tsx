@@ -2,7 +2,7 @@ import React from 'react'
 import { RoundedButton } from '../ui'
 import { YouTubeVideoCard } from '../propiedades/detalle-full-page'
 
-export const Nosotros = () => {
+export const SeccionNosotros = () => {
   return (
     <section className='max-w-6xl mx-auto px-4 py-10'>
       <div className='grid grid-cols md:grid-cols-2 md:gap-10 my-4'>
@@ -16,7 +16,6 @@ export const Nosotros = () => {
           <RoundedButton text='VER MÁS' href='/quienes-somos'/>
         </div>
       </div>
-      {/* <Image src={'/screenshot-video-nosotros.png'} width={1920} height={560} alt="Hacemos tu proyecto realidad" /> */}
       
       <div className='flex justify-center max-w-6xl mx-auto'>
         <div className="">
