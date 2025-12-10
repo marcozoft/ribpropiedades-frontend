@@ -8,7 +8,7 @@ type Props = {
 
 export const GoogleMapsCard = ({lat, lng}: Props) => {
 
-   // construir query con coordenadas y marcador
+   //TODO: construir query con coordenadas y marcador 
    const query = `${lat},${lng}`;   
 
    return (
