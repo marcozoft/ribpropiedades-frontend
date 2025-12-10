@@ -1,4 +1,3 @@
-import { Comentario } from "@/src/interfaces"
 import { CarouselComentarios } from "../carousel-comentarios/CarouselComentarios"
 import { getAllComentarios } from "@/src/requests";
 

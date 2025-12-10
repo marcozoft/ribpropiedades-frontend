@@ -1,5 +1,5 @@
 import { secondaryFont } from '@/src/config/fonts'
-import { CarouselLanzamientos } from '../propiedades/carousel-lanzamientos/CarouselLanzamientos'
+import { CarouselLanzamientos } from '..'
 import { getLanzamientos } from '@/src/requests'
 
 
