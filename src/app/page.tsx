@@ -6,7 +6,7 @@ import {
   SeccionNosotros, 
   SeccionSeleccion, 
   SeccionServicios, 
-  SeccionVideo,
+  SeccionVideo
 } from "../components/home-secciones";
 
 
