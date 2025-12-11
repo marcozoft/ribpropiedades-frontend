@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { RoundedButton } from '../ui/buttons/RoundedButton';
 
-export const Contactanos = () => {
+export const SeccionContactanos = () => {
   return (
     <section>
       <div className="relative w-full h-[560px]">

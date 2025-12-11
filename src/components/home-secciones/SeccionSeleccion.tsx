@@ -3,7 +3,7 @@ import { PropiedadCard } from '@/src/components';
 import { propiedadesSeeed } from "@/src/seed/propiedades";
 
 // TODO: Armar carousel
-export const Seleccion = () => {
+export const SeccionSeleccion = () => {
   return (
     <section className="px-4 py-20">
       <h1 className="font-bold text-5xl text-center">RIB Selección</h1>

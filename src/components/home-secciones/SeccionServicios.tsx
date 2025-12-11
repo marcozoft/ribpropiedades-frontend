@@ -39,7 +39,7 @@ const servicios: ServicioItem[] = [
 
 
 
-export const Servicios = () => {
+export const SeccionServicios = () => {
    return (
     <section className='stripe-marca'>
         <div className="flex flex-col items-center max-w-6xl mx-auto px-4 py-10">

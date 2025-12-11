@@ -1,5 +1,5 @@
 
-export const Video = () => {
+export const SeccionVideo = () => {
   return (
     <div className="w-full">
       {/* <div className="max-w-7xl mx-auto px-4"> */}

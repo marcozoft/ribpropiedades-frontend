@@ -1,24 +1,27 @@
-import { Contactanos, SeccionBuscador, Lanzamientos, Nosotros, Opiniones, Seleccion, Servicios, Video } from "../components/home-secciones";
-import { getAllComentarios } from "../requests";
+import { 
+  SeccionBuscador, 
+  SeccionComentarios, 
+  SeccionContactanos, 
+  SeccionLanzamientos, 
+  SeccionNosotros, 
+  SeccionSeleccion, 
+  SeccionServicios, 
+  SeccionVideo
+} from "../components/home-secciones";
 
 
-
-export default async function HomePage() {
-
-  const comentariosResponse = await getAllComentarios();
-  
-
+export default function HomePage() {
 
   return(
    <>
-    <Video />
+    <SeccionVideo />
     <SeccionBuscador />
-    <Lanzamientos />
-    <Seleccion />
-    <Nosotros />
-    <Servicios />
-    <Contactanos />
-    <Opiniones comentarios={comentariosResponse.comentarios}  />
+    <SeccionLanzamientos />
+    <SeccionSeleccion />
+    <SeccionNosotros />
+    <SeccionServicios />
+    <SeccionContactanos />
+    <SeccionComentarios />
    </>
   )
 }

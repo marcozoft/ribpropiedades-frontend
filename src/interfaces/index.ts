@@ -6,6 +6,11 @@ export type { Comentario } from './ComentariosResponse';
 export type { PropiedadesResponse } from './PropiedadesResponse';
 export type { PropiedadDetalleResponse } from './PropiedadDetalleResponse';
 
+// Lanzamientos
+export type { LanzamientosResponse } from './LanzamientosResponse';
+export type { LanzamientoSlider } from './LanzamientosResponse';
+
+
 // Fitros y buscador
 export type { FiltrosResponse} from './FiltrosResponse';
 export type { SearchParams } from './SearchParams';

@@ -19,7 +19,7 @@ export const PropiedadFullPage = ({propiedadResponse}: PropiedadDetalleProps) =>
       />
 
       {/* Secciones propiedad + emprendimiento */}
-      <div className='max-w-6xl mx-auto flex px-4 py-8'>
+      <div className='max-w-6xl mx-auto flex px-4 py-8 pb-20'>
         {/* <section className='max-w-6xl mx-auto px-4 py-10'> */}
         <section className='xl:basis-2/3 px-4'>
           <SeccionPropiedad propiedad={propiedadResponse.propiedad}/>

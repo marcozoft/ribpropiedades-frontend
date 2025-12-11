@@ -13,7 +13,7 @@ export { PropiedadCard } from "./propiedades/propiedad-card/PropiedadCard";
 export { PropiedadFullPage } from "./propiedades/detalle-full-page/PropiedadFullPage";
 
 // Carousel
-export { CarouselLanzamientos } from './propiedades/carousel-lanzamientos/CarouselLanzamientos';
+export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamientos';
 
 export { TituloDescriptivo } from "./propiedades/TituloDescriptivo";
 
