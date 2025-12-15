@@ -1,7 +1,8 @@
 import { EmprendimientoIdResponse } from '@/src/interfaces'
-import { SeccionEmprendimiento, SeccionImagenes, SeccionPropiedad } from './detalle-full-page-components'
+import { SeccionImagenes } from './detalle-full-page-components'
 import { FormularioContacto } from './detalle-full-page-components/FormularioContacto'
 import { secondaryFont } from '@/src/config/fonts'
+import { CarouselCards } from '../carousel-cards-propiedades/CarouselCards';
 
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
 
 export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
 
-  const { emprendimiento, imagenes } = emprendimientoResponse;
+  const { emprendimiento, imagenes, propiedades } = emprendimientoResponse;
 
   return (
     <div className='bg-white'>
@@ -39,6 +40,14 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
           <FormularioContacto />
         </section>
       </div>
+
+      <div className='w-full mx-auto flex flex-col pb-30'>
+          <div className="flex justify-center mb-10 items-center">
+            <h1 className="font-semibold text-4xl mt-4 text-black">Propiedades en {emprendimiento.nombre}</h1>
+          </div>
+        <CarouselCards propiedades={propiedades} />
+      </div>
+
     </div>
   )
 }
