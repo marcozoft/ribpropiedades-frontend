@@ -24,8 +24,8 @@ export const EmprendimientoCard = ({
                <div className="relative flex justify-center overflow-hidden">
 
                   {/* Imagen */}
-                  <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
-                     <Image src={generateSrcImage(imagen)} width={950} height={534} alt={`Emprendimiento_${id}`} />
+                  <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110 relative h-56 md:h-64 lg:h-72 overflow-hidden">
+                     <Image fill src={generateSrcImage(imagen)} className="object-cover object-center" alt={`Emprendimiento_${id}`} />
                   </div>
 
                   {/* Faja promocional */}
