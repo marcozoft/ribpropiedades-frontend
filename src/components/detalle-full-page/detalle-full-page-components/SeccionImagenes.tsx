@@ -3,7 +3,7 @@ import { CarouselFullPage, RoundedButton } from "@/src/components";
 
 type SeccionImagenesProps = {
   titulo: string;
-  operacion: string;
+  operacion?: string;
   imagenes: Imagen[];
 }
 

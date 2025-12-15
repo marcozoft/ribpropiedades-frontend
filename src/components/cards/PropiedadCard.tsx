@@ -4,25 +4,31 @@ import { FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion
 import Link from 'next/link';
 import { generateHrefPropiedad, generateSrcImage } from '@/src/utils';
 
+type Props = {
+   propiedad: PropiedadBasico
+   className?: string;
+}
 
-export const PropiedadCard = ({
-   ambientes,
-   codigo,
-   dormitorios,
-   faja_promocional,
-   id,
-   imagen_principal,
-   inmueble,
-   operacion,
-   precio_publico,
-   precio,
-   sup_total,
-   titulo_venta,
-   zona,
-}: PropiedadBasico) => {
+export const PropiedadCard = ({ propiedad, className }: Props) => {
+
+   const {
+      ambientes,
+      codigo,
+      dormitorios,
+      faja_promocional,
+      id,
+      imagen_principal,
+      inmueble,
+      operacion,
+      precio_publico,
+      precio,
+      sup_total,
+      titulo_venta,
+      zona 
+   } = propiedad;
 
    return (
-      <div className="relative mx-auto w-full shadow hover:shadow-2xl">
+      <div className={`relative mx-auto w-full shadow ${className}`}>
          <Link href={generateHrefPropiedad(id, titulo_venta)} className="relative inline-block w-full">
             <div className="bg-white p-4">
                <div className="relative flex justify-center overflow-hidden">

@@ -20,11 +20,15 @@ export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamient
 
 export { CarouselFullPage } from "./detalle-full-page/detalle-full-page-components/CarouselFullPageClient";
 
+export { CarouselCards } from "./carousel-cards-propiedades/CarouselCards";
+
 export { TituloDescriptivo } from "./propiedades/TituloDescriptivo";
 
 export { EmprendimientoCard } from "./cards/EmprendimientoCard";
 
 export { YouTubeVideoCard } from "./detalle-full-page/detalle-full-page-components";
+
+export { EmprendimientoFullPage } from "./detalle-full-page/EmprendimientoFullPage";
 
 
 // Buscador
