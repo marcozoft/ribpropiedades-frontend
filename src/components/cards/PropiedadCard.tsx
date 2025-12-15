@@ -1,6 +1,6 @@
 import { PropiedadBasico } from '@/src/interfaces'
 import Image from 'next/image'
-import { FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion, IndicadorPrecio, TituloDeVenta } from '.';
+import { FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion, IndicadorPrecio, TituloDeVenta } from './cards-components';
 import Link from 'next/link';
 import { generateHrefPropiedad } from '@/src/utils';
 

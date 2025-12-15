@@ -7,7 +7,7 @@ export { Footer } from "./footer/Footer";
 export { PropiedadesGrid } from "./propiedades/PropiedadesGrid";
 
 // Propiedad card
-export { PropiedadCard } from "./propiedades/propiedad-card/PropiedadCard";
+export { PropiedadCard } from "./cards/PropiedadCard";
 
 // Detalle full page
 export { PropiedadFullPage } from "./propiedades/detalle-full-page/PropiedadFullPage";

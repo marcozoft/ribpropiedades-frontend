@@ -1,15 +1,14 @@
-import { Imagen } from '.';
-
 export interface EmprendimientoBasico {
-    id:                number;
-    nombre:            string;
-    descripcion_corta: string;
-    descripcion_larga: string;
-    zona:              string;
-    imagen:            string;
-    logo:              string;
-    masterplan:        string;
-    destacado:         number;
-    imagenes:          Imagen[];
-    // planos:            any[];
+    id:                        number;
+    nombre:                    string;
+    categoria_emprendimientos: string;
+    titulo_promocional:        string;
+    faja_promocional:          string;
+    descripcion_corta:         string;
+    zona:                      string;
+    localidad:                 string;
+    imagen:                    string;
+    logo:                      string;
+    destacado:                 number;
+    orden_destacado:           number;
 }
