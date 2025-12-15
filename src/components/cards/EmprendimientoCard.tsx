@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { DescripcionCorta, FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion, IndicadorPrecio, NombreEmprendimiento, TituloDeVenta } from './cards-components';
 import Link from 'next/link';
 import { generateSrcImage } from '@/src/utils';
+import { generateHrefEmprendimiento } from '@/src/utils/generate-slug';
 
 
 // TODO: LLevar al .env
@@ -19,7 +20,7 @@ export const EmprendimientoCard = ({
 
    return (
       <div className="relative mx-auto w-full shadow hover:shadow-2xl">
-         <Link href='/' className="relative inline-block w-full">
+         <Link href={generateHrefEmprendimiento(id, nombre)} className="relative inline-block w-full">
             <div className="bg-white p-4">
                <div className="relative flex justify-center overflow-hidden">
 
@@ -33,24 +34,6 @@ export const EmprendimientoCard = ({
                      faja_promocional && <FajaPromocional descripcion={faja_promocional} />
                   }
                   <IndicadorBarrio barrio={zona} />
-               </div>
-
-               <div className="mt-4">
-
-                  {/* Tipo de operacion TODO: Agregar si es casa o depto ???*/}
-                  {/* <IndicadorOperacion 
-                     tipoDeInmueble={inmueble} 
-                     tipoDeOperacion={operacion}
-                  /> */}
-
-                  {/* Precio */}
-                  {/* <IndicadorPrecio
-                     className='text-black' 
-                     precio={precio} 
-                     precio_condicion={precio_publico} 
-                     sinEspecificar='Consultar' 
-                     moneda='U$D'
-                  /> */}
                </div>
                
                <div className="mt-4">

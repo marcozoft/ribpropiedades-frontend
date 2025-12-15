@@ -10,4 +10,4 @@ export { SeccionPropiedad } from './SeccionPropiedad';
 export { SeccionEmprendimiento } from "./SeccionEmprendimiento";
 export { ImagenCard } from "./ImagenCard";
 export { IndicadorNumerico } from "./IndicadorNumerico";
-
+export { IndicadorPrecio } from '../cards/cards-components/IndicadorPrecio';

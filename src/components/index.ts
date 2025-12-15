@@ -10,7 +10,7 @@ export { PropiedadesGrid } from "./propiedades/PropiedadesGrid";
 export { PropiedadCard } from "./cards/PropiedadCard";
 
 // Detalle full page
-export { PropiedadFullPage } from "./propiedades/detalle-full-page/PropiedadFullPage";
+export { PropiedadFullPage } from "./propiedad-detalle-full-page/PropiedadFullPage";
 
 // Carousel
 export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamientos';
