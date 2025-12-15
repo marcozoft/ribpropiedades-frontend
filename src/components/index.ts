@@ -1,3 +1,6 @@
+
+export { IndicadorPrecio } from "./cards/cards-components";
+
 // UI components
 export { Navbar} from "./navbar/Navbar";
 export { Footer } from "./footer/Footer";
@@ -10,13 +13,24 @@ export { PropiedadesGrid } from "./propiedades/PropiedadesGrid";
 export { PropiedadCard } from "./cards/PropiedadCard";
 
 // Detalle full page
-export { PropiedadFullPage } from "./propiedad-detalle-full-page/PropiedadFullPage";
+export { PropiedadFullPage } from "./detalle-full-page/PropiedadFullPage";
 
 // Carousel
 export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamientos';
 
+export { CarouselFullPage } from "./detalle-full-page/detalle-full-page-components/CarouselFullPageClient";
+
 export { TituloDescriptivo } from "./propiedades/TituloDescriptivo";
+
+export { EmprendimientoCard } from "./cards/EmprendimientoCard";
+
+export { YouTubeVideoCard } from "./detalle-full-page/detalle-full-page-components";
 
 
 // Buscador
 export { Buscador } from "./buscador/Buscador";
+
+
+export { RoundedButton } from "./ui/buttons/RoundedButton";
+export { ServicioCard } from "./ui/cards/ServicioCard";
+export { SocialNetworks } from "./ui/SocialNetworks";

@@ -2,11 +2,8 @@ import { PropiedadBasico } from '@/src/interfaces'
 import Image from 'next/image'
 import { FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion, IndicadorPrecio, TituloDeVenta } from './cards-components';
 import Link from 'next/link';
-import { generateHrefPropiedad } from '@/src/utils';
+import { generateHrefPropiedad, generateSrcImage } from '@/src/utils';
 
-
-// TODO: LLevar al .env
-const BASE_URL = `https://ribpropiedades.com.ar`
 
 export const PropiedadCard = ({
    ambientes,
@@ -32,7 +29,7 @@ export const PropiedadCard = ({
 
                   {/* Imagen */}
                   <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
-                     <Image src={`${BASE_URL}/${imagen_principal}`} width={950} height={534} alt={codigo} />
+                     <Image src={generateSrcImage(imagen_principal)} width={950} height={534} alt={codigo} />
                   </div>
 
                   {/* Faja promocional */}

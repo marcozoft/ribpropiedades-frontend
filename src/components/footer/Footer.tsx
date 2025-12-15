@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { secondaryFont } from '@/src/config/fonts'
 import '@/src/styles/icomoon/icomoon.css';
 import { TELEFONO_NUMERO, WHATSAPP_LINK } from '@/src/constants/constants';
-import { RoundedButton, SocialNetworks } from '../ui';
+import { RoundedButton, SocialNetworks } from '@/src/components';
 
 
 export const Footer = () => {

@@ -1,6 +1,7 @@
 import { secondaryFont } from "@/src/config/fonts";
 import { PropiedadDetalle } from "@/src/interfaces"
-import { DetallesGrid, YouTubeVideoCard, GoogleMapsCard, IndicadorPrecio } from './.';
+import { DetallesGrid, YouTubeVideoCard, GoogleMapsCard } from '.';
+import { IndicadorPrecio } from "@/src/components";
 
 type SeccionPropiedadProps = {
   propiedad: PropiedadDetalle

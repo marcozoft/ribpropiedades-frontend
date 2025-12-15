@@ -1,7 +1,7 @@
 import { SearchParams } from "@/src/interfaces";
 import { secondaryFont } from "../../config/fonts";
 import { getAllEmprendimientos } from '@/src/requests';
-import { EmprendimientoCard } from '@/src/components/cards';
+import { EmprendimientoCard } from '@/src/components';
 
 
 

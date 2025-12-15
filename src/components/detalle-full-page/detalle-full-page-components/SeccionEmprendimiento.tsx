@@ -1,6 +1,6 @@
 import { secondaryFont } from "@/src/config/fonts";
 import { EmprendimientoBasico } from "@/src/interfaces"
-import { RoundedButton } from "../ui";
+import { RoundedButton } from '@/src/components';
 
 type SeccionEmprendimientoProps = {
   emprendimiento: EmprendimientoBasico

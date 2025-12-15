@@ -1,6 +1,4 @@
-import React from 'react'
-import { RoundedButton } from '../ui'
-import { YouTubeVideoCard } from '../propiedades/detalle-full-page'
+import { RoundedButton, YouTubeVideoCard } from '@/src/components';
 
 export const SeccionNosotros = () => {
   return (

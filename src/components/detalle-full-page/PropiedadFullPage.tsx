@@ -1,6 +1,6 @@
 import { PropiedadDetalleResponse } from '@/src/interfaces'
-import { SeccionEmprendimiento, SeccionImagenes, SeccionPropiedad } from '.'
-import { FormularioContacto } from './FormularioContacto'
+import { SeccionEmprendimiento, SeccionImagenes, SeccionPropiedad } from './detalle-full-page-components'
+import { FormularioContacto } from './detalle-full-page-components/FormularioContacto'
 
 
 type PropiedadDetalleProps = {

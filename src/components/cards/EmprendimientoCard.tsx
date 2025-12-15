@@ -1,13 +1,9 @@
-import { EmprendimientoBasico, PropiedadBasico } from '@/src/interfaces'
 import Image from 'next/image'
-import { DescripcionCorta, FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion, IndicadorPrecio, NombreEmprendimiento, TituloDeVenta } from './cards-components';
 import Link from 'next/link';
-import { generateSrcImage } from '@/src/utils';
-import { generateHrefEmprendimiento } from '@/src/utils/generate-slug';
+import { EmprendimientoBasico } from '@/src/interfaces'
+import { DescripcionCorta, FajaPromocional, IndicadorBarrio, NombreEmprendimiento } from './cards-components';
+import { generateHrefEmprendimiento, generateSrcImage } from '@/src/utils';
 
-
-// TODO: LLevar al .env
-const BASE_URL = `https://ribpropiedades.com.ar`
 
 export const EmprendimientoCard = ({
    faja_promocional,

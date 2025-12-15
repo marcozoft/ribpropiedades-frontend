@@ -1,5 +1,5 @@
 import { secondaryFont } from "@/src/config/fonts";
-import { RoundedButton } from "../ui";
+import { RoundedButton } from '@/src/components';
 
 type Props = {
    subtitulo?: string;
