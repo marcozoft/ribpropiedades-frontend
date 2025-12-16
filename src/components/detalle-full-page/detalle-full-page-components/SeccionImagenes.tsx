@@ -1,10 +1,9 @@
 import { Imagen } from "@/src/interfaces"
-import { CarouselFullPage } from "./CarouselFullPageClient";
-import { RoundedButton } from "../../ui";
+import { CarouselFullPage, RoundedButton } from "@/src/components";
 
 type SeccionImagenesProps = {
   titulo: string;
-  operacion: string;
+  operacion?: string;
   imagenes: Imagen[];
 }
 

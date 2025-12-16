@@ -1,4 +1,4 @@
-import { ServicioCard } from "../ui";
+import { ServicioCard } from '@/src/components';
 
 
 type ServicioItem = {

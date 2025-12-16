@@ -1,4 +1,4 @@
-import { RoundedButton } from "@/src/components/ui";
+import { RoundedButton } from "@/src/components";
 import Image from "next/image";
 
 export default function NotFound() {

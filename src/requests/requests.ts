@@ -5,11 +5,12 @@ import { SearchParams } from '@/src/interfaces';
 /**
  * Query principal, propiedes filtradas
  */
-export const getAllPropiedades = async (searchParams:SearchParams): Promise<PropiedadesResponse> => {
+export const getAllPropiedades = async (searchParams?:SearchParams): Promise<PropiedadesResponse> => {
 
    const queryParams = new URLSearchParams({
-      'operacion': searchParams.operacion || '',
-      'localidad': searchParams.localidad || '',
+      'operacion': searchParams?.operacion || '',
+      'localidad': searchParams?.localidad || '',
+      'destacadas' : searchParams?.destacadas || ''
    });
    // queryParams.append('page','1');
 

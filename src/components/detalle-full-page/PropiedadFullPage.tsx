@@ -1,6 +1,6 @@
 import { PropiedadDetalleResponse } from '@/src/interfaces'
-import { SeccionEmprendimiento, SeccionImagenes, SeccionPropiedad } from '.'
-import { FormularioContacto } from './FormularioContacto'
+import { SeccionEmprendimiento, SeccionImagenes, SeccionPropiedad } from './detalle-full-page-components'
+import { FormularioContacto } from './detalle-full-page-components/FormularioContacto'
 
 
 type PropiedadDetalleProps = {
@@ -20,7 +20,6 @@ export const PropiedadFullPage = ({propiedadResponse}: PropiedadDetalleProps) =>
 
       {/* Secciones propiedad + emprendimiento */}
       <div className='max-w-6xl mx-auto flex px-4 py-8 pb-20'>
-        {/* <section className='max-w-6xl mx-auto px-4 py-10'> */}
         <section className='xl:basis-2/3 px-4'>
           <SeccionPropiedad propiedad={propiedadResponse.propiedad}/>
           <SeccionEmprendimiento emprendimiento={propiedadResponse.emprendimiento}/>
