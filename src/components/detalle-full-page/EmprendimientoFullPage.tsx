@@ -1,8 +1,10 @@
 import { EmprendimientoIdResponse } from '@/src/interfaces'
-import { SeccionImagenes } from './detalle-full-page-components'
+import { GoogleMapsCard, SeccionImagenes } from './detalle-full-page-components'
 import { FormularioContacto } from './detalle-full-page-components/FormularioContacto'
 import { secondaryFont } from '@/src/config/fonts'
 import { CarouselCards } from '../carousel-cards-propiedades/CarouselCards';
+import Image from 'next/image';
+import { generateSrcImage } from '@/src/utils';
 
 
 type Props = {
@@ -12,7 +14,7 @@ type Props = {
 export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
 
   const { emprendimiento, imagenes, propiedades } = emprendimientoResponse;
-
+  
   return (
     <div className='bg-white'>
       {/* Carouse imagenes + titulo + precio */}
@@ -21,16 +23,27 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
         titulo={emprendimiento.nombre}
       />
 
-      {/* Secciones propiedad + emprendimiento */}
+      {/* Descripcion emprendimiento */}
       <div className='max-w-6xl mx-auto flex px-4 py-8 pb-20'>
         <section className='xl:basis-2/3 px-4 scroll-mt-33' id="descripcion">
           <div className="flex justify-between mb-10 items-center">
             <h1 className="font-semibold text-4xl mt-4 text-black">{emprendimiento.nombre}</h1>
+            {/* Logo del emprendimiento - opcional */}
+            {
+              emprendimiento.logo && <Image height={300} width={300} src={ generateSrcImage(emprendimiento.logo)} alt={`logo ${emprendimiento.nombre}`} />
+            }
           </div>
           <div className="mt-10">
             <h2 className="font-bold text-black text-xl my-4"><span className="text-foreground">|&nbsp;</span>Descripción</h2>
             <p className={`${secondaryFont.className} text-black text-lg`}>{emprendimiento.descripcion_larga}</p>
-            </div>
+          </div>
+          
+          {/* Google Maps */}
+          <h2 className="font-bold text-black text-xl my-8"><span className="text-foreground">|&nbsp;</span>Ubicación</h2>
+          <GoogleMapsCard 
+            lng={emprendimiento.mapa_longitud}
+            lat={emprendimiento.mapa_latitud}
+          />
         </section>
 
         {/* formulario de contacto */}
@@ -40,6 +53,8 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
           <FormularioContacto />
         </section>
       </div>
+
+      
 
       {/* Porpiedades ubicadas en el emprendimiento. Pueden ser 0 */}
       <div className='w-full mx-auto flex flex-col pb-30'>
