@@ -4,7 +4,8 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       new URL('https://ribpropiedades.com.ar/uploads/images/**')
-    ]
+    ],
+    unoptimized: true, // Disables all Next.js image optimization
   }
 };
 
