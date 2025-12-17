@@ -6,9 +6,6 @@ export { Navbar} from "./navbar/Navbar";
 export { Footer } from "./footer/Footer";
 
 
-// Grilla de propiedades
-export { PropiedadesGrid } from "./propiedades/PropiedadesGrid";
-
 // Propiedad card
 export { PropiedadCard } from "./cards/PropiedadCard";
 
@@ -21,8 +18,6 @@ export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamient
 export { CarouselFullPage } from "./detalle-full-page/detalle-full-page-components/CarouselFullPageClient";
 
 export { CarouselCards } from "./carousel-cards-propiedades/CarouselCards";
-
-export { TituloDescriptivo } from "./propiedades/TituloDescriptivo";
 
 export { EmprendimientoCard } from "./cards/EmprendimientoCard";
 
