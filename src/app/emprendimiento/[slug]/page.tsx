@@ -9,8 +9,8 @@ export default async function Page(props: PageProps<'/emprendimiento/[slug]'>) {
     const { slug } = await props.params;
     const emprendimientoResponse = await getEmprendimientoById( extractIdFromSlug(slug) ).then(resp => {
       return resp.status == 200
-          ? resp.json()
-          : notFound()
+        ? resp.json()
+        : notFound()
     })
 
     return (

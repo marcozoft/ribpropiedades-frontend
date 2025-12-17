@@ -41,11 +41,19 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
         </section>
       </div>
 
+      {/* Porpiedades ubicadas en el emprendimiento. Pueden ser 0 */}
       <div className='w-full mx-auto flex flex-col pb-30'>
-          <div className="flex justify-center mb-10 items-center">
-            <h1 className="font-semibold text-4xl mt-4 text-black">Propiedades en {emprendimiento.nombre}</h1>
-          </div>
-        <CarouselCards propiedades={propiedades} />
+        {
+          propiedades.length > 0 && (
+            <>
+              <div className="flex justify-center mb-10 items-center">
+                <h1 className="font-semibold text-4xl mt-4 text-black">Propiedades en {emprendimiento.nombre}</h1>
+              </div>
+              <CarouselCards propiedades={propiedades} />
+            </>
+          )
+        }
+
       </div>
 
     </div>
