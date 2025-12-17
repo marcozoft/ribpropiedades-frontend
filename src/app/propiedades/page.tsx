@@ -1,4 +1,4 @@
-import { PropiedadesGrid, Buscador, PropiedadCard } from '@/src/components';
+import { Buscador, PropiedadCard } from '@/src/components';
 import { SearchParams } from "@/src/interfaces";
 import { secondaryFont } from "../../config/fonts";
 import { getAllPropiedades, getFilterItems } from '@/src/requests';
