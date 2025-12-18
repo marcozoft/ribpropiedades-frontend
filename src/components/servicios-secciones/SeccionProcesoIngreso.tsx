@@ -14,19 +14,19 @@ const items: ItemDecision[] = [
     numero: 1,
     titulo: 'Tasación profesional',
     descripcion: 'Llevamos a cabo una Tasación profesional, fundamentada en experiencia, seriedad y conocimiento, para lograr claridad en la información para nuestro nuevo Cliente. El precio acordado en esta parte del proceso, es un importante compromiso para nosotros.',
-    icono: 'flaticon-home-2',
+    icono: '/images/servicios/iconos/01 tasacion.svg',
   },
   {
     numero: 2,
     titulo: 'Revisión de documentación',
     descripcion: 'Realizamos una revisión profunda de la documentación para poder conocer en detalle la situación y corregir cualquier faltante, si lo hubiere.',
-    icono: 'flaticon-official-documents',
+    icono: '/images/servicios/iconos/02 revision.svg',
   },
   {
     numero: 3,
     titulo: 'Asesoramiento normativo',
     descripcion: 'Asesoramos a nuestro Cliente sobre las nuevas normas de AFIP para vender su propiedad.',
-    icono: 'flaticon-secure',
+    icono: '/images/servicios/iconos/03 asesora.svg',
   },
 ];
 
@@ -53,8 +53,14 @@ export const SeccionProcesoIngreso = () => {
                   className="group flex gap-4 items-start hover:bg-gray-50 p-4 rounded-lg transition-all duration-300 hover:shadow-md"
                 >
                   {/* Icono */}
-                  <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-foreground/10 rounded-lg flex items-center justify-center group-hover:bg-foreground group-hover:scale-110 transition-all duration-300">
-                    <i className={`${item.icono} text-foreground text-xl md:text-2xl group-hover:text-white transition-colors duration-300`}></i>
+                  <div className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 bg-foreground/10 rounded-lg flex items-center justify-center p-4 group-hover:bg-foreground group-hover:scale-110 transition-all duration-300">
+                    <Image
+                      src={item.icono}
+                      alt={item.titulo}
+                      width={88}
+                      height={88}
+                      className="w-[70px] h-[70px] md:w-[88px] md:h-[88px] object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
+                    />
                   </div>
 
                   {/* Contenido */}

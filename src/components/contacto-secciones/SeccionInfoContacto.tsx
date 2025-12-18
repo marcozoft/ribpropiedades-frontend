@@ -11,19 +11,19 @@ interface InfoContacto {
 
 const infoContacto: InfoContacto[] = [
   {
-    imagen: 'email.png',
+    imagen: 'email.svg',
     titulo: 'Email',
     linea1: 'info@ribpropiedades.com.ar',
     linea2: 'Contacto y consultas',
   },
   {
-    imagen: 'telefono.png',
+    imagen: 'telefono.svg',
     titulo: 'Teléfono',
     linea1: '+54 0230 4384500',
     linea2: 'Móvil: (54911) 3420 1500',
   },
   {
-    imagen: 'ubicacion.png',
+    imagen: 'oficina.svg',
     titulo: 'Oficina',
     linea1: 'Edificio Bureau Pilar Norte - Of. 255, Piso 2',
     linea2: 'Ruta Panamericana Km 49.5, Pilar, Buenos Aires',
