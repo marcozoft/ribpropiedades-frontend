@@ -7,8 +7,7 @@ export const SeccionSeleccion = async () => {
 
   const propiedadesSeleccion = await getAllPropiedades({destacadas:'1'});
   
-  console.log(propiedadesSeleccion);
-
+  
   return (
     <section className="px-4 py-20">
       <h1 className="font-bold text-5xl text-center">RIB Selección</h1>

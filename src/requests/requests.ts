@@ -12,9 +12,8 @@ export const getAllPropiedades = async (searchParams?:SearchParams): Promise<Pro
       'localidad': searchParams?.localidad || '',
       'destacadas' : searchParams?.destacadas || ''
    });
-   // queryParams.append('page','1');
 
-   console.log(`query params: ${queryParams}`);
+   // console.log(`query params: ${queryParams}`);
    
    return fetch(`${API_URL}/propiedades?${queryParams}`, {
       headers: {

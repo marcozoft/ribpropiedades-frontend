@@ -17,7 +17,7 @@ export const SeccionImagenes = ({ imagenes, titulo, operacion }: SeccionImagenes
         <RoundedButton href={'#descripcion'} text="VER MÁS"/>
       </div>
     
-      <div className='sm:basis-3/4 bg-blue-600'>
+      <div className='sm:basis-3/4'>
         <CarouselFullPage imagenes={imagenes} />
       </div>
     </div>
