@@ -84,7 +84,15 @@ export const SeccionIntroduccion = () => {
                   onMouseEnter={() => setSeccionActiva('concepto')}
                   className="flex items-center gap-3 p-3 rounded transition-all duration-300 cursor-pointer hover:bg-foreground group"
                 >
-                  <i className="flaticon-home-2 text-foreground group-hover:text-white text-2xl transition-colors"></i>
+                  <div className="w-[68px] h-[68px] flex-shrink-0">
+                    <Image
+                      src="/images/quienes-somos/iconos/04 concepto.svg"
+                      alt="El Concepto RIB"
+                      width={68}
+                      height={68}
+                      className="w-full h-full object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
+                    />
+                  </div>
                   <span className="text-gray-700 group-hover:text-white font-medium transition-colors flex-1">El Concepto RIB</span>
                   <span className="text-gray-400 group-hover:text-white/70 text-xl font-bold">...</span>
                 </div>
@@ -95,7 +103,15 @@ export const SeccionIntroduccion = () => {
                   onMouseEnter={() => setSeccionActiva('mision')}
                   className="flex items-center gap-3 p-3 rounded transition-all duration-300 cursor-pointer hover:bg-foreground group"
                 >
-                  <i className="flaticon-mountain text-foreground group-hover:text-white text-2xl transition-colors"></i>
+                  <div className="w-[68px] h-[68px] flex-shrink-0">
+                    <Image
+                      src="/images/quienes-somos/iconos/05 mision.svg"
+                      alt="Nuestra Misión"
+                      width={68}
+                      height={68}
+                      className="w-full h-full object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
+                    />
+                  </div>
                   <span className="text-gray-700 group-hover:text-white font-medium transition-colors flex-1">Nuestra Misión</span>
                   <span className="text-gray-400 group-hover:text-white/70 text-xl font-bold">...</span>
                 </div>
@@ -106,7 +122,15 @@ export const SeccionIntroduccion = () => {
                   onMouseEnter={() => setSeccionActiva('objetivos')}
                   className="flex items-center gap-3 p-3 rounded transition-all duration-300 cursor-pointer hover:bg-foreground group"
                 >
-                  <i className="flaticon-heart text-foreground group-hover:text-white text-2xl transition-colors"></i>
+                  <div className="w-[68px] h-[68px] flex-shrink-0">
+                    <Image
+                      src="/images/quienes-somos/iconos/06 objetivos.svg"
+                      alt="Nuestros Objetivos"
+                      width={68}
+                      height={68}
+                      className="w-full h-full object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
+                    />
+                  </div>
                   <span className="text-gray-700 group-hover:text-white font-medium transition-colors flex-1">Nuestros Objetivos</span>
                   <span className="text-gray-400 group-hover:text-white/70 text-xl font-bold">...</span>
                 </div>
@@ -117,7 +141,15 @@ export const SeccionIntroduccion = () => {
                   onMouseEnter={() => setSeccionActiva('servicio')}
                   className="flex items-center gap-3 p-3 rounded transition-all duration-300 cursor-pointer hover:bg-foreground group"
                 >
-                  <i className="flaticon-secure text-foreground group-hover:text-white text-2xl transition-colors"></i>
+                  <div className="w-[68px] h-[68px] flex-shrink-0">
+                    <Image
+                      src="/images/quienes-somos/iconos/07 servicios.svg"
+                      alt="Nuestro Servicio"
+                      width={68}
+                      height={68}
+                      className="w-full h-full object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300"
+                    />
+                  </div>
                   <span className="text-gray-700 group-hover:text-white font-medium transition-colors flex-1">Nuestro Servicio</span>
                   <span className="text-gray-400 group-hover:text-white/70 text-xl font-bold">...</span>
                 </div>
