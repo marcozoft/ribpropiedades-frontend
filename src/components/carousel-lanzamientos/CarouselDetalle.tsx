@@ -1,9 +1,8 @@
 import { secondaryFont } from "@/src/config/fonts";
-import { RoundedButton, YouTubeVideoCard } from '@/src/components';
+import { RoundedButton } from '@/src/components';
 import { LanzamientoSlider } from "@/src/interfaces";
 import { generateSrcImage, isYouTubeVideoUrl } from "@/src/utils";
 import Image from "next/image";
-import { YouTubeEmbed } from "@next/third-parties/google";
 import { getYouTubeId } from "@/src/utils/media-src";
 
 type Props = {
@@ -15,10 +14,7 @@ export const CarouselDetalle = ({ slider }: Props) => {
   const { titulo, subtitulo, url, texto } = slider;
 
   const isYoutubeLink = isYouTubeVideoUrl(url);
-  const youtubeId = isYoutubeLink ? getYouTubeId(url) : null;
-
-  console.log({slider, isYoutubeLink});
-  
+  const youtubeId = isYoutubeLink ? getYouTubeId(url) : null;  
 
   return (
     <div className="w-full flex grow-0 shrink-0 gap-5">
@@ -29,7 +25,7 @@ export const CarouselDetalle = ({ slider }: Props) => {
               className="absolute inset-0 w-full h-full"
               src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
               title="Video RIB Propiedades"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
           </div>

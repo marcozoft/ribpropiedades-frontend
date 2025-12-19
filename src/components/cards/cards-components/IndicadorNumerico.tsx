@@ -8,16 +8,21 @@ type IndicadorProps = {
    icono:      ReactElement;
 }
 
-export const IndicadorNumerico = ({nombre, valor, icono}:IndicadorProps) => {
+export const IndicadorNumerico = ({nombre, valor, unidad,icono}:IndicadorProps) => {
       
    return valor === 0 ? null : (
       <div className="text-black">
          <div>
             <p className="flex items-center">
                <span className="text-xs">
-                  {valor}&nbsp;
-                  {icono}
+                  {valor}
                </span>
+               &nbsp;
+               <span className="text-xs">
+                  {unidad}
+               </span>
+               &nbsp;
+               {icono}
             </p>
          </div>
          <div>

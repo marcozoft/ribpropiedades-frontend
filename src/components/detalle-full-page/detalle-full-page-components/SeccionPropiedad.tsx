@@ -34,12 +34,9 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
 
       {/* Descripcion */}
       <h2 className="font-bold text-black text-xl my-4"><span className="text-foreground">|&nbsp;</span>Descripción</h2>
-      
-      {/* TODO: Decidir si lleva HTML o no */}
+    
       {/* Descripcion larga */}
-      {/* <p className={`${secondaryFont.className} text-black text-lg`} dangerouslySetInnerHTML={{ __html: descripcion_larga }}></p> */}
       <p className={`${secondaryFont.className} text-black text-lg`}>{ descripcion_larga }</p>
-
 
       {/* Detalles enumerados */}
       <h2 className="font-bold text-black text-xl my-8"><span className="text-foreground">|&nbsp;</span>Detalles</h2>
@@ -48,7 +45,6 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
         detalles={[
           { descripcion: 'Estilo',                  clave: 'estilo' },
           { descripcion: 'Nro. de plantas',         clave: 'plantas'},
-          { descripcion: 'Ambientes',               clave: 'ambientes'},
           { descripcion: 'Dormitorios',             clave: 'dormitorios'},
           { descripcion: 'Dormitorios en suite',    clave: 'dormitorio_suite'},
           { descripcion: 'Estado',                  clave: 'estado'},

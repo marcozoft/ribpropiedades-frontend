@@ -12,7 +12,6 @@ type Props = {
 export const PropiedadCard = ({ propiedad, className }: Props) => {
 
    const {
-      ambientes,
       codigo,
       dormitorios,
       faja_promocional,
@@ -23,6 +22,7 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
       precio_publico,
       precio,
       sup_total,
+      sup_terreno,
       titulo_venta,
       zona 
    } = propiedad;
@@ -67,7 +67,7 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
                   <TituloDeVenta tituloVenta={titulo_venta} />
                </div>
                <div className="justify-center">
-                  <div className="mt-4 flex space-x-3 overflow-hidden rounded-lg px-1 py-1">
+                  <div className="mt-4 flex gap-8 overflow-hidden rounded-lg px-1 py-1">
 
                      {/* Cantidad de dormitorios */}
                      <IndicadorNumerico 
@@ -76,18 +76,20 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
                         icono={<i className="flaticon-bed text-black"></i>}
                      />
 
-                     {/* Cantidad de ambientes */}
-                     <IndicadorNumerico 
-                        nombre='Ambientes' 
-                        valor={ambientes} 
-                        icono={<i className="flaticon-home text-black"></i>}
-                     />
                      {/* superficie total m2 */}
                      <IndicadorNumerico 
                         nombre='Sup. Total' 
                         valor={sup_total} 
                         icono={<i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>} 
-                        unidad='m2'
+                        unidad='m²'
+                     />
+
+                     {/* superficie terreno m2 */}
+                     <IndicadorNumerico 
+                        nombre='Sup. Terreno' 
+                        valor={sup_terreno} 
+                        icono={<i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>} 
+                        unidad='m²'
                      />
                   </div>
                </div>
