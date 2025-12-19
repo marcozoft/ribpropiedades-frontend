@@ -34,7 +34,7 @@ export const SeccionHeroTasaciones = () => {
         {/* Descripción */}
         <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed max-w-3xl mx-auto">
           Complete nuestro formulario de contacto y nos pondremos en contacto con usted en breve.<br />
-          O escríbanos a <a href="mailto:info@ribpropiedades.com.ar" className="text-white font-semibold hover:underline">{EMAIL}</a> para conectarse ahora.
+          O escríbanos a <Link href="mailto:info@ribpropiedades.com.ar" className="text-white font-semibold hover:underline">{EMAIL}</Link> para conectarse ahora.
         </p>
 
         {/* Botones de contacto */}
