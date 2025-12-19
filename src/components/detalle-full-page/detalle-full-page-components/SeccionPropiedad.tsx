@@ -32,12 +32,6 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
         <IndicadorPrecio precio={precio} precio_condicion={precio_publico} moneda="U$D" sinEspecificar="Consultar"/>
       </div>
 
-      {/* Descripcion */}
-      <h2 className="font-bold text-black text-xl my-4"><span className="text-foreground">|&nbsp;</span>Descripción</h2>
-    
-      {/* Descripcion larga */}
-      <p className={`${secondaryFont.className} text-black text-lg`}>{ descripcion_larga }</p>
-
       {/* Detalles enumerados */}
       <h2 className="font-bold text-black text-xl my-8"><span className="text-foreground">|&nbsp;</span>Detalles</h2>
       <DetallesGrid
@@ -54,6 +48,12 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
           { descripcion: 'Tipo de calefacción',     clave: 'calefaccion'},
           { descripcion: 'Aberturas',               clave: 'aberturas'},
         ]}/>
+
+      {/* Descripcion */}
+      <h2 className="font-bold text-black text-xl my-4"><span className="text-foreground">|&nbsp;</span>Descripción</h2>
+    
+      {/* Descripcion larga */}
+      <p className={`${secondaryFont.className} text-black text-lg`}>{ descripcion_larga }</p>
 
       {/* Video (opcional) */}
       {

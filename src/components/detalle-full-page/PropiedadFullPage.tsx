@@ -10,7 +10,7 @@ type PropiedadDetalleProps = {
 export const PropiedadFullPage = ({propiedadResponse}: PropiedadDetalleProps) => {
 
   return (
-    <div className='bg-white'>
+    <div className='bg-white pb-20'>
       {/* Carouse imagenes + titulo + precio */}
       <SeccionImagenes 
         imagenes={propiedadResponse.imagenes} 

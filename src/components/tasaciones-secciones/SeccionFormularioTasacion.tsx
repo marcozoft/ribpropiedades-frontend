@@ -39,7 +39,7 @@ export const SeccionFormularioTasacion = () => {
       <div className="max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-lg shadow-2xl p-8 md:p-12">
           <div className="text-center mb-10">
-            <span className="inline-block bg-foreground/10 text-foreground px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wider mb-4">
+            <span className="inline-block bg-foreground/10 text-foreground px-4 py-1 rounded-full text-lg font-semibold uppercase tracking-wider mb-4">
               Solicitar Tasación
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

@@ -29,7 +29,7 @@ export const SeccionEntendemos = () => {
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="inline-block bg-foreground/10 text-foreground px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wider mb-4">
+          <span className="inline-block bg-foreground/10 text-foreground px-4 py-1 rounded-full text-lg font-semibold uppercase tracking-wider mb-4">
             Nuestro Proceso
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
