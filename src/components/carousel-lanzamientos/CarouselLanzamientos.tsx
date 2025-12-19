@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { LanzamientoSlider } from "@/src/interfaces";
-import { generateHrefPropiedad, generateSrcImage } from "@/src/utils";
 import { CarouselDetalle } from './CarouselDetalle';
 
 type CarouselClientProps = {

@@ -48,6 +48,7 @@ export const SeccionMapa = () => {
         {/* Google Street View */}
         <div className="relative h-full">
           <iframe
+            allow="accelerometer; gyroscope"
             src="https://www.google.com/maps/embed?pb=!4v1763985196482!6m8!1m7!1sYAK2M6PfaghAe5NRwmc2Nw!2m2!1d-34.44185258113617!2d-58.86586880822211!3f23.809636785661205!4f6.284551133563568!5f0.7820865974627469"
             width="100%"
             height="100%"

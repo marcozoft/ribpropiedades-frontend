@@ -45,7 +45,7 @@ export const SeccionIntroduccion = () => {
               {/* Botón de play para video con efecto de pulso */}
               <button
                 onClick={handleVideoClick}
-                className="absolute inset-0 flex items-center justify-center group"
+                className="absolute inset-0 flex items-center justify-center group cursor-pointer"
                 aria-label="Reproducir video"
               >
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:bg-foreground animate-pulse-subtle">

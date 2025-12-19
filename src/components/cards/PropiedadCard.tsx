@@ -28,14 +28,14 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
    } = propiedad;
 
    return (
-      <div className={`relative mx-auto w-full shadow ${className}`}>
+      <div className={`relative mx-auto w-full ${className}`}>
          <Link href={generateHrefPropiedad(id, titulo_venta)} className="relative inline-block w-full">
-            <div className="bg-white p-4">
-               <div className="relative flex justify-center overflow-hidden">
+            <div className="bg-white p-4 shadow rounded-xs">
+               <div className="relative flex justify-center overflow-hidden rounded-xs">
 
                   {/* Imagen */}
                   <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
-                     <Image src={generateSrcImage(imagen_principal)} width={950} height={534} alt={codigo} />
+                     <Image className="" src={generateSrcImage(imagen_principal)} width={950} height={534} alt={codigo} />
                   </div>
 
                   {/* Faja promocional */}

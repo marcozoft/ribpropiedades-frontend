@@ -225,10 +225,9 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 .flaticon-phone-call:before {
   content: ""; }
 
-/*
 .flaticon-pin:before {
   content: ""; }
-
+/*
 .flaticon-plane:before {
   content: ""; }
 

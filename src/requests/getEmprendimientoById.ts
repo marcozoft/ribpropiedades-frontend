@@ -1,5 +1,4 @@
 import { API_KEY, API_URL } from "../constants/constants";
-import { EmprendimientoIdResponse } from "../interfaces";
 
 export const getEmprendimientoById = (id: number): Promise<Response> => {
 
