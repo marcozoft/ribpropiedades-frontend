@@ -1,10 +1,10 @@
 import { EmprendimientoIdResponse } from '@/src/interfaces'
 import { GoogleMapsCard, SeccionImagenes } from './detalle-full-page-components'
-import { FormularioContacto } from './detalle-full-page-components/FormularioContacto'
 import { secondaryFont } from '@/src/config/fonts'
 import { CarouselCards } from '../carousel-cards-propiedades/CarouselCards';
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
+import { FormularioContactoLateral } from './detalle-full-page-components/FormularioContactoLateral';
 
 
 type Props = {
@@ -34,12 +34,12 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
             }
           </div>
           <div className="mt-10">
-            <h2 className="font-bold text-black text-xl my-4"><span className="text-foreground">|&nbsp;</span>Descripción</h2>
+            <h2 className="font-bold text-black text-xl mt-8 mb-4"><span className="text-foreground">|&nbsp;</span>Descripción</h2>
             <p className={`${secondaryFont.className} text-black text-lg`}>{emprendimiento.descripcion_larga}</p>
           </div>
           
           {/* Google Maps */}
-          <h2 className="font-bold text-black text-xl my-8"><span className="text-foreground">|&nbsp;</span>Ubicación</h2>
+          <h2 className="font-bold text-black text-xl mt-8 mb-4"><span className="text-foreground">|&nbsp;</span>Ubicación</h2>
           <GoogleMapsCard 
             lng={emprendimiento.mapa_longitud}
             lat={emprendimiento.mapa_latitud}
@@ -48,9 +48,7 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
 
         {/* formulario de contacto */}
         <section className='hidden xl:flex xl:basis-1/3 bg-background p-5'>
-          {/* <p className=''>Formulario de contacto</p> */}
-          {/* TODO:Formulario provisorio */}
-          <FormularioContacto />
+          <FormularioContactoLateral />
         </section>
       </div>
 

@@ -10,7 +10,6 @@ interface FormData {
   telefono: string;
   servicio: string;
   mensaje: string;
-  guardarDatos: boolean;
 }
 
 const servicios = [
@@ -30,7 +29,6 @@ export const SeccionFormularioContacto = () => {
     telefono: '',
     servicio: servicios[0],
     mensaje: '',
-    guardarDatos: false,
   });
 
   //TODO: Agregar endpoint
@@ -46,7 +44,7 @@ export const SeccionFormularioContacto = () => {
     const { name, value, type } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+      [name]: value,
     }));
   };
 
@@ -156,7 +154,7 @@ export const SeccionFormularioContacto = () => {
             </div>
 
             <div className="space-y-4 mb-4">
-              {/* Teléfono */}
+              {/* Servicio */}
               <div className="relative">
                 <select
                   name="servicio"

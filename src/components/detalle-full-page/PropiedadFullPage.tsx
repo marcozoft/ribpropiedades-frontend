@@ -1,6 +1,5 @@
 import { PropiedadDetalleResponse } from '@/src/interfaces'
-import { SeccionEmprendimiento, SeccionImagenes, SeccionPropiedad } from './detalle-full-page-components'
-import { FormularioContacto } from './detalle-full-page-components/FormularioContacto'
+import { FormularioContactoLateral, SeccionEmprendimiento, SeccionImagenes, SeccionPropiedad } from './detalle-full-page-components'
 
 
 type PropiedadDetalleProps = {
@@ -27,9 +26,7 @@ export const PropiedadFullPage = ({propiedadResponse}: PropiedadDetalleProps) =>
 
         {/* formulario de contacto */}
         <section className='hidden xl:flex xl:basis-1/3 bg-background p-5'>
-          {/* <p className=''>Formulario de contacto</p> */}
-          {/* TODO:Formulario provisorio */}
-          <FormularioContacto />
+          <FormularioContactoLateral />
         </section>
       </div>
     </div>
