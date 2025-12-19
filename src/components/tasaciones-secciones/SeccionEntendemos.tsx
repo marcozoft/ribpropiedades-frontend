@@ -1,5 +1,3 @@
-'use client';
-
 interface Tarea {
   numero: string;
   titulo: string;

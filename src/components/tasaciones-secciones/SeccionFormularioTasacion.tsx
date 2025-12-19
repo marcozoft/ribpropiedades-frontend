@@ -19,6 +19,7 @@ export const SeccionFormularioTasacion = () => {
     mensaje: '',
   });
 
+  // TODO: POST formulario
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Formulario de tasación enviado:', formData);
@@ -59,9 +60,8 @@ export const SeccionFormularioTasacion = () => {
                   name="nombre"
                   value={formData.nombre}
                   onChange={handleChange}
-                  placeholder="Nombre*"
+                  placeholder="Nombre"
                   className="w-full px-12 py-4 border border-gray-300 rounded-lg focus:outline-none focus:border-foreground transition-colors"
-                  required
                 />
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   <i className="flaticon-user text-lg"></i>
@@ -75,9 +75,8 @@ export const SeccionFormularioTasacion = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Email*"
+                  placeholder="Email"
                   className="w-full px-12 py-4 border border-gray-300 rounded-lg focus:outline-none focus:border-foreground transition-colors"
-                  required
                 />
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   <i className="flaticon-google-docs text-lg"></i>
@@ -107,9 +106,8 @@ export const SeccionFormularioTasacion = () => {
                   name="direccion"
                   value={formData.direccion}
                   onChange={handleChange}
-                  placeholder="Dirección de la propiedad*"
+                  placeholder="Dirección de la propiedad"
                   className="w-full px-12 py-4 border border-gray-300 rounded-lg focus:outline-none focus:border-foreground transition-colors"
-                  required
                 />
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   <i className="flaticon-location text-lg"></i>
@@ -137,7 +135,7 @@ export const SeccionFormularioTasacion = () => {
             {/* Botón */}
             <button
               type="submit"
-              className="w-full bg-foreground text-white px-8 py-4 rounded-lg font-semibold uppercase hover:bg-foreground/90 transition-all duration-300 hover:shadow-xl text-lg"
+              className="w-full bg-foreground cursor-pointer text-white px-8 py-4 rounded-lg font-semibold uppercase hover:bg-foreground/90 transition-all duration-300 hover:shadow-xl text-lg"
             >
               Enviar Solicitud de Tasación
             </button>

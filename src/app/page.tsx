@@ -14,7 +14,7 @@ export default function HomePage() {
 
   return(
    <>
-    {/* <SeccionVideo /> */}
+    <SeccionVideo />
     <SeccionBuscador />
     <SeccionLanzamientos />
     <SeccionSeleccion />
