@@ -27,14 +27,15 @@ export const CarouselFullPage = ({ imagenes }: CarouselClientProps) => {
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
           {imagenes.map((image, i) => (
-            <div className="w-full flex flex-shrink-0 object-cover" key={i}>
-              <Image
-                width={1458}
-                height={733}
-                src={generateSrcImage(image.imagen)}
-                alt={`Slide ${i + 1}`}
-                className=""
-              />
+            <div className="w-full flex flex-shrink-0" key={i}>
+              <div className="relative w-full aspect-video overflow-hidden">
+                <Image
+                  src={generateSrcImage(image.imagen)}
+                  alt={`Slide ${i + 1}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           ))}
         </div>

@@ -4,10 +4,16 @@ export const API_KEY = 'rib_api_2025_secure_key_d4f8a2e1b9c7x3m5';
 
 export const GOOGLE_MAPS_API_KEY = 'AIzaSyBvkOKZV4VJZzZ9HJ5iawVl3YGkk-EVhCI';
 
+// Email
+export const EMAIL = 'info@ribpropiedades.com.ar';
+export const EMAIL_LINK = 'mailto:info@ribpropiedades.com.ar';
+
 // Redes sociales
-export const INSTAGRAM_LINK = '';
-export const FACEBOOK_LINK = '';
-export const YOUTUBE_LINK = '';
-export const LINKEDIN_LINK = '';
-export const WHATSAPP_LINK = '';
-export const TELEFONO_NUMERO = '+54 911 3420 1500'
+export const INSTAGRAM_LINK = 'https://www.instagram.com/ribinmobiliaria';
+export const FACEBOOK_LINK = 'https://www.facebook.com/ribinmobiliaria';
+export const YOUTUBE_LINK = 'https://www.youtube.com/channel/UCpgDGdGjj7A9eERrfg3dzUw';
+export const LINKEDIN_LINK = 'https://ar.linkedin.com/company/ribinmobiliaria';
+export const WHATSAPP_LINK = 'https://api.whatsapp.com/send?phone=5491134201500&text=Hola';
+export const TELEFONO_NUMERO = '+54 911 3420 1500';
+export const TELEFONO_LINK = 'tel:+5491134201500';
+export const WHATSAPP_TASACION = 'https://api.whatsapp.com/send?phone=5491134201500&text=Hola,%20quiero%20solicitar%20una%20tasación'

@@ -62,7 +62,7 @@ export const SeccionLineaTiempo = () => {
 
   return (
     <section className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 pb-20">
         {/* Tabs horizontales - estilo Quarter */}
         <div className="mb-12 md:mb-20">
           <div className="flex flex-wrap justify-between gap-2 border-b border-gray-200">
@@ -71,7 +71,7 @@ export const SeccionLineaTiempo = () => {
                 key={servicio.id}
                 onClick={() => setServicioActivo(servicio)}
                 className={`
-                  flex-1 px-4 md:px-6 py-3 md:py-4 font-semibold text-sm md:text-base transition-all duration-300 border-b-2
+                  flex-1 px-4 md:px-6 py-3 md:py-4 font-semibold text-sm md:text-base transition-all duration-300 border-b-2 cursor-pointer
                   ${
                     servicioActivo.id === servicio.id
                       ? 'border-foreground text-foreground bg-foreground/5'

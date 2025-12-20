@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { LanzamientoSlider } from "@/src/interfaces";
-import { generateHrefPropiedad, generateSrcImage } from "@/src/utils";
 import { CarouselDetalle } from './CarouselDetalle';
 
 type CarouselClientProps = {
@@ -40,23 +38,7 @@ export const CarouselLanzamientos = ({ sliders }: CarouselClientProps) => {
               style={{ transform: `translateX(-${current * 100}%)` }}
             >
               {sliders.map((slider, i) => (
-                <div className="w-full flex flex-shrink-0 object-cover gap-5" key={i}>
-                  <Image
-                    width={640}
-                    height={360}
-                    src={generateSrcImage(slider.foto)}
-                    alt={`Slide ${i + 1}`}
-                    className="flex-shrink-0 rounded"
-                  />
-                  <div className="flex">
-                    <CarouselDetalle
-                      subtitulo={slider.subtitulo}
-                      titulo={slider.titulo}
-                      descripcion={slider.texto}
-                      href={generateHrefPropiedad(slider.id, slider.titulo)}
-                    />
-                  </div>
-                </div>
+                <CarouselDetalle slider={slider} key={i}/>
               ))}
             </div>
           </div>

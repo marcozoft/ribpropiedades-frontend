@@ -1,6 +1,7 @@
 export { getAllEmprendimientos } from "./getEmprendimientos";
-export { getFilterItems } from "./requests";
-export { getAllPropiedades } from "./requests";
-export { getAllComentarios } from "./requests";
+export { getAllPropiedades } from "./getAllPropiedades";
+export { getFilterItems }  from "./getFilterItems";
+export { getAllComentarios } from "./getAllComentarios";
 export { getLanzamientos } from "./getLanzamientos";
 export { getEmprendimientoById } from "./getEmprendimientoById";
+export { getHomeContenido } from "./getHomeContenido";

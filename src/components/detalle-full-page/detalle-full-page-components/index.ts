@@ -9,3 +9,4 @@ export { SeccionPropiedad } from './SeccionPropiedad';
 export { SeccionEmprendimiento } from "./DescripcionEmprendimiento";
 export { ImagenCard } from "./ImagenCard";
 export { IndicadorNumerico } from "./IndicadorNumerico";
+export { FormularioContactoLateral } from "./FormularioContactoLateral";

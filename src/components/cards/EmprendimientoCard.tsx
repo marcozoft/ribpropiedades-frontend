@@ -15,14 +15,14 @@ export const EmprendimientoCard = ({
 }: EmprendimientoBasico) => {
 
    return (
-      <div className="relative mx-auto w-full shadow hover:shadow-2xl">
+      <div className="relative mx-auto w-full shadow rounded-xs hover:shadow-2xl">
          <Link href={generateHrefEmprendimiento(id, nombre)} className="relative inline-block w-full">
-            <div className="bg-white p-4">
-               <div className="relative flex justify-center overflow-hidden">
+            <div className="bg-white p-4 rounded-xs">
+               <div className="relative flex justify-center overflow-hidden rounded-xs">
 
                   {/* Imagen */}
-                  <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110 relative h-56 md:h-64 lg:h-72 overflow-hidden">
-                     <Image fill src={generateSrcImage(imagen)} className="object-cover object-center" alt={`Emprendimiento_${id}`} />
+                  <div className="w-full relative aspect-video transform transition-transform duration-500 ease-in-out hover:scale-110 overflow-hidden rounded-xs">
+                     <Image src={generateSrcImage(imagen)} alt={nombre} fill className="object-cover" />
                   </div>
 
                   {/* Faja promocional */}

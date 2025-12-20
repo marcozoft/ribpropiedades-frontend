@@ -1,6 +1,13 @@
 import { RoundedButton, YouTubeVideoCard } from '@/src/components';
+import { getHomeContenido } from '@/src/requests';
+import { getYouTubeId } from '@/src/utils/media-src';
 
-export const SeccionNosotros = () => {
+export const SeccionNosotros = async () => {
+
+  const { video_nosotros } =  (await getHomeContenido()).contenido
+
+  const youtubId = getYouTubeId(video_nosotros);
+
   return (
     <section className='max-w-6xl mx-auto px-4 py-10'>
       <div className='grid grid-cols md:grid-cols-2 md:gap-10 my-4'>
@@ -16,8 +23,8 @@ export const SeccionNosotros = () => {
       </div>
       
       <div className='flex justify-center max-w-6xl mx-auto'>
-        <div className="">
-          <YouTubeVideoCard width={720} youTubeId='QOaBMryzEK4'/>
+        <div className="rounded-xs">
+          <YouTubeVideoCard width={720} youTubeId={youtubId!}/>
         </div>
       </div>
     </section>

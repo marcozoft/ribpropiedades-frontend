@@ -1,5 +1,7 @@
 'use client';
 
+import { EMAIL, EMAIL_LINK, WHATSAPP_LINK } from '@/src/constants/constants';
+import Link from 'next/link';
 import { useState } from 'react';
 
 interface FormData {
@@ -8,7 +10,6 @@ interface FormData {
   telefono: string;
   servicio: string;
   mensaje: string;
-  guardarDatos: boolean;
 }
 
 const servicios = [
@@ -28,9 +29,9 @@ export const SeccionFormularioContacto = () => {
     telefono: '',
     servicio: servicios[0],
     mensaje: '',
-    guardarDatos: false,
   });
 
+  //TODO: Agregar endpoint
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Formulario enviado:', formData);
@@ -40,10 +41,10 @@ export const SeccionFormularioContacto = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+      [name]: value,
     }));
   };
 
@@ -68,7 +69,7 @@ export const SeccionFormularioContacto = () => {
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Contacto y consultas:</h3>
                 <p className="text-gray-600">
-                  e-mail: <a href="mailto:info@ribpropiedades.com.ar" className="text-foreground hover:underline">info@ribpropiedades.com.ar</a>
+                  e-mail: <a href={EMAIL_LINK} className="text-foreground hover:underline">{EMAIL}</a>
                 </p>
               </div>
 
@@ -90,15 +91,15 @@ export const SeccionFormularioContacto = () => {
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Móvil</h3>
                 <p className="text-gray-600">(54911) 3420 1500</p>
-                <a
-                  href="https://api.whatsapp.com/send?phone=5491134201500&text=Hola"
+                <Link
+                  href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 mt-3 bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors duration-300 font-semibold"
                 >
                   <i className="flaticon-chat text-xl"></i>
                   <span>Contactar por WhatsApp</span>
-                </a>
+                </Link>
               </div>
 
               <div>
@@ -127,9 +128,8 @@ export const SeccionFormularioContacto = () => {
                   name="nombre"
                   value={formData.nombre}
                   onChange={handleChange}
-                  placeholder="Nombre*"
+                  placeholder="Nombre"
                   className="w-full px-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-foreground transition-colors"
-                  required
                 />
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   <i className="flaticon-user text-lg"></i>
@@ -143,9 +143,8 @@ export const SeccionFormularioContacto = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Email*"
+                  placeholder="Email"
                   className="w-full px-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-foreground transition-colors"
-                  required
                 />
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   <i className="flaticon-google-docs text-lg"></i>
@@ -155,7 +154,7 @@ export const SeccionFormularioContacto = () => {
             </div>
 
             <div className="space-y-4 mb-4">
-              {/* Teléfono */}
+              {/* Servicio */}
               <div className="relative">
                 <select
                   name="servicio"
@@ -185,7 +184,7 @@ export const SeccionFormularioContacto = () => {
                   name="telefono"
                   value={formData.telefono}
                   onChange={handleChange}
-                  placeholder="Tel/Cel"
+                  placeholder="Tel/Cel*"
                   className="w-full px-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-foreground transition-colors"
                   required
                 />
@@ -204,7 +203,6 @@ export const SeccionFormularioContacto = () => {
                 placeholder="Comentario"
                 rows={5}
                 className="w-full px-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-foreground transition-colors resize-none"
-                required
               ></textarea>
               <span className="absolute left-4 top-6 text-gray-400">
                 <i className="flaticon-pencil text-lg"></i>
@@ -216,7 +214,7 @@ export const SeccionFormularioContacto = () => {
             {/* Botón */}
             <button
               type="submit"
-              className="w-full bg-foreground text-white px-8 py-3 rounded-lg font-semibold uppercase hover:bg-foreground/90 transition-all duration-300 hover:shadow-xl"
+              className="w-full bg-foreground text-white px-8 py-3 rounded-lg font-semibold uppercase hover:bg-foreground/90 transition-all duration-300 hover:shadow-xl cursor-pointer"
             >
               Enviar
             </button>
