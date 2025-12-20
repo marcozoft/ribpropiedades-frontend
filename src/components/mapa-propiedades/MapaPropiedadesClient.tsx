@@ -4,18 +4,23 @@ import 'leaflet/dist/leaflet.css';
 import { BASE_ATTRIBUTION, BASE_URL, MAP_INDEX_CENTER, MAP_ZOOM_START, MARKER, REFERENCE_MARKER } from "@/src/constants/geo-constants";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { SyntheticEvent, useRef, useState } from 'react';
-import { LatLngLiteral } from 'leaflet';
+import { LatLngExpression, LatLngLiteral } from 'leaflet';
+import { PropiedadMapa } from '@/src/interfaces';
 
 
+type Props = {
+    propiedades: PropiedadMapa[]
+}
 
-export default function MainMap() {
+export default function MapaPropiedadesClient({propiedades}: Props) {
 
     const [position, setPosition] = useState<LatLngLiteral>({lat: -40.15451161680131, lng:-71.34787014700214});    
 
     const [placeTypes, setPlaceTypes] = useState(['restaurants'])
     const [radius, setRadius] = useState(500);
 
-    
+    const center:LatLngExpression = [ parseFloat(propiedades[0].mapa_latitud), parseFloat(propiedades[0].mapa_longitud) ]
+
     const onChangeSelect = (_event: SyntheticEvent | null, value: string[] | null) => {
 
         console.log(value);
@@ -24,11 +29,12 @@ export default function MainMap() {
     }
 
 
+
     return (
         <div style={{ display: "flex" }}>
-            <div style={{ width: "70%", height: "100vh" }}>
+            <div style={{ width: "100%", height: "100vh" }}>
                 <MapContainer 
-                    center={MAP_INDEX_CENTER} 
+                    center = {center}
                     zoom={MAP_ZOOM_START} scrollWheelZoom={true} 
                     dragging={true} 
                     style={{ height: '100%', zIndex: 0 }}
@@ -40,13 +46,16 @@ export default function MainMap() {
                     
 
                     {
-                        places.map( (place:Place) => (
+                        propiedades.map( (prop) => (
                             <Marker
-                                key={place.name}
-                                position={[place.location.latitude, place.location.longitude]}
+                                key={prop.id}
+                                position={[ 
+                                    parseFloat(prop.mapa_latitud),
+                                    parseFloat(prop.mapa_longitud)
+                                ]}
                                 icon={MARKER}
                             >
-                                <Popup>
+                                {/* <Popup>
                                     <Card
                                         variant="soft"
                                         color="primary"
@@ -59,7 +68,7 @@ export default function MainMap() {
                                             <Typography level="body-xs">{ place.formattedAddress }</Typography>
                                         </CardContent>
                                     </Card>             
-                                </Popup>
+                                </Popup> */}
                             </Marker>
                         ))
                     }
