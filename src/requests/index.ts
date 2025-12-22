@@ -5,3 +5,6 @@ export { getAllComentarios } from "./getAllComentarios";
 export { getLanzamientos } from "./getLanzamientos";
 export { getEmprendimientoById } from "./getEmprendimientoById";
 export { getHomeContenido } from "./getHomeContenido";
+
+// TODO: Deprecar
+export { getAllPropiedadesMapa } from "./getAllPropiedadesMapa";

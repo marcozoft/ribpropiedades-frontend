@@ -1,0 +1,14 @@
+.grayIcon {
+   filter: grayscale(100%);
+}
+.greenIcon {
+   filter: hue-rotate(296deg);
+}
+
+.yellowIcon {
+   filter: hue-rotate(208deg) brightness(1.65);
+}
+
+.orangeIcon {
+   filter: hue-rotate(180deg) brightness(1.2);
+}
