@@ -15,7 +15,7 @@ export default async function Page() {
             {/* Grid de propiedades */}
             <div className="grid grid-cols-2">
                {
-                  propiedades.map(prop => <PropiedadCard key={prop.id} propiedad={prop} className="hover:shadow-2xl" />)
+                  propiedades.map(prop => <PropiedadCard key={prop.id} propiedad={prop} />)
                }
             </div>
          </div>
