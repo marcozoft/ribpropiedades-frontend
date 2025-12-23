@@ -10,9 +10,9 @@ type Props = {
 };
 
 const primaryMenuItems = [
-  { path: '/propiedades/pilar', text: 'PILAR' },
-  { path: '/emprendimientos', text: 'EMPRENDIMIENTOS' },
-  { path: '/propiedades', text: 'PROPIEDADES' },
+  { path: '/propiedades?localidad=pilar', text: 'PILAR' },
+  { path: '/emprendimientos',             text: 'EMPRENDIMIENTOS' },
+  { path: '/propiedades',                 text: 'PROPIEDADES' },
 ];
 
 export const MobileMenu = ({ isOpen, onClose }: Props) => {
