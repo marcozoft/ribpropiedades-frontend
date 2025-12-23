@@ -14,7 +14,7 @@ export const SeccionContactanos = () => {
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
           <h1 className="text-white text-6xl font-bold mb-6">Hacemos tu proyecto realidad</h1>
-          <LinkButton className={'bg-white text-foreground rounded-full font-semibold text-xl'} href={'contacto'} text="CONTACTANOS" />
+          <LinkButton className={'bg-white text-foreground font-semibold text-xl'} href={'contacto'} text="CONTACTANOS" />
         </div>
       </div>
     </section>

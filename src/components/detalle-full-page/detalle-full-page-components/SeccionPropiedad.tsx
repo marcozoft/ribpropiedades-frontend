@@ -20,7 +20,11 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
     mapa_longitud,
     sup_total,
     sup_terreno,
+    antiguedad
   } = propiedad;
+
+  console.log({antiguedad});
+  
 
   return (    
     <section id="descripcion" className="scroll-mt-33" >
@@ -38,7 +42,7 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
       <h2 className="font-bold text-black text-xl mt-8 mb-4"><span className="text-foreground">|&nbsp;</span>Detalles</h2>
 
         <div className="justify-center">
-          <div className="my-4 gap-2 flex overflow-hidden rounded-lg divide-x">
+          <div className="my-5 gap-2 flex overflow-hidden rounded-lg divide-x">
             {/* superficie total m2 */}
             <IndicadorNumerico 
               nombre='Sup. Total' 

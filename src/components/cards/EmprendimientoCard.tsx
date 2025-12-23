@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import { EmprendimientoBasico } from '@/src/interfaces'
-import { DescripcionCorta, FajaPromocional, IndicadorBarrio, NombreEmprendimiento } from './cards-components';
+import { DescripcionCorta, FajaPromocional, IndicadorBarrio, IndicadorNumerico, NombreEmprendimiento } from './cards-components';
 import { generateHrefEmprendimiento, generateSrcImage } from '@/src/utils';
 
 
@@ -33,7 +33,7 @@ export const EmprendimientoCard = ({
                </div>
                
                <div className="mt-4">
-                  {/* Descripcion */}
+                  {/* Nombre */}
                   <NombreEmprendimiento nombre={nombre} />
                </div>
 
@@ -41,6 +41,20 @@ export const EmprendimientoCard = ({
                   {/* Descripcion */}
                   <DescripcionCorta descripcion={descripcion_corta} />
                </div>
+
+               <div className="justify-center">
+                  <div className="mt-4 flex gap-2 overflow-hidden rounded-lg px-1 py-1 divide-x">
+
+                     {/* Cantidad de dormitorios */}
+                     <IndicadorNumerico 
+                        nombre='Inmuebles' 
+                        valor={5} 
+                        icono={<i className="flaticon-home-2 text-black"></i>}
+                     />
+
+                  </div>
+               </div>
+
             </div>
          </Link>
       </div>
