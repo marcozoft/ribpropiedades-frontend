@@ -1,8 +1,7 @@
-import { 
-  SeccionBuscador, 
+import {  
   SeccionComentarios, 
   SeccionContactanos, 
-  SeccionLanzamientos, 
+  SeccionBuscadorLanzamientos, 
   SeccionNosotros, 
   SeccionSeleccion, 
   SeccionServicios, 
@@ -15,8 +14,7 @@ export default function HomePage() {
   return(
    <>
     <SeccionVideo />
-    <SeccionBuscador />
-    <SeccionLanzamientos />
+    <SeccionBuscadorLanzamientos />
     <SeccionSeleccion />
     <SeccionNosotros />
     <SeccionServicios />

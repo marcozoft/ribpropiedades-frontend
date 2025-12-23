@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { LanzamientoSlider } from "@/src/interfaces";
-import { CarouselDetalle } from './CarouselDetalle';
+import { CarouselLanzamientosSlide } from './CarouselLanzamientosSlide';
 
 type CarouselClientProps = {
   sliders: LanzamientoSlider[];
@@ -73,7 +73,7 @@ export const CarouselLanzamientos = ({ sliders }: CarouselClientProps) => {
               style={{ transform: `translateX(-${current * 100}%)` }}
             >
               {sliders.map((slider, i) => (
-                <CarouselDetalle
+                <CarouselLanzamientosSlide
                   key={i}
                   i={i}
                   index={current}

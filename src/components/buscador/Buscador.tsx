@@ -1,5 +1,6 @@
 import Form from "next/form"
 import { ItemFilter } from "@/src/interfaces/FiltrosResponse";
+import Image from "next/image";
 
 type Props = {
    localidades: ItemFilter[];
@@ -35,10 +36,19 @@ export const Buscador = ({localidades, operaciones, tipos_inmueble}: Props) => {
                </select>
             </div>
 
-            <div className="border-1 rounded my-5 border-background hover:border-foreground mr-10 flex-none bg-foreground">
-               <button className="cursor-pointer pt-2 mx-2" type="submit">
-                  <i className="flaticon-loupe text-white text-2xl" />
-               </button>
+            <div className="flex">
+               <div className="border-1 rounded my-5 cursor-pointer border-background hover:border-foreground flex-none bg-foreground">
+                  <button className="cursor-pointer mt-2 mx-3" type="submit">
+                     <i className="flaticon-loupe text-white text-2xl" />
+                  </button>
+               </div>
+
+               <div className="border-1 rounded my-5 border-background hover:border-foreground mr-10 flex-none cursor-pointer">
+                  <button className="cursor-pointer aspect-square">
+                     <Image src={'/images/buscador-ia.svg'} alt="Buscador IA" height={50} width={50}/>
+                  </button>
+               </div>
+
             </div>
 
          </div>

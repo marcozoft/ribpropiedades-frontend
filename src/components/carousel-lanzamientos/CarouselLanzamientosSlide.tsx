@@ -15,7 +15,7 @@ type Props = {
   i: number;
 }
 
-export const CarouselDetalle = ({ slider, totalLength, index, i }: Props) => {
+export const CarouselLanzamientosSlide = ({ slider, totalLength, index, i }: Props) => {
 
   const { titulo, subtitulo, url, texto } = slider;
 
