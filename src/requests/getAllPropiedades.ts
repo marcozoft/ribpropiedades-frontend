@@ -12,12 +12,14 @@ export const getAllPropiedades = async (searchParams?:SearchParams): Promise<Pro
       'destacadas' : searchParams?.destacadas || ''
    });
 
-   // console.log(`query params: ${queryParams}`);
-   
+      
    return fetch(`${API_URL}/propiedades?${queryParams}`, {
       headers: {
          'X-API-Key': API_KEY
       },
+      next: {
+         revalidate: 3600 //TODO: Ajustar para prod
+      }
 
    }).then(resp => resp.json())
 
