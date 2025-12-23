@@ -3,13 +3,12 @@ import { CarouselLanzamientos } from '..'
 import { getLanzamientos } from '@/src/requests'
 
 
-
 export const SeccionLanzamientos = async() => {
 
   const { sliders } = await getLanzamientos();
 
   return (
-    <section className='bg-foreground stripe-marca-morado px-4 py-8'>
+    <section className='bg-foreground stripe-marca-morado pt-30 py-8 h-[50vh] mb-60'>
         {/* overlay centrado con el título encima de la imagen */}
         <div className="flex flex-col items-center w-full justify-center px-4">
           <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-background">RIB Lanzamientos</h1>

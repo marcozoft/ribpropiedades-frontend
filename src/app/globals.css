@@ -30,7 +30,7 @@ body {
 
 /* Clase para colocar de prueba y ver los espacios y breakpoints */
 .debug {
-  @apply border-2 border-violet-950;
+  @apply border-2 border-red-500;
   
   @apply bg-blue-50;
   @apply sm:bg-blue-300;
