@@ -69,11 +69,11 @@ export const CarouselLanzamientosSlide = ({ slider, totalLength, index, i }: Pro
       }
       {/* <div className="flex grow-1"> */}
         <div className='bg-background text-black text-sm rounded p-5 flex-1'>
-          <span className={`${secondaryFont.className} text-foreground font-bold`}>{subtitulo}{`${isActiveSlide}`}</span>
+          <span className={`${secondaryFont.className} text-foreground font-bold`}>{subtitulo}</span>
           <h2 className="text-3xl font-bold py-5">{titulo}</h2>
           <p>{texto}</p>
           {
-            (!isYoutubeLink) &&  <RoundedButton href={url} text="Ver más" className="my-5" /> 
+            (!isYoutubeLink) &&  <RoundedButton href={url} text="VER MÁS" className="my-5" /> 
           }
         </div>
       {/* </div> */}
