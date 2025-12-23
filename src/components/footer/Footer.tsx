@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { secondaryFont } from '@/src/config/fonts'
 import '@/src/styles/icomoon/icomoon.css';
 import { TELEFONO_NUMERO, WHATSAPP_LINK } from '@/src/constants/constants';
-import { RoundedButton, SocialNetworks } from '@/src/components';
+import { LinkButton, SocialNetworks } from '@/src/components';
 
 
 export const Footer = () => {
@@ -18,7 +18,7 @@ export const Footer = () => {
                   <p className='text-foreground text-md'>Consultanos para asesorarte sobre tasaciones.</p>
                </div>
                <div className='px-5'>
-                  <RoundedButton text='WhatsApp' href={WHATSAPP_LINK} />
+                  <LinkButton text='WhatsApp' href={WHATSAPP_LINK} />
                </div>
             </div>
          </div>

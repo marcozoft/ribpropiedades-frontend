@@ -2,19 +2,20 @@ import { ReactElement } from "react";
 
 
 type IndicadorProps = {
+   className?: string;
    nombre:     string;
    valor:      number;
    unidad?:    string;
    icono:      ReactElement;
 }
 
-export const IndicadorNumerico = ({nombre, valor, unidad,icono}:IndicadorProps) => {
+export const IndicadorNumerico = ({nombre, valor, unidad, icono, className}:IndicadorProps) => {
       
    return valor === 0 ? null : (
-      <div className="text-black">
+      <div className={`text-black ${className} px-2`}>
          <div>
             <p className="flex items-center">
-               <span className="text-xs">
+               <span className="text-lg font-medium">
                   {valor}
                </span>
                &nbsp;

@@ -1,7 +1,7 @@
 import { secondaryFont } from "@/src/config/fonts";
 import { PropiedadDetalle } from "@/src/interfaces"
 import { DetallesGrid, YouTubeVideoCard, GoogleMapsCard } from '.';
-import { IndicadorPrecio } from "@/src/components";
+import { IndicadorNumerico, IndicadorPrecio } from "@/src/components";
 
 type SeccionPropiedadProps = {
   propiedad: PropiedadDetalle
@@ -18,6 +18,8 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
     video,
     mapa_latitud,
     mapa_longitud,
+    sup_total,
+    sup_terreno,
   } = propiedad;
 
   return (    
@@ -34,6 +36,27 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
 
       {/* Detalles enumerados */}
       <h2 className="font-bold text-black text-xl mt-8 mb-4"><span className="text-foreground">|&nbsp;</span>Detalles</h2>
+
+        <div className="justify-center">
+          <div className="my-4 gap-2 flex overflow-hidden rounded-lg divide-x">
+            {/* superficie total m2 */}
+            <IndicadorNumerico 
+              nombre='Sup. Total' 
+              valor={sup_total} 
+              icono={<i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>} 
+              unidad='m²'
+            />
+            {/* superficie terreno m2 */}
+            <IndicadorNumerico 
+              nombre='Sup. Terreno' 
+              valor={sup_terreno} 
+              icono={<i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>} 
+              unidad='m²'
+            />
+          </div>
+        </div>
+
+
         <DetallesGrid
           propiedad={ propiedad }
           detalles={[

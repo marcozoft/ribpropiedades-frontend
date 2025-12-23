@@ -67,7 +67,7 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
                   <TituloDeVenta tituloVenta={titulo_venta} />
                </div>
                <div className="justify-center">
-                  <div className="mt-4 flex gap-8 overflow-hidden rounded-lg px-1 py-1">
+                  <div className="mt-4 flex gap-2 overflow-hidden rounded-lg px-1 py-1 divide-x">
 
                      {/* Cantidad de dormitorios */}
                      <IndicadorNumerico 

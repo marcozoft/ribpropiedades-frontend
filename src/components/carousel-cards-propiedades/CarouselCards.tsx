@@ -74,7 +74,7 @@ export const CarouselCards = ({ propiedades }: Props) => {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`cursor-pointer w-3 h-3 rounded-full ${current === i ? "bg-foreground w-5 h-5" : "bg-foreground/50"}`}
+              className={`cursor-pointer w-2 h-2 rounded-full ${current === i ? "bg-foreground w-4 h-4" : "bg-foreground/50"}`}
             />
           ))}
         </div>

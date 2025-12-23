@@ -1,5 +1,5 @@
 import { secondaryFont } from "@/src/config/fonts";
-import { RoundedButton } from '@/src/components';
+import { LinkButton } from '@/src/components';
 import { LanzamientoSlider } from "@/src/interfaces";
 import { generateSrcImage, isYouTubeVideoUrl } from "@/src/utils";
 import Image from "next/image";
@@ -73,7 +73,7 @@ export const CarouselLanzamientosSlide = ({ slider, totalLength, index, i }: Pro
           <h2 className="text-3xl font-bold py-5">{titulo}</h2>
           <p>{texto}</p>
           {
-            (!isYoutubeLink) &&  <RoundedButton href={url} text="VER MÁS" className="my-5" /> 
+            (!isYoutubeLink) &&  <LinkButton href={url} text="VER MÁS" className="my-5" /> 
           }
         </div>
       {/* </div> */}

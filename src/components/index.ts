@@ -1,4 +1,3 @@
-
 export { IndicadorPrecio } from "./cards/cards-components";
 
 // UI components
@@ -8,6 +7,9 @@ export { Footer } from "./footer/Footer";
 
 // Propiedad card
 export { PropiedadCard } from "./cards/PropiedadCard";
+
+
+export { IndicadorNumerico } from "./cards/cards-components";
 
 // Detalle full page
 export { PropiedadFullPage } from "./detalle-full-page/PropiedadFullPage";
@@ -30,6 +32,6 @@ export { EmprendimientoFullPage } from "./detalle-full-page/EmprendimientoFullPa
 export { Buscador } from "./buscador/Buscador";
 
 
-export { RoundedButton } from "./ui/buttons/RoundedButton";
+export { LinkButton } from "./ui/buttons/LinkButton";
 export { ServicioCard } from "./ui/cards/ServicioCard";
 export { SocialNetworks } from "./ui/SocialNetworks";
