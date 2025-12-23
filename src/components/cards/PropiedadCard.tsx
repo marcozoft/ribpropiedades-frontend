@@ -34,7 +34,7 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
                <div className="relative flex justify-center overflow-hidden rounded-xs">
 
                   {/* Imagen */}
-                  <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
+                  <div className="w-full aspect-video transform transition-transform duration-500 ease-in-out hover:scale-110">
                      <Image className="" src={generateSrcImage(imagen_principal)} width={950} height={534} alt={codigo} />
                   </div>
 
