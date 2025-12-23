@@ -1,5 +1,5 @@
 import { Imagen } from "@/src/interfaces"
-import { CarouselFullPage, RoundedButton } from "@/src/components";
+import { CarouselFullPage, LinkButton } from "@/src/components";
 
 type SeccionImagenesProps = {
   titulo: string;
@@ -14,7 +14,7 @@ export const SeccionImagenes = ({ imagenes, titulo, operacion }: SeccionImagenes
       <div className="hidden sm:flex sm:basis-1/4 bg-background items-center flex-col justify-center">
         <span className="hidden lg:flex bg-gray-600 text-white uppercase font-semibold text-lg py-0.4 px-2">{operacion}</span>
         <h1 className="text-2xl lg:text-4xl text-black font-semibold text-center m-5">{titulo}</h1>
-        <RoundedButton href={'#descripcion'} text="VER MÁS"/>
+        <LinkButton href={'#descripcion'} text="VER MÁS"/>
       </div>
     
       <div className='sm:basis-3/4'>

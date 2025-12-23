@@ -34,7 +34,7 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
                <div className="relative flex justify-center overflow-hidden rounded-xs">
 
                   {/* Imagen */}
-                  <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
+                  <div className="w-full aspect-video transform transition-transform duration-500 ease-in-out hover:scale-110">
                      <Image className="" src={generateSrcImage(imagen_principal)} width={950} height={534} alt={codigo} />
                   </div>
 
@@ -67,7 +67,7 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
                   <TituloDeVenta tituloVenta={titulo_venta} />
                </div>
                <div className="justify-center">
-                  <div className="mt-4 flex gap-8 overflow-hidden rounded-lg px-1 py-1">
+                  <div className="mt-4 flex gap-2 overflow-hidden rounded-lg px-1 py-1 divide-x">
 
                      {/* Cantidad de dormitorios */}
                      <IndicadorNumerico 

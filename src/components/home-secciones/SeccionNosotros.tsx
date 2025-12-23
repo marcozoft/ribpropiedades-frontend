@@ -1,4 +1,4 @@
-import { RoundedButton, YouTubeVideoCard } from '@/src/components';
+import { LinkButton, YouTubeVideoCard } from '@/src/components';
 import { getHomeContenido } from '@/src/requests';
 import { getYouTubeId } from '@/src/utils/media-src';
 
@@ -18,7 +18,7 @@ export const SeccionNosotros = async () => {
           <p className='text-black mb-2'>Nuestro servicio es personalizado, atendemos a cada cliente con profesionalismo, entendiendo sus necesidades 
             y dándole soluciones a su medida.
           </p>
-          <RoundedButton text='VER MÁS' href='/quienes-somos'/>
+          <LinkButton text='VER MÁS' href='/quienes-somos'/>
         </div>
       </div>
       

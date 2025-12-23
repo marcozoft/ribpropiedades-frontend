@@ -8,7 +8,7 @@ type Props = {
 }
 
 
-export const RoundedButton = ({ text, href, className }: Props) => {
+export const LinkButton = ({ text, href, className }: Props) => {
    return (
       <Link href={href}>
          <div className={`bg-foreground text-background inline-flex font-medium py-2 px-5 text-base ${className}`}>
