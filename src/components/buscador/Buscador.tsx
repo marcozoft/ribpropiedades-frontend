@@ -1,6 +1,10 @@
+'use client'
+
 import Form from "next/form"
 import { ItemFilter } from "@/src/interfaces/FiltrosResponse";
 import Image from "next/image";
+import Lottie from "lottie-react";
+import ribIaAnimation from "@/public/lotties/rib_ia_lottie.json";
 
 type Props = {
    localidades: ItemFilter[];
@@ -43,11 +47,21 @@ export const Buscador = ({localidades, operaciones, tipos_inmueble}: Props) => {
                   </button>
                </div>
 
+               
+               {/*
                <div className="border-1 rounded my-5 border-background hover:border-foreground mr-10 flex-none cursor-pointer">
                   <button className="cursor-pointer aspect-square">
                      <Image src={'/images/buscador-ia.svg'} alt="Buscador IA" height={50} width={50}/>
                   </button>
-               </div>
+               </div> 
+               */}
+
+               <Lottie 
+                  animationData={ribIaAnimation}
+                  loop={true}
+                  style={{ width: '95px', height: '95px' }}
+               />                  
+               
 
             </div>
 
