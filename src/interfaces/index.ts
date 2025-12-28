@@ -24,6 +24,7 @@ export type { LanzamientoSlider } from './LanzamientosResponse';
 // Fitros y buscador
 export type { FiltrosResponse} from './FiltrosResponse';
 export type { SearchParams } from './SearchParams';
+export type { ItemFilter } from './FiltrosResponse';
 
 // Imagenes
 export type { Imagen } from './Imagen';
