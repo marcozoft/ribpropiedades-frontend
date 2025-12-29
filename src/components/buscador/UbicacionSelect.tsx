@@ -26,8 +26,9 @@ export const UbicacionSelect = ({ zonas, emprendimientos }: Props) => {
     ...itemFilter
   }));
 
-  const emprendimientosItems: Item[] = emprendimientos.map((itemFilter) => ({
+  const emprendimientosItems: Item[] = emprendimientos.map(({ valor, ...itemFilter}) => ({
     type: 'emprendimiento',
+    valor: valor.toString(),
     ...itemFilter
   }));
 
@@ -35,6 +36,9 @@ export const UbicacionSelect = ({ zonas, emprendimientos }: Props) => {
   const [open, setOpen] = useState(false)
 
   const items = [...zonasItems, ...emprendimientosItems];
+
+  console.log({items});
+  
 
   return (
     
@@ -47,7 +51,7 @@ export const UbicacionSelect = ({ zonas, emprendimientos }: Props) => {
           className="w-[500px] justify-between"
         >
           {value
-            ? items.find((item) => item.label  === value)?.label
+            ? items.find((item) => item.valor  === value)?.label
             : "Buscar en zona"}
           <ChevronsUpDown className="opacity-50" />
         </Button>
@@ -64,6 +68,8 @@ export const UbicacionSelect = ({ zonas, emprendimientos }: Props) => {
                   key={item.valor}
                   value={item.valor}
                   onSelect={(currentValue) => {
+                    console.log(currentValue);
+                    
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                   }}
@@ -86,6 +92,8 @@ export const UbicacionSelect = ({ zonas, emprendimientos }: Props) => {
                   key={item.valor}
                   value={item.valor}
                   onSelect={(currentValue) => {
+                    console.log(currentValue);
+
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                   }}
