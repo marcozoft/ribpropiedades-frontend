@@ -34,37 +34,7 @@ export const UbicacionSelect = ({ zonas, emprendimientos }: Props) => {
   const [value, setValue] = useState("");
   const [open, setOpen] = useState(false)
 
-  const items = [...zonas, ...emprendimientosItems];
-
-  const onChange = (_event: SyntheticEvent<Element, Event>, value: Item | null) => {
-
-    console.log({ value });
-
-  }
-
-  // const frameworks = [
-  //   {
-  //     value: "next.js",
-  //     label: "Next.js",
-  //   },
-  //   {
-  //     value: "sveltekit",
-  //     label: "SvelteKit",
-  //   },
-  //   {
-  //     value: "nuxt.js",
-  //     label: "Nuxt.js",
-  //   },
-  //   {
-  //     value: "remix",
-  //     label: "Remix",
-  //   },
-  //   {
-  //     value: "astro",
-  //     label: "Astro",
-  //   },
-  // ]
-
+  const items = [...zonasItems, ...emprendimientosItems];
 
   return (
     
@@ -74,7 +44,7 @@ export const UbicacionSelect = ({ zonas, emprendimientos }: Props) => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[500px] justify-between"
         >
           {value
             ? items.find((item) => item.label  === value)?.label
@@ -82,17 +52,17 @@ export const UbicacionSelect = ({ zonas, emprendimientos }: Props) => {
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0 bg-background">
+      <PopoverContent className="w-[500px] p-0 bg-background">
         <Command>
           <CommandInput placeholder="Ubicación" className="h-9" />
           <CommandList>
             <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup heading={(<p>Clasificacion 1</p>)}>
               {/* <CommandSeparator /> */}
-              {items.slice(0, 4).map((item) => (
+              {zonasItems.map((item) => (
                 <CommandItem
                   key={item.valor}
-                  value={item.valor.toString()}
+                  value={item.valor}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
@@ -111,10 +81,10 @@ export const UbicacionSelect = ({ zonas, emprendimientos }: Props) => {
 
             <CommandGroup heading={(<p>Emprendimientos</p>)}>
               {/* <CommandSeparator /> */}
-              {items.slice(5, 17).map((item) => (
+              {emprendimientosItems.map((item) => (
                 <CommandItem
                   key={item.valor}
-                  value={item.valor.toString()}
+                  value={item.valor}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
