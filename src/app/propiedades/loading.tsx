@@ -1,4 +1,3 @@
-import { Buscador } from "@/src/components";
 import { SkeletonCard } from "@/src/components/skeletons/SkeletonCard";
 import { secondaryFont } from "@/src/config/fonts";
 

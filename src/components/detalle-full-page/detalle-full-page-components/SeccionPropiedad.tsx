@@ -21,10 +21,7 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
     sup_total,
     sup_terreno,
     antiguedad
-  } = propiedad;
-
-  console.log({antiguedad});
-  
+  } = propiedad;  
 
   return (    
     <section id="descripcion" className="scroll-mt-33" >

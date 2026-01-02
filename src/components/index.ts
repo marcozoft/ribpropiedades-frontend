@@ -29,9 +29,13 @@ export { EmprendimientoFullPage } from "./detalle-full-page/EmprendimientoFullPa
 
 
 // Buscador
-export { Buscador } from "./buscador/Buscador";
+export { FiltersBar } from "./filters/FiltersBar";
 
 
 export { LinkButton } from "./ui/buttons/LinkButton";
 export { ServicioCard } from "./ui/cards/ServicioCard";
 export { SocialNetworks } from "./ui/SocialNetworks";
+
+
+// Shadcn custom components
+export { Command, CommandDialog} from "./shadcn-components";

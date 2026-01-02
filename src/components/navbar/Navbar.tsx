@@ -13,7 +13,7 @@ export const Navbar = () => {
     <>
       <header className="top-0 z-50 bg-foreground sticky shadow-md">
         {/* <h1>hola mundo</h1> */}
-        <div className="max-w-6xl mx-auto px-4 flex items-center h-[90px] justify-between">
+        <div className="max-w-6xl mx-auto px-4 flex items-center h-20 justify-between">
           <Link href={'/'}>
             <Image
               className="flex"
@@ -29,7 +29,7 @@ export const Navbar = () => {
             {/* Botón hamburguesa */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="ml-4 p-2 bg-white rounded hover:bg-gray-100 transition-colors h-[40px] w-[40px] flex items-center justify-center"
+              className="ml-4 p-2 bg-white rounded hover:bg-gray-100 transition-colors h-10 w-10 flex items-center justify-center z-51"
               aria-label="Abrir menú"
             >
               <svg

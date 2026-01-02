@@ -1,8 +1,7 @@
-import { Buscador, PropiedadCard } from '@/src/components';
+import { FiltersBar, PropiedadCard } from '@/src/components';
 import { SearchParams } from "@/src/interfaces";
 import { secondaryFont } from "../../config/fonts";
 import { getAllPropiedades, getFilterItems } from '@/src/requests';
-import Loading from './loading';
 
 
 
@@ -17,25 +16,35 @@ export default async function Propiedades({
    const { filtros } = await getFilterItems();
 
    return (
-      <div className="bg-white">
-         <div className="bg-background">
-            <div className="max-w-6xl mx-auto px-4">
-               <Buscador {...filtros } />
+      <div className="bg-background">
+         {/* <div className="bg-background"> */}
+            <div className="max-w-6xl mx-auto sticky z-10 top-20 shadow-md">
+               <FiltersBar filterValues={filterValues} {...filtros } />
+            </div>
+
+            {/* <div className="max-w-6xl mx-auto sticky z-10 top-40 shadow-md">
+               <p>Hola mundo</p>
+            </div> */}
+
+            <div className="max-w-6xl mx-auto">
                <div className="py-10">
                   <h1 className="text-5xl text-black font-bold">
-                     Propiedades encontradas
+                     {propiedades.length} {filterValues.tipo_inmueble ?? 'propiedades'} en { filterValues.operacion }
                   </h1>
+                  {/* <pre className="text-xs bg-muted p-2 rounded">
+                     {JSON.stringify(filterValues, null, 2)}
+                  </pre> */}
                   <h2 className={`${secondaryFont.className} text-black text-lg mt-3`}>Listado &nbsp; &gt; &nbsp; Listado de propiedades</h2>
                </div>
+               <div className="max-w-6xl mx-auto px-4 pb-30 bg-background mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+                  {
+                     propiedades.map(prop => <PropiedadCard key={prop.id} propiedad={prop} className="hover:shadow-2xl" />)
+                  }
+               </div>
             </div>
-         </div>
+         {/* </div> */}
          
          {/* Grid de propiedades */}
-         <div className="max-w-6xl mx-auto px-4 pb-30 bg-white mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {
-               propiedades.map(prop => <PropiedadCard key={prop.id} propiedad={prop} className="hover:shadow-2xl" />)
-            }
-         </div>
       </div>
    );
 }

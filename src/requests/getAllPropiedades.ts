@@ -8,8 +8,7 @@ export const getAllPropiedades = async (searchParams?:SearchParams): Promise<Pro
 
    const queryParams = new URLSearchParams({
       'operacion': searchParams?.operacion || '',
-      'localidad': searchParams?.localidad || '',
-      'destacadas' : searchParams?.destacadas || ''
+      'zona': searchParams?.zona || '',
    });
 
       

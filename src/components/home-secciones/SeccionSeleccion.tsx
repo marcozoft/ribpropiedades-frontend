@@ -1,12 +1,10 @@
 import { secondaryFont } from "@/src/config/fonts"
 import { CarouselCards } from '@/src/components';
-import { getAllPropiedades } from "@/src/requests";
+import { getPropiedadesDestacadas } from "@/src/requests";
 
-// TODO: Armar carousel
 export const SeccionSeleccion = async () => {
 
-  const propiedadesSeleccion = await getAllPropiedades({destacadas:'1'});
-  
+  const propiedadesSeleccion = await getPropiedadesDestacadas();
   
   return (
     <section className="px-4 py-20">
