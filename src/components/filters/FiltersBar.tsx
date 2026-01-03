@@ -9,7 +9,7 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Button } from "../shadcn-components";
 import { redirect } from "next/navigation";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "../shadcn-components/ui/select";
-import { Filter, Search } from "lucide-react";
+import { Filter, Search, Trash, Trash2 } from "lucide-react";
 
 type Props = {
    zonas: ItemFilter[];
@@ -20,7 +20,6 @@ type Props = {
 }
 
 export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble, filterValues }: Props) => {
-
 
    // 1. Define your form.
    const form = useForm<SearchParams>({
@@ -150,6 +149,11 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
                   <Button variant="search" size="icon">
                      {/* <i className="flaticon-loupe text-white" /> */}
                      <Filter className="size-10"/>
+                  </Button>
+
+                  <Button variant="search" size="icon">
+                     {/* <i className="flaticon-loupe text-white" /> */}
+                     <Trash2 className="size-10"/>
                   </Button>
 
                   <Lottie
