@@ -20,11 +20,11 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
     mapa_longitud,
     sup_total,
     sup_terreno,
-    antiguedad
+    zona,
   } = propiedad;  
 
   return (    
-    <section id="descripcion" className="scroll-mt-33" >
+    <section id="descripcion" className="scroll-mt-28" >
       
       {/* Titulo, operacion y precio */}
       <div className="flex justify-between mb-8">
@@ -40,6 +40,14 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
 
         <div className="justify-center">
           <div className="my-5 gap-2 flex overflow-hidden rounded-lg divide-x">
+
+            {/* Zona/localidad */}
+            <IndicadorNumerico 
+              nombre={zona} 
+              icono={<i className="flaticon-pin text-black"></i>} 
+              unidad=''
+            />
+
             {/* superficie total m2 */}
             <IndicadorNumerico 
               nombre='Sup. Total' 

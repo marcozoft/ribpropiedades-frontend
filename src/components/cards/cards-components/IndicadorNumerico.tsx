@@ -4,7 +4,7 @@ import { ReactElement } from "react";
 type IndicadorProps = {
    className?: string;
    nombre:     string;
-   valor:      number;
+   valor?:     number;
    unidad?:    string;
    icono:      ReactElement;
 }
@@ -12,7 +12,7 @@ type IndicadorProps = {
 export const IndicadorNumerico = ({nombre, valor, unidad, icono, className}:IndicadorProps) => {
       
    return valor === 0 ? null : (
-      <div className={`text-black ${className} px-2`}>
+      <div className={`text-black ${className} px-2 py-1`}>
          <div>
             <p className="flex items-center">
                <span className="text-lg font-medium">
