@@ -5,7 +5,7 @@ import { Check, ChevronsUpDown } from "lucide-react";
 import { useState } from "react"
 import { Button, Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, Popover, PopoverContent, PopoverTrigger } from "@/src/components/shadcn-components";
 import { cn } from "@/src/utils";
-import { ControllerRenderProps } from "react-hook-form";
+import { UseFormSetValue } from "react-hook-form";
 
 interface Item {
   type: string;
@@ -17,10 +17,12 @@ interface Item {
 type Props = {
   zonas: ItemFilter[],
   emprendimientos: ItemFilter[],
-  field: ControllerRenderProps<SearchParams, "zona">,
+  setValue: UseFormSetValue<SearchParams>,
+  zonaValue: string,
+  emprendimientoValue: string,
 }
 
-export const UbicacionCommand = ({ zonas, emprendimientos, field }: Props) => {
+export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, emprendimientoValue }: Props) => {
 
   const zonasItems: Item[] = zonas.map((itemFilter) => ({
     type: 'zona',
@@ -33,10 +35,12 @@ export const UbicacionCommand = ({ zonas, emprendimientos, field }: Props) => {
     ...itemFilter
   }));
 
-  // const [value, setValue] = useState("");
-  const { value, onChange } = field;
   const [open, setOpen] = useState(false)
   const items = [...zonasItems, ...emprendimientosItems];
+  
+  // Determinar el valor actual mostrado
+  const currentValue = zonaValue || emprendimientoValue;
+  const currentItem = items.find((item) => item.valor === currentValue);
 
   
 
@@ -50,17 +54,14 @@ export const UbicacionCommand = ({ zonas, emprendimientos, field }: Props) => {
           aria-expanded={open}
           className="w-full justify-between"
         >
-          {value
-            ? items.find((item) => item.valor  === value)?.label
-            : "Buscar en zona"}
+          {currentValue
+            ? currentItem?.label
+            : "Buscar ubicación"}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[500px] p-0">
-        <Command 
-          value={value}
-          onValueChange={onChange}
-        >
+        <Command>
           <CommandInput placeholder="Ubicación" className="h-9" />
           <CommandList>
             <CommandEmpty>No framework found.</CommandEmpty>
@@ -71,9 +72,8 @@ export const UbicacionCommand = ({ zonas, emprendimientos, field }: Props) => {
                   key={item.valor}
                   value={item.valor}
                   onSelect={(currentValue) => {
-                    // console.log(currentValue);
-                    
-                    // setValue(currentValue === value ? "" : currentValue)
+                    setValue('zona', currentValue);
+                    setValue('emprendimiento', '');
                     setOpen(false)
                   }}
                 >
@@ -81,36 +81,34 @@ export const UbicacionCommand = ({ zonas, emprendimientos, field }: Props) => {
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === item.valor ? "opacity-100" : "opacity-0"
+                      zonaValue === item.valor ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem>
               ))}
             </CommandGroup>
 
-            {/* <CommandGroup heading={(<p>Emprendimientos</p>)}> */}
-              {/* <CommandSeparator /> */}
-              {/* {emprendimientosItems.map((item) => ( */}
-                {/* <CommandItem */}
-                  {/* key={item.valor} */}
-                  {/* value={item.valor} */}
-                  {/* onSelect={(currentValue) => { */}
-                    {/* console.log(currentValue); */}
-
-                    {/* setValue(currentValue === value ? "" : currentValue) */}
-                    {/* setOpen(false) */}
-                  {/* }} */}
-                {/* > */}
-                  {/* {item.label} */}
-                  {/* <Check */}
-                    {/* className={cn( */}
-                      {/* "ml-auto", */}
-                      {/* value === item.valor ? "opacity-100" : "opacity-0" */}
-                    {/* )} */}
-                  {/* /> */}
-                {/* </CommandItem> */}
-              {/* ))} */}
-            {/* </CommandGroup> */}
+            <CommandGroup heading={(<p>Emprendimientos</p>)}>
+              {emprendimientosItems.map((item) => (
+                <CommandItem
+                  key={item.valor}
+                  value={item.valor}
+                  onSelect={(currentValue) => {
+                    setValue('emprendimiento', currentValue);
+                    setValue('zona', '');
+                    setOpen(false)
+                  }}
+                >
+                  {item.label}
+                  <Check
+                    className={cn(
+                      "ml-auto",
+                      emprendimientoValue === item.valor ? "opacity-100" : "opacity-0"
+                    )}
+                  />
+                </CommandItem>
+              ))}
+            </CommandGroup>
 
 
           </CommandList>

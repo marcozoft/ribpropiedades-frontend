@@ -60,13 +60,13 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
          <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-4 items-center rounded h-20 bg-white z-20 gap-4 px-4">
                <div className="flex justify-center">
-                  {/* Zona */}
-                  <FormField
-                     control={form.control}
-                     name="zona"
-                     render={({ field }) => (
-                        <UbicacionCommand zonas={zonas} emprendimientos={zonas} field={field} />
-                     )}
+                  {/* Zona / Emprendimiento */}
+                  <UbicacionCommand 
+                     zonas={zonas} 
+                     emprendimientos={emprendimientos} 
+                     setValue={form.setValue}
+                     zonaValue={values.zona!}
+                     emprendimientoValue={values.emprendimiento!}
                   />
                </div>
                {/* operacion */}
