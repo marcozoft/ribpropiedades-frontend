@@ -24,9 +24,13 @@ export { YouTubeVideoCard } from "./detalle-full-page/detalle-full-page-componen
 export { Navbar} from "./navbar/Navbar";
 export { Footer } from "./footer/Footer";
 
-// Buscador
+// Buscador, filtros, ordenamiento
 export { FiltersBar } from "./filters/FiltersBar";
+export { FiltersPopover } from './filters/FiltersPopover';
+export { SortPopover } from './filters/SortPopover';
+
 export { TituloDescriptivo } from "./filters/TituloDescriptivo";
+export { UbicacionCommand } from './filters/UbicacionCommand';
 
 // Servicios
 export { LinkButton } from "./ui/buttons/LinkButton";
@@ -34,4 +38,24 @@ export { ServicioCard } from "./ui/cards/ServicioCard";
 export { SocialNetworks } from "./ui/SocialNetworks";
 
 // Shadcn custom components
-export { Command, CommandDialog} from "./shadcn-components";
+export {
+   Button,
+   Command, 
+   CommandDialog, 
+   Form, 
+   FormControl, 
+   FormDescription,
+   FormField,
+   FormItem,
+   FormLabel,
+   FormMessage,
+   Popover, 
+   PopoverContent,
+   PopoverTrigger,
+   Select, 
+   SelectContent, 
+   SelectGroup, 
+   SelectItem, 
+   SelectTrigger,
+   SelectValue,
+} from "./shadcn-components";

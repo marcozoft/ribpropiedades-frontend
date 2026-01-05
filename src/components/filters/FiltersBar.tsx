@@ -1,15 +1,12 @@
 'use client'
 
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { Form, FormField, Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue, Button, UbicacionCommand, FiltersPopover, SortPopover  } from "@/src/components";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
+import { Search, Trash2 } from "lucide-react";
 import Lottie from "lottie-react";
 import ribIaAnimation from "@/public/lotties/rib_ia_lottie.json";
-import { UbicacionCommand } from "./UbicacionCommand";
-import { useForm } from "react-hook-form";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../shadcn-components/ui/form";
-import { Button } from "../shadcn-components";
-import { redirect } from "next/navigation";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "../shadcn-components/ui/select";
-import { Filter, Search, Trash, Trash2 } from "lucide-react";
 
 type Props = {
    zonas: ItemFilter[];
@@ -20,6 +17,8 @@ type Props = {
 }
 
 export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble, filterValues }: Props) => {
+
+   const router = useRouter();
 
    // 1. Define your form.
    const form = useForm<SearchParams>({
@@ -46,7 +45,7 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
       
       console.log(params);
 
-      redirect(`/propiedades?${params}`);
+      router.push(`/propiedades?${params}`);
 
    }
 
@@ -65,18 +64,7 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
                      control={form.control}
                      name="zona"
                      render={({ field }) => (
-                        // <p></p>
                         <UbicacionCommand zonas={zonas} emprendimientos={zonas} field={field} />
-                        // <FormItem>
-                        //    <FormLabel>Zona</FormLabel>
-                        //    <FormControl>
-                        //       <Input placeholder="Zona..." {...field} />
-                        //    </FormControl>
-                        //    <FormDescription>
-                        //       This is your public display name.
-                        //    </FormDescription>
-                        //    <FormMessage />
-                        // </FormItem>
                      )}
                   />
                </div>
@@ -143,17 +131,17 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
                   
                   <Button variant="search" type="submit" size="icon">
                      {/* <i className="flaticon-loupe text-white" /> */}
-                     <Search className="size-10"/>
+                     <Search className="size-8"/>
                   </Button>
+
+                  <FiltersPopover />
+
+                  <SortPopover />
+
 
                   <Button variant="search" size="icon">
                      {/* <i className="flaticon-loupe text-white" /> */}
-                     <Filter className="size-10"/>
-                  </Button>
-
-                  <Button variant="search" size="icon">
-                     {/* <i className="flaticon-loupe text-white" /> */}
-                     <Trash2 className="size-10"/>
+                     <Trash2 className="size-8"/>
                   </Button>
 
                   <Lottie
