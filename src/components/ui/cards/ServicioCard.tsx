@@ -15,7 +15,7 @@ export const ServicioCard = ({titulo, descripcion, href, icon}:Props) => {
       <i className={`${icon} text-5xl`} />
       <p className='font-bold text-4xl text-foreground text-center items-center flex justify-center flex-1 p-2'>{titulo}</p>
       <p className={`text-black ${secondaryFont.className} text-xl text-center line-clamp-5 h-[9rem] my-5`}>{descripcion}</p>
-      <LinkButton className='rounded-full uppercase' href={href} text='Ver más'/>
+      <LinkButton href={href} text='VER MÁS'/>
     </div>
   )
 }

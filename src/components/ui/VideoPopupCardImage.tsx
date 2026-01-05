@@ -45,7 +45,7 @@ export const VideoPopupCardImage = ({ youtubeId, imageSrc }: Props) => {
 
          {/* Modal/Popup con el video */}
          <Dialog open={isOpen} onOpenChange={setIsOpen}>
-            <DialogContent className="max-w-5xl w-full p-0 bg-black border-none">
+            <DialogContent className="max-w-[80vw]! w-full p-0 bg-blacj rounded">
                <DialogTitle className="sr-only">Video RIB Propiedades</DialogTitle>
                <div className="relative w-full aspect-video">
                   {isOpen && (
