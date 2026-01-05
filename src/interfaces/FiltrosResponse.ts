@@ -6,12 +6,12 @@ export interface FiltrosResponse {
 export interface Filtros {
    operaciones:     ItemFilter[];
    tipos_inmueble:  ItemFilter[];
-   localidades:     ItemFilter[];
+   zonas:           ItemFilter[];
    emprendimientos: ItemFilter[];
    dormitorios:     ItemFilter[];
 }
 
 export interface ItemFilter {
-   valor: number;
+   valor: string;
    label: string;
 }

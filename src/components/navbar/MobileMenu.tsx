@@ -20,7 +20,7 @@ export const MobileMenu = ({ isOpen, onClose }: Props) => {
     <>
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black/50 z-60 transition-opacity duration-300 ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
@@ -28,7 +28,7 @@ export const MobileMenu = ({ isOpen, onClose }: Props) => {
 
       {/* Menu deslizable desde la derecha */}
       <div
-        className={`fixed top-0 right-0 h-full w-full md:w-96 bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed top-0 right-0 h-full w-full md:w-96 bg-white z-60 shadow-2xl transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
