@@ -22,6 +22,7 @@ export { CarouselCards } from "./carousel-cards-propiedades/CarouselCards";
 
 // Componentes reutilizables
 export { YouTubeVideoCard } from "./detalle-full-page/detalle-full-page-components";
+export { VideoPopupCardImage } from './ui/VideoPopupCardImage';
 export { Navbar} from "./navbar/Navbar";
 export { Footer } from "./footer/Footer";
 

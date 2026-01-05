@@ -1,30 +1,31 @@
-import { LinkButton, YouTubeVideoCard } from '@/src/components';
+import { LinkButton, VideoPopupCardImage } from '@/src/components';
 import { getHomeContenido } from '@/src/requests';
 import { getYouTubeId } from '@/src/utils/media-src';
+
 
 export const SeccionNosotros = async () => {
 
   const { video_nosotros } =  (await getHomeContenido()).contenido
 
-  const youtubId = getYouTubeId(video_nosotros);
+  const youtubeId = getYouTubeId(video_nosotros);
 
   return (
     <section className='max-w-6xl mx-auto px-4 py-10'>
-      <div className='grid grid-cols md:grid-cols-2 md:gap-10 my-4'>
-        <h1 className='text-3xl sm:text-4xl md:text-5xl text-black'>
-          <span className='font-bold'>RIB, </span>haciendo la casa de tus sueños <span className='text-foreground font-bold'>una realidad.</span>
-        </h1>
-        <div className=''>
-          <p className='text-black mb-2'>Nuestro servicio es personalizado, atendemos a cada cliente con profesionalismo, entendiendo sus necesidades 
+      <div className='grid grid-cols-2 gap-5 my-4'>
+        <div className='col-span-1'>
+          <span className="bg-foreground text-white px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wider">
+            Nosotros
+          </span>
+          <h1 className='text-4xl text-black mt-4'>
+            <span className='font-bold'>RIB, </span>haciendo la <br /> casa de tus sueños <br /><span className='text-foreground font-bold'>una realidad.</span>
+          </h1>
+          <p className='text-black mt-4 pr-35'>Nuestro servicio es personalizado, atendemos a cada cliente con profesionalismo, entendiendo sus necesidades
             y dándole soluciones a su medida.
           </p>
-          <LinkButton text='VER MÁS' href='/quienes-somos'/>
+          <LinkButton href='/quienes-somos' text='VER MÁS' className='my-4'/>
         </div>
-      </div>
-      
-      <div className='flex justify-center max-w-6xl mx-auto'>
-        <div className="rounded-xs">
-          <YouTubeVideoCard width={720} youTubeId={youtubId!}/>
+        <div className='col-span-1'>
+          <VideoPopupCardImage youtubeId={youtubeId!} imageSrc='/images/home-video-nosotros.jpg' />
         </div>
       </div>
     </section>
