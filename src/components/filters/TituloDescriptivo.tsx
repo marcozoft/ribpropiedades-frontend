@@ -7,7 +7,7 @@ type Props = {
 export const TituloDescriptivo = ({ filterValues, length }: Props) => {
    return (
       <h1 className="text-5xl text-black font-bold">
-         {length} {filterValues.tipo_inmueble ?? 'propiedades'} en {filterValues.operacion}
+         {length} {filterValues.tipo_inmueble ?? 'propiedades'} en {filterValues.operacion} en {filterValues.zona}
       </h1>
    )
 }

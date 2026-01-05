@@ -6,6 +6,7 @@ export { SkeletonFilterBar } from "./skeletons/SkeletonFilterBar";
 export { PropiedadCard } from "./cards/PropiedadCard";
 export { IndicadorNumerico } from "./cards/cards-components";
 export { IndicadorPrecio } from "./cards/cards-components";
+export { SinResultados } from "./cards/SinResultados";
 
 // Emprendimientos card
 export { EmprendimientoCard } from "./cards/EmprendimientoCard";

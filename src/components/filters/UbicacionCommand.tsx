@@ -2,10 +2,9 @@
 
 import { ItemFilter, SearchParams } from "@/src/interfaces"
 import { Check, ChevronsUpDown } from "lucide-react";
-import { SyntheticEvent, useState } from "react"
+import { useState } from "react"
 import { Button, Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, Popover, PopoverContent, PopoverTrigger } from "@/src/components/shadcn-components";
 import { cn } from "@/src/utils";
-import { CommandSeparator } from "cmdk";
 import { ControllerRenderProps } from "react-hook-form";
 
 interface Item {

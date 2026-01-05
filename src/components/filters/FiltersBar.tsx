@@ -14,9 +14,10 @@ type Props = {
    emprendimientos: ItemFilter[];
    tipos_inmueble: ItemFilter[];
    filterValues: SearchParams;
+   allControls?: boolean;
 }
 
-export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble, filterValues }: Props) => {
+export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble, filterValues, allControls = false }: Props) => {
 
    const router = useRouter();
 
@@ -123,27 +124,29 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
                </div>
 
                <div className="flex justify-center items-center gap-2">
-                  {/* <div className="rounded cursor-pointer bg-foreground h-14"> */}
-                     {/* <button className="cursor-pointer mt-2 mx-3" type="submit">
-                        <i className="flaticon-loupe text-white" />
-                     </button> */}
-                  {/* </div> */}
                   
+                  {/* Boton lupa: siempre aparece */}
                   <Button variant="search" type="submit" size="icon">
-                     {/* <i className="flaticon-loupe text-white" /> */}
                      <Search className="size-8"/>
                   </Button>
+                  
+                  {/* Controles opcionales, solo para paginado y filtros */}
+                  { 
+                     allControls && (
+                        <>
 
-                  <FiltersPopover />
+                           {/* filtros y ordenamiento */}
+                           <FiltersPopover />
+                           <SortPopover />
+                           <Button variant="search" size="icon">
+                              {/* <i className="flaticon-loupe text-white" /> */}
+                              <Trash2 className="size-8"/>
+                           </Button>
+                        </>
+                     )
+                  } 
 
-                  <SortPopover />
-
-
-                  <Button variant="search" size="icon">
-                     {/* <i className="flaticon-loupe text-white" /> */}
-                     <Trash2 className="size-8"/>
-                  </Button>
-
+                  {/* Busqueda con IA */}
                   <Lottie
                      className="h-18 w-18 items-center"
                      animationData={ribIaAnimation}
