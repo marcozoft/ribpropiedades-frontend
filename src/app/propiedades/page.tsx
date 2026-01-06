@@ -1,6 +1,5 @@
 import { FiltersBar, PropiedadCard, SinResultados } from '@/src/components';
 import { SearchParams } from "@/src/interfaces";
-import { secondaryFont } from "../../config/fonts";
 import { getAllPropiedades, getFilterItems } from '@/src/requests';
 import { TituloDescriptivo } from '@/src/components/filters/TituloDescriptivo';
 

@@ -9,6 +9,7 @@ export const getAllPropiedades = async (searchParams?:SearchParams): Promise<Pro
    const queryParams = new URLSearchParams({
       'operacion': searchParams?.operacion || '',
       'zona': searchParams?.zona || '',
+      'tipo_inmueble': searchParams?.tipo_inmueble || ''
    });
 
       
