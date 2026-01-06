@@ -2,12 +2,16 @@ import { Filter } from "lucide-react";
 import { Button, Input, Label, Popover, PopoverContent, PopoverTrigger } from "../shadcn-components";
 import { Select } from "@radix-ui/react-select";
 
+type Props = {
+   disabled?: boolean;
 
-export function FiltersPopover() {
+}
+
+export function FiltersPopover({disabled}: Props) {
    return (
       <>
          <Popover>
-            <PopoverTrigger asChild>
+            <PopoverTrigger asChild disabled={disabled}>
                <Button variant="search" size="icon">
                   <Filter className="size-8"/>
                </Button>

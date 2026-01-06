@@ -20,9 +20,10 @@ type Props = {
   setValue: UseFormSetValue<SearchParams>,
   zonaValue: string,
   emprendimientoValue: string,
+  disabled?: boolean
 }
 
-export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, emprendimientoValue }: Props) => {
+export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, emprendimientoValue, disabled = false }: Props) => {
 
   const zonasItems: Item[] = zonas.map((itemFilter) => ({
     type: 'zona',
@@ -47,7 +48,7 @@ export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, 
   return (
     
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
+      <PopoverTrigger asChild disabled={disabled}>
         <Button
           variant="outline"
           role="combobox"

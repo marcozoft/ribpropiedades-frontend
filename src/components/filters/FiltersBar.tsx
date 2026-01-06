@@ -2,10 +2,10 @@
 
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 import { Form, FormField, Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue, Button, UbicacionCommand, FiltersPopover, SortPopover  } from "@/src/components";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
-import { Search, Trash2 } from "lucide-react";
+import { Search, Trash2, Loader2 } from "lucide-react";
 import Lottie from "lottie-react";
 import ribIaAnimation from "@/public/lotties/rib_ia_lottie.json";
 
@@ -21,6 +21,7 @@ type Props = {
 export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble, filterValues, allControls = false }: Props) => {
 
    const router = useRouter();
+   const [isPending, startTransition] = useTransition();
    const [iaModeActive, setIaModeActive] = useState(false);
    const [iaSearchQuery, setIaSearchQuery] = useState("");
    const [placeholderText, setPlaceholderText] = useState("");
@@ -64,33 +65,55 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
       setPlaceholderText("");
    };
 
-   // 1. Define your form.
-   const form = useForm<SearchParams>({
-      defaultValues: {
+   const form = useForm<SearchParams>();
+   const values = form.watch();
+
+   /**
+    *  Actualizar formulario cuando cambian los filterValues 
+    *  (ej: navegación con botón atrás)
+    */
+   useEffect(() => {
+      form.reset({
          zona: filterValues.zona ?? "",
          emprendimiento: filterValues.emprendimiento ?? "",
          operacion: filterValues.operacion ?? "",
          tipo_inmueble: filterValues.tipo_inmueble ?? "",
-      },
-   })
+         orden: filterValues.orden ?? "",
+         ambientes: filterValues.ambientes ?? "",
+      });
+   }, [filterValues, form]);
 
-   const values = form.watch();
 
-   // 2. Define a submit handler.
-   function onSubmit(values: SearchParams) {
-
-      console.log({ values });
+   /**
+    * Enviar formulario
+    * Toma los datos del hook 
+    */
+   function onSubmit(valuesForm?: SearchParams) {
       
+      // Filter null and empty
       const params = new URLSearchParams(
          Object.entries(values)
          .filter(([_, v]) => v !== "" && v != null)
          .map(([k, v]) => [k, String(v)])
       ).toString()
       
-      console.log(params);
+      startTransition(() => {
+         router.push(`/propiedades?${params}`);
+      });
+   }
 
-      router.push(`/propiedades?${params}`);
-
+   /**
+    * Limpiar busqueda y recargar
+    */
+   const onClickClear = () =>{
+      const defaultValues = {
+         zona: "",
+         emprendimiento: "",
+         operacion: "",
+         tipo_inmueble: "",
+      };
+      form.reset(defaultValues);
+      onSubmit();
    }
 
    return (
@@ -98,7 +121,7 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
 
          {/* <pre className="text-xs bg-muted p-2 rounded">
             {JSON.stringify(values, null, 2)}
-         </pre>  */}
+         // </pre>  */}
 
          <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-12 items-center rounded h-20 bg-white z-20 gap-4 px-2">
@@ -109,15 +132,18 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
                      {!allControls && <div className="hidden md:block md:col-span-1"></div>}
                      
                      <div className={`flex justify-center ${!allControls ? 'md:col-span-3' : 'md:col-span-3'}`}>
+                        
                         {/* Zona / Emprendimiento */}
                         <UbicacionCommand 
-                           zonas={zonas} 
+                           zonas={zonas}
                            emprendimientos={emprendimientos} 
                            setValue={form.setValue}
                            zonaValue={values.zona!}
                            emprendimientoValue={values.emprendimiento!}
+                           disabled={isPending}
                         />
                      </div>
+
                      {/* operacion */}
                      <div className="flex justify-center md:col-span-3">
                         <FormField
@@ -128,6 +154,7 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
                                  name={field.name}
                                  value={field.value}
                                  onValueChange={field.onChange}
+                                 disabled={isPending}
                               >
                                  <SelectTrigger className="w-full">
                                     <SelectValue placeholder="Operacion" />
@@ -155,6 +182,7 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
                                  name={field.name}
                                  value={field.value}
                                  onValueChange={field.onChange}
+                                 disabled={isPending}
                               >
                                  <SelectTrigger className="w-full">
                                     <SelectValue placeholder="Tipo de inmueble" />
@@ -199,19 +227,23 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
                      variant="search" 
                      type="submit" 
                      size="icon"
+                     disabled={isPending}
                   >
-                     <Search className="size-8"/>
+                     {isPending ? (
+                        <Loader2 className="size-8 animate-spin"/>
+                     ) : (
+                        <Search className="size-8"/>
+                     )}
                   </Button>
                   
                   {/* Controles opcionales, solo para paginado y filtros */}
                   { 
                      allControls && !iaModeActive && (
                         <>
-
                            {/* filtros y ordenamiento */}
-                           <FiltersPopover />
-                           <SortPopover />
-                           <Button variant="search" size="icon">
+                           <FiltersPopover disabled={isPending}/>
+                           <SortPopover disabled={isPending} />
+                           <Button variant="search" size="icon" onClick={ onClickClear } disabled={isPending}>
                               {/* <i className="flaticon-loupe text-white" /> */}
                               <Trash2 className="size-8"/>
                            </Button>

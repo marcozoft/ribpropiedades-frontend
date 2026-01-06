@@ -4,15 +4,18 @@ import { ArrowDownUp } from "lucide-react";
 import { Button, Label, Popover, PopoverContent, PopoverTrigger } from "../shadcn-components";
 import { useState } from "react";
 
+type Props = {
+   disabled?: boolean,
+}
 
-export function SortPopover() {
+export function SortPopover({disabled}: Props) {
 
    const [open, setOpen] = useState(false)
 
    return (
       <>
          <Popover>
-            <PopoverTrigger asChild>
+            <PopoverTrigger asChild disabled={disabled} >
                <Button variant="search" size="icon">
                   <ArrowDownUp className="size-8" />
                </Button>
