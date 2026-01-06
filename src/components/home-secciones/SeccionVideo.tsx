@@ -22,7 +22,7 @@ export const SeccionVideo = () => {
             style={{ pointerEvents: 'none' }}
             onLoad={() => {
               // Dar tiempo para que el video comience a reproducirse
-              setTimeout(() => setIsVideoLoaded(true), 2000)
+              setTimeout(() => setIsVideoLoaded(true), 1000)
             }}
           ></iframe>
 

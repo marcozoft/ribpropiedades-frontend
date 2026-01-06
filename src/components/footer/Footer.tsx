@@ -62,12 +62,20 @@ export const Footer = () => {
                </div>
 
             </div>
-
+            
          </div>
          <div className="bg-white/11 py-5">
-            <div className='flex max-w-6xl text-white mx-auto justify-between'>
-               <p className={`${secondaryFont.className} text-sm`}>Osvaldo Sobico - Matrícula: CSI 5901 - Maria Julieta Rozas Martillera y Corredora Pública CUCIBA Matricula: 7490</p>
-               <p className={`${secondaryFont.className} text-sm text-white`}>MARCOZOFT 2025</p>
+            
+            <div className='text-white mx-auto justify-between gap-6 max-w-6xl px-5 md:flex-row text-center'>
+               <div className={`${secondaryFont.className} text-sm`}>Osvaldo Sobico - Matrícula: CSI 5901 - Maria Julieta Rozas Martillera y Corredora Pública CUCIBA Matricula: 7490</div>               
+               <br/>
+               <div className={`${secondaryFont.className} text-sm text-white`}>
+                  <iframe
+                     src="https://marcosoft.com.ar/firma/firma-tres70-dark.html?embed=true"
+                     width="100%"
+                     height="50">
+                  </iframe>
+               </div>
             </div>
          </div>
 

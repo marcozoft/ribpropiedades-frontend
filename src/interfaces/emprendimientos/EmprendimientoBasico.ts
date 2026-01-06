@@ -9,6 +9,7 @@ export interface EmprendimientoBasico {
     localidad:                 string;
     imagen:                    string;
     logo:                      string;
+    cantidad_propiedades:      number;  
     destacado:                 number;
     orden_destacado:           number;
 }

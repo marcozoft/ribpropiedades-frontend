@@ -21,10 +21,7 @@ export default async function Propiedades({
          </div>
 
          <div className='bg-background pt-30 pb-20'>
-            <div className="max-w-6xl mx-auto sticky top-40">
-               <TituloDescriptivo filterValues={filterValues} length={propiedades.length} />
-               <h2 className={`${secondaryFont.className} text-black text-lg mt-3`}>Listado &nbsp; &gt; &nbsp; Listado de propiedades</h2>
-            </div>
+            <TituloDescriptivo filterValues={filterValues} length={propiedades.length} />
          </div>
 
          {/* Grid de propiedades */}
