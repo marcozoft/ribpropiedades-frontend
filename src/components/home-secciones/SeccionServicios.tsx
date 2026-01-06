@@ -59,7 +59,7 @@ export const SeccionServicios = () => {
             <span className="bg-foreground text-white px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wider mb-4">
                Servicios
             </span>
-            <h2 className="font-bold text-3xl sm:text-4xl md:text-6xl text-foreground text-center mb-10">Nuestros Servicios</h2>
+            <h2 className="font-bold text-4xl sm:text-4xl md:text-5xl text-foreground text-center mb-10">Nuestros Servicios</h2>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 pt-5">
                {
                   servicios.map(servicio => (<ServicioCard key={servicio.titulo} {...servicio} />))

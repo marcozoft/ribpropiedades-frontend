@@ -11,7 +11,7 @@ export const IndicadorPrecio = ({ precio, moneda, precio_condicion, sinEspecific
    return (
       <p className={`text-primary text-2xl mt-2 inline-block whitespace-nowrap font-bold leading-tight ${className}`}>
          {
-            precio_condicion == 1 ?  `${moneda} ${precio.toLocaleString()}` : `${sinEspecificar}`
+            precio_condicion == 1 ?  `${moneda} ${precio.toLocaleString("es-AR")}` : `${sinEspecificar}`
          }
       </p>
    )

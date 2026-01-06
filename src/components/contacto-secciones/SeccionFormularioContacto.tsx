@@ -3,6 +3,7 @@
 import { EMAIL, EMAIL_LINK, WHATSAPP_LINK } from '@/src/constants/constants';
 import Link from 'next/link';
 import { useState } from 'react';
+import { LinkButton } from '../ui/buttons/LinkButton';
 
 interface FormData {
   nombre: string;
@@ -91,15 +92,7 @@ export const SeccionFormularioContacto = () => {
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Móvil</h3>
                 <p className="text-gray-600">(54911) 3420 1500</p>
-                <Link
-                  href={WHATSAPP_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-3 bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors duration-300 font-semibold"
-                >
-                  <i className="flaticon-chat text-xl"></i>
-                  <span>Contactar por WhatsApp</span>
-                </Link>
+                <LinkButton text='Contactar por WhatsApp' href={WHATSAPP_LINK} />
               </div>
 
               <div>

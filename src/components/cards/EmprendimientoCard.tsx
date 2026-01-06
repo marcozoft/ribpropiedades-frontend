@@ -12,6 +12,7 @@ export const EmprendimientoCard = ({
    id,
    descripcion_corta,
    zona,
+   cantidad_propiedades
 }: EmprendimientoBasico) => {
 
    return (
@@ -48,7 +49,7 @@ export const EmprendimientoCard = ({
                      {/* Cantidad de dormitorios */}
                      <IndicadorNumerico 
                         nombre='Inmuebles' 
-                        valor={5} 
+                        valor={cantidad_propiedades} 
                         icono={<i className="flaticon-home-2 text-black"></i>}
                      />
 

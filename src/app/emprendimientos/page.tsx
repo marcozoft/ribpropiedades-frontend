@@ -21,7 +21,7 @@ export default async function Emprendimientos({
                   <h1 className="text-5xl text-black font-bold">
                      Emprendimientos encontrados
                   </h1>
-                  <h2 className={`${secondaryFont.className} text-black text-lg mt-3`}>Listado &nbsp; &gt; &nbsp; Listado de emprendimientos</h2>
+                  {/* <h2 className={`${secondaryFont.className} text-black text-lg mt-3`}>Listado &nbsp; &gt; &nbsp; Listado de emprendimientos</h2> */}
                </div>
             </div>
          </div>
