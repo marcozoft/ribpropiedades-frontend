@@ -10,7 +10,7 @@ type Props = {
 };
 
 const primaryMenuItems = [
-  { path: '/propiedades?localidad=pilar', text: 'PILAR' },
+  { path: '/propiedades?zona=Pilar',      text: 'PILAR' },
   { path: '/emprendimientos',             text: 'EMPRENDIMIENTOS' },
   { path: '/propiedades',                 text: 'PROPIEDADES' },
 ];

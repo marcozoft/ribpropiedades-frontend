@@ -65,7 +65,6 @@ export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, 
         <Command>
           <CommandInput placeholder="Ubicación" className="h-9" />
           <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup heading={(<p>Zona</p>)}>
               {/* <CommandSeparator /> */}
               {zonasItems.map((item) => (
