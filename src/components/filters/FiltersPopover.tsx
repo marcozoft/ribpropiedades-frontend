@@ -5,7 +5,6 @@ import { Button, Checkbox, FormField, FormItem, FormLabel, FormControl, Popover,
 import { useState } from "react";
 import { Control } from "react-hook-form";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
-import { con_piscinaItem, con_dos_plantasItem, con_dos_cocherasItem, con_dormitorio_suiteItem } from '../../constants/form-constants';
 
 type Props = {
    control: Control<SearchParams>,

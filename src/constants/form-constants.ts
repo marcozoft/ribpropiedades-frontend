@@ -54,7 +54,7 @@ export const searchExamples = [
 ];
 
 // TODO: Debe venir en el endpoint getFilterItems();
-export const ambientes: ItemFilter[] = [
+export const ambientesItemFilters: ItemFilter[] = [
    {
       valor: '1',
       label: '1 ambiente'

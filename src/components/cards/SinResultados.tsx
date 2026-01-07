@@ -32,5 +32,5 @@ export const SinResultados = () => {
         </CardFooter>
       </Card>
     </div>
-  )  
+  )
 }

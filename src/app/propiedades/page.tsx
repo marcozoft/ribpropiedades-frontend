@@ -2,7 +2,7 @@ import { FiltersBar, PropiedadCard, SinResultados } from '@/src/components';
 import { SearchParams } from "@/src/interfaces";
 import { getAllPropiedades, getFilterItems } from '@/src/requests';
 import { TituloDescriptivo } from '@/src/components/filters/TituloDescriptivo';
-import { ambientes, ordenes, booleanFilters } from '@/src/constants/form-constants';
+import { ambientesItemFilters, ordenes, booleanFilters } from '@/src/constants/form-constants';
 
 export default async function Propiedades({
    searchParams
@@ -24,9 +24,10 @@ export default async function Propiedades({
             <TituloDescriptivo
                filterValues={filterValues}
                length={propiedades.length}
-               ambientes={ambientes}
+               ambientesItemFilters={ambientesItemFilters}
                ordenes={ordenes}
                booleansFilters={booleanFilters}
+               dormitoriosItemFilters={filtros.dormitorios}
                {...filtros}
             />
          </div>

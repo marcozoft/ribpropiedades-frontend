@@ -8,7 +8,7 @@ import { ItemFilter, SearchParams } from "@/src/interfaces";
 import { Search, Trash2, Loader2 } from "lucide-react";
 import Lottie from "lottie-react";
 import ribIaAnimation from "@/public/lotties/rib_ia_lottie.json";
-import { ambientes, searchExamples, ordenes, con_piscinaItem, con_dos_cocherasItem, con_dormitorio_suiteItem, con_dos_plantasItem } from "@/src/constants/form-constants";
+import { ambientesItemFilters, searchExamples, ordenes, con_piscinaItem, con_dos_cocherasItem, con_dormitorio_suiteItem, con_dos_plantasItem } from "@/src/constants/form-constants";
 import { filterSearchParams } from "@/src/utils";
 
 type Props = {
@@ -246,7 +246,7 @@ export const FiltersBar = ({
                               control={form.control}
                               onSubmit={onSubmit}
                               dormitorios={dormitorios}
-                              ambientes={ambientes}
+                              ambientes={ambientesItemFilters}
                               con_piscinaItem={con_piscinaItem}
                               con_dos_plantasItem={con_dos_plantasItem}
                               con_dos_cocherasItem={con_dos_cocherasItem}
@@ -290,10 +290,7 @@ export const FiltersBar = ({
                         loop={true}
                      />
                   </button>
-
                </div>
-
-
             </form>
          </Form>
       </>
