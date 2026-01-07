@@ -8,6 +8,8 @@ import { ItemFilter, SearchParams } from "@/src/interfaces";
 import { Search, Trash2, Loader2 } from "lucide-react";
 import Lottie from "lottie-react";
 import ribIaAnimation from "@/public/lotties/rib_ia_lottie.json";
+import { ambientesItemFilters, searchExamples, ordenes, con_piscinaItem, con_dos_cocherasItem, con_dormitorio_suiteItem, con_dos_plantasItem } from "@/src/constants/form-constants";
+import { filterSearchParams } from "@/src/utils";
 
 type Props = {
    zonas: ItemFilter[];
@@ -36,51 +38,8 @@ export const FiltersBar = ({
    const [placeholderText, setPlaceholderText] = useState("");
    const [currentExampleIndex, setCurrentExampleIndex] = useState(0);
 
-   const searchExamples = [
-      "casa de 5 dormitorios",
-      "departamento con 2 baños",
-      "casa en alquiler cercana al golf",
-      "departamento en venta en Belgrano",
-      "casa con pileta y jardín",
-      "oficina en microcentro"
-   ];
-
-   // TODO: Debe venir en el endpoint getFilterItems();
-   const ambientes: ItemFilter[] = [
-      {
-         valor: '1',
-         label: '1 ambiente'
-      },
-      {
-         valor: '2',
-         label: '2 ambientes'
-      },
-      {
-         valor: '3',
-         label: '3 ambientes'
-      },
-      {
-         valor: '4',
-         label: '4 ambientes'
-      },
-      {
-         valor: '5',
-         label: '5 ambientes'
-      },
-      {
-         valor: '6',
-         label: '6 ambientes'
-      },
-      {
-         valor: '7',
-         label: '7 ambientes'
-      },
-      {
-         valor: '8',
-         label: '8 ambientes'
-      },
-   ]
-
+   const form = useForm<SearchParams>();
+   const values = form.watch();
 
    // Efecto para animación del placeholder
    useEffect(() => {
@@ -111,8 +70,7 @@ export const FiltersBar = ({
       setPlaceholderText("");
    };
 
-   const form = useForm<SearchParams>();
-   const values = form.watch();
+
 
    /**
     *  Actualizar formulario cuando cambian los filterValues 
@@ -127,6 +85,9 @@ export const FiltersBar = ({
          orden: filterValues.orden ?? "",
          ambientes: filterValues.ambientes ?? "",
          dormitorios: filterValues.dormitorios ?? "",
+         con_piscina: filterValues.con_piscina ?? "",
+         con_dos_plantas: filterValues.con_dos_plantas ?? "",
+         con_dormitorio_suite: filterValues.con_dormitorio_suite ?? "",
       });
    }, [filterValues, form]);
 
@@ -137,16 +98,12 @@ export const FiltersBar = ({
     */
    const onSubmit = (valuesForm?: SearchParams) => {
       
-      // Filter null and empty
-      const params = new URLSearchParams(
-         Object.entries(values)
-         .filter(([_, v]) => v !== "" && v != null)
-         .map(([k, v]) => [k, String(v)])
-      ).toString()
-      
+      const params = filterSearchParams(values);
+
       startTransition(() => {
          router.push(`/propiedades?${params}`);
       });
+
    }
 
    /**
@@ -289,12 +246,17 @@ export const FiltersBar = ({
                               control={form.control}
                               onSubmit={onSubmit}
                               dormitorios={dormitorios}
-                              ambientes={ambientes}
+                              ambientes={ambientesItemFilters}
+                              con_piscinaItem={con_piscinaItem}
+                              con_dos_plantasItem={con_dos_plantasItem}
+                              con_dos_cocherasItem={con_dos_cocherasItem}
+                              con_dormitorio_suiteItem={con_dormitorio_suiteItem}
                            />
 
                            {/* Ordenamiento */}
-                           <SortPopover 
-                              disabled={isPending} 
+                           <SortPopover
+                              ordenes={ordenes}
+                              disabled={isPending}
                               control={form.control}
                               onSubmit={onSubmit}
                            />
@@ -328,10 +290,7 @@ export const FiltersBar = ({
                         loop={true}
                      />
                   </button>
-
                </div>
-
-
             </form>
          </Form>
       </>

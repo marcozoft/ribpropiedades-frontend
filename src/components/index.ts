@@ -1,3 +1,4 @@
+import { ItemDescription } from '@/src/components';
 // Skeletons (loaders)
 export { SkeletonCard } from "./skeletons/SkeletonCard";
 export { SkeletonFilterBar } from "./skeletons/SkeletonFilterBar";
@@ -60,4 +61,11 @@ export {
    SelectItem, 
    SelectTrigger,
    SelectValue,
+   Item,
+   ItemContent,
+   ItemActions,
+   ItemMedia,
+   ItemTitle,
+   ItemDescription,
+   Checkbox,
 } from "./shadcn-components";

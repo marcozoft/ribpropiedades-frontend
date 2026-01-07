@@ -4,15 +4,16 @@ import { ArrowDownUp } from "lucide-react";
 import { Button, FormField, FormItem, FormLabel, FormControl, Popover, PopoverContent, PopoverTrigger, Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "../shadcn-components";
 import { useState } from "react";
 import { Control } from "react-hook-form";
-import { SearchParams } from "@/src/interfaces";
+import { ItemFilter, SearchParams } from "@/src/interfaces";
 
 type Props = {
    control: Control<SearchParams>,
    disabled?: boolean,
+   ordenes: ItemFilter[],
    onSubmit: () => void,
 }
 
-export function SortPopover({ control, disabled, onSubmit }: Props) {
+export function SortPopover({ control, disabled, ordenes, onSubmit }: Props) {
 
    const [open, setOpen] = useState(false)
 
@@ -42,7 +43,7 @@ export function SortPopover({ control, disabled, onSubmit }: Props) {
                   name="orden"
                   render={({ field }) => (
                      <FormItem className="grid grid-cols-3 items-center gap-4">
-                        <FormLabel className="text-right">Precio</FormLabel>
+                        <FormLabel className="text-right">Orden</FormLabel>
                         <FormControl>
                            <Select
                               value={field.value}
@@ -54,8 +55,11 @@ export function SortPopover({ control, disabled, onSubmit }: Props) {
                               </SelectTrigger>
                               <SelectContent>
                                  <SelectGroup>
-                                    <SelectItem key="precio_asc" value="precio_asc">Ascendente</SelectItem>
-                                    <SelectItem key="precio_desc" value="precio_desc">Descendiente</SelectItem>
+                                    {
+                                       ordenes.map(({valor, label}) =>
+                                          ( <SelectItem key={valor} value={valor}>{label}</SelectItem> )
+                                       )
+                                    }
                                  </SelectGroup>
                               </SelectContent>
                            </Select>
@@ -63,7 +67,7 @@ export function SortPopover({ control, disabled, onSubmit }: Props) {
                      </FormItem>
                   )}
                />
-               <Button variant="search" 
+               <Button variant="search"
                   onClick={onClickResultados}>VER RESULTADOS</Button>
             </div>
          </PopoverContent>

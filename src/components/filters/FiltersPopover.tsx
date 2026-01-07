@@ -1,7 +1,7 @@
 "use client";
 
 import { Filter } from "lucide-react";
-import { Button, FormField, FormItem, FormLabel, FormControl, Popover, PopoverContent, PopoverTrigger, Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "../shadcn-components";
+import { Button, Checkbox, FormField, FormItem, FormLabel, FormControl, Popover, PopoverContent, PopoverTrigger, Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "../shadcn-components";
 import { useState } from "react";
 import { Control } from "react-hook-form";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
@@ -11,10 +11,24 @@ type Props = {
    disabled?: boolean,
    dormitorios: ItemFilter[],
    ambientes: ItemFilter[],
+   con_piscinaItem: ItemFilter,
+   con_dos_plantasItem: ItemFilter,
+   con_dos_cocherasItem: ItemFilter,
+   con_dormitorio_suiteItem: ItemFilter,
    onSubmit: () => void,
 }
 
-export function FiltersPopover({ control, disabled, onSubmit, dormitorios, ambientes }: Props) {
+export function FiltersPopover({ 
+   control, 
+   disabled, 
+   onSubmit, 
+   dormitorios, 
+   ambientes, 
+   con_piscinaItem, 
+   con_dos_plantasItem, 
+   con_dos_cocherasItem, 
+   con_dormitorio_suiteItem,
+}: Props) {
 
    const [open, setOpen] = useState(false)   
 
@@ -35,7 +49,7 @@ export function FiltersPopover({ control, disabled, onSubmit, dormitorios, ambie
                <div className="space-y-2">
                   <h4 className="leading-none font-medium">Filtros avanzados</h4>
                   <p className="text-muted-foreground text-sm">
-                     Seleccione una o más opciones.
+                     Ambientes
                   </p>
                </div>
 
@@ -45,7 +59,7 @@ export function FiltersPopover({ control, disabled, onSubmit, dormitorios, ambie
                   name="ambientes"
                   render={({ field }) => (
                      <FormItem className="grid grid-cols-3 items-center gap-4">
-                        <FormLabel className="text-right">Ambientes</FormLabel>
+                        <FormLabel className="font-normal">Ambientes</FormLabel>
                         <FormControl>
                            <Select
                               value={field.value}
@@ -76,7 +90,7 @@ export function FiltersPopover({ control, disabled, onSubmit, dormitorios, ambie
                   name="dormitorios"
                   render={({ field }) => (
                      <FormItem className="grid grid-cols-3 items-center gap-4">
-                        <FormLabel className="text-right">Dormitorios</FormLabel>
+                        <FormLabel className="font-normal">Dormitorios</FormLabel>
                         <FormControl>
                            <Select
                               value={field.value}
@@ -100,6 +114,115 @@ export function FiltersPopover({ control, disabled, onSubmit, dormitorios, ambie
                      </FormItem>
                   )}
                />
+
+               {/* Checkbox */}
+               <div className="space-y-2">
+                  <p className="text-muted-foreground text-sm">
+                     Caractererísticas
+                  </p>
+                  {/* Checkbox 1: Piscina */}
+                  <FormField
+                     control={control}
+                     name="con_piscina"
+                     render={({ field }) => (
+                        <FormItem className="flex items-center space-x-2 space-y-0">
+                           <FormControl>
+                              <Checkbox
+                                 checked={field.value === '1'}
+                                 onCheckedChange={(checked) => field.onChange(checked ? '1' : "")}
+                                 disabled={disabled}
+                              />
+                           </FormControl>
+                           <FormLabel className="text-sm font-normal cursor-pointer">
+                              {con_piscinaItem.label}
+                           </FormLabel>
+                        </FormItem>
+                     )}
+                  />
+
+                  {/* Checkbox 2: 2 o mas plantas */}
+                  <FormField
+                     control={control}
+                     name="con_dos_plantas"
+                     render={({ field }) => (
+                        <FormItem className="flex items-center space-x-2 space-y-0">
+                           <FormControl>
+                              <Checkbox
+                                 checked={field.value === '1'}
+                                 onCheckedChange={(checked) => field.onChange(checked ? '1' : "")}
+                                 disabled={disabled}
+                              />
+                           </FormControl>
+                           <FormLabel className="text-sm font-normal cursor-pointer">
+                              {con_dos_plantasItem.label}
+                           </FormLabel>
+                        </FormItem>
+                     )}
+                  />
+
+                  {/* Checkbox 3: Cocheras */}
+                  <FormField
+                     control={control}
+                     name="con_dos_cocheras"
+                     render={({ field }) => (
+                        <FormItem className="flex items-center space-x-2 space-y-0">
+                           <FormControl>
+                              <Checkbox
+                                 checked={field.value === '1'}
+                                 onCheckedChange={(checked) => field.onChange(checked ? '1' : "")}
+                                 disabled={disabled}
+                              />
+                           </FormControl>
+                           <FormLabel className="text-sm font-normal cursor-pointer">
+                              {con_dos_cocherasItem.label}
+                           </FormLabel>
+                        </FormItem>
+                     )}
+                  />
+
+                  {/* Checkbox 3: Suite */}
+                  <FormField
+                     control={control}
+                     name="con_dormitorio_suite"
+                     render={({ field }) => (
+                        <FormItem className="flex items-center space-x-2 space-y-0">
+                           <FormControl>
+                              <Checkbox
+                                 checked={field.value === '1'}
+                                 onCheckedChange={(checked) => field.onChange(checked ? '1' : "")}
+                                 disabled={disabled}
+                              />
+                           </FormControl>
+                           <FormLabel className="text-sm font-normal cursor-pointer">
+                              {con_dormitorio_suiteItem.label}
+                           </FormLabel>
+                        </FormItem>
+                     )}
+                  />
+               </div>
+               
+
+             
+
+               {/* Checkbox 3: Apto Profesional */}
+               {/* <FormField
+                  control={control}
+                  name="aptoProfesional"
+                  render={({ field }) => (
+                     <FormItem className="flex items-center space-x-2 space-y-0">
+                        <FormControl>
+                           <Checkbox
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                              disabled={disabled}
+                           />
+                        </FormControl>
+                        <FormLabel className="text-sm font-normal cursor-pointer">
+                           Apto profesional
+                        </FormLabel>
+                     </FormItem>
+                  )}
+               /> */}
 
                <Button variant="search" 
                   onClick={onClickResultados}>VER RESULTADOS</Button>

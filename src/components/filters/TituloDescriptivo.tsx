@@ -1,33 +1,152 @@
-import { SearchParams } from "@/src/interfaces"
+import { ItemFilter, SearchParams } from "@/src/interfaces"
+import { ArrowDownNarrowWideIcon, CircleCheckBigIcon, HandshakeIcon, House, LampCeiling, MapPinIcon } from "lucide-react";
+import { Item, ItemContent, ItemMedia, ItemTitle } from "@/src/components";
+
 
 type Props = {
+   ambientesItemFilters: ItemFilter[];
+   booleansFilters: ItemFilter[]; // Checkbox
+   dormitoriosItemFilters: ItemFilter[];
+   emprendimientos: ItemFilter[];
    filterValues: SearchParams,
    length: number
+   operaciones: ItemFilter[];
+   ordenes: ItemFilter[];
+   tipos_inmueble: ItemFilter[];
+   zonas: ItemFilter[];
 }
-export const TituloDescriptivo = ({ filterValues, length }: Props) => {
-   
-   const filtrosActivos = [
-      filterValues.zona,
-      filterValues.operacion,
-      filterValues.tipo_inmueble
-   ].filter(Boolean);
+export const TituloDescriptivo = ({
+   ambientesItemFilters,
+   booleansFilters,
+   dormitoriosItemFilters,
+   emprendimientos,
+   filterValues,
+   length,
+   operaciones,
+   ordenes,
+   tipos_inmueble,
+   zonas,
+}: Props) => {
 
-   const hayFiltros = filtrosActivos.length > 0;
+   const { zona, emprendimiento, operacion, ambientes, dormitorios, tipo_inmueble, orden, ...rest } = filterValues;
 
    return (
-      // TODO: Armar lo plurales: lote -> lotes, casa -> casas
-      <div className="max-w-6xl mx-auto sticky top-40">
+      <div className="max-w-6xl mx-auto flex flex-col justify-between pb-2 min-h-40">
          <h1 className="text-5xl text-black font-bold">
             {length} {length === 1 ? 'propiedad' : 'propiedades'} {length === 1 ? 'encontrada' : 'encontradas'}
          </h1>
          <br />
-         <h2>
-            {hayFiltros 
-               ? filtrosActivos.map(filtro => filtro?.toUpperCase()).join(' - ')
-               : 'LISTADO COMPLETO'
+
+         {/* Filtros aplicados */}
+         <div className="flex gap-2">
+            {
+               zona && (
+                  <Item variant="muted">
+                     <ItemMedia>
+                        <MapPinIcon className="size-5" />
+                     </ItemMedia>
+                     <ItemContent>
+                        <ItemTitle>{zonas.find(item => item.valor === zona)?.label}</ItemTitle>
+                     </ItemContent>
+                  </Item>
+               )
             }
-         </h2>         
-         {/* <h2 className={`${secondaryFont.className} text-black text-lg mt-3`}>Listado &nbsp; &gt; &nbsp; Listado de propiedades</h2> */}
+            {
+               emprendimiento && (
+                  <Item variant="muted">
+                     <ItemMedia>
+                        <MapPinIcon className="size-5" />
+                     </ItemMedia>
+                     <ItemContent>
+                        <ItemTitle>{emprendimientos.find(item => item.valor === emprendimiento)?.label}</ItemTitle>
+                     </ItemContent>
+                  </Item>
+               )
+            }
+            {
+               operacion && (
+                  <Item variant="muted">
+                     <ItemMedia>
+                        <HandshakeIcon className="size-5" />
+                     </ItemMedia>
+                     <ItemContent>
+                        <ItemTitle>{operaciones.find(item => item.valor === operacion)?.label}</ItemTitle>
+                     </ItemContent>
+                  </Item>
+               )
+            }
+            {
+               tipo_inmueble && (
+                  <Item variant="muted">
+                     <ItemMedia>
+                        <House className="size-5" />
+                     </ItemMedia>
+                     <ItemContent>
+                        <ItemTitle>{tipos_inmueble.find(item => item.valor === tipo_inmueble)?.label}</ItemTitle>
+                     </ItemContent>
+                  </Item>
+               )
+            }
+            {
+               ambientes && (
+                  <Item variant="muted">
+                     <ItemMedia>
+                        <LampCeiling />
+
+                     </ItemMedia>
+                     <ItemContent>
+                        <ItemTitle>{ambientesItemFilters.find(item => item.valor === ambientes)?.label}</ItemTitle>
+                     </ItemContent>
+                  </Item>
+               )
+            }
+
+            {
+               dormitorios && (
+                  <Item variant="muted">
+                     <ItemMedia>
+                        <i className="flaticon-bed" />
+                     </ItemMedia>
+                     <ItemContent>
+                        <ItemTitle>{dormitoriosItemFilters.find(item => item.valor === dormitorios)?.label}</ItemTitle>
+                     </ItemContent>
+                  </Item>
+               )
+            }
+
+
+            {/* Caracteristicas checkbox */}
+            {
+               Object.entries(rest).map(([key, _]) =>
+               (
+                  <Item variant="muted" key={key}>
+                     <ItemMedia>
+                        <CircleCheckBigIcon className="size-5" />
+                     </ItemMedia>
+                     <ItemContent>
+                        <ItemTitle>{booleansFilters.find(item => item.valor === key)?.label}</ItemTitle>
+                     </ItemContent>
+                  </Item>
+               )
+               )
+            }
+         </div>
+
+         {/* Ordenamiento */}
+         <div className="flex justify-end">
+            {
+               orden && (
+                  <Item variant="muted">
+                     <ItemMedia>
+                        <ArrowDownNarrowWideIcon className="size-5" />
+                     </ItemMedia>
+                     <ItemContent>
+                        <ItemTitle>{ordenes.find(item => item.valor === orden)?.label}</ItemTitle>
+                     </ItemContent>
+                  </Item>
+               )
+            }
+         </div>
       </div>
    )
 }
