@@ -13,12 +13,22 @@ type Props = {
    zonas: ItemFilter[];
    operaciones: ItemFilter[];
    emprendimientos: ItemFilter[];
+   dormitorios: ItemFilter[];
+   ambientes: ItemFilter[];
    tipos_inmueble: ItemFilter[];
    filterValues: SearchParams;
    allControls?: boolean;
 }
 
-export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble, filterValues, allControls = false }: Props) => {
+export const FiltersBar = ({ 
+   zonas, 
+   emprendimientos,
+   dormitorios,
+   ambientes,
+   operaciones, 
+   tipos_inmueble, 
+   filterValues,
+   allControls = false }: Props) => {
 
    const router = useRouter();
    const [isPending, startTransition] = useTransition();
@@ -80,6 +90,7 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
          tipo_inmueble: filterValues.tipo_inmueble ?? "",
          orden: filterValues.orden ?? "",
          ambientes: filterValues.ambientes ?? "",
+         dormitorios: filterValues.dormitorios ?? "",
       });
    }, [filterValues, form]);
 
@@ -88,7 +99,7 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
     * Enviar formulario
     * Toma los datos del hook 
     */
-   function onSubmit(valuesForm?: SearchParams) {
+   const onSubmit = (valuesForm?: SearchParams) => {
       
       // Filter null and empty
       const params = new URLSearchParams(
@@ -106,22 +117,17 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
     * Limpiar busqueda y recargar
     */
    const onClickClear = () =>{
-      const defaultValues = {
-         zona: "",
-         emprendimiento: "",
-         operacion: "",
-         tipo_inmueble: "",
-      };
-      form.reset(defaultValues);
-      onSubmit();
+      startTransition(() => {
+         router.push('/propiedades');
+      });
    }
 
    return (
       <>
-
+         {/* Activar para debug */}
          {/* <pre className="text-xs bg-muted p-2 rounded">
             {JSON.stringify(values, null, 2)}
-         // </pre>  */}
+         </pre>  */}
 
          <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-12 items-center rounded h-20 bg-white z-20 gap-4 px-2">
@@ -220,6 +226,7 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
                   </>
                )}
 
+               {/* Botones con icono */}
                <div className={`flex justify-center items-center gap-2 ${!allControls ? 'md:col-span-2' : 'md:col-span-3'}`}>
                   
                   {/* Boton lupa: siempre aparece */}
@@ -240,12 +247,30 @@ export const FiltersBar = ({ zonas, emprendimientos, operaciones, tipos_inmueble
                   { 
                      allControls && !iaModeActive && (
                         <>
-                           {/* filtros y ordenamiento */}
-                           <FiltersPopover disabled={isPending}/>
-                           <SortPopover disabled={isPending} />
-                           <Button variant="search" size="icon" onClick={ onClickClear } disabled={isPending}>
-                              {/* <i className="flaticon-loupe text-white" /> */}
-                              <Trash2 className="size-8"/>
+                           {/* filtros */}
+                           <FiltersPopover
+                              disabled={isPending}
+                              control={form.control}
+                              onSubmit={onSubmit}
+                              dormitorios={dormitorios}
+                              ambientes={ambientes}
+                           />
+
+                           {/* Ordenamiento */}
+                           <SortPopover 
+                              disabled={isPending} 
+                              control={form.control}
+                              onSubmit={onSubmit}
+                           />
+
+                           {/* Limpiar busqueda */}
+                           <Button 
+                              variant="search" 
+                              size="icon" 
+                              onClick={onClickClear} 
+                              disabled={isPending}
+                           >
+                              <Trash2 className="size-8" />
                            </Button>
                         </>
                      )
