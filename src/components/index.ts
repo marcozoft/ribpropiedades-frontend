@@ -63,6 +63,7 @@ export {
    SelectValue,
    Item,
    ItemContent,
+   ItemActions,
    ItemMedia,
    ItemTitle,
    ItemDescription,

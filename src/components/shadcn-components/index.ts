@@ -6,4 +6,4 @@ export { Input } from "./ui/input";
 export { Label } from "./ui/label";
 export { Popover, PopoverTrigger, PopoverContent } from "./ui/popover";
 export { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-export { Item, ItemContent, ItemMedia, ItemTitle, ItemDescription} from "./ui/item";
+export { Item, ItemContent, ItemMedia, ItemTitle, ItemDescription, ItemActions} from "./ui/item";

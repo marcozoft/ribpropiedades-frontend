@@ -8,7 +8,7 @@ import { ItemFilter, SearchParams } from "@/src/interfaces";
 import { Search, Trash2, Loader2 } from "lucide-react";
 import Lottie from "lottie-react";
 import ribIaAnimation from "@/public/lotties/rib_ia_lottie.json";
-import { ambientes, searchExamples } from "@/src/constants/form-constants";
+import { ambientes, searchExamples, ordenes, con_piscinaItem, con_dos_cocherasItem, con_dormitorio_suiteItem, con_dos_plantasItem } from "@/src/constants/form-constants";
 import { filterSearchParams } from "@/src/utils";
 
 type Props = {
@@ -118,9 +118,9 @@ export const FiltersBar = ({
    return (
       <>
          {/* Activar para debug */}
-         <pre className="text-xs bg-muted p-2 rounded">
+         {/* <pre className="text-xs bg-muted p-2 rounded">
             {JSON.stringify(values, null, 2)}
-         </pre> 
+         </pre>  */}
 
          <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-12 items-center rounded h-20 bg-white z-20 gap-4 px-2">
@@ -247,11 +247,16 @@ export const FiltersBar = ({
                               onSubmit={onSubmit}
                               dormitorios={dormitorios}
                               ambientes={ambientes}
+                              con_piscinaItem={con_piscinaItem}
+                              con_dos_plantasItem={con_dos_plantasItem}
+                              con_dos_cocherasItem={con_dos_cocherasItem}
+                              con_dormitorio_suiteItem={con_dormitorio_suiteItem}
                            />
 
                            {/* Ordenamiento */}
-                           <SortPopover 
-                              disabled={isPending} 
+                           <SortPopover
+                              ordenes={ordenes}
+                              disabled={isPending}
                               control={form.control}
                               onSubmit={onSubmit}
                            />

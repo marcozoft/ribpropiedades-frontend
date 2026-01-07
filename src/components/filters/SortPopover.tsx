@@ -4,15 +4,16 @@ import { ArrowDownUp } from "lucide-react";
 import { Button, FormField, FormItem, FormLabel, FormControl, Popover, PopoverContent, PopoverTrigger, Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "../shadcn-components";
 import { useState } from "react";
 import { Control } from "react-hook-form";
-import { SearchParams } from "@/src/interfaces";
+import { ItemFilter, SearchParams } from "@/src/interfaces";
 
 type Props = {
    control: Control<SearchParams>,
    disabled?: boolean,
+   ordenes: ItemFilter[],
    onSubmit: () => void,
 }
 
-export function SortPopover({ control, disabled, onSubmit }: Props) {
+export function SortPopover({ control, disabled, ordenes, onSubmit }: Props) {
 
    const [open, setOpen] = useState(false)
 
@@ -54,10 +55,11 @@ export function SortPopover({ control, disabled, onSubmit }: Props) {
                               </SelectTrigger>
                               <SelectContent>
                                  <SelectGroup>
-                                    <SelectItem key="precio_asc" value="precio_asc">Menor precio</SelectItem>
-                                    <SelectItem key="precio_desc" value="precio_desc">Mayor precio</SelectItem>
-                                    <SelectItem key="exclusiva" value="exclusiva">Exclusivas RIB</SelectItem>
-                                    <SelectItem key="ingresadas" value="ingresadas">Últimas ingresadas</SelectItem>
+                                    {
+                                       ordenes.map(({valor, label}) =>
+                                          ( <SelectItem key={valor} value={valor}>{label}</SelectItem> )
+                                       )
+                                    }
                                  </SelectGroup>
                               </SelectContent>
                            </Select>
@@ -65,7 +67,7 @@ export function SortPopover({ control, disabled, onSubmit }: Props) {
                      </FormItem>
                   )}
                />
-               <Button variant="search" 
+               <Button variant="search"
                   onClick={onClickResultados}>VER RESULTADOS</Button>
             </div>
          </PopoverContent>

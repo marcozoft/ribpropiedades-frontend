@@ -2,6 +2,7 @@ import { FiltersBar, PropiedadCard, SinResultados } from '@/src/components';
 import { SearchParams } from "@/src/interfaces";
 import { getAllPropiedades, getFilterItems } from '@/src/requests';
 import { TituloDescriptivo } from '@/src/components/filters/TituloDescriptivo';
+import { ambientes, ordenes, booleanFilters } from '@/src/constants/form-constants';
 
 export default async function Propiedades({
    searchParams
@@ -20,7 +21,14 @@ export default async function Propiedades({
          </div>
 
          <div className='bg-background pt-30'>
-            <TituloDescriptivo filterValues={filterValues} length={propiedades.length} {...filtros} />
+            <TituloDescriptivo
+               filterValues={filterValues}
+               length={propiedades.length}
+               ambientes={ambientes}
+               ordenes={ordenes}
+               booleansFilters={booleanFilters}
+               {...filtros}
+            />
          </div>
 
          {/* Grid de propiedades */}
@@ -29,7 +37,9 @@ export default async function Propiedades({
                ? (
                   <div className="max-w-6xl mx-auto px-4 pb-30 mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
                      {
-                        propiedades.map(prop => <PropiedadCard key={prop.id} propiedad={prop} className="hover:shadow-2xl" />)
+                        propiedades.map(
+                           prop => (<PropiedadCard key={prop.id} propiedad={prop} className="hover:shadow-2xl" />)
+                        )
                      }
                   </div>
                ) : (<SinResultados />)

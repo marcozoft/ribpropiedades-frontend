@@ -5,16 +5,31 @@ import { Button, Checkbox, FormField, FormItem, FormLabel, FormControl, Popover,
 import { useState } from "react";
 import { Control } from "react-hook-form";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
+import { con_piscinaItem, con_dos_plantasItem, con_dos_cocherasItem, con_dormitorio_suiteItem } from '../../constants/form-constants';
 
 type Props = {
    control: Control<SearchParams>,
    disabled?: boolean,
    dormitorios: ItemFilter[],
    ambientes: ItemFilter[],
+   con_piscinaItem: ItemFilter,
+   con_dos_plantasItem: ItemFilter,
+   con_dos_cocherasItem: ItemFilter,
+   con_dormitorio_suiteItem: ItemFilter,
    onSubmit: () => void,
 }
 
-export function FiltersPopover({ control, disabled, onSubmit, dormitorios, ambientes }: Props) {
+export function FiltersPopover({ 
+   control, 
+   disabled, 
+   onSubmit, 
+   dormitorios, 
+   ambientes, 
+   con_piscinaItem, 
+   con_dos_plantasItem, 
+   con_dos_cocherasItem, 
+   con_dormitorio_suiteItem,
+}: Props) {
 
    const [open, setOpen] = useState(false)   
 
@@ -120,7 +135,7 @@ export function FiltersPopover({ control, disabled, onSubmit, dormitorios, ambie
                               />
                            </FormControl>
                            <FormLabel className="text-sm font-normal cursor-pointer">
-                              Con piscina
+                              {con_piscinaItem.label}
                            </FormLabel>
                         </FormItem>
                      )}
@@ -140,7 +155,7 @@ export function FiltersPopover({ control, disabled, onSubmit, dormitorios, ambie
                               />
                            </FormControl>
                            <FormLabel className="text-sm font-normal cursor-pointer">
-                              2 plantas o más
+                              {con_dos_plantasItem.label}
                            </FormLabel>
                         </FormItem>
                      )}
@@ -160,7 +175,7 @@ export function FiltersPopover({ control, disabled, onSubmit, dormitorios, ambie
                               />
                            </FormControl>
                            <FormLabel className="text-sm font-normal cursor-pointer">
-                              2 cocheras o más
+                              {con_dos_cocherasItem.label}
                            </FormLabel>
                         </FormItem>
                      )}
@@ -180,7 +195,7 @@ export function FiltersPopover({ control, disabled, onSubmit, dormitorios, ambie
                               />
                            </FormControl>
                            <FormLabel className="text-sm font-normal cursor-pointer">
-                              Con dormitorio en suite
+                              {con_dormitorio_suiteItem.label}
                            </FormLabel>
                         </FormItem>
                      )}
