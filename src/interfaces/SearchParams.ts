@@ -6,4 +6,8 @@ export type SearchParams = {
    dormitorios?: string;
    zona?: string;
    orden?: string;
+   con_piscina?: string;
+   con_dos_plantas?: string;
+   con_dos_cocheras?: string;
+   con_dormitorio_suite?: string;
 }

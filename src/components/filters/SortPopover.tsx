@@ -42,7 +42,7 @@ export function SortPopover({ control, disabled, onSubmit }: Props) {
                   name="orden"
                   render={({ field }) => (
                      <FormItem className="grid grid-cols-3 items-center gap-4">
-                        <FormLabel className="text-right">Precio</FormLabel>
+                        <FormLabel className="text-right">Orden</FormLabel>
                         <FormControl>
                            <Select
                               value={field.value}
@@ -54,8 +54,10 @@ export function SortPopover({ control, disabled, onSubmit }: Props) {
                               </SelectTrigger>
                               <SelectContent>
                                  <SelectGroup>
-                                    <SelectItem key="precio_asc" value="precio_asc">Ascendente</SelectItem>
-                                    <SelectItem key="precio_desc" value="precio_desc">Descendiente</SelectItem>
+                                    <SelectItem key="precio_asc" value="precio_asc">Menor precio</SelectItem>
+                                    <SelectItem key="precio_desc" value="precio_desc">Mayor precio</SelectItem>
+                                    <SelectItem key="exclusiva" value="exclusiva">Exclusivas RIB</SelectItem>
+                                    <SelectItem key="ingresadas" value="ingresadas">Últimas ingresadas</SelectItem>
                                  </SelectGroup>
                               </SelectContent>
                            </Select>

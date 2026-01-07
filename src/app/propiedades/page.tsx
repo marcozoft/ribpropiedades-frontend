@@ -19,8 +19,8 @@ export default async function Propiedades({
             <FiltersBar filterValues={filterValues} {...filtros} allControls />
          </div>
 
-         <div className='bg-background pt-30 pb-20'>
-            <TituloDescriptivo filterValues={filterValues} length={propiedades.length} />
+         <div className='bg-background pt-30'>
+            <TituloDescriptivo filterValues={filterValues} length={propiedades.length} {...filtros} />
          </div>
 
          {/* Grid de propiedades */}
