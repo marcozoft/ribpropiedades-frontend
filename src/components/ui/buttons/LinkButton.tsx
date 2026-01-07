@@ -1,4 +1,3 @@
-import { secondaryFont } from "@/src/config/fonts";
 import Link from "next/link";
 
 type Props = {

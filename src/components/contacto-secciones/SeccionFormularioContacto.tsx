@@ -1,7 +1,6 @@
 'use client';
 
 import { EMAIL, EMAIL_LINK, WHATSAPP_LINK } from '@/src/constants/constants';
-import Link from 'next/link';
 import { useState } from 'react';
 import { LinkButton } from '../ui/buttons/LinkButton';
 

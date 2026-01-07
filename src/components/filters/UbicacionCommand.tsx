@@ -3,7 +3,7 @@
 import { ItemFilter, SearchParams } from "@/src/interfaces"
 import { Check, ChevronsUpDown } from "lucide-react";
 import { useState } from "react"
-import { Button, Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, Popover, PopoverContent, PopoverTrigger } from "@/src/components/shadcn-components";
+import { Button, Command, CommandGroup, CommandInput, CommandItem, CommandList, Popover, PopoverContent, PopoverTrigger } from "@/src/components/shadcn-components";
 import { cn } from "@/src/utils";
 import { UseFormSetValue } from "react-hook-form";
 
@@ -20,9 +20,10 @@ type Props = {
   setValue: UseFormSetValue<SearchParams>,
   zonaValue: string,
   emprendimientoValue: string,
+  disabled?: boolean
 }
 
-export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, emprendimientoValue }: Props) => {
+export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, emprendimientoValue, disabled = false }: Props) => {
 
   const zonasItems: Item[] = zonas.map((itemFilter) => ({
     type: 'zona',
@@ -47,7 +48,7 @@ export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, 
   return (
     
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
+      <PopoverTrigger asChild disabled={disabled}>
         <Button
           variant="outline"
           role="combobox"
@@ -64,7 +65,6 @@ export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, 
         <Command>
           <CommandInput placeholder="Ubicación" className="h-9" />
           <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup heading={(<p>Zona</p>)}>
               {/* <CommandSeparator /> */}
               {zonasItems.map((item) => (

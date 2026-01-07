@@ -77,7 +77,6 @@ export const CarouselLanzamientos = ({ sliders }: CarouselClientProps) => {
                   key={i}
                   i={i}
                   index={current}
-                  totalLength={89}
                   slider={slider} 
                 />
               ))}
