@@ -1,7 +1,6 @@
 import { PropiedadMapa } from "@/src/interfaces";
-import { generateHrefPropiedad, generateSrcImage } from "@/src/utils"
+import { generateSrcImage } from "@/src/utils"
 import Image from "next/image";
-import Link from "next/link"
 import { IndicadorBarrio } from '../cards/cards-components/IndicadorBarrio';
 import { IndicadorOperacion } from '../cards/cards-components/IndicadorOperacion';
 import { IndicadorPrecio } from '../cards/cards-components/IndicadorPrecio';
@@ -16,7 +15,6 @@ export const PopupPropiedad = ({ propiedad }: Props) => {
 
    const {
       codigo,
-      id,
       imagen_principal,
       inmueble,
       operacion,

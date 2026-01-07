@@ -1,14 +1,8 @@
-import { SearchParams } from "@/src/interfaces";
-import { secondaryFont } from "../../config/fonts";
 import { getAllEmprendimientos } from '@/src/requests';
 import { EmprendimientoCard } from '@/src/components';
 
 
-export default async function Emprendimientos({
-   searchParams
-}: {
-   searchParams: Promise<SearchParams>
-}) {
+export default async function Emprendimientos() {
 
    const {emprendimientos} = await getAllEmprendimientos();
 
@@ -16,12 +10,10 @@ export default async function Emprendimientos({
       <div className="bg-white pb-30">
          <div className="bg-background">
             <div className="max-w-6xl mx-auto px-4">
-               {/* <Buscador {...filtros } /> */}
                <div className="py-10">
                   <h1 className="text-5xl text-black font-bold">
                      Emprendimientos encontrados
                   </h1>
-                  {/* <h2 className={`${secondaryFont.className} text-black text-lg mt-3`}>Listado &nbsp; &gt; &nbsp; Listado de emprendimientos</h2> */}
                </div>
             </div>
          </div>

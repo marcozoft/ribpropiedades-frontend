@@ -10,37 +10,22 @@ type Position = "prev" | "next" | "active" | "other";
 type Props = {
   slider: LanzamientoSlider;
   position?: Position;
-  totalLength: number;
   index: number;
   i: number;
 }
 
-export const CarouselLanzamientosSlide = ({ slider, totalLength, index, i }: Props) => {
+export const CarouselLanzamientosSlide = ({ slider, index, i }: Props) => {
 
   const { titulo, subtitulo, url, texto } = slider;
-
-  // console.log({index, totalLength, i });
-  
-
-  // const prevIndex = (index - 1 + totalLength) % totalLength;
-  // const nextIndex = (index + 1) % totalLength;
-  
-  // const position = i === index ? "active" : i === prevIndex ? "prev" : i === nextIndex ? "next" : "other";
 
   const isActiveSlide = i === index;
 
   const positionClass = isActiveSlide 
     ? 'scale-100' 
     : 'scale-80'
-    // : 'scale-95 grayscale brightness-50';
-    // : position === 'prev' || position === 'next'
-    // ? 'opacity-75 scale-80 filter grayscale brightness-75'
-    // : 'opacity-40 scale-90 filter grayscale';
 
   const isYoutubeLink = isYouTubeVideoUrl(url);
   const youtubeId = isYoutubeLink ? getYouTubeId(url) : null;  
-
-  // console.log({positionClass});
   
 
   return (
