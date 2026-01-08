@@ -41,7 +41,7 @@ export function FiltersPopover({
       <Popover open={open} onOpenChange={setOpen}>
          <PopoverTrigger asChild disabled={disabled} >
             <Button variant="search" size="icon">
-               <Filter className="size-8" />
+               <Filter className="size-6" />
             </Button>
          </PopoverTrigger>
          <PopoverContent className="w-80">

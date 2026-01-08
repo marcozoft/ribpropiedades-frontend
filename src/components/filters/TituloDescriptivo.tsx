@@ -38,10 +38,10 @@ export const TituloDescriptivo = ({
          <br />
 
          {/* Filtros aplicados */}
-         <div className="flex gap-2">
+         <div className="flex flex-wrap gap-2">
             {
                zona && (
-                  <Item variant="muted">
+                  <Item variant="muted" className="shrink-0">
                      <ItemMedia>
                         <MapPinIcon className="size-5" />
                      </ItemMedia>
@@ -53,7 +53,7 @@ export const TituloDescriptivo = ({
             }
             {
                emprendimiento && (
-                  <Item variant="muted">
+                  <Item variant="muted" className="shrink-0">
                      <ItemMedia>
                         <MapPinIcon className="size-5" />
                      </ItemMedia>
@@ -65,7 +65,7 @@ export const TituloDescriptivo = ({
             }
             {
                operacion && (
-                  <Item variant="muted">
+                  <Item variant="muted" className="shrink-0">
                      <ItemMedia>
                         <HandshakeIcon className="size-5" />
                      </ItemMedia>
@@ -77,7 +77,7 @@ export const TituloDescriptivo = ({
             }
             {
                tipo_inmueble && (
-                  <Item variant="muted">
+                  <Item variant="muted" className="shrink-0">
                      <ItemMedia>
                         <House className="size-5" />
                      </ItemMedia>
@@ -89,7 +89,7 @@ export const TituloDescriptivo = ({
             }
             {
                ambientes && (
-                  <Item variant="muted">
+                  <Item variant="muted"  className="shrink-0">
                      <ItemMedia>
                         <LampCeiling />
 
@@ -103,7 +103,7 @@ export const TituloDescriptivo = ({
 
             {
                dormitorios && (
-                  <Item variant="muted">
+                  <Item variant="muted"  className="shrink-0">
                      <ItemMedia>
                         <i className="flaticon-bed" />
                      </ItemMedia>
@@ -119,7 +119,7 @@ export const TituloDescriptivo = ({
             {
                Object.entries(rest).map(([key, _]) =>
                (
-                  <Item variant="muted" key={key}>
+                  <Item variant="muted" key={key}  className="shrink-0">
                      <ItemMedia>
                         <CircleCheckBigIcon className="size-5" />
                      </ItemMedia>
