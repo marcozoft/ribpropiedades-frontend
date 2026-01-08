@@ -27,7 +27,7 @@ export function SortPopover({ control, disabled, ordenes, onSubmit }: Props) {
       <Popover open={open} onOpenChange={setOpen}>
          <PopoverTrigger asChild disabled={disabled} >
             <Button variant="search" size="icon">
-               <ArrowDownUp className="size-8" />
+               <ArrowDownUp className="size-6" />
             </Button>
          </PopoverTrigger>
          <PopoverContent className="w-80">

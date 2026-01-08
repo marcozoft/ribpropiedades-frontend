@@ -230,9 +230,9 @@ export const FiltersBar = ({
                      disabled={isPending}
                   >
                      {isPending ? (
-                        <Loader2 className="size-8 animate-spin"/>
+                        <Loader2 className="size-6 animate-spin"/>
                      ) : (
-                        <Search className="size-8"/>
+                        <Search className="size-6"/>
                      )}
                   </Button>
                   
@@ -268,7 +268,7 @@ export const FiltersBar = ({
                               onClick={onClickClear} 
                               disabled={isPending}
                            >
-                              <Trash2 className="size-8" />
+                              <Trash2 className="size-6" />
                            </Button>
                         </>
                      )
