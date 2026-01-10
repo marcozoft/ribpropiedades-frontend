@@ -13,14 +13,14 @@ export const Navbar = () => {
     <>
       <header className="top-0 z-50 bg-foreground sticky shadow-md">
         {/* <h1>hola mundo</h1> */}
-        <div className="max-w-6xl mx-auto px-4 flex items-center h-20 justify-between">
+        <div className="max-w-6xl mx-auto px-4 flex items-center h-16 justify-between">
           <Link href={'/'}>
             <Image
               className="flex"
               src="/images/navbar-logo.png" 
               alt="RIB Inmobiliaria"
-              height={49}
-              width={116}
+              height={42}
+              width={105}
             />
           </Link>
           <div className="flex gap-2 items-center">

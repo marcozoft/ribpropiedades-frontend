@@ -10,7 +10,7 @@ export const SeccionBuscadorLanzamientos = async() => {
   
 
   return (
-    <section className='stripe-marca-morado h-[60vh] mb-50'>
+    <section className='stripe-marca-morado h-[85vh] mb-50'>
 
 
       <div className="max-w-6xl mx-auto -mt-10 z-10 relative">

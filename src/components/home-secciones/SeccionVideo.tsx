@@ -10,16 +10,22 @@ export const SeccionVideo = () => {
   return (
     <div className="w-full">
       {/* <div className="max-w-7xl mx-auto px-4"> */}
-        <div className="relative w-full aspect-video md:-mt-[90px] md:pt-[90px] bg-black overflow-hidden group pointer-events-none">
+        <div className="relative w-full h-[95vh] md:-mt-[90px] md:pt-[90px] bg-black overflow-hidden group pointer-events-none">
           {/* iframe carga primero, por debajo */}
           <iframe
-            className="absolute inset-0 w-full h-full scale-110"
+            className="absolute inset-0 w-full h-full"
             src="https://www.youtube.com/embed/IxfRAd0QlRU?autoplay=1&mute=1&controls=0&loop=1&playlist=IxfRAd0QlRU&modestbranding=1&rel=0&fs=0&showinfo=0"
             title="RIB Propiedades - Video"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            style={{ pointerEvents: 'none' }}
+            style={{ 
+              pointerEvents: 'none',
+              '--tw-scale-x': '125%',
+              '--tw-scale-y': '115%',
+              marginTop: '90px',
+              transform: 'scale(var(--tw-scale-x), var(--tw-scale-y))'
+            } as React.CSSProperties}
             onLoad={() => {
               // Dar tiempo para que el video comience a reproducirse
               setTimeout(() => setIsVideoLoaded(true), 1000)

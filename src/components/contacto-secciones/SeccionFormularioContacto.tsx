@@ -49,7 +49,7 @@ export const SeccionFormularioContacto = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-gray-50" id="formulario">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Columna izquierda - Información */}
@@ -62,7 +62,6 @@ export const SeccionFormularioContacto = () => {
             </h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
               Complete nuestro formulario de contacto y nos pondremos en contacto con usted en breve.<br />
-              O escríbanos a <a href="mailto:info@ribpropiedades.com.ar" className="text-foreground font-semibold hover:underline">info@ribpropiedades.com.ar</a> para conectarse ahora.
             </p>
 
             <div className="space-y-6">
@@ -74,24 +73,8 @@ export const SeccionFormularioContacto = () => {
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Si el llamado es desde Pilar</h3>
-                <p className="text-gray-600">Tel./Fax: +54 0230 4384500</p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Si el llamado es desde Capital e interior del País</h3>
-                <p className="text-gray-600">Tel./Fax: +54 0230 4384500</p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Desde otro país</h3>
-                <p className="text-gray-600">Tel./Fax: +54 0230 4384500</p>
-              </div>
-
-              <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Móvil</h3>
-                <p className="text-gray-600">(54911) 3420 1500</p>
-                <LinkButton text='Contactar por WhatsApp' href={WHATSAPP_LINK} />
+                <p className="text-gray-600"><a href="tel:+5491134201500" className="text-foreground hover:underline">(+549) 11 3420 1500</a></p>
               </div>
 
               <div>

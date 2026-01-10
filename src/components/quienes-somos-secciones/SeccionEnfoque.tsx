@@ -10,11 +10,33 @@ interface Servicio {
 }
 
 const servicios: Servicio[] = [
+ {
+    titulo: 'Asesoramiento profesional',
+    descripcion: 'Te acompañamos en cada paso del proceso inmobiliario con atención personalizada y un equipo de profesionales capacitados. Desde la primera consulta hasta la firma de escritura, brindamos el apoyo necesario para que tomes decisiones informadas y seguras.',
+    imagen: 'asesoramiento.jpg',
+    enlace: '/contacto#formulario',
+    textoBoton: 'Consultanos',
+  },
+  {
+    titulo: 'Experiencia y conocimiento local',
+    descripcion: 'Años de trayectoria en el mercado inmobiliario local nos respaldan. Conocemos cada barrio, las tendencias del mercado y los valores reales de las propiedades. Esta experiencia nos permite ofrecerte opciones que se ajustan perfectamente a tus necesidades y presupuesto.',
+    imagen: 'conocimiento.jpg',
+    enlace: '/quienes-somos',
+    textoBoton: 'Conocenos',
+  },
+  {
+    titulo: 'Respaldo jurídico y legal de las operaciones',
+    descripcion: 'Todas nuestras operaciones cuentan con el respaldo de un equipo legal especializado en derecho inmobiliario. Verificamos la documentación, realizamos estudios de títulos y garantizamos que cada transacción se realice con total transparencia y seguridad jurídica.',
+    imagen: 'respaldo.jpg',
+    enlace: '/servicios',
+    textoBoton: 'Ver servicios',
+  },  
+  /*
   {
     titulo: 'Tranquilidad total',
     descripcion: 'Toda la tranquilidad en el momento de realizar una operación inmobiliaria. Porque te acompañamos desde el primer momento en que te comunicas con nosotros.',
     imagen: 'tranquilidad.jpg',
-    enlace: '/contacto',
+    enlace: '/contacto#formulario',
     textoBoton: 'Asesorate',
   },
   {
@@ -28,6 +50,7 @@ const servicios: Servicio[] = [
     enlace: '/servicios',
     textoBoton: 'VER SERVICIOS',
   },
+  */
 ];
 
 export const SeccionEnfoque = () => {

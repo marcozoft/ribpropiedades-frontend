@@ -46,10 +46,10 @@ export const SeccionAgentes = () => {
             Somos RIB
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            20 años de experiencia
+            20 años de experiencia en Pilar
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Con la ayuda de su liderazgo y experiencia, con RIB Inmobiliaria puede lograr la mejor experiencia inmobiliaria.
+            Con la ayuda de su liderazgo y conocimiento, con RIB Inmobiliaria puede lograr la mejor experiencia inmobiliaria.
           </p>
         </div>
 

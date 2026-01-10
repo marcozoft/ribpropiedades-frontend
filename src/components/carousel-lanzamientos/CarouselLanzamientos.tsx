@@ -58,7 +58,7 @@ export const CarouselLanzamientos = ({ sliders }: CarouselClientProps) => {
           {/* <p>Hola mundo</p> */}
           <button
             onClick={prevSlide}
-            className="cursor-pointer h-15 w-15 rounded-full bg-background/50 hover:bg-background"
+            className="cursor-pointer h-15 w-15 rounded-full bg-white hover:bg-gray-300"
           >❮
         </button>
 
@@ -91,7 +91,7 @@ export const CarouselLanzamientos = ({ sliders }: CarouselClientProps) => {
           {/* <p>Hola mundo</p> */}
           <button
             onClick={nextSlide}
-            className="cursor-pointer h-15 w-15 rounded-full bg-white/80 hover:bg-white"
+            className="cursor-pointer h-15 w-15 rounded-full bg-white hover:bg-gray-300"
           >❯
           </button>
         </div>
