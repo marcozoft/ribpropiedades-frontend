@@ -18,8 +18,9 @@ export default function HomePage() {
     <SeccionSeleccion />
     <SeccionNosotros />
     <SeccionServicios />
-    <SeccionContactanos />
     <SeccionComentarios />
+    <SeccionContactanos />
+    
    </>
   )
 }

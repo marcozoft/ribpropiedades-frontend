@@ -175,8 +175,7 @@ export const SeccionIntroduccion = () => {
                 <div className="bg-foreground/5 border-l-4 border-foreground p-4 rounded animate-in fade-in slide-in-from-top-2 duration-300">
                   <h3 className="font-bold text-gray-900 mb-2">Nuestra misión:</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Ser un reconocido medio inmobiliario en la zona que facilite a nuestros Clientes la 
-                    concreción de sus ideas y sueños.
+                    Trayectoria, innovación y cercanía para transformar el mercado inmobiliario de Pilar en una experiencia mas simple, moderna y humana.
                   </p>
                 </div>
               )}
@@ -207,9 +206,8 @@ export const SeccionIntroduccion = () => {
                 <div className="bg-foreground/5 border-l-4 border-foreground p-4 rounded animate-in fade-in slide-in-from-top-2 duration-300">
                   <h3 className="font-bold text-gray-900 mb-2">Nuestro Servicio:</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Servicio personalizado, atendemos a cada cliente con profesionalismo, 
-                    entendiendo sus necesidades y dándole soluciones a su medida. Completa seguridad 
-                    y transparencia en cada transacción.
+                    En RIB Inmobiliaria ayudamos a familias e inversores a concretar sus proyectos en Pilar. <br/><br/>
+                    Combinamos conocimiento local, herramientas digitales y marketing estratégico logrando máxima visibilidad para cada propiedad y acompañando a nuestros clientes con cercanía, transparencia y confianza en cada paso del proceso de compraventa.
                   </p>
                 </div>
               )}
@@ -218,10 +216,10 @@ export const SeccionIntroduccion = () => {
             {/* Botón */}
             <div>
               <Link
-                href="/contacto"
+                href="/contacto#formulario"
                 className="inline-block bg-foreground text-white px-6 py-3 rounded hover:bg-foreground/90 transition-colors font-medium"
               >
-                CONTÁCTANOS
+                CONTACTANOS
               </Link>
             </div>
           </div>

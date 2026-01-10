@@ -17,7 +17,7 @@ export const SeccionNosotros = async () => {
             Nosotros
           </span>
           <h1 className='text-4xl text-black mt-4'>
-            <span className='font-bold'>RIB, </span>haciendo la <br /> casa de tus sueños <br /><span className='text-foreground font-bold'>una realidad.</span>
+            <span className='font-bold'>RIB, </span>haciendo el <br /> proyecto de tus sueños <br /><span className='text-foreground font-bold'>una realidad.</span>
           </h1>
           <p className='text-black mt-4 pr-35'>Nuestro servicio es personalizado, atendemos a cada cliente con profesionalismo, entendiendo sus necesidades
             y dándole soluciones a su medida.

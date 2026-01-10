@@ -34,7 +34,7 @@ export const CarouselCards = ({ propiedades }: Props) => {
         <div className="flex items-center">
           <button
             onClick={prevSlide}
-            className="cursor-pointer h-15 w-15 rounded-full border-1 hover:bg-white"
+            className="cursor-pointer h-15 w-15 rounded-full border-1 bg-white hover:bg-gray-300"
           >❮
           </button>
         </div>
@@ -61,7 +61,7 @@ export const CarouselCards = ({ propiedades }: Props) => {
         <div className="flex items-center">
           <button
             onClick={nextSlide}
-            className="cursor-pointer h-15 w-15 rounded-full border-1 hover:bg-white"
+            className="cursor-pointer h-15 w-15 rounded-full border-1 bg-white hover:bg-gray-300"
           >❯
           </button>
         </div>
