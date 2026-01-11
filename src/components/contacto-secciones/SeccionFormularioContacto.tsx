@@ -1,8 +1,7 @@
 'use client';
 
-import { EMAIL, EMAIL_LINK, WHATSAPP_LINK } from '@/src/constants/constants';
+import { EMAIL, EMAIL_LINK } from '@/src/constants/constants';
 import { useState } from 'react';
-import { LinkButton } from '../ui/buttons/LinkButton';
 
 interface FormData {
   nombre: string;

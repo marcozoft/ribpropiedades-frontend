@@ -1,4 +1,3 @@
-import { ItemDescription } from '@/src/components';
 // Skeletons (loaders)
 export { SkeletonCard } from "./skeletons/SkeletonCard";
 export { SkeletonFilterBar } from "./skeletons/SkeletonFilterBar";

@@ -43,7 +43,7 @@ export default async function Propiedades({
                         )
                      }
                   </div>
-               ) : (<SinResultados />)
+               ) : (<SinResultados imageSrc='/images/propiedades-sin-resultados.jpg'/>)
          }
       </div>
    );
