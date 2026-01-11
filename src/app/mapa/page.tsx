@@ -6,7 +6,7 @@ import { getAllPropiedades, getAllPropiedadesMapa } from "@/src/requests";
 export default async function Page() {
 
    const propiedadesMapa = (await getAllPropiedadesMapa()).propiedades;
-   const propiedades = (await getAllPropiedades()).propiedades;
+   const propiedades = (await getAllPropiedades({})).propiedades;
 
 
    return (

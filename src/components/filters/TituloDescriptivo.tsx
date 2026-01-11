@@ -117,7 +117,7 @@ export const TituloDescriptivo = ({
 
             {/* Caracteristicas checkbox */}
             {
-               Object.entries(rest).map(([key, _]) =>
+               Object.entries(rest).map(([key]) =>
                (
                   <Item variant="muted" key={key}  className="shrink-0">
                      <ItemMedia>
