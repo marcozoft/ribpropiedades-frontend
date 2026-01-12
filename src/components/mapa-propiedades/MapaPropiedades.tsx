@@ -1,10 +1,10 @@
 "use client"
 
 import dynamic from 'next/dynamic';
-import { PropiedadMapa } from '@/src/interfaces';
+import { PropiedadBasico } from '@/src/interfaces';
 
 type Props = {
-    propiedades: PropiedadMapa[]
+    propiedades: PropiedadBasico[];
 }
 
 export const MapaPropiedades = ({propiedades}: Props) => {

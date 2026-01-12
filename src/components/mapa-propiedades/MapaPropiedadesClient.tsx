@@ -1,68 +1,83 @@
 "use client";
 
-import 'leaflet/dist/leaflet.css';
-import '../../styles/leaflet-custom.css';
-import { BASE_ATTRIBUTION, BASE_URL, MAP_INDEX_CENTER, MAP_ZOOM_START, MARKER, REFERENCE_MARKER } from "@/src/constants/geo-constants";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { SyntheticEvent, useRef, useState } from 'react';
-import { LatLngExpression, LatLngLiteral } from 'leaflet';
-import { PropiedadMapa } from '@/src/interfaces';
-import { PopupPropiedad } from './PopupPropiedad';
+import { PropiedadBasico } from "@/src/interfaces";
+import { useEffect, useRef } from "react";
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { MAPBOX_ACCESS_TOKEN } from "@/src/constants/geo-constants";
 
+
+// Token de Mapbox
+mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
 type Props = {
-   propiedades: PropiedadMapa[]
+   propiedades: PropiedadBasico[]
 }
 
 export default function MapaPropiedadesClient({ propiedades }: Props) {
 
-   const [position, setPosition] = useState<LatLngLiteral>({ lat: -40.15451161680131, lng: -71.34787014700214 });
+   const mapContainerRef = useRef<HTMLDivElement | null>(null);
+   const mapRef = useRef<mapboxgl.Map | null>(null);
 
-   const [placeTypes, setPlaceTypes] = useState(['restaurants'])
-   const [radius, setRadius] = useState(500);
+   useEffect(() => {
 
-   const center: LatLngExpression = [parseFloat(propiedades[0].mapa_latitud), parseFloat(propiedades[0].mapa_longitud)]
+      if (!mapContainerRef.current) return;
+      if (mapRef.current) return;
 
-   const onChangeSelect = (_event: SyntheticEvent | null, value: string[] | null) => {
+      mapRef.current = new mapboxgl.Map({
+         container: mapContainerRef.current,
+         style: "mapbox://styles/mapbox/standard",
+         config: {
+            basemap: {
+               theme: "monochrome"
+            },
+         },
+         // center: [-58.3816, -34.6037], // lng, lat
+         zoom: 12,
+      });
 
-      console.log(value);
-      setPlaceTypes(value!);
+      const map = mapRef.current;
 
-   }
+      /**
+       * 
+       */
+      const bounds = new mapboxgl.LngLatBounds();
+
+      /**
+       * 
+       */
+      propiedades.forEach(prop => {
+         const popup = `${prop.id} - ${prop.titulo_venta}`;
+         const marker = new mapboxgl.Marker()
+            .setLngLat([+prop.mapa_longitud, +prop.mapa_latitud])
+            .setPopup(new mapboxgl.Popup().setText(popup))
+            .addTo(mapRef.current!);
+
+         bounds.extend(marker.getLngLat());
+      });
+
+      /**
+       * 
+       */
+      map.fitBounds(bounds, { padding: 80 });
+
+
+
+      return () => {
+         mapRef.current?.remove();
+         mapRef.current = null;
+      }
+   }, [])
+
+   console.log({ propiedades });
 
 
 
    return (
-
-      <MapContainer
-         center={center}
-         zoom={MAP_ZOOM_START} scrollWheelZoom={true}
-         dragging={true}
-         style={{ height: '100%', zIndex: 0 }}
-      >
-         <TileLayer
-            attribution={BASE_ATTRIBUTION}
-            url={BASE_URL}
-         />
-
-
-         {
-            propiedades.map((prop) => (
-               <Marker
-                  key={prop.id}
-                  position={[
-                     parseFloat(prop.mapa_latitud),
-                     parseFloat(prop.mapa_longitud)
-                  ]}
-                  icon={MARKER}
-               >
-                  <Popup>
-                     <PopupPropiedad propiedad={prop}/>
-                  </Popup>
-               </Marker>
-            ))
-         }
-
-      </MapContainer>
+      <div
+         ref={mapContainerRef}
+         className="w-full h-full"
+      />
    )
+
 }

@@ -1,4 +1,4 @@
-import { PropiedadMapa } from "@/src/interfaces";
+import { PropiedadBasico } from "@/src/interfaces";
 import { generateSrcImage } from "@/src/utils"
 import Image from "next/image";
 import { IndicadorBarrio } from '../cards/cards-components/IndicadorBarrio';
@@ -8,7 +8,7 @@ import { TituloDeVenta } from "../cards/cards-components";
 import { IndicadorNumerico } from '../cards/cards-components/IndicadorNumerico';
 
 type Props = {
-   propiedad: PropiedadMapa
+   propiedad: PropiedadBasico
 }
 
 export const PopupPropiedad = ({ propiedad }: Props) => {

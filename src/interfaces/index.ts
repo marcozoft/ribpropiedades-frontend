@@ -28,9 +28,3 @@ export type { ItemFilter } from './FiltrosResponse';
 
 // Imagenes
 export type { Imagen } from './Imagen';
-
-
-//TODO: Mapa. A deprecar
-export type { PropiedadesMapaResponse } from "./PropiedadesMapaResponse"
-export type { PropiedadMapa } from "./PropiedadesMapaResponse"
-
