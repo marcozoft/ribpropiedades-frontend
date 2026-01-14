@@ -11,6 +11,11 @@ export { SinResultados } from "./cards/SinResultados";
 // Emprendimientos card
 export { EmprendimientoCard } from "./cards/EmprendimientoCard";
 
+// Mapas
+export { MapaPropiedades } from "./mapa-propiedades/MapaPropiedades";
+export { PropiedadPopupCard } from "./cards/PropiedadPopupCard";
+
+
 // Detalle full page
 export { PropiedadFullPage } from "./detalle-full-page/PropiedadFullPage";
 export { EmprendimientoFullPage } from "./detalle-full-page/EmprendimientoFullPage";
