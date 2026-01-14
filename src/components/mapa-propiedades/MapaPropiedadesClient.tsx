@@ -7,9 +7,10 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_ACCESS_TOKEN } from "@/src/constants/geo-constants";
 import { PhoneSpan } from "../navbar";
-import { Layers, MapPin, Building2, Home } from "lucide-react";
+import { Layers, MapPin, Building2, Home, Hospital } from "lucide-react";
 import { Button } from "../shadcn-components";
 import { PropiedadPopupCard } from '@/src/components';
+import { primaryFont } from "@/src/config/fonts";
 
 
 
@@ -65,12 +66,36 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
          const root = createRoot(popupContainer);
          root.render(<PropiedadPopupCard propiedad={prop} />);
 
-         const marker = new mapboxgl.Marker()
+         // Agregar evento click para hacer flyTo
+         popupContainer.addEventListener('click', () => {
+            map.flyTo({
+               center: [+prop.mapa_longitud, +prop.mapa_latitud],
+               zoom: 15,
+               duration: 1000
+            });
+         });
+
+         // Crear elemento personalizado para el marker
+         const markerElement = document.createElement('div');
+         markerElement.className = 'custom-marker';
+         const markerRoot = createRoot(markerElement);
+         markerRoot.render(
+            <div className="relative cursor-pointer">
+               <MapPin className="w-8 h-8 drop-shadow-lg text-foreground" />
+            </div>
+         );
+
+         const marker = new mapboxgl.Marker({
+            // element: 
+            color: '#5f021f'
+         })
             .setLngLat([+prop.mapa_longitud, +prop.mapa_latitud])
             .setPopup(
                new mapboxgl.Popup({
-                  className: ''
+                  className: `${primaryFont.className}`,
+                  // anchor: 'bottom'
                })
+               // .setMaxWidth('300px')
                   .setDOMContent(popupContainer)
             )
             .addTo(mapRef.current!);
@@ -114,35 +139,35 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
 
                {/* Botón Marcadores */}
                <Button
-                  variant={showMarkers ? 'default' : 'outline'}
+                  variant={showMarkers ? 'search' : 'outline'}
                   size="sm"
                   onClick={() => setShowMarkers(!showMarkers)}
                   className="justify-start gap-2"
                >
                   <MapPin className="w-4 h-4" />
-                  Marcadores
+                  Colegios
                </Button>
 
                {/* Botón Clusters */}
                <Button
-                  variant={showClusters ? 'default' : 'outline'}
+                  variant={showClusters ? 'search' : 'outline'}
                   size="sm"
                   onClick={() => setShowClusters(!showClusters)}
                   className="justify-start gap-2"
                >
                   <Building2 className="w-4 h-4" />
-                  Clusters
+                  Restaurantes
                </Button>
 
                {/* Botón Mapa de calor */}
                <Button
-                  variant={showHeatmap ? 'default' : 'outline'}
+                  variant={showHeatmap ? 'search' : 'outline'}
                   size="sm"
                   onClick={() => setShowHeatmap(!showHeatmap)}
                   className="justify-start gap-2"
                >
-                  <Home className="w-4 h-4" />
-                  Mapa de calor
+                  <Hospital className="w-4 h-4" />
+                  Centros de salud
                </Button>
             </div>
          </div>

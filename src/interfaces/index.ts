@@ -28,3 +28,7 @@ export type { ItemFilter } from './FiltrosResponse';
 
 // Imagenes
 export type { Imagen } from './Imagen';
+
+// API Google Nearby Search
+export type { LugaresRequest } from './api-google-places/LugaresRequest';
+export type { NearbySearchResponse } from './api-google-places/NearbySearchResponse';

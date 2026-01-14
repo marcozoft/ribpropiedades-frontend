@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion, IndicadorPrecio, TituloDeVenta } from './cards-components';
 import Link from 'next/link';
 import { generateHrefPropiedad, generateSrcImage } from '@/src/utils';
+import { Button } from '../shadcn-components';
 
 type Props = {
    propiedad: PropiedadBasico
@@ -29,8 +30,8 @@ export const PropiedadPopupCard = ({ propiedad, className }: Props) => {
 
    return (
       <div className={`relative mx-auto w-full ${className}`}>
-         <Link href='/' className="relative inline-block w-full">
-            <div className="bg-white p-4 shadow rounded-xs">
+         {/* <Link href='/' className="relative inline-block w-full"> */}
+            <div className="bg-background p-4 rounded-xs">
                <div className="relative flex justify-center overflow-hidden rounded-xs">
 
                   {/* Imagen */}
@@ -48,19 +49,19 @@ export const PropiedadPopupCard = ({ propiedad, className }: Props) => {
                <div className="mt-4">
 
                   {/* Tipo de operacion TODO: Agregar si es casa o depto ???*/}
-                  <IndicadorOperacion 
+                  {/* <IndicadorOperacion
                      tipoDeInmueble={inmueble} 
                      tipoDeOperacion={operacion}
-                  />
+                  /> */}
 
                   {/* Precio */}
-                  <IndicadorPrecio
+                  {/* <IndicadorPrecio
                      className='text-black' 
                      precio={precio} 
                      precio_condicion={precio_publico} 
                      sinEspecificar='Consultar' 
                      moneda='U$D'
-                  />
+                  /> */}
                </div>
                <div className="mt-4">
                   {/* Descripcion */}
@@ -69,32 +70,33 @@ export const PropiedadPopupCard = ({ propiedad, className }: Props) => {
                <div className="justify-center">
                   <div className="mt-4 flex gap-2 overflow-hidden rounded-lg px-1 py-1 divide-x">
 
+                     <Button variant='ghost'>Ver entorno</Button>
                      {/* Cantidad de dormitorios */}
-                     <IndicadorNumerico 
+                     {/* <IndicadorNumerico 
                         nombre='Dormitorios' 
                         valor={dormitorios} 
                         icono={<i className="flaticon-bed text-black"></i>}
-                     />
+                     /> */}
 
                      {/* superficie total m2 */}
-                     <IndicadorNumerico 
+                     {/* <IndicadorNumerico 
                         nombre='Sup. Total' 
                         valor={sup_total} 
                         icono={<i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>} 
                         unidad='m²'
-                     />
+                     /> */}
 
                      {/* superficie terreno m2 */}
-                     <IndicadorNumerico 
+                     {/* <IndicadorNumerico 
                         nombre='Sup. Terreno' 
                         valor={sup_terreno} 
                         icono={<i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>} 
                         unidad='m²'
-                     />
+                     /> */}
                   </div>
                </div>
             </div>
-         </Link>
+         {/* </Link> */}
       </div>
    )
 }
