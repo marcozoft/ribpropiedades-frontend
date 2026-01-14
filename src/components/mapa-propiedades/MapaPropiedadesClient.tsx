@@ -6,7 +6,7 @@ import { createRoot } from "react-dom/client";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_ACCESS_TOKEN } from "@/src/constants/geo-constants";
-import { Layers, MapPin, Building2, Home, Hospital, Utensils, UtensilsCrossed, School } from "lucide-react";
+import { Layers, Hospital, UtensilsCrossed, School } from "lucide-react";
 import { Button } from "../shadcn-components";
 import { PropiedadPopupCard } from '@/src/components';
 import { primaryFont } from "@/src/config/fonts";
@@ -196,7 +196,7 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
 
          {/* Barra flotante de capas */}
          <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
-         
+
             <div className="flex flex-col gap-2 bg-white rounded-lg shadow-lg p-2">
                {/* Título */}
                <div className="flex items-center gap-2 px-2 py-1 border-b">
