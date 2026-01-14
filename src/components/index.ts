@@ -35,6 +35,7 @@ export { Footer } from "./footer/Footer";
 export { FiltersBar } from "./filters/FiltersBar";
 export { FiltersPopover } from './filters/FiltersPopover';
 export { SortPopover } from './filters/SortPopover';
+export { ControlMapaGrilla } from './mapa-propiedades/ControlMapaGrilla';
 
 export { TituloDescriptivo } from "./filters/TituloDescriptivo";
 export { UbicacionCommand } from './filters/UbicacionCommand';

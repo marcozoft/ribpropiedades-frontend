@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navbar, Footer } from "../components";
 import { primaryFont } from "../config/fonts";
 import '@/src/styles/flat-icon/flaticon.css';
+import { Toaster } from "../components/shadcn-components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "RIB Inmobiliara",
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={`${primaryFont.className}`}>
         <Navbar />
         {children}
+        <Toaster />
         <Footer />
       </body>
     </html>

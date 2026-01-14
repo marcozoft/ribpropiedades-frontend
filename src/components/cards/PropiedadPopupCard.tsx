@@ -4,6 +4,7 @@ import { FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion
 import Link from 'next/link';
 import { generateHrefPropiedad, generateSrcImage } from '@/src/utils';
 import { Button } from '../shadcn-components';
+import { Footprints, Utensils, ZoomIn } from 'lucide-react';
 
 type Props = {
    propiedad: PropiedadBasico
@@ -50,28 +51,37 @@ export const PropiedadPopupCard = ({ propiedad, className, onClickEntorno }: Pro
                <div className="mt-4">
 
                   {/* Tipo de operacion TODO: Agregar si es casa o depto ???*/}
-                  {/* <IndicadorOperacion
+                  <IndicadorOperacion
                      tipoDeInmueble={inmueble} 
                      tipoDeOperacion={operacion}
-                  /> */}
+                  />
 
                   {/* Precio */}
-                  {/* <IndicadorPrecio
+                  <IndicadorPrecio
                      className='text-black' 
                      precio={precio} 
                      precio_condicion={precio_publico} 
                      sinEspecificar='Consultar' 
                      moneda='U$D'
-                  /> */}
+                  />
                </div>
-               <div className="mt-4">
-                  {/* Descripcion */}
-                  <TituloDeVenta tituloVenta={titulo_venta} />
-               </div>
+               <Link 
+                  href={generateHrefPropiedad(id, titulo_venta)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+               >
+                  <div className="mt-4">
+                     {/* Descripcion */}
+                     <TituloDeVenta tituloVenta={titulo_venta} />
+                  </div>
+               </Link>
                <div className="justify-center">
                   <div className="mt-4 flex gap-2 overflow-hidden rounded-lg px-1 py-1 divide-x">
 
-                     <Button variant='ghost' onClick={ () => onClickEntorno(+propiedad.mapa_latitud, +propiedad.mapa_longitud) }>Ver entorno</Button>
+                     <Button variant='ghost' onClick={ () => onClickEntorno(+propiedad.mapa_latitud, +propiedad.mapa_longitud) }>
+                        <ZoomIn className="w-4 h-4" />Entorno
+                     </Button>
+
                      {/* Cantidad de dormitorios */}
                      {/* <IndicadorNumerico 
                         nombre='Dormitorios' 

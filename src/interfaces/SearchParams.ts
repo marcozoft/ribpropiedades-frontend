@@ -5,7 +5,7 @@ export type SearchParams = {
    ambientes?: string;
    dormitorios?: string;
    zona?: string;
-   vista?: string;
+   vista?: 'mapa' | 'grilla';
    orden?: string;
    con_piscina?: string;
    con_dos_plantas?: string;

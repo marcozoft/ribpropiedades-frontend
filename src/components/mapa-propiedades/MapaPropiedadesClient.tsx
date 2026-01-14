@@ -6,10 +6,12 @@ import { createRoot } from "react-dom/client";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_ACCESS_TOKEN } from "@/src/constants/geo-constants";
-import { Layers, MapPin, Building2, Home, Hospital } from "lucide-react";
+import { Layers, MapPin, Building2, Home, Hospital, Utensils, UtensilsCrossed, School } from "lucide-react";
 import { Button } from "../shadcn-components";
 import { PropiedadPopupCard } from '@/src/components';
 import { primaryFont } from "@/src/config/fonts";
+import { toast } from "sonner";
+
 
 
 
@@ -58,8 +60,10 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
       mapRef.current.on('load', () => {
          setMapLoaded(true);
          console.log('mapa ok');
-
       });
+
+      mapRef.current.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+
 
       const map = mapRef.current;
 
@@ -164,13 +168,20 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
          })
             .setLngLat([place.location.longitude, place.location.latitude])
             .setPopup(
-               new mapboxgl.Popup().setText(`${place.displayName}: ${place.formattedAddress}`)
+               new mapboxgl.Popup().setText(`${place.displayName.text}: ${place.formattedAddress}`)
             )
             .addTo(mapRef.current!);
 
          // Guardar referencia del marker
          restaurantsRef.current.push(marker);
+
+
       });
+
+      toast(`${places.length} restaurantes a menos de 2km.`, {
+         // description: "Sunday, December 03, 2023 at 9:00 AM",
+         duration: 4000,
+      })
    }
 
 
@@ -185,6 +196,7 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
 
          {/* Barra flotante de capas */}
          <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
+         
             <div className="flex flex-col gap-2 bg-white rounded-lg shadow-lg p-2">
                {/* Título */}
                <div className="flex items-center gap-2 px-2 py-1 border-b">
@@ -199,7 +211,7 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
                   onClick={() => setShowRestaurants(!showRestaurants)}
                   className="justify-start gap-2"
                >
-                  <MapPin className="w-4 h-4" />
+                  <UtensilsCrossed className="w-4 h-4" />
                   Restaurantes
                </Button>
 
@@ -210,7 +222,7 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
                   // onClick={() => setShowClusters(!showClusters)}
                   className="justify-start gap-2"
                >
-                  <Building2 className="w-4 h-4" />
+                  <School className="w-4 h-4" />
                   Colegios
                </Button>
 
