@@ -1,12 +1,11 @@
 "use client";
 
-import { PropiedadBasico } from "@/src/interfaces";
+import { LugaresRequest, Place, PropiedadBasico } from "@/src/interfaces";
 import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_ACCESS_TOKEN } from "@/src/constants/geo-constants";
-import { PhoneSpan } from "../navbar";
 import { Layers, MapPin, Building2, Home, Hospital } from "lucide-react";
 import { Button } from "../shadcn-components";
 import { PropiedadPopupCard } from '@/src/components';
@@ -21,15 +20,23 @@ type Props = {
    propiedades: PropiedadBasico[]
 }
 
+
+
+
+
 export default function MapaPropiedadesClient({ propiedades }: Props) {
 
    const mapContainerRef = useRef<HTMLDivElement | null>(null);
    const mapRef = useRef<mapboxgl.Map | null>(null);
 
-   // Estados para controlar visibilidad de capas
-   const [showMarkers, setShowMarkers] = useState(true);
-   const [showClusters, setShowClusters] = useState(false);
-   const [showHeatmap, setShowHeatmap] = useState(false);
+   const restaurantsRef = useRef<mapboxgl.Marker[]>([]);
+
+   const [mapLoaded, setMapLoaded] = useState(false);
+
+
+   // TODO: Estados para controlar visibilidad de capas: TODO
+   const [showRestaurants, setShowRestaurants] = useState(true);
+
 
    useEffect(() => {
 
@@ -48,6 +55,12 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
          zoom: 12,
       });
 
+      mapRef.current.on('load', () => {
+         setMapLoaded(true);
+         console.log('mapa ok');
+
+      });
+
       const map = mapRef.current;
 
       /**
@@ -56,7 +69,7 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
       const bounds = new mapboxgl.LngLatBounds();
 
       /**
-       * 
+       * Generar marcadores y popup
        */
       propiedades.forEach(prop => {
          // Crear un contenedor para el componente React
@@ -64,7 +77,12 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
 
          // Renderizar el componente React en el contenedor
          const root = createRoot(popupContainer);
-         root.render(<PropiedadPopupCard propiedad={prop} />);
+         root.render(
+            <PropiedadPopupCard
+               propiedad={prop}
+               onClickEntorno={searchPlaces}
+            />
+         );
 
          // Agregar evento click para hacer flyTo
          popupContainer.addEventListener('click', () => {
@@ -75,48 +93,85 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
             });
          });
 
-         // Crear elemento personalizado para el marker
-         const markerElement = document.createElement('div');
-         markerElement.className = 'custom-marker';
-         const markerRoot = createRoot(markerElement);
-         markerRoot.render(
-            <div className="relative cursor-pointer">
-               <MapPin className="w-8 h-8 drop-shadow-lg text-foreground" />
-            </div>
-         );
-
          const marker = new mapboxgl.Marker({
-            // element: 
             color: '#5f021f'
          })
             .setLngLat([+prop.mapa_longitud, +prop.mapa_latitud])
             .setPopup(
                new mapboxgl.Popup({
                   className: `${primaryFont.className}`,
-                  // anchor: 'bottom'
-               })
-               // .setMaxWidth('300px')
-                  .setDOMContent(popupContainer)
+               }).setDOMContent(popupContainer)
             )
             .addTo(mapRef.current!);
+
 
          bounds.extend(marker.getLngLat());
       });
 
       /**
-       * 
+       * Ajustar el zoom para ver todos
        */
       map.fitBounds(bounds, { animate: false, padding: 20 });
 
 
 
       return () => {
+         // Limpiar todos los markers
+         // markersRef.current.forEach(marker => marker.remove());
+         // markersRef.current = [];
+
          mapRef.current?.remove();
          mapRef.current = null;
       }
    }, [])
 
-   console.log({ propiedades });
+
+   // useEffect para controlar visibilidad de markers
+   useEffect(() => {
+      restaurantsRef.current.forEach(marker => {
+         if (showRestaurants) {
+            marker.getElement().style.display = 'block';
+         } else {
+            marker.getElement().style.display = 'none';
+         }
+      });
+   }, [showRestaurants]);
+
+
+   const searchPlaces = async (lat: number, lng: number) => {
+
+      const request: LugaresRequest = {
+         results: 50,
+         types: ['restaurant'],
+         lat: lat,
+         lng: lng,
+         radius: 20000
+      }
+
+      const places: Place[] = await fetch('api/lugares', {
+         method: 'POST',
+         body: JSON.stringify(request),
+      }).then(resp => resp.json());
+      console.log(`${places.length} encontrados`)
+
+      /**
+       * Crear markers para cada restaurant
+       */
+      places.forEach(place => {
+
+         const marker = new mapboxgl.Marker({
+            color: '#1e90ff'
+         })
+            .setLngLat([place.location.longitude, place.location.latitude])
+            .setPopup(
+               new mapboxgl.Popup().setText(`${place.displayName}: ${place.formattedAddress}`)
+            )
+            .addTo(mapRef.current!);
+
+         // Guardar referencia del marker
+         restaurantsRef.current.push(marker);
+      });
+   }
 
 
 
@@ -139,31 +194,31 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
 
                {/* Botón Marcadores */}
                <Button
-                  variant={showMarkers ? 'search' : 'outline'}
+                  variant={showRestaurants ? 'search' : 'outline'}
                   size="sm"
-                  onClick={() => setShowMarkers(!showMarkers)}
+                  onClick={() => setShowRestaurants(!showRestaurants)}
                   className="justify-start gap-2"
                >
                   <MapPin className="w-4 h-4" />
-                  Colegios
+                  Restaurantes
                </Button>
 
                {/* Botón Clusters */}
                <Button
-                  variant={showClusters ? 'search' : 'outline'}
+                  variant={false ? 'search' : 'outline'}
                   size="sm"
-                  onClick={() => setShowClusters(!showClusters)}
+                  // onClick={() => setShowClusters(!showClusters)}
                   className="justify-start gap-2"
                >
                   <Building2 className="w-4 h-4" />
-                  Restaurantes
+                  Colegios
                </Button>
 
                {/* Botón Mapa de calor */}
                <Button
-                  variant={showHeatmap ? 'search' : 'outline'}
+                  variant={false ? 'search' : 'outline'}
                   size="sm"
-                  onClick={() => setShowHeatmap(!showHeatmap)}
+                  // onClick={() => setShowHeatmap(!showHeatmap)}
                   className="justify-start gap-2"
                >
                   <Hospital className="w-4 h-4" />

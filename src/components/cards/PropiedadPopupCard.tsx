@@ -8,9 +8,10 @@ import { Button } from '../shadcn-components';
 type Props = {
    propiedad: PropiedadBasico
    className?: string;
+   onClickEntorno: (lat: number, lng: number) => void
 }
 
-export const PropiedadPopupCard = ({ propiedad, className }: Props) => {
+export const PropiedadPopupCard = ({ propiedad, className, onClickEntorno }: Props) => {
 
    const {
       codigo,
@@ -70,7 +71,7 @@ export const PropiedadPopupCard = ({ propiedad, className }: Props) => {
                <div className="justify-center">
                   <div className="mt-4 flex gap-2 overflow-hidden rounded-lg px-1 py-1 divide-x">
 
-                     <Button variant='ghost'>Ver entorno</Button>
+                     <Button variant='ghost' onClick={ () => onClickEntorno(+propiedad.mapa_latitud, +propiedad.mapa_longitud) }>Ver entorno</Button>
                      {/* Cantidad de dormitorios */}
                      {/* <IndicadorNumerico 
                         nombre='Dormitorios' 

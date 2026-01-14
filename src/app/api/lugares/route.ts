@@ -50,5 +50,12 @@ export async function POST(req: Request) {
     })
   }).then(response => response.json());
 
+  console.log(places);
+  
+  // TODO: Hacerlo mejor...Verificar si la respuesta está vacía o no tiene places
+  if (!places || !places.places || places.places.length === 0) {
+    return NextResponse.json([]);
+  }
+
   return NextResponse.json(places.places);
 }
