@@ -1,8 +1,9 @@
 'use client';
 
-import { EMAIL, EMAIL2, EMAIL2_LINK, EMAIL_LINK } from '@/src/constants/constants';
+import { EMAIL, EMAIL2, EMAIL2_LINK, EMAIL_LINK, WHATSAPP_LINK } from '@/src/constants/constants';
 import Link from 'next/link';
 import { useState } from 'react';
+import Image from 'next/image';
 
 interface FormData {
   nombre: string;
@@ -49,7 +50,7 @@ export const SeccionFormularioContacto = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50" id="formulario">
+    <section className="py-10 md:py-15 bg-gray-50" id="formulario">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Columna izquierda - Información */}
@@ -78,6 +79,13 @@ export const SeccionFormularioContacto = () => {
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Móvil</h3>
                 <p className="text-gray-600"><a href="tel:+5491134201500" className="text-foreground hover:underline">(+549) 11 3420 1500</a></p>
+
+                <p>
+                  <Link href={WHATSAPP_LINK}>
+                    <Image src='/images/whatsapp-logo.svg' alt='whatsapp logo' height={35} width={35} className=''/>
+                  </Link>
+                </p>
+                
               </div>
 
               <div>
