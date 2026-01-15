@@ -1,6 +1,7 @@
 'use client';
 
-import { EMAIL, EMAIL_LINK } from '@/src/constants/constants';
+import { EMAIL, EMAIL2, EMAIL2_LINK, EMAIL_LINK } from '@/src/constants/constants';
+import Link from 'next/link';
 import { useState } from 'react';
 
 interface FormData {
@@ -67,7 +68,10 @@ export const SeccionFormularioContacto = () => {
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Contacto y consultas:</h3>
                 <p className="text-gray-600">
-                  e-mail: <a href={EMAIL_LINK} className="text-foreground hover:underline">{EMAIL}</a>
+                  <Link href={EMAIL_LINK} className="text-foreground hover:underline">{EMAIL}</Link>
+                </p>
+                <p className="text-gray-600">
+                  <Link href={EMAIL2_LINK} className="text-foreground hover:underline">{EMAIL2}</Link>
                 </p>
               </div>
 

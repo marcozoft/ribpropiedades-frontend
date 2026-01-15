@@ -6,7 +6,11 @@ export const GOOGLE_MAPS_API_KEY = 'AIzaSyBvkOKZV4VJZzZ9HJ5iawVl3YGkk-EVhCI';
 
 // Email
 export const EMAIL = 'info@ribpropiedades.com.ar';
+export const EMAIL2 = 'info.ribinmobiliaria@gmail.com';
+
 export const EMAIL_LINK = 'mailto:info@ribpropiedades.com.ar';
+export const EMAIL2_LINK = 'mailto:info.ribinmobiliaria@gmail.com';
+
 
 // Redes sociales
 export const INSTAGRAM_LINK = 'https://www.instagram.com/ribinmobiliaria';
