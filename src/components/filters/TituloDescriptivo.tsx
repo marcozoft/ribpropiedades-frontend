@@ -28,7 +28,7 @@ export const TituloDescriptivo = ({
    zonas,
 }: Props) => {
 
-   const { zona, emprendimiento, operacion, ambientes, dormitorios, tipo_inmueble, orden, ...rest } = filterValues;
+   const { zona, emprendimiento, operacion, ambientes, dormitorios, tipo_inmueble, orden, vista, ...rest } = filterValues;
 
    return (
       <div className="max-w-6xl mx-auto flex flex-col justify-between pb-2 min-h-40">

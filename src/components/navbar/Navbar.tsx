@@ -12,7 +12,6 @@ export const Navbar = () => {
   return (
     <>
       <header className="top-0 z-50 bg-foreground sticky shadow-md">
-        {/* <h1>hola mundo</h1> */}
         <div className="max-w-6xl mx-auto px-4 flex items-center h-16 justify-between">
           <Link href={'/'}>
             <Image

@@ -29,8 +29,7 @@ export type { ItemFilter } from './FiltrosResponse';
 // Imagenes
 export type { Imagen } from './Imagen';
 
-
-//TODO: Mapa. A deprecar
-export type { PropiedadesMapaResponse } from "./PropiedadesMapaResponse"
-export type { PropiedadMapa } from "./PropiedadesMapaResponse"
-
+// API Google Nearby Search
+export type { LugaresRequest } from './api-google-places/LugaresRequest';
+export type { NearbySearchResponse } from './api-google-places/NearbySearchResponse';
+export type { Place } from './api-google-places/NearbySearchResponse';

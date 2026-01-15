@@ -11,6 +11,11 @@ export { SinResultados } from "./cards/SinResultados";
 // Emprendimientos card
 export { EmprendimientoCard } from "./cards/EmprendimientoCard";
 
+// Mapas
+export { MapaPropiedades } from "./mapa-propiedades/MapaPropiedades";
+export { PropiedadPopupCard } from "./cards/PropiedadPopupCard";
+
+
 // Detalle full page
 export { PropiedadFullPage } from "./detalle-full-page/PropiedadFullPage";
 export { EmprendimientoFullPage } from "./detalle-full-page/EmprendimientoFullPage";
@@ -30,6 +35,7 @@ export { Footer } from "./footer/Footer";
 export { FiltersBar } from "./filters/FiltersBar";
 export { FiltersPopover } from './filters/FiltersPopover';
 export { SortPopover } from './filters/SortPopover';
+export { ControlMapaGrilla } from './mapa-propiedades/ControlMapaGrilla';
 
 export { TituloDescriptivo } from "./filters/TituloDescriptivo";
 export { UbicacionCommand } from './filters/UbicacionCommand';
