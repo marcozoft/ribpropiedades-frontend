@@ -123,7 +123,7 @@ export const FiltersBar = ({
          </pre>  */}
 
          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-12 items-center rounded h-20 bg-white z-20 gap-4 px-2">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-12 items-center rounded h-20 bg-background z-20 gap-4 px-2">
                
                {!iaModeActive ? (
                   <>
