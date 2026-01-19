@@ -40,10 +40,11 @@ export { ControlMapaGrilla } from './mapa-propiedades/ControlMapaGrilla';
 export { TituloDescriptivo } from "./filters/TituloDescriptivo";
 export { UbicacionCommand } from './filters/UbicacionCommand';
 
-// Servicios
+// Componentes UI varios
 export { LinkButton } from "./ui/buttons/LinkButton";
 export { ServicioCard } from "./ui/cards/ServicioCard";
 export { SocialNetworks } from "./ui/SocialNetworks";
+export { SocialNetworkItem } from "./ui/SocialNetworkItem";
 
 // Shadcn custom components
 export {

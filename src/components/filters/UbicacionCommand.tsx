@@ -71,6 +71,7 @@ export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, 
                 <CommandItem
                   key={item.valor}
                   value={item.valor}
+                  keywords={[item.label]}
                   onSelect={(currentValue) => {
                     setValue('zona', currentValue);
                     setValue('emprendimiento', '');
@@ -93,6 +94,7 @@ export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, 
                 <CommandItem
                   key={item.valor}
                   value={item.valor}
+                  keywords={[item.label]}
                   onSelect={(currentValue) => {
                     setValue('emprendimiento', currentValue);
                     setValue('zona', '');
@@ -109,8 +111,6 @@ export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, 
                 </CommandItem>
               ))}
             </CommandGroup>
-
-
           </CommandList>
         </Command>
       </PopoverContent>

@@ -12,7 +12,7 @@ type ServicioItem = {
 
 const servicios: ServicioItem[] = [
    {
-      titulo: `Countries, Barrios & Clubes de campo`,
+      titulo: `Countries, Barrios Cerrados & Clubes de campo`,
       descripcion: `RIB Inmobiliaria, te presenta la mejor oferta inmobiliaria para conocer los barrios, 
          el mercado y el proceso de decidir sobre tu futuro.`,
       imageUrl: '',

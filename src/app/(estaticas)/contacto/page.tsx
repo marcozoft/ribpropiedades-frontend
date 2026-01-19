@@ -1,15 +1,13 @@
 import { 
   SeccionMapa,
-  SeccionFormularioContacto, 
-  SeccionInfoContacto 
+  SeccionFormularioContacto 
 } from '@/src/components/contacto-secciones';
 
 export default function ContactoPage() {
   return (
     <main>
-      <SeccionMapa />
-      <SeccionInfoContacto />
       <SeccionFormularioContacto />
+      <SeccionMapa />
     </main>
   );
 }
