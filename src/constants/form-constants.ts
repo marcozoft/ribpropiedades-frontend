@@ -44,7 +44,7 @@ export const booleanFilters: ItemFilter[] = [
    con_dormitorio_suiteItem
 ];
 
-export const searchExamples = [
+export const searchAIExamples = [
    "casa de 5 dormitorios",
    "departamento con 2 baños",
    "casa en alquiler cercana al golf",
