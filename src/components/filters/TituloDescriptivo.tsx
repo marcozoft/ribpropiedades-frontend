@@ -1,6 +1,28 @@
 import { ItemFilter, SearchParams } from "@/src/interfaces"
-import { ArrowDownNarrowWideIcon, CircleCheckBigIcon, HandshakeIcon, House, LampCeiling, MapPinIcon } from "lucide-react";
+import { ArrowDownNarrowWideIcon, BedDouble, Car, CircleCheckBigIcon, HandshakeIcon, House, LampCeiling, MapPinIcon, SwissFranc, TableCellsSplit, WavesLadder } from "lucide-react";
 import { Item, ItemContent, ItemMedia, ItemTitle } from "@/src/components";
+
+
+type LabelIcon = {
+   label: string;
+   icon: React.ReactNode
+}
+
+const icons: LabelIcon[] = [
+   {
+      label: 'con_piscina',
+      icon: (<WavesLadder />)
+   },{
+      label: 'con_dos_plantas',
+      icon: (<TableCellsSplit />)
+   },{
+      label: 'con_dormitorio_suite',
+      icon: (<BedDouble />)
+   },{
+      label: 'con_dos_cocheras',
+      icon: (<Car />)
+   },
+];
 
 
 type Props = {
@@ -29,6 +51,9 @@ export const TituloDescriptivo = ({
 }: Props) => {
 
    const { zona, emprendimiento, operacion, ambientes, dormitorios, tipo_inmueble, orden, vista, queryAI, ...rest } = filterValues;
+
+   console.log(filterValues);
+   
 
    return (
       <div className="max-w-6xl mx-auto flex flex-col justify-between pb-2 min-h-40">
@@ -103,7 +128,7 @@ export const TituloDescriptivo = ({
 
             {
                dormitorios && (
-                  <Item variant="muted"  className="shrink-0">
+                  <Item variant="muted" className="shrink-0">
                      <ItemMedia>
                         <i className="flaticon-bed" />
                      </ItemMedia>
@@ -117,18 +142,21 @@ export const TituloDescriptivo = ({
 
             {/* Caracteristicas checkbox */}
             {
-               Object.entries(rest).map(([key]) =>
-               (
-                  <Item variant="muted" key={key} className="shrink-0">
-                     <ItemMedia>
-                        <CircleCheckBigIcon className="size-5" />
-                     </ItemMedia>
-                     <ItemContent>
-                        <ItemTitle>{booleansFilters.find(item => item.valor === key)?.label}</ItemTitle>
-                     </ItemContent>
-                  </Item>
-               )
-               )
+               Object.entries(rest).map(([key, value]) => {
+                  const iconData = icons.find(icon => icon.label === key);
+                  if (!iconData) return null;
+                  
+                  return (
+                     <Item variant="muted" key={key} className="shrink-0">
+                        <ItemMedia>
+                           {iconData.icon}
+                        </ItemMedia>
+                        <ItemContent>
+                           <ItemTitle>{booleansFilters.find(item => item.valor === key)?.label}</ItemTitle>
+                        </ItemContent>
+                     </Item>
+                  );
+               })
             }
          </div>
 

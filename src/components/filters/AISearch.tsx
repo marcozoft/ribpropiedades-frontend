@@ -3,15 +3,19 @@
 import { searchAIExamples } from "@/src/constants/form-constants";
 import { useEffect, useState, useTransition } from "react";
 import { Button, Input } from "@/src/components";
-import { Loader2, Search, Sparkles } from "lucide-react";
+import { Search, Sparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { filterSearchParams } from "@/src/utils";
 
-export const AISearch = () => {
+type Props = {
+   initialQuery?: string;
+}
+
+export const AISearch = ({initialQuery}: Props) => {
 
    const [isPending, startTransition] = useTransition();
    const router = useRouter();
-   const [aiSearchQuery, setAiSearchQuery] = useState("");
+   const [aiSearchQuery, setAiSearchQuery] = useState(initialQuery ?? '');
    const [placeholderText, setPlaceholderText] = useState("");
    const [currentExampleIndex, setCurrentExampleIndex] = useState(0);
 
@@ -55,7 +59,7 @@ export const AISearch = () => {
    return (
       <div className={`flex flex-col md:flex-row items-center justify-center duration-800 gap-4 grow animate-in fade-in fade-out`}>
 
-         <label className="text-foreground font-semibold text-lg whitespace-nowrap">
+         <label className="text-black font-semibold text-lg whitespace-nowrap">
             Buscador Inteligente
          </label>
          <Input

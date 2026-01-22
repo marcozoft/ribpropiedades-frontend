@@ -58,15 +58,17 @@ export default async function Propiedades({
    return (
       <div className="bg-white">
          <div className="max-w-6xl mx-auto sticky z-10 top-20 -mt-20 shadow-md">
-            <FiltersBar filterValues={filterValues} {...filtros} allControls />
+            <FiltersBar filterValues={searchParamsBrowserBar} {...filtros} allControls />
          </div>
 
          {
-            filterValues.vista == 'mapa'
+            searchParamsBrowserBar.vista == 'mapa'
                ? (<MapaPropiedades propiedades={propiedades} />)
                : (vistaGrilla)
          }
-         <ControlMapaGrilla vista={filterValues.vista} />
+         {
+            propiedades.length > 0 && <ControlMapaGrilla vista={searchParamsBrowserBar.vista} />
+         }
       </div>
    )
 }

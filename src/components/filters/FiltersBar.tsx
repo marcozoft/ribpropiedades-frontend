@@ -20,17 +20,18 @@ type Props = {
 
 export const FiltersBar = (props: Props) => {
 
-   const [iaModeActive, setIaModeActive] = useState(false);
+   const [iaModeActive, setIaModeActive] = useState(!!props.filterValues.queryAI);
 
    const toggleIaMode = () => {
       setIaModeActive(!iaModeActive);
    };
+   
 
    return (
       <div className="flex items-center justify-center rounded bg-background z-20 gap-4 px-6 py-5 max-w-5xl mx-auto">
          {
             iaModeActive
-               ? <AISearch />
+               ? <AISearch initialQuery={props.filterValues.queryAI}/>
                : <ClasicSearch {...props} />
          }
 
