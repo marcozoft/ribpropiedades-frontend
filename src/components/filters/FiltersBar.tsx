@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Lottie from 'lottie-react';
-import { ClasicSearch } from "@/src/components";
+import { AISearch, Button, ClasicSearch, Tooltip, TooltipContent, TooltipTrigger } from "@/src/components";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
 import ribIaAnimation from '@/public/lotties/rib_ia_lottie.json';
+import { Undo2 } from "lucide-react";
 
 type Props = {
    zonas: ItemFilter[];
@@ -26,23 +27,40 @@ export const FiltersBar = (props: Props) => {
    };
 
    return (
-      <div className="flex items-center rounded bg-background z-20 gap-4 px-6 py-2 max-w-5xl mx-auto">
-         <ClasicSearch {...props} />
-         {/* Busqueda con IA */}
-         <button
-            type="button"
-            onClick={toggleIaMode}
-            className={`relative transition-all duration-200 rounded-lg p-1 ${iaModeActive
-               ? 'bg-foreground/20 shadow-inner translate-y-0.5 scale-95 ring-2 ring-foreground/40'
-               : 'hover:scale-105 hover:bg-foreground/5 active:translate-y-0.5'
-               }`}
-         >
-            <Lottie
-               className="h-14 w-14"
-               animationData={ribIaAnimation}
-               loop={true}
-            />
-         </button>
+      <div className="flex items-center justify-center rounded bg-background z-20 gap-4 px-6 py-5 max-w-5xl mx-auto">
+         {
+            iaModeActive
+               ? <AISearch />
+               : <ClasicSearch {...props} />
+         }
+
+         {/* Boton switch IA / Clasic */}
+         <div className="flex">
+            <Tooltip>
+               <TooltipTrigger asChild>
+                  <Button
+                     className="border border-foreground"
+                     variant="ghost"
+                     type="submit"
+                     size="icon"
+                     onClick={toggleIaMode}
+                  >
+                     {
+                        iaModeActive
+                           ? <Undo2 />
+                           : <Lottie
+                              className="size-9"
+                              animationData={ribIaAnimation}
+                              loop={true}
+                           />
+                     }
+                  </Button>
+               </TooltipTrigger>
+               <TooltipContent>
+                  <p>{iaModeActive ? 'Volver a búsqueda con filtros' : 'Búsqueda con Inteligencia Artificial'}</p>
+               </TooltipContent>
+            </Tooltip>
+         </div>
       </div>
    )
 }

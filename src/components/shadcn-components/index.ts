@@ -7,3 +7,4 @@ export { Label } from "./ui/label";
 export { Popover, PopoverTrigger, PopoverContent } from "./ui/popover";
 export { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 export { Item, ItemContent, ItemMedia, ItemTitle, ItemDescription, ItemActions} from "./ui/item";
+export { Tooltip, TooltipContent, TooltipTrigger} from "./ui/tooltip";

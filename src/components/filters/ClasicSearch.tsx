@@ -83,10 +83,10 @@ export const ClasicSearch = ({
          {/* <pre className="text-xs bg-muted p-2 rounded">
             {JSON.stringify(values, null, 2)}
          </pre>  */}
-         <form onSubmit={form.handleSubmit(onSubmit)} className="flex gap-4">
+         <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col md:flex-row gap-4 grow animate-in fade-in fade-out">
 
             {/* Selects grid*/}
-            <div className="grow grid grid-cols-12 items-center gap-4">
+            <div className="grow grid grid-cols-1 md:grid-cols-12 items-center gap-4">
                {/* Zona / Emprendimiento */}
                <div className={`flex justify-center col-span-1 md:col-span-4`}>
                   <UbicacionCommand
@@ -128,7 +128,7 @@ export const ClasicSearch = ({
                </div>
 
                {/* tipo de inmueble */}
-               <div className="flex justify-center md:col-span-4">
+               <div className="flex justify-center col-span-1 md:col-span-4">
                   <FormField
                      control={form.control}
                      name="tipo_inmueble"
@@ -158,10 +158,9 @@ export const ClasicSearch = ({
 
 
 
-            {/* Botones con icono */}
+            {/* Botones lupa */}
             <div className={`flex justify-center items-center gap-2 ${!allControls ? 'md:col-span-2' : 'md:col-span-3'}`}>
 
-               {/* Boton lupa: siempre aparece */}
                <Button
                   variant="search"
                   type="submit"

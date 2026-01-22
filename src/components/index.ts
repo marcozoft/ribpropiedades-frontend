@@ -1,3 +1,4 @@
+import { Tooltip } from '@/src/components';
 // Skeletons (loaders)
 export { SkeletonCard } from "./skeletons/SkeletonCard";
 export { SkeletonFilterBar } from "./skeletons/SkeletonFilterBar";
@@ -51,6 +52,7 @@ export { SocialNetworkItem } from "./ui/SocialNetworkItem";
 // Shadcn custom components
 export {
    Button,
+   Checkbox,
    Command, 
    CommandDialog, 
    Form, 
@@ -60,6 +62,13 @@ export {
    FormItem,
    FormLabel,
    FormMessage,
+   Input,
+   Item,
+   ItemActions,
+   ItemContent,
+   ItemDescription,
+   ItemMedia,
+   ItemTitle,
    Popover, 
    PopoverContent,
    PopoverTrigger,
@@ -69,11 +78,7 @@ export {
    SelectItem, 
    SelectTrigger,
    SelectValue,
-   Item,
-   ItemContent,
-   ItemActions,
-   ItemMedia,
-   ItemTitle,
-   ItemDescription,
-   Checkbox,
+   Tooltip, 
+   TooltipContent, 
+   TooltipTrigger,
 } from "./shadcn-components";
