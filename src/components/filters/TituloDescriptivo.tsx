@@ -28,7 +28,7 @@ export const TituloDescriptivo = ({
    zonas,
 }: Props) => {
 
-   const { zona, emprendimiento, operacion, ambientes, dormitorios, tipo_inmueble, orden, vista, ...rest } = filterValues;
+   const { zona, emprendimiento, operacion, ambientes, dormitorios, tipo_inmueble, orden, vista, queryAI, ...rest } = filterValues;
 
    return (
       <div className="max-w-6xl mx-auto flex flex-col justify-between pb-2 min-h-40">
@@ -119,7 +119,7 @@ export const TituloDescriptivo = ({
             {
                Object.entries(rest).map(([key]) =>
                (
-                  <Item variant="muted" key={key}  className="shrink-0">
+                  <Item variant="muted" key={key} className="shrink-0">
                      <ItemMedia>
                         <CircleCheckBigIcon className="size-5" />
                      </ItemMedia>

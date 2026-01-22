@@ -3,12 +3,15 @@
 import { searchAIExamples } from "@/src/constants/form-constants";
 import { useEffect, useState, useTransition } from "react";
 import { Button, Input } from "@/src/components";
-import { Loader2, Search } from "lucide-react";
+import { Loader2, Search, Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { filterSearchParams } from "@/src/utils";
 
 export const AISearch = () => {
 
    const [isPending, startTransition] = useTransition();
-   const [iaSearchQuery, setIaSearchQuery] = useState("");
+   const router = useRouter();
+   const [aiSearchQuery, setAiSearchQuery] = useState("");
    const [placeholderText, setPlaceholderText] = useState("");
    const [currentExampleIndex, setCurrentExampleIndex] = useState(0);
 
@@ -34,6 +37,20 @@ export const AISearch = () => {
       return () => clearInterval(typingInterval);
    }, [currentExampleIndex]);
 
+   /**
+      * Enviar formulario
+      * Toma los datos del hook 
+   */
+   const onClickSearch = () => {
+   
+      const params = filterSearchParams({queryAI: aiSearchQuery});
+
+      startTransition(() => {
+         router.push(`/propiedades?${params}`);
+      });
+
+   }
+
 
    return (
       <div className={`flex flex-col md:flex-row items-center justify-center duration-800 gap-4 grow animate-in fade-in fade-out`}>
@@ -44,18 +61,24 @@ export const AISearch = () => {
          <Input
             className="border border-foreground h-10"
             type="text"
-            value={iaSearchQuery}
-            onChange={(e) => setIaSearchQuery(e.target.value)}
+            value={aiSearchQuery}
+            onChange={(e) => setAiSearchQuery(e.target.value)}
             placeholder={placeholderText}
          />
          <Button
             variant="search"
             type="submit"
             size="icon"
+            onClick={onClickSearch}
             disabled={isPending}
          >
             {isPending ? (
-               <Loader2 className="size-6 animate-spin" />
+               // Loader by Copilot
+               <div className="relative flex items-center justify-center size-6">
+                  <Sparkles className="size-6 text-purple-500 animate-spin absolute" />
+                  <Sparkles className="size-5 text-pink-400 animate-pulse absolute" />
+                  <Sparkles className="size-4 text-blue-400 animate-ping absolute opacity-75" />
+               </div>
             ) : (
                <Search className="size-6" />
             )}

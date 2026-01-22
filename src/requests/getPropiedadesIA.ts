@@ -15,7 +15,7 @@ export const getPropiedadesIA = async (query: string): Promise<PropiedadesIAResp
       query
    };
       
-   return fetch(`${API_URL}/busqueda_inteligente`, {
+   return fetch(`${API_URL}/buscador_inteligente`, {
       method: 'POST',
       headers: {
          'X-API-Key': API_KEY,
@@ -27,6 +27,10 @@ export const getPropiedadesIA = async (query: string): Promise<PropiedadesIAResp
          revalidate: 3600 //TODO: Ajustar para prod
       }
 
-   }).then(resp => resp.json())
+   }).then(resp => {
+      console.log(resp);
+      
+      return resp.json()
+   })
 
 }
