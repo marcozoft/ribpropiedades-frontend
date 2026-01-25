@@ -18,18 +18,12 @@ export const CarouselLanzamientosSlide = ({ slider, index, i }: Props) => {
 
   const { titulo, subtitulo, url, texto } = slider;
 
-  const isActiveSlide = i === index;
-
-  const positionClass = isActiveSlide 
-    ? 'scale-100' 
-    : 'scale-80'
-
   const isYoutubeLink = isYouTubeVideoUrl(url);
   const youtubeId = isYoutubeLink ? getYouTubeId(url) : null;  
   
 
   return (
-    <div className={`w-full flex flex-col lg:flex-row grow-0 shrink-0 gap-3 sm:gap-4 lg:gap-5 transition-transform duration-700 ease-in-out ${positionClass}`}>
+    <div className={`w-full flex flex-col lg:flex-row grow-0 shrink-0 gap-3 sm:gap-4 lg:gap-5`}>
       {
         (isYoutubeLink && youtubeId) ? (
           <div className="flex-none w-full lg:max-w-160 aspect-video relative rounded overflow-hidden bg-background">
@@ -53,7 +47,7 @@ export const CarouselLanzamientosSlide = ({ slider, index, i }: Props) => {
         )
       }
       {/* <div className="flex grow-1"> */}
-        <div className='bg-background text-black text-sm sm:text-base rounded p-3 sm:p-4 md:p-5 flex-1'>
+        <div className='bg-background text-black text-sm sm:text-base rounded p-4 md:p-5 flex-1'>
           <span className={`${secondaryFont.className} text-foreground font-bold text-xs sm:text-sm`}>{subtitulo}</span>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold py-3 sm:py-4 md:py-5">{titulo}</h2>
           <p className="text-sm sm:text-base leading-relaxed">{texto}</p>
