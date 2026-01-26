@@ -57,8 +57,8 @@ export default async function Propiedades({
 
    return (
       <div className="bg-white">
-         <div className="max-w-6xl mx-auto sticky z-10 top-20 -mt-20 shadow-md">
-            <FiltersBar filterValues={searchParamsBrowserBar} {...filtros} allControls />
+         <div className="sticky z-10 top-20 -mt-20">
+            <FiltersBar filterValues={searchParamsBrowserBar} className='bg-background shadow-xl border-foreground' {...filtros} allControls />
          </div>
 
          {

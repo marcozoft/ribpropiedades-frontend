@@ -16,11 +16,12 @@ type Props = {
    tipos_inmueble: ItemFilter[];
    filterValues: SearchParams;
    allControls?: boolean;
+   className?: string;
 }
 
-export const FiltersBar = (props: Props) => {
+export const FiltersBar = ({className, ...rest}: Props) => {
 
-   const [iaModeActive, setIaModeActive] = useState(!!props.filterValues.queryAI);
+   const [iaModeActive, setIaModeActive] = useState(!!rest.filterValues.queryAI);
 
    const toggleIaMode = () => {
       setIaModeActive(!iaModeActive);
@@ -28,11 +29,11 @@ export const FiltersBar = (props: Props) => {
    
 
    return (
-      <div className="flex items-center justify-center rounded bg-background z-20 gap-4 px-6 py-5 max-w-5xl mx-auto">
+      <div className={`flex items-center justify-center rounded z-20 gap-4 px-6 py-5 max-w-5xl mx-auto ${className}`}>
          {
             iaModeActive
-               ? <AISearch initialQuery={props.filterValues.queryAI}/>
-               : <ClasicSearch {...props} />
+               ? <AISearch initialQuery={rest.filterValues.queryAI}/>
+               : <ClasicSearch {...rest} />
          }
 
          {/* Boton switch IA / Clasic */}

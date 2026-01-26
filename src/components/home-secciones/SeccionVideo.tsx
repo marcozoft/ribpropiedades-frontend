@@ -9,8 +9,7 @@ export const SeccionVideo = () => {
 
   return (
     <div className="w-full">
-      {/* <div className="max-w-7xl mx-auto px-4"> */}
-        <div className="relative w-full h-[95vh] md:-mt-[90px] md:pt-[90px] bg-black overflow-hidden group pointer-events-none">
+        <div className="relative w-full h-[95vh] md:-mt-22.5 md:pt-22.5 bg-black overflow-hidden group pointer-events-none">
           {/* iframe carga primero, por debajo */}
           <iframe
             className="absolute inset-0 w-full h-full"

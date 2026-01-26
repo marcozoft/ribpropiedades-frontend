@@ -11,10 +11,9 @@ export const SeccionBuscadorLanzamientos = async() => {
   return (
     <section className='stripe-marca-morado'>
 
-
       <div className="max-w-6xl mx-auto -mt-10 z-10 relative">
         <div className="overflow-hidden">
-          <FiltersBar {...filtros} filterValues={{}} />
+          <FiltersBar {...filtros} className='bg-background' filterValues={{}} />
         </div>
       </div>
 

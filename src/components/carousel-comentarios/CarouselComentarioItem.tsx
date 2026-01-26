@@ -18,7 +18,7 @@ export const CarouselComentarioItem = ({comentario, nombre}: Comentario) => {
 
          {/* Avatar + Nombre */}
          <div className="flex items-center gap-3 mt-8">
-            <div className="w-14 h-14 rounded-full bg-ternary flex items-center justify-center flex-shrink-0">
+            <div className="w-14 h-14 rounded-full bg-ternary flex items-center justify-center shrink-0">
                <i className="flaticon-user text-white text-xl" />
             </div>
             <p className="text-lg text-[#0A2C3D] font-bold">{nombre}</p>
