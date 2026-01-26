@@ -183,7 +183,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 
 function CarouselPrevious({
   className,
-  variant = "outline",
+  variant = "default",
   size = "icon",
   ...props
 }: React.ComponentProps<typeof Button>) {
@@ -195,7 +195,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 xl:h-15 xl:w-15 bg-white hover:bg-gray-300 sm:text-base md:text-lg",
+        "absolute size-8 rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 xl:h-15 xl:w-15 sm:text-base md:text-lg",
         orientation === "horizontal"
           ? "left-4 -top-14 xl:top-1/2 xl:-left-18 lg:-translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -205,7 +205,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft />
+      <ArrowLeft className="text-foreground" strokeWidth="3"/>
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -213,7 +213,7 @@ function CarouselPrevious({
 
 function CarouselNext({
   className,
-  variant = "outline",
+  variant = "default",
   size = "icon",
   ...props
 }: React.ComponentProps<typeof Button>) {
@@ -225,7 +225,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 xl:h-15 xl:w-15 bg-white hover:bg-gray-300 sm:text-base md:text-lg",
+        "absolute size-8 rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 xl:h-15 xl:w-15 sm:text-base md:text-lg",
         orientation === "horizontal"
           ? "right-4 -top-14 xl:top-1/2 xl:-right-18 lg:-translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -235,7 +235,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight />
+      <ArrowRight className="text-foreground" strokeWidth={3} />
       <span className="sr-only">Next slide</span>
     </Button>
   )
@@ -300,8 +300,6 @@ function CarouselDots({
     </div>
   )
 }
-              // className={`cursor-pointer rounded-full transition-all ${current === i ? "bg-foreground w-3 h-3 sm:w-4 sm:h-4" : "bg-foreground/50 w-1.5 h-1.5 sm:w-2 sm:h-2" }`}
-
 
 export {
   type CarouselApi,

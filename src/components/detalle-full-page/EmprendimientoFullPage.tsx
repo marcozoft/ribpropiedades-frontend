@@ -1,10 +1,10 @@
 import { EmprendimientoIdResponse } from '@/src/interfaces'
 import { GoogleMapsCard, SeccionImagenes } from './detalle-full-page-components'
 import { secondaryFont } from '@/src/config/fonts'
-import { CarouselCards } from '../carousel-cards-propiedades/CarouselCards';
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
 import { FormularioContactoLateral } from './detalle-full-page-components/FormularioContactoLateral';
+import { CarouselCards } from '@/src/components';
 
 
 type Props = {

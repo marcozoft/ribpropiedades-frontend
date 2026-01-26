@@ -1,5 +1,3 @@
-import { Tooltip } from '@/src/components';
-import { CarouselCards } from './carousel-cards-propiedades/CarouselCards';
 // Skeletons (loaders)
 export { SkeletonCard } from "./skeletons/SkeletonCard";
 export { SkeletonFilterBar } from "./skeletons/SkeletonFilterBar";

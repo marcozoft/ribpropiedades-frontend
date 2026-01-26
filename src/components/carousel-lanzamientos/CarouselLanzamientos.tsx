@@ -1,4 +1,4 @@
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselDots } from "@/src/components"
+import { Carousel, CarouselContent, CarouselNext, CarouselPrevious, CarouselDots } from "@/src/components"
 import { LanzamientoSlider } from "@/src/interfaces";
 import { CarouselLanzamientosSlide } from "./CarouselLanzamientosSlide";
 
@@ -8,7 +8,7 @@ type Props = {
 
 export const CarouselLanzamientos = ({ sliders }: Props) => {
    return (
-      <Carousel className="w-full sm:max-w-2xl md:max-w-4xl lg:max-w-6xl px-2 mb-20"
+      <Carousel className="w-full sm:max-w-2xl md:max-w-4xl lg:max-w-6xl px-2 mb-20" autoplay={4000}
          opts={{ loop: true }}>
             <div className="bg-white shadow-2xl rounded sm:px-3 md:px-4 p-2 sm:p-3 md:p-4">
                <CarouselContent>
@@ -23,11 +23,12 @@ export const CarouselLanzamientos = ({ sliders }: Props) => {
                </CarouselContent>
 
             </div>
-         <CarouselPrevious className="hidden md:flex" />
-         <CarouselNext className="hidden md:flex" />
+         <CarouselPrevious className="hidden md:flex text-foreground bg-white hover:bg-gray-300" />
+         <CarouselNext className="hidden md:flex bg-white hover:bg-gray-300" />
          <CarouselDots 
             classNameDot="bg-white/50 w-1.5 h-1.5 sm:w-2 sm:h-2" 
             classNameDotSelected="bg-white w-3 h-3 sm:w-4 sm:h-4" 
          />
-      </Carousel>)
+      </Carousel>
+   )
 }
