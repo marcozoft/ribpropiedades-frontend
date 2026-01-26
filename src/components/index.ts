@@ -61,6 +61,7 @@ export {
    CarouselItem,
    CarouselNext,
    CarouselPrevious,
+   CarouselDots,
    Form, 
    FormControl, 
    FormDescription,

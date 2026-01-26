@@ -23,7 +23,9 @@ export const SeccionBuscadorLanzamientos = async() => {
         <div className="flex flex-col items-center w-full justify-center px-4 mt-20">
           <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-background">RIB Lanzamientos</h1>
           <h2 className={`mt-2 font-bold text-background pb-4 ${secondaryFont.className}`}>Descubrí las mejores oportunidades de inversión</h2>
-          <CarouselLanzamientos sliders ={sliders} />
+          {/* <div className='px-1'> */}
+            <CarouselLanzamientos sliders ={sliders} />
+          {/* </div> */}
           {/* <CarouselLanzamientosOld sliders ={sliders} /> */}
 
         </div>

@@ -154,7 +154,7 @@ function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
       <div
         className={cn(
           "flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          orientation === "horizontal" ? "" : "-mt-4 flex-col",
           className
         )}
         {...props}
@@ -173,7 +173,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="carousel-item"
       className={cn(
         "min-w-0 shrink-0 grow-0 basis-full",
-        orientation === "horizontal" ? "pl-4" : "pt-4",
+        orientation === "horizontal" ? "" : "pt-4",
         className
       )}
       {...props}
@@ -195,9 +195,9 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded-full",
+        "absolute size-8 rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 xl:h-15 xl:w-15 bg-white hover:bg-gray-300 sm:text-base md:text-lg",
         orientation === "horizontal"
-          ? "top-1/2 -left-12 -translate-y-1/2"
+          ? "left-4 -top-14 xl:top-1/2 xl:-left-18 lg:-translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -225,9 +225,9 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded-full",
+        "absolute size-8 rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 xl:h-15 xl:w-15 bg-white hover:bg-gray-300 sm:text-base md:text-lg",
         orientation === "horizontal"
-          ? "top-1/2 -right-12 -translate-y-1/2"
+          ? "right-4 -top-14 xl:top-1/2 xl:-right-18 lg:-translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -241,6 +241,68 @@ function CarouselNext({
   )
 }
 
+type CarouselDotsProps = React.ComponentProps<"div"> & {
+  classNameDot?: string
+  classNameDotSelected?: string
+}
+
+function CarouselDots({
+  className,
+  classNameDot,
+  classNameDotSelected,
+  ...rest
+}: CarouselDotsProps) {
+  const { api } = useCarousel()
+  const [selectedIndex, setSelectedIndex] = React.useState(0)
+  const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([])
+
+  React.useEffect(() => {
+    if (!api) return
+
+    setScrollSnaps(api.scrollSnapList())
+    setSelectedIndex(api.selectedScrollSnap())
+
+    const onSelect = () => {
+      setSelectedIndex(api.selectedScrollSnap())
+    }
+
+    api.on("select", onSelect)
+    return () => {
+      api.off("select", onSelect)
+    }
+  }, [api])
+
+  const scrollTo = React.useCallback(
+    (index: number) => api?.scrollTo(index),
+    [api]
+  )
+
+  return (
+    <div
+      className={cn("flex justify-center items-center gap-2 mt-4 h-4", className)}
+      data-slot="carousel-dots"
+      {...rest}
+    >
+      {scrollSnaps.map((_, index) => (
+        <button
+          key={index}
+          type="button"
+          className={cn(
+            "rounded-full transition-all",
+            index === selectedIndex
+              ? `${classNameDotSelected}`
+              : `${classNameDot}`
+          )}
+          onClick={() => scrollTo(index)}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))}
+    </div>
+  )
+}
+              // className={`cursor-pointer rounded-full transition-all ${current === i ? "bg-foreground w-3 h-3 sm:w-4 sm:h-4" : "bg-foreground/50 w-1.5 h-1.5 sm:w-2 sm:h-2" }`}
+
+
 export {
   type CarouselApi,
   Carousel,
@@ -248,4 +310,5 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  CarouselDots,
 }

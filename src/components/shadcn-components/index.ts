@@ -1,5 +1,5 @@
 export { Button } from "./ui/button";
-export { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+export { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselDots } from "./ui/carousel";
 export { Checkbox } from "./ui/checkbox";
 export { Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from "./ui/command";
 export { Form, FormControl, FormDescription, FormMessage, FormField, FormItem, FormLabel } from "./ui/form";
