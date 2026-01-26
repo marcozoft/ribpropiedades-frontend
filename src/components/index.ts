@@ -24,6 +24,7 @@ export { EmprendimientoFullPage } from "./detalle-full-page/EmprendimientoFullPa
 export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamientos';
 export { CarouselFullPage } from "./detalle-full-page/detalle-full-page-components/CarouselFullPageClient";
 export { CarouselCards } from "./carousel-cards-propiedades/CarouselCards";
+export { CarouselComentarios } from "./carousel-comentarios/CarouselComentarios";
 
 // Componentes reutilizables
 export { YouTubeVideoCard } from "./detalle-full-page/detalle-full-page-components";

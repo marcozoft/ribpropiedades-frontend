@@ -9,7 +9,7 @@ type IndicadorPrecioProps = {
 // TODO: Formatear con miles el precio
 export const IndicadorPrecio = ({ precio, moneda, precio_condicion, sinEspecificar, className }: IndicadorPrecioProps) => {
    return (
-      <p className={`text-primary sm:text-2xl mt-2 inline-block whitespace-nowrap font-bold leading-tight debug ${className}`}>
+      <p className={`text-primary sm:text-2xl mt-2 inline-block whitespace-nowrap font-bold leading-tight ${className}`}>
          {
             precio_condicion == 1 ?  `${moneda} ${precio.toLocaleString("es-AR")}` : `${sinEspecificar}`
          }

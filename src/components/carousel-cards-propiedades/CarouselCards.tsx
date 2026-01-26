@@ -7,7 +7,7 @@ type Props = {
 
 export const CarouselCards = ({ propiedades }: Props) => {
    return (
-      <Carousel className="w-full mx-auto sm:max-w-2xl md:max-w-4xl lg:max-w-6xl px-2 mb-20" autoplay={4000}
+      <Carousel className="w-full mx-auto sm:max-w-2xl md:max-w-4xl lg:max-w-6xl px-2" autoplay={4000}
          opts={{ loop: true }}>
             <CarouselContent>
                {

@@ -1,65 +1,34 @@
-"use client"
-import { Comentario } from "@/src/interfaces";
-import { useState } from "react";
-import { CarouselComentarioItem } from './CarouselComentarioItem';
-
+import { Comentario } from "@/src/interfaces"
+import { Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious } from '@/src/components';
+import { CarouselComentarioItem } from "./CarouselComentarioItem"
 
 type Props = {
   comentarios: Comentario[]
 }
 
 export const CarouselComentarios = ({ comentarios }: Props) => {
-  
-  const [current, setCurrent] = useState(0);
-
-  const nextSlide = () => {
-    if( current < comentarios.length - 3) {
-      setCurrent(current + 1);
-    }
-  }
-  const prevSlide = () => {
-    if(current > 0 ) {
-      setCurrent(current - 1);
-    }
-  }
-
-  return (
-    <div className='flex justify-center bg-white w-full p-3 mx-auto gap-0'>
-
-      {/* Boton prev */}
-      <div className="flex items-center">
-        <button
-          onClick={prevSlide}
-          className="cursor-pointer h-15 w-15 rounded-full border-1 hover:bg-background"
-        >❮
-        </button>
+   return (
+      <div className='flex justify-center bg-white w-full p-3 mx-auto gap-0'>
+         <Carousel className="w-full mx-auto sm:max-w-2xl md:max-w-4xl lg:max-w-6xl px-2" autoplay={4000}
+         opts={{ loop: true }}>
+            <CarouselContent>
+               {
+                  comentarios.map((comentario, i) => (
+                     <CarouselItem key={i} className="basis-4/5 sm:basis-1/2 lg:basis-1/3">
+                        <div className="p-1 sm:p-2">
+                           <CarouselComentarioItem {...comentario} />
+                        </div>                     
+                     </CarouselItem>
+                  ))
+               }
+            </CarouselContent>
+         <CarouselPrevious className="hidden md:flex border border-background bg-white hover:bg-gray-300 hover:border-0" />
+         <CarouselNext className="hidden md:flex border bg-white hover:bg-gray-300" />
+         <CarouselDots
+            classNameDot="bg-foreground/50 w-1.5 h-1.5 sm:w-2 sm:h-2"
+            classNameDotSelected="bg-foreground w-3 h-3 sm:w-4 sm:h-4"
+         />
+      </Carousel>
       </div>
-
-      {/* Carousel */}
-      <div className="max-w-6xl flex-1 relative overflow-hidden">
-        <div
-          className="flex transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateX(-${current * 100 / 3}%)` }}
-        >
-          {comentarios.map((comentario, i) => (
-            <div className="w-1/3 flex flex-shrink-0 object-cover" key={i}>
-              <div className="flex">
-                <CarouselComentarioItem {...comentario} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      
-      {/* Boton next */}
-      <div className="flex items-center">
-        <button
-          onClick={nextSlide}
-          className="cursor-pointer h-15 w-15 rounded-full border-1 hover:bg-background"
-        >❯
-        </button>
-      </div>
-
-    </div>
-  );
+   )
 }

@@ -5,9 +5,9 @@ export const CarouselComentarioItem = ({comentario, nombre}: Comentario) => {
 
 
    return (
-      <div className="flex flex-col bg-background rounded shadow mx-5 p-10 text-[#0A2C3D] hover:shadow-xl">
+      <div className="flex flex-col bg-background rounded shadow p-10 text-[#0A2C3D]">
          <i className="flaticon-left-quote-1 text-2xl" />
-         <p className="text-lg text-ternary line-clamp-6 h-[144px] text-ellipsis">{comentario}</p>
+         <p className="text-lg text-ternary line-clamp-6 h-36 text-ellipsis">{comentario}</p>
 
          {/* Estrellas repetidas */}
          <div className="flex gap-1 my-2">

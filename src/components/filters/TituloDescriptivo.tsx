@@ -1,5 +1,5 @@
 import { ItemFilter, SearchParams } from "@/src/interfaces"
-import { ArrowDownNarrowWideIcon, BedDouble, Car, CircleCheckBigIcon, HandshakeIcon, House, LampCeiling, MapPinIcon, SwissFranc, TableCellsSplit, WavesLadder } from "lucide-react";
+import { ArrowDownNarrowWideIcon, BedDouble, Car, HandshakeIcon, House, LampCeiling, MapPinIcon, TableCellsSplit, WavesLadder } from "lucide-react";
 import { Item, ItemContent, ItemMedia, ItemTitle } from "@/src/components";
 
 
