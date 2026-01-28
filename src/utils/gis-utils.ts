@@ -1,0 +1,45 @@
+import { FeatureCollection, Point } from "geojson";
+import { NearbySearchResponse, PropiedadBasico } from "../interfaces";
+
+export const nearbySearchToGeoJSON = ({ places }: NearbySearchResponse ): FeatureCollection<Point> => {
+   return {
+      type: "FeatureCollection",
+      features: places.map(place => ({
+         type: "Feature",
+         geometry: {
+            type: "Point",
+            coordinates: [
+               place.location.longitude,
+               place.location.latitude
+            ]
+         },
+         properties: {
+            name: place.name,
+            types: place.types,
+            formattedAddress: place.formattedAddress,
+            displayName: place.displayName.text,
+            websiteUri: place.websiteUri,
+         }
+      }))
+   };
+}
+
+export const propiedadesToGeoJSON = ( propiedades: PropiedadBasico[]): FeatureCollection<Point> => {
+   return {
+      type: "FeatureCollection",
+      features: propiedades.map(prop => ({
+         type: "Feature",
+         geometry: {
+            type: "Point",
+            coordinates: [
+               +prop.mapa_longitud,
+               +prop.mapa_latitud
+            ]
+         },
+         properties: {
+            titulo: prop.titulo_venta,
+            precio: prop.precio
+         }
+      }))
+   };
+}

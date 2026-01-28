@@ -1,33 +1,21 @@
 import { PropiedadBasico } from '@/src/interfaces'
 import Image from 'next/image'
-import { FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion, IndicadorPrecio, TituloDeVenta } from './cards-components';
 import Link from 'next/link';
 import { generateHrefPropiedad, generateSrcImage } from '@/src/utils';
-import { Button } from '../shadcn-components';
-import { Footprints, Utensils, ZoomIn } from 'lucide-react';
+import { TituloDeVenta } from '../cards/cards-components';
 
 type Props = {
    propiedad: PropiedadBasico
    className?: string;
-   onClickEntorno: (lat: number, lng: number) => void
 }
 
-export const PropiedadPopupCard = ({ propiedad, className, onClickEntorno }: Props) => {
+export const PropiedadPopupCard = ({ propiedad, className }: Props) => {
 
    const {
       codigo,
-      dormitorios,
-      faja_promocional,
       id,
       imagen_principal,
-      inmueble,
-      operacion,
-      precio_publico,
-      precio,
-      sup_total,
-      sup_terreno,
       titulo_venta,
-      zona 
    } = propiedad;
 
    return (
@@ -51,19 +39,19 @@ export const PropiedadPopupCard = ({ propiedad, className, onClickEntorno }: Pro
                <div className="mt-4">
 
                   {/* Tipo de operacion TODO: Agregar si es casa o depto ???*/}
-                  <IndicadorOperacion
+                  {/* <IndicadorOperacion
                      tipoDeInmueble={inmueble} 
                      tipoDeOperacion={operacion}
-                  />
+                  /> */}
 
                   {/* Precio */}
-                  <IndicadorPrecio
+                  {/* <IndicadorPrecio
                      className='text-black' 
                      precio={precio} 
                      precio_condicion={precio_publico} 
                      sinEspecificar='Consultar' 
                      moneda='U$D'
-                  />
+                  /> */}
                </div>
                <Link 
                   href={generateHrefPropiedad(id, titulo_venta)}
@@ -77,10 +65,6 @@ export const PropiedadPopupCard = ({ propiedad, className, onClickEntorno }: Pro
                </Link>
                <div className="justify-center">
                   <div className="mt-4 flex gap-2 overflow-hidden rounded-lg px-1 py-1 divide-x">
-
-                     <Button variant='ghost' onClick={ () => onClickEntorno(+propiedad.mapa_latitud, +propiedad.mapa_longitud) }>
-                        <ZoomIn className="w-4 h-4" />Entorno
-                     </Button>
 
                      {/* Cantidad de dormitorios */}
                      {/* <IndicadorNumerico 
