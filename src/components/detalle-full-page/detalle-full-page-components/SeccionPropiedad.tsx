@@ -31,7 +31,7 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
         <span className="bg-foreground text-white uppercase text-sm py-0.5 px-1.5">{operacion}</span>
       </div>
       <div className="flex justify-between mb-10 items-center">
-        <h1 className="font-semibold text-4xl mt-4 text-black">{titulo_venta}</h1>
+        <h1 className="font-semibold text-xl lg:text-3xl xl:text-4xl mt-4 text-black">{titulo_venta}</h1>
         <IndicadorPrecio precio={precio} precio_condicion={precio_publico} moneda="U$D" sinEspecificar="Consultar"/>
       </div>
 

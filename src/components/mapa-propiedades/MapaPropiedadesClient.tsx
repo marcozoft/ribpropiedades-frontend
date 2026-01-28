@@ -7,6 +7,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_ACCESS_TOKEN } from "@/src/constants/geo-constants";
 import Image from "next/image";
 import { createLayer, loadImage, propiedadesToGeoJSON } from "@/src/utils";
+import { createRoot } from "react-dom/client";
+import { PropiedadPopup } from "./PropiedadPopup";
 
 
 // Token de Mapbox
@@ -84,7 +86,8 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
 
       // Crear popup
       const popup = new mapboxgl.Popup({
-         offset: [-5, -25]
+         offset: [-5, -25],
+         closeButton: false,
       });
 
       // Evento click en el layer para mostrar popup
@@ -93,15 +96,16 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
          
          const feature = e.features[0];
          const coordinates = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
-         const properties = feature.properties;
+
+         const popupNode = document.createElement('div');
+         const root = createRoot(popupNode);
+         
+         // Renderizar componente JSX
+         root.render(<PropiedadPopup propiedad={propiedades[feature.properties!.index]} />);
 
          popup
             .setLngLat(coordinates)
-            .setHTML(`
-               <div class="p-2">
-                  <h3 class="font-bold text-sm">${JSON.stringify(properties)}</h3>
-               </div>
-            `)
+            .setDOMContent(popupNode)
             .addTo(mapRef.current!);
       
          mapRef.current!.flyTo({

@@ -27,7 +27,7 @@ export const nearbySearchToGeoJSON = ({ places }: NearbySearchResponse ): Featur
 export const propiedadesToGeoJSON = ( propiedades: PropiedadBasico[]): FeatureCollection<Point> => {
    return {
       type: "FeatureCollection",
-      features: propiedades.map(prop => ({
+      features: propiedades.map((prop, index) => ({
          type: "Feature",
          geometry: {
             type: "Point",
@@ -37,8 +37,7 @@ export const propiedadesToGeoJSON = ( propiedades: PropiedadBasico[]): FeatureCo
             ]
          },
          properties: {
-            titulo: prop.titulo_venta,
-            precio: prop.precio
+            index
          }
       }))
    };
