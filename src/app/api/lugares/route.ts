@@ -24,8 +24,6 @@ export async function POST(req: Request): Promise<NextResponse> {
     'places.websiteUri',
   ];
   
-  console.log({request});
-
   const nearbySearchResponse: NearbySearchResponse = await fetch(url, {
     method: 'POST',
     headers: {
@@ -33,9 +31,10 @@ export async function POST(req: Request): Promise<NextResponse> {
       'X-Goog-FieldMask': fields.join()
     },
     body: JSON.stringify({
-      "includedTypes": request.types,
+      "includedPrimaryTypes": request.includedPrimaryTypes,
+      "excludedPrimaryTypes": request.excludedPrimaryTypes,
       "languageCode": "es",
-      "rankPreference": "POPULARITY",
+      "rankPreference": request.rankPreference,
       "maxResultCount": 20,
       "locationRestriction": {
         "circle": {
@@ -53,6 +52,6 @@ export async function POST(req: Request): Promise<NextResponse> {
   if (!nearbySearchResponse || !nearbySearchResponse.places || nearbySearchResponse.places.length === 0) {
     return NextResponse.json([]);
   }
-
+  
   return NextResponse.json(nearbySearchToGeoJSON(nearbySearchResponse));
 }

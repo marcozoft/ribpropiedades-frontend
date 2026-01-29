@@ -3,5 +3,7 @@ export type LugaresRequest = {
     lng: number;
     radius: number;
     results: number;
-    types: string[];
+    includedPrimaryTypes: string[];
+    excludedPrimaryTypes: string[];
+    rankPreference: 'POPULARITY' | 'DISTANCE';
 }
