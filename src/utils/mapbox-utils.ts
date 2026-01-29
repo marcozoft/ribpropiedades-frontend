@@ -1,0 +1,72 @@
+/**
+ * Load image
+ * 
+ * @param map Mapbox map
+ * @param imageUrl Image to load
+ * @param layerName Name of layer
+ */
+export const loadImage = (map: mapboxgl.Map, imageUrl: string, layerName: string): void => {
+
+   map.loadImage(imageUrl, (error, image) => {
+      if (error) throw error;
+      map.addImage(`${layerName}-image`, image!);
+   })
+
+}
+
+
+/**
+ * 
+ * @param map 
+ * @param layerName 
+ * @param data 
+ */
+export const createLayer = (map: mapboxgl.Map, layerName: string, data?: GeoJSON.FeatureCollection): void => {
+
+   map.addSource(`${layerName}-source`, {
+      type: 'geojson', data: data ? data : {
+         type: "FeatureCollection",
+         features: []
+      }
+   });
+
+   map.addLayer({
+      id: layerName,
+      type: 'symbol',
+      source: `${layerName}-source`,
+      layout: {
+         'icon-image': `${layerName}-image`,
+         'icon-size': 1
+      }
+   });
+}
+
+/**
+ * Add features to existent layer
+ * 
+ * @param map 
+ * @param layerName 
+ * @param data 
+ * @returns 
+ */
+export const addFeaturesToLayer = (map: mapboxgl.Map, layerName: string, data: GeoJSON.FeatureCollection): void => {
+
+   const source = map.getSource(`${layerName}-source`) as mapboxgl.GeoJSONSource;
+
+   if (!source) {
+      console.warn(`Source ${layerName} not found`);
+      return;
+   }
+
+   // Obtener data actual
+   const currentData = source._data as GeoJSON.FeatureCollection;
+
+   // Combinar con nuevos points
+   const updatedData: GeoJSON.FeatureCollection = {
+      type: 'FeatureCollection',
+      features: [...currentData.features, ...data.features]
+   };
+
+   source.setData(updatedData);
+}
+

@@ -2,7 +2,6 @@ import { secondaryFont } from '@/src/config/fonts'
 import { getFilterItems, getLanzamientos } from '@/src/requests'
 import { CarouselLanzamientos, FiltersBar } from '@/src/components';
 
-
 export const SeccionBuscadorLanzamientos = async() => {
 
   const { sliders } = await getLanzamientos();
@@ -10,12 +9,11 @@ export const SeccionBuscadorLanzamientos = async() => {
   
 
   return (
-    <section className='stripe-marca-morado h-[85vh]'>
-
+    <section className='stripe-marca-morado'>
 
       <div className="max-w-6xl mx-auto -mt-10 z-10 relative">
         <div className="overflow-hidden">
-          <FiltersBar {...filtros} filterValues={{}} />
+          <FiltersBar {...filtros} className='bg-background' filterValues={{}} />
         </div>
       </div>
 

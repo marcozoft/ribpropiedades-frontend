@@ -13,7 +13,8 @@ export { EmprendimientoCard } from "./cards/EmprendimientoCard";
 
 // Mapas
 export { MapaPropiedades } from "./mapa-propiedades/MapaPropiedades";
-export { PropiedadPopupCard } from "./cards/PropiedadPopupCard";
+export { PropiedadPopup } from "./mapa-propiedades/PropiedadPopup";
+export { PlacePopup } from "./mapa-propiedades/PlacePopup";
 
 
 // Detalle full page
@@ -24,6 +25,7 @@ export { EmprendimientoFullPage } from "./detalle-full-page/EmprendimientoFullPa
 export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamientos';
 export { CarouselFullPage } from "./detalle-full-page/detalle-full-page-components/CarouselFullPageClient";
 export { CarouselCards } from "./carousel-cards-propiedades/CarouselCards";
+export { CarouselComentarios } from "./carousel-comentarios/CarouselComentarios";
 
 // Componentes reutilizables
 export { YouTubeVideoCard } from "./detalle-full-page/detalle-full-page-components";
@@ -34,6 +36,8 @@ export { Footer } from "./footer/Footer";
 // Buscador, filtros, ordenamiento
 export { FiltersBar } from "./filters/FiltersBar";
 export { FiltersPopover } from './filters/FiltersPopover';
+export { AISearch } from './filters/AISearch';
+export { ClasicSearch } from './filters/ClasicSearch';
 export { SortPopover } from './filters/SortPopover';
 export { ControlMapaGrilla } from './mapa-propiedades/ControlMapaGrilla';
 
@@ -49,8 +53,15 @@ export { SocialNetworkItem } from "./ui/SocialNetworkItem";
 // Shadcn custom components
 export {
    Button,
+   Checkbox,
    Command, 
-   CommandDialog, 
+   CommandDialog,
+   Carousel,
+   CarouselContent,
+   CarouselItem,
+   CarouselNext,
+   CarouselPrevious,
+   CarouselDots,
    Form, 
    FormControl, 
    FormDescription,
@@ -58,6 +69,13 @@ export {
    FormItem,
    FormLabel,
    FormMessage,
+   Input,
+   Item,
+   ItemActions,
+   ItemContent,
+   ItemDescription,
+   ItemMedia,
+   ItemTitle,
    Popover, 
    PopoverContent,
    PopoverTrigger,
@@ -67,11 +85,7 @@ export {
    SelectItem, 
    SelectTrigger,
    SelectValue,
-   Item,
-   ItemContent,
-   ItemActions,
-   ItemMedia,
-   ItemTitle,
-   ItemDescription,
-   Checkbox,
+   Tooltip, 
+   TooltipContent, 
+   TooltipTrigger,
 } from "./shadcn-components";

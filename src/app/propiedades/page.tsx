@@ -1,6 +1,6 @@
 import { ControlMapaGrilla, FiltersBar, MapaPropiedades, PropiedadCard, SinResultados } from '@/src/components';
-import { SearchParams } from "@/src/interfaces";
-import { getAllPropiedades, getFilterItems } from '@/src/requests';
+import { PropiedadBasico, SearchParams } from "@/src/interfaces";
+import { getAllPropiedades, getFilterItems, getPropiedadesIA } from '@/src/requests';
 import { TituloDescriptivo } from '@/src/components/filters/TituloDescriptivo';
 import { ambientesItemFilters, ordenes, booleanFilters } from '@/src/constants/form-constants';
 
@@ -10,11 +10,21 @@ export default async function Propiedades({
    searchParams: Promise<SearchParams>
 }) {
 
-   const filterValues = (await searchParams);
-   const { propiedades } = await getAllPropiedades(filterValues);
+   const searchParamsBrowserBar = (await searchParams);
    const { filtros } = await getFilterItems();
+   let propiedades: PropiedadBasico[] = [];
+   let filterValues: SearchParams;
+   
+   if (searchParamsBrowserBar.queryAI) {  // Busqueda IA
+      const propiedadesIAresponse = await getPropiedadesIA(searchParamsBrowserBar.queryAI)
+      propiedades = propiedadesIAresponse.propiedades;
+      filterValues = propiedadesIAresponse.parametros_interpretados;
 
-
+   } else {                               // Busqueda con filtros
+      propiedades = (await getAllPropiedades(searchParamsBrowserBar)).propiedades
+      filterValues = searchParamsBrowserBar;
+   }
+   
    const vistaGrilla =
       <>
          <div className='bg-background pt-30'>
@@ -47,16 +57,18 @@ export default async function Propiedades({
 
    return (
       <div className="bg-white">
-         <div className="max-w-6xl mx-auto sticky z-10 top-20 -mt-20 shadow-md">
-            <FiltersBar filterValues={filterValues} {...filtros} allControls />
+         <div className="sticky z-10 top-20 -mt-20">
+            <FiltersBar filterValues={searchParamsBrowserBar} className='bg-background shadow-xl border-foreground' {...filtros} allControls />
          </div>
 
          {
-            filterValues.vista == 'mapa'
-               ? ( <MapaPropiedades propiedades={propiedades} /> )
+            searchParamsBrowserBar.vista == 'mapa'
+               ? (<MapaPropiedades propiedades={propiedades} />)
                : (vistaGrilla)
          }
-         <ControlMapaGrilla vista={filterValues.vista}/>
+         {
+            propiedades.length > 0 && <ControlMapaGrilla vista={searchParamsBrowserBar.vista} />
+         }
       </div>
    )
 }

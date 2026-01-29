@@ -1,17 +1,15 @@
 
 import { LugaresRequest, NearbySearchResponse } from "@/src/interfaces";
+import { nearbySearchToGeoJSON } from "@/src/utils";
 import { NextResponse } from "next/server";
 
 
 const GOOGLE_API_KEY = "AIzaSyD02kJX61Dq9rsFrlsLZuBql0K1S4JSD5Y";
 
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<NextResponse> {
 
-  const request: LugaresRequest = await req.json();
-
-  console.log(request);
-  
+  const request: LugaresRequest = await req.json();  
 
   const url = `https://places.googleapis.com/v1/places:searchNearby`;
 
@@ -26,17 +24,17 @@ export async function POST(req: Request) {
     'places.websiteUri',
   ];
   
-  console.log(fields.join());
-
-  const places: NearbySearchResponse = await fetch(url, {
+  const nearbySearchResponse: NearbySearchResponse = await fetch(url, {
     method: 'POST',
     headers: {
       'X-Goog-Api-Key': GOOGLE_API_KEY,
       'X-Goog-FieldMask': fields.join()
     },
     body: JSON.stringify({
-      "includedTypes": request.types,
+      "includedPrimaryTypes": request.includedPrimaryTypes,
+      "excludedPrimaryTypes": request.excludedPrimaryTypes,
       "languageCode": "es",
+      "rankPreference": request.rankPreference,
       "maxResultCount": 20,
       "locationRestriction": {
         "circle": {
@@ -44,18 +42,16 @@ export async function POST(req: Request) {
             "latitude": request.lat,
             "longitude": request.lng,
           },
-          "radius": 500.0
+          "radius": request.radius
         }
-      }
+      },
     })
-  }).then(response => response.json());
-
-  console.log(places);
+  }).then(nearbySearchResponse => nearbySearchResponse.json());
   
   // TODO: Hacerlo mejor...Verificar si la respuesta está vacía o no tiene places
-  if (!places || !places.places || places.places.length === 0) {
+  if (!nearbySearchResponse || !nearbySearchResponse.places || nearbySearchResponse.places.length === 0) {
     return NextResponse.json([]);
   }
-
-  return NextResponse.json(places.places);
+  
+  return NextResponse.json(nearbySearchToGeoJSON(nearbySearchResponse));
 }

@@ -186,4 +186,11 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Mapbox Popup - Reset estilos para usar Tailwind */
+  .mapboxgl-popup-content {
+    padding: 0 !important;
+    /* background: transparent !important; */
+    /* box-shadow: none !important; */
+  }
 }

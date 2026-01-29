@@ -18,21 +18,15 @@ export const CarouselLanzamientosSlide = ({ slider, index, i }: Props) => {
 
   const { titulo, subtitulo, url, texto } = slider;
 
-  const isActiveSlide = i === index;
-
-  const positionClass = isActiveSlide 
-    ? 'scale-100' 
-    : 'scale-80'
-
   const isYoutubeLink = isYouTubeVideoUrl(url);
   const youtubeId = isYoutubeLink ? getYouTubeId(url) : null;  
   
 
   return (
-    <div className={`w-full flex grow-0 shrink-0 gap-5 transition-transform duration-700 ease-in-out ${positionClass}`}>
+    <div className={`w-full flex flex-col lg:flex-row grow-0 shrink-0 gap-3 sm:gap-4 lg:gap-5`}>
       {
         (isYoutubeLink && youtubeId) ? (
-          <div className="flex-none w-full max-w-[640px] aspect-video relative rounded overflow-hidden bg-background">
+          <div className="flex-none w-full lg:max-w-160 aspect-video relative rounded overflow-hidden bg-background">
             <iframe
               className="absolute inset-0 w-full h-full"
               src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
@@ -42,7 +36,7 @@ export const CarouselLanzamientosSlide = ({ slider, index, i }: Props) => {
             />
           </div>
         ) : (
-          <div className="flex-none w-full max-w-[640px] aspect-video relative rounded overflow-hidden">
+          <div className="flex-none w-full lg:max-w-160 aspect-video relative rounded overflow-hidden">
             <Image
               src={generateSrcImage(slider.foto)}
               alt={titulo}
@@ -53,12 +47,12 @@ export const CarouselLanzamientosSlide = ({ slider, index, i }: Props) => {
         )
       }
       {/* <div className="flex grow-1"> */}
-        <div className='bg-background text-black text-sm rounded p-5 flex-1'>
-          <span className={`${secondaryFont.className} text-foreground font-bold`}>{subtitulo}</span>
-          <h2 className="text-3xl font-bold py-5">{titulo}</h2>
-          <p>{texto}</p>
+        <div className='bg-background text-black text-sm sm:text-base rounded p-4 md:p-5 flex-1'>
+          <span className={`${secondaryFont.className} text-foreground font-bold text-xs sm:text-sm`}>{subtitulo}</span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold py-3 sm:py-4 md:py-5">{titulo}</h2>
+          <p className="text-sm sm:text-base leading-relaxed">{texto}</p>
           {
-            (!isYoutubeLink) &&  <LinkButton href={url} text="VER MÁS" className="my-5" /> 
+            (!isYoutubeLink) &&  <LinkButton href={url} text="VER MÁS" className="my-4 sm:my-5" /> 
           }
         </div>
       {/* </div> */}

@@ -8,6 +8,9 @@ export type { PropiedadDetalleResponse } from './propiedades/PropiedadDetalleRes
 export type { PropiedadDetalle } from './propiedades/PropiedadDetalle';
 export type { PropiedadBasico } from './propiedades/PropiedadBasico';
 
+// Busqueda IA
+export type { PropiedadesIAResponse } from './PropiedadesIAResponse';
+
 // Otros reponses
 export type { ContenidoHome } from "./ContenidoHome";
 

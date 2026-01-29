@@ -61,9 +61,9 @@ export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, 
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[500px] p-0">
+      <PopoverContent className="w-125 p-0">
         <Command>
-          <CommandInput placeholder="Ubicación" className="h-9" />
+          <CommandInput placeholder="Ubicación" />
           <CommandList>
             <CommandGroup heading={(<p>Zona</p>)}>
               {/* <CommandSeparator /> */}

@@ -31,7 +31,7 @@ export const VideoPopupCardImage = ({ youtubeId, imageSrc }: Props) => {
                className="absolute inset-0 flex items-center justify-center group cursor-pointer"
                aria-label="Reproducir video"
             >
-               <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:bg-foreground animate-pulse-subtle">
+               <div className="w-10 h-10 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:bg-foreground animate-pulse-subtle">
                   <svg
                      className="w-8 h-8 text-foreground group-hover:text-white ml-1"
                      fill="currentColor"

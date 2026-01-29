@@ -23,14 +23,14 @@ export const Footer = () => {
             </div>
          </div>
  
-         <div className="flex max-w-6xl mx-auto py-25 px-5 text-white justify-between" >
+         <div className="flex flex-col sm:flex-row sm:justify-around max-w-6xl mx-auto py-12 md:py-25 px-5 text-white justify-center gap-8 md:gap-4" >
             {/* Imagen */}
             <div className='hidden md:flex'>
                <Image src={'/images/footer-logo.png'} width={133} height={260} alt='RIB Logo'></Image>
             </div>
 
             {/* Menu */}
-            <div className='flex flex-col justify-between'>
+            <div className='hidden sm:flex sm:flex-col sm:justify-between gap-2'>
                <p className='font-bold text-lg'>Menú</p>
                <Link className='text-sm hover:text-background' href={'/quienes-somos'}>Quienes somos</Link>
                <Link className='text-sm hover:text-background' href={'/propiedades'}>Propiedades</Link>

@@ -1,5 +1,5 @@
-import { CarouselComentarios } from "../carousel-comentarios/CarouselComentarios"
 import { getAllComentarios } from "@/src/requests";
+import { CarouselComentarios } from "@/src/components";
 
 
 export const SeccionComentarios = async () => {

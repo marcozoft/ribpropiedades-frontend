@@ -1,18 +1,13 @@
 "use client";
 
-import { LugaresRequest, Place, PropiedadBasico } from "@/src/interfaces";
+import { LugaresRequest, PropiedadBasico } from "@/src/interfaces";
 import { useEffect, useRef, useState } from "react";
-import { createRoot } from "react-dom/client";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { MAPBOX_ACCESS_TOKEN } from "@/src/constants/geo-constants";
-import { Layers, Hospital, UtensilsCrossed, School } from "lucide-react";
-import { Button } from "../shadcn-components";
-import { PropiedadPopupCard } from '@/src/components';
-import { primaryFont } from "@/src/config/fonts";
-import { toast } from "sonner";
-
-
+import { MAPBOX_ACCESS_TOKEN, POLYGON_PILARA, ZOOM_FLY } from "@/src/constants/geo-constants";
+import Image from "next/image";
+import { addFeaturesToLayer, createLayer, loadImage, propiedadesToGeoJSON, renderReactComponent } from "@/src/utils";
+import { PropiedadPopup, PlacePopup } from "@/src/components";
 
 
 // Token de Mapbox
@@ -22,168 +17,292 @@ type Props = {
    propiedades: PropiedadBasico[]
 }
 
+/**
+ * https://developers.google.com/maps/documentation/places/web-service/place-types
+ */
+type CapaDeInteres = {
+   name: string;
+   includedPrimaryTypes: string[]; //
+   excludePrimaryTypes: string[];
+   icon: string;
+   label: string;
+   radius: number;
+   rankPreference: 'POPULARITY' | 'DISTANCE';
+}
 
-
-
+const capasDeInteres: CapaDeInteres[] = [
+   {
+      name: 'restaurants',
+      includedPrimaryTypes: ['restaurant'],
+      excludePrimaryTypes: [],
+      icon: '/markers/restaurant.png',
+      label: 'Gastronomía',
+      radius: 3000,
+      rankPreference: "POPULARITY"
+   },
+   {
+      name: 'shopping',
+      includedPrimaryTypes: ['shopping_mall'],
+      excludePrimaryTypes: [],
+      icon: '/markers/shoping.png',
+      label: 'Centros comerciales',
+      radius: 3000,
+      rankPreference: "POPULARITY"
+   },
+   {
+      name: 'salud',
+      includedPrimaryTypes: ['drugstore', 'hospital', 'medical_lab', 'pharmacy', 'dental_clinic'],
+      excludePrimaryTypes: [],
+      icon: '/markers/salud.png',
+      label: 'Centros de salud y farmacias',
+      radius: 3000,
+      rankPreference: "POPULARITY"
+   },
+   {
+      name: 'mascotas',
+      includedPrimaryTypes: ['pet_store', 'veterinary_care'],
+      excludePrimaryTypes: [],
+      icon: '/markers/mascotas.png',
+      label: 'Mascotas',
+      radius: 3000,
+      rankPreference: "POPULARITY"
+   },
+   {
+      name: 'deportes',
+      includedPrimaryTypes: ['sports_club', 'fitness_center', 'golf_course'],
+      excludePrimaryTypes: [],
+      icon: '/markers/deportes.png',
+      label: 'Deportes',
+      radius: 3000,
+      rankPreference: "POPULARITY"
+   },
+]
 
 export default function MapaPropiedadesClient({ propiedades }: Props) {
 
    const mapContainerRef = useRef<HTMLDivElement | null>(null);
    const mapRef = useRef<mapboxgl.Map | null>(null);
 
-   const restaurantsRef = useRef<mapboxgl.Marker[]>([]);
+   const [visibleReferencias, setVisibleReferencias] = useState(false);
 
-   const [mapLoaded, setMapLoaded] = useState(false);
-
-
-   // TODO: Estados para controlar visibilidad de capas: TODO
-   const [showRestaurants, setShowRestaurants] = useState(true);
-
-
-   useEffect(() => {
-
-      if (!mapContainerRef.current) return;
-      if (mapRef.current) return;
-
+   /**
+    * Creacion de mapa
+    * mapa base + bounds inicial
+    */
+   const createMapboxMap = () => {
       mapRef.current = new mapboxgl.Map({
-         container: mapContainerRef.current,
+         container: mapContainerRef.current!,
          style: "mapbox://styles/mapbox/standard",
          config: {
             basemap: {
                theme: "monochrome"
             },
          },
-         // center: [-58.3816, -34.6037], // lng, lat
-         zoom: 12,
+         bounds: [
+            [-59.22784198243846, -34.25565906421708],
+            [-58.58193190881586, -34.63835956492742]
+         ],
+      });
+   }
+
+   /**
+    * Controles
+    * Zoom
+    * https://docs.mapbox.com/mapbox-gl-js/api/markers
+    */
+   const addControlsToMap = () => {
+
+      mapRef.current!.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+
+   }
+
+   /**
+    * Eventos del cursor para ver Pointer
+    * al pasar por un marcador
+    */
+   const addCursorEvents = () => {
+
+      // Cambiar cursor al pasar sobre el layer
+      mapRef.current!.on('mouseenter', [...capasDeInteres.map( capa => capa.name), 'propiedades'], () => {
+         mapRef.current!.getCanvas().style.cursor = 'pointer';
       });
 
-      mapRef.current.on('load', () => {
-         setMapLoaded(true);
-         console.log('mapa ok');
+      mapRef.current!.on('mouseleave',[...capasDeInteres.map( capa => capa.name), 'propiedades'], () => {
+         mapRef.current!.getCanvas().style.cursor = '';
       });
 
-      mapRef.current.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+   }
 
+   /**
+    * Función async para cargar lugares
+    */
+   const loadPropiedades = async () => {
 
-      const map = mapRef.current;
+      loadImage(mapRef.current!, '/markers/propiedad.png', 'propiedades');
+      createLayer(mapRef.current!, 'propiedades', propiedadesToGeoJSON(propiedades));
 
-      /**
-       * 
-       */
-      const bounds = new mapboxgl.LngLatBounds();
+      // Evento click en el layer para mostrar popup
+      mapRef.current?.on('click', 'propiedades', (e) => {
+                  
+         const feature = e.features![0];
+         const coordinates = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
+         loadNearbySearchPlaces(coordinates);
 
-      /**
-       * Generar marcadores y popup
-       */
-      propiedades.forEach(prop => {
-         // Crear un contenedor para el componente React
-         const popupContainer = document.createElement('div');
-
-         // Renderizar el componente React en el contenedor
-         const root = createRoot(popupContainer);
-         root.render(
-            <PropiedadPopupCard
-               propiedad={prop}
-               onClickEntorno={searchPlaces}
+         const popupContent = renderReactComponent(
+            <PropiedadPopup 
+               propiedad={propiedades[feature.properties!.index]} 
             />
          );
 
-         // Agregar evento click para hacer flyTo
-         popupContainer.addEventListener('click', () => {
-            map.flyTo({
-               center: [+prop.mapa_longitud, +prop.mapa_latitud],
-               zoom: 15,
-               duration: 1000
-            });
-         });
-
-         const marker = new mapboxgl.Marker({
-            color: '#5f021f'
+         new mapboxgl.Popup({
+            offset: [-5, -25],
+            closeButton: false,
          })
-            .setLngLat([+prop.mapa_longitud, +prop.mapa_latitud])
-            .setPopup(
-               new mapboxgl.Popup({
-                  className: `${primaryFont.className}`,
-               }).setDOMContent(popupContainer)
-            )
+            .setLngLat(coordinates)
+            .setDOMContent(popupContent)
             .addTo(mapRef.current!);
 
+         const currentZoom = mapRef.current!.getZoom()
 
-         bounds.extend(marker.getLngLat());
+         mapRef.current!.flyTo({
+            center: coordinates,
+            zoom: currentZoom > ZOOM_FLY ? currentZoom : ZOOM_FLY
+         })
+
       });
 
-      /**
-       * Ajustar el zoom para ver todos
-       */
-      map.fitBounds(bounds, { animate: false, padding: 20 });
+   };
+
+   /**
+    * Prueba de concepto
+    */
+   const addPilaraPolygon = async() => {
+      mapRef.current!.addSource(`polygon-pilara-source`, {
+         type: 'geojson', 
+         data: POLYGON_PILARA 
+      });
+
+      mapRef.current!.addLayer({
+         id: 'polygon-pilara',
+         type: 'fill',
+         source: 'polygon-pilara-source',
+         layout: {},
+         paint: {
+          'line-color': '#037971',
+          'fill-color': '#037971',
+          'fill-opacity': 0.4,
+          'line-width': 1
+        }
+      });
+
+      // Create a popup, but don't add it to the map yet
+      const popup = new mapboxgl.Popup({
+         closeButton: false,
+         closeOnClick: true,
+         offset: [0, -20]
+      });
+      
+      // use addInteraction for quick access to the feature under the mouse
+      mapRef.current!.addInteraction('polygon-pilara-interaction', {
+        type: 'click',
+        target: {
+            layerId: 'polygon-pilara'
+        },
+        handler: (e) => {
+          // Position the popup at the cursor location and show it
+          popup
+            .setLngLat(e.lngLat)
+            .setHTML(`<p>Poligono de Pilará (prueba de concepto)</p>`)
+            .addTo(mapRef.current!);
+        }
+      });
+
+   }
+
+   /**
+    * Inicializar las capas de interes
+    * segun el array capasDeInteres
+    */
+   const initializeLayersPlaces = () => {
+
+      capasDeInteres.forEach(({ name, icon }) => {
+         loadImage(mapRef.current!, icon, name)
+         createLayer(mapRef.current!, name);
+      });
+
+      // Evento click en el layer para mostrar popup
+      mapRef.current?.on('click', capasDeInteres.map( capa => capa.name), (e) => {
+         if (!e.features || e.features.length === 0) return;
+
+         const feature = e.features[0];
+         const coordinates = (feature.geometry as GeoJSON.Point).coordinates as [number, number];;
+         const { displayName, formattedAddress, primaryType, types } = feature.properties!;
 
 
+         const popupContent = renderReactComponent(
+            <PlacePopup 
+               displayName={displayName}
+               formatedAddress={formattedAddress}
+               primaryType={primaryType}
+               types={types}
+            />
+         );
+
+         new mapboxgl.Popup({
+            offset: [0, -20]
+         })
+            .setLngLat(coordinates)
+            .setDOMContent(popupContent)
+            .addTo(mapRef.current!);
+      });
+   }
+
+
+   /**
+    * Función async para cargar lugares
+    */
+   const loadNearbySearchPlaces = async (coordinates: [number, number]) => {
+
+      capasDeInteres.forEach(async ({name, includedPrimaryTypes, excludePrimaryTypes, radius, rankPreference}) => {
+         const request: LugaresRequest = {
+            results: 20,
+            includedPrimaryTypes: includedPrimaryTypes,
+            lat: coordinates[1],
+            lng: coordinates[0],
+            radius: radius,
+            excludedPrimaryTypes: excludePrimaryTypes,
+            rankPreference: rankPreference
+         };
+         const places = await fetch('api/lugares', {
+            method: 'POST',
+            body: JSON.stringify(request),
+         }).then(resp => resp.json()) as GeoJSON.FeatureCollection;
+
+         setVisibleReferencias(true);
+         addFeaturesToLayer(mapRef.current!, name, places);
+      });
+   };
+
+   useEffect(() => {
+
+      if (!mapContainerRef.current) return;
+      if (mapRef.current) return;
+
+      createMapboxMap();
+      addControlsToMap();
+
+      mapRef.current!.on('load', () => {
+         addPilaraPolygon();
+         initializeLayersPlaces();
+         loadPropiedades();
+         addCursorEvents();
+      });
 
       return () => {
-         // Limpiar todos los markers
-         // markersRef.current.forEach(marker => marker.remove());
-         // markersRef.current = [];
-
-         mapRef.current?.remove();
+         mapRef.current!.remove();
          mapRef.current = null;
       }
    }, [])
-
-
-   // useEffect para controlar visibilidad de markers
-   useEffect(() => {
-      restaurantsRef.current.forEach(marker => {
-         if (showRestaurants) {
-            marker.getElement().style.display = 'block';
-         } else {
-            marker.getElement().style.display = 'none';
-         }
-      });
-   }, [showRestaurants]);
-
-
-   const searchPlaces = async (lat: number, lng: number) => {
-
-      const request: LugaresRequest = {
-         results: 50,
-         types: ['restaurant'],
-         lat: lat,
-         lng: lng,
-         radius: 20000
-      }
-
-      const places: Place[] = await fetch('api/lugares', {
-         method: 'POST',
-         body: JSON.stringify(request),
-      }).then(resp => resp.json());
-      console.log(`${places.length} encontrados`)
-
-      /**
-       * Crear markers para cada restaurant
-       */
-      places.forEach(place => {
-
-         const marker = new mapboxgl.Marker({
-            color: '#1e90ff'
-         })
-            .setLngLat([place.location.longitude, place.location.latitude])
-            .setPopup(
-               new mapboxgl.Popup().setText(`${place.displayName.text}: ${place.formattedAddress}`)
-            )
-            .addTo(mapRef.current!);
-
-         // Guardar referencia del marker
-         restaurantsRef.current.push(marker);
-
-
-      });
-
-      toast(`${places.length} restaurantes a menos de 2km.`, {
-         // description: "Sunday, December 03, 2023 at 9:00 AM",
-         duration: 4000,
-      })
-   }
-
 
 
    return (
@@ -194,51 +313,29 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
             className="w-full h-full"
          />
 
-         {/* Barra flotante de capas */}
-         <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
+         {/* Barra flotante de capas, inicialmente no visible, hasta la primer busqueda */}
+         {
+            visibleReferencias && (
+               <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
+                  <div className="flex flex-col gap-2 bg-white rounded-lg shadow-lg p-2">
 
-            <div className="flex flex-col gap-2 bg-white rounded-lg shadow-lg p-2">
-               {/* Título */}
-               <div className="flex items-center gap-2 px-2 py-1 border-b">
-                  <Layers className="w-4 h-4" />
-                  <span className="text-sm font-semibold">Capas</span>
+                     {/* Título */}
+                     <div className="flex items-center justify-center gap-2 px-2 py-1 border-b">
+                        {/* <Layers className="w-4 h-4" /> */}
+                        <span className="text-sm font-semibold">Referencias</span>
+                     </div>
+                     {
+                        capasDeInteres.map(({ icon, label }) => (
+                           <div key={label} className="flex items-center justify-start gap-2">
+                              <Image src={icon} alt={label} width={32} height={32} />
+                              <span className="text-sm">{label}</span>
+                           </div>)
+                        )
+                     }
+                  </div>
                </div>
-
-               {/* Botón Marcadores */}
-               <Button
-                  variant={showRestaurants ? 'search' : 'outline'}
-                  size="sm"
-                  onClick={() => setShowRestaurants(!showRestaurants)}
-                  className="justify-start gap-2"
-               >
-                  <UtensilsCrossed className="w-4 h-4" />
-                  Restaurantes
-               </Button>
-
-               {/* Botón Clusters */}
-               <Button
-                  variant={false ? 'search' : 'outline'}
-                  size="sm"
-                  // onClick={() => setShowClusters(!showClusters)}
-                  className="justify-start gap-2"
-               >
-                  <School className="w-4 h-4" />
-                  Colegios
-               </Button>
-
-               {/* Botón Mapa de calor */}
-               <Button
-                  variant={false ? 'search' : 'outline'}
-                  size="sm"
-                  // onClick={() => setShowHeatmap(!showHeatmap)}
-                  className="justify-start gap-2"
-               >
-                  <Hospital className="w-4 h-4" />
-                  Centros de salud
-               </Button>
-            </div>
-         </div>
+            )
+         }
       </div>
    )
-
 }
