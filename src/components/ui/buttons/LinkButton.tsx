@@ -10,7 +10,7 @@ type Props = {
 export const LinkButton = ({ text, href, className }: Props) => {
    return (
       <Link href={href}>
-         <div className={`bg-foreground text-background inline-flex font-medium py-2 px-5 text-base ${className}`}>
+         <div className={`bg-foreground inline-flex text-background font-medium py-2 px-5 text-base ${className}`}>
             <span>
                {text}
             </span>

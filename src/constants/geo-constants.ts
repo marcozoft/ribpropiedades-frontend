@@ -1,18 +1,6 @@
-// import { Icon, LatLng } from "leaflet";
-// import marker from '../assets/marker-icon.png';
-// import markerShadow from '../assets/marker-shadow.png';
 
-// Leaflet map
-// export const MAP_INDEX_CENTER:LatLng = new LatLng(-40.15451161680131, -71.34787014700214);
 export const LAT_INDEX =  -40.30887509643052;
 export const LNG_INDEX =  -70.13671875000001;
-
-export const MAP_ZOOM_START = 16;
-
-// IGN
-// export const BASE_URL = 'https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/mapabase_gris@EPSG%3A3857@png/{z}/{x}/{-y}.png';
-// export const BASE_ATTRIBUTION = '<a href="http://www.ign.gob.ar/AreaServicios/Argenmap/IntroduccionV2" target="_blank">Instituto Geográfico Nacional</a> + <a href="http://www.osm.org/copyright" target="_blank">OpenStreetMap</a>';
-
 
 // Mapbox token
 // public example
@@ -20,52 +8,17 @@ export const MAP_ZOOM_START = 16;
 
 // rib_develop
 export const MAPBOX_ACCESS_TOKEN='pk.eyJ1IjoibXNhdWN6dWsiLCJhIjoiY21rYjlvang0MDFtcjNocHZ2OHBmb2RxeCJ9.2d_sc2IETainqYmKgx_sBQ';
+export const ZOOM_FLY = 14;
 
 
-export const POLYGON_PILARA = {
+export const POLYGON_PILARA: GeoJSON.FeatureCollection = {
   "type": "FeatureCollection",
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "name": "BIT Cotesma",
-        "description": "Lugar para aprender programacion"
-      },
-      "geometry": {
-        "coordinates": [
-          -71.34787014700214,
-          -40.15451161680131
-        ],
-        "type": "Point"
-      },
-      "id": 0
-    },
-    {
-      "type": "Feature",
       "properties": {},
       "geometry": {
-        "coordinates": [
-          -58.366945640099644,
-          -34.67424069949021
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "coordinates": [
-          -58.919721047773606,
-          -34.438869519399276
-        ],
-        "type": "Point"
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
+        "type": "Polygon",
         "coordinates": [
           [
             [
@@ -126,7 +79,6 @@ export const POLYGON_PILARA = {
             ]
           ]
         ],
-        "type": "Polygon"
       }
     }
   ]

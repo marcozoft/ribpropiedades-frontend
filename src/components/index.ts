@@ -13,7 +13,8 @@ export { EmprendimientoCard } from "./cards/EmprendimientoCard";
 
 // Mapas
 export { MapaPropiedades } from "./mapa-propiedades/MapaPropiedades";
-export { PropiedadPopupCard } from "./mapa-propiedades/PropiedadPopup";
+export { PropiedadPopup } from "./mapa-propiedades/PropiedadPopup";
+export { PlacePopup } from "./mapa-propiedades/PlacePopup";
 
 
 // Detalle full page
