@@ -13,7 +13,7 @@ type Props = {
 export const DetallesGrid = ({ propiedad, detalles }:Props) => {
 
    return (
-      <div className="bg-background px-10 py-6 grid grid-cols-2">
+      <div className="bg-background px-10 py-6 grid grid-cols md:grid-cols-2">
          {
             detalles.map( ({clave, descripcion}) => (
                propiedad[clave] != 0 && propiedad[clave] != null &&
