@@ -19,6 +19,7 @@ export const IndicadorNumerico = ({nombre, valor, unidad, icono, className}:Indi
                   {valor}
                </span>
                &nbsp;
+               
                <span className="text-xs">
                   {unidad}
                </span>

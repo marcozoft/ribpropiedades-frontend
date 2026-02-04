@@ -13,7 +13,7 @@ type ServicioItem = {
 const servicios: ServicioItem[] = [
    {
       titulo: `Countries, Barrios Cerrados & Clubes de campo`,
-      descripcion: `RIB Inmobiliaria, te presenta la mejor oferta inmobiliaria para conocer los barrios, 
+      descripcion: `RIB Inmobiliaria, te presenta la mejor oferta inmobiliaria para conocer los barrios cerrados, 
          el mercado y el proceso de decidir sobre tu futuro.`,
       imageUrl: '',
       icon: 'flaticon-home-2',
@@ -28,7 +28,7 @@ const servicios: ServicioItem[] = [
       href: '/emprendimientos'
    },
    {
-      titulo: `Tasaciones`,
+      titulo: `Tasaciones y Valoraciones Inmobiliarias`,
       descripcion: `Averiguá cuánto puede valer tu hogar ahora. Si estas pensando en vender, 
          verificar su posición de capital, o simplemente estar interesado 
          en el mercado`,

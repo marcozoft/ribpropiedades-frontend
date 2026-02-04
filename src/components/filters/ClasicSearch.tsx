@@ -112,7 +112,7 @@ export const ClasicSearch = ({
                            disabled={isPending}
                         >
                            <SelectTrigger className="w-full">
-                              <SelectValue placeholder="Operacion" />
+                              <SelectValue placeholder="Todas las operaciones" />
                            </SelectTrigger>
                            <SelectContent>
                               <SelectGroup>
@@ -140,7 +140,7 @@ export const ClasicSearch = ({
                            disabled={isPending}
                         >
                            <SelectTrigger className="w-full">
-                              <SelectValue placeholder="Tipo de inmueble" />
+                              <SelectValue placeholder="Cualquier tipo de inmueble" />
                            </SelectTrigger>
                            <SelectContent>
                               <SelectGroup>
