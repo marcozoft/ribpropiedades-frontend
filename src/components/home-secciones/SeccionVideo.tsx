@@ -3,31 +3,65 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { YOUTUBE_ID_HOME } from '@/src/constants/constants'
 
 export const SeccionVideo = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
 
   return (
-    <div className="w-full -mt-16">
-        <div className="aspect-video overflow-hidden">
-          {/* iframe carga primero, por debajo */}
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/IxfRAd0QlRU?autoplay=1&mute=1&controls=0&loop=1&playlist=IxfRAd0QlRU&modestbranding=1&rel=0&fs=0&showinfo=0"
-            title="RIB Propiedades - Video"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-              style={{
-                pointerEvents: 'none',
-                transform: 'scale(1.2)',
-                transformOrigin: 'center center'
-              }}
-            onLoad={() => {
-              // Dar tiempo para que el video comience a reproducirse
-              setTimeout(() => setIsVideoLoaded(true), 1000)
-            }}
-          ></iframe>
+    <div className="w-full -mt-16 min-h-32">
+      <div className="hidden sm:block sm:h-[95vh] overflow-hidden relative">
+        {/* iframe carga primero, por debajo */}
+        <iframe
+          className="w-full h-full"
+          src={`https://www.youtube.com/embed/${YOUTUBE_ID_HOME}?autoplay=1&mute=1&controls=0&loop=1&playlist=IxfRAd0QlRU&modestbranding=1&rel=0&fs=0&showinfo=0`}
+          title="RIB Propiedades - Video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{
+            pointerEvents: 'none',
+            transform: 'scale(1.5)',
+            transformOrigin: 'center center'
+          }}
+          onLoad={() => {
+            // Dar tiempo para que el video comience a reproducirse
+            setTimeout(() => setIsVideoLoaded(true), 1000)
+          }}
+        ></iframe>
+
+        {/* Imagen de poster con transición de opacidad */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          style={{ zIndex: 10 }}
+        >
+          <Image
+            src="/images/home-video-loading-1920.jpg"
+            alt="RIB Propiedades"
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
+          />
+
+          {/* Loading spinner estilo YouTube */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-16 h-16">
+              <div
+                className="absolute inset-0 border-4 border-white/30 rounded-full"
+                style={{ borderTopColor: 'white' }}
+              >
+                <style jsx>{`
+                    @keyframes spin {
+                      to { transform: rotate(360deg); }
+                    }
+                    div {
+                      animation: spin 0.8s linear infinite;
+                    }
+                  `}</style>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

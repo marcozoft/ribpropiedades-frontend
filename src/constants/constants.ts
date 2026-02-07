@@ -5,6 +5,8 @@ export const API_KEY = 'rib_api_2025_secure_key_d4f8a2e1b9c7x3m5';
 export const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
 export const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY ||'';
 
+// Video full home
+export const YOUTUBE_ID_HOME = 'IxfRAd0QlRU';
 
 // Email
 export const EMAIL = 'info@ribpropiedades.com.ar';
