@@ -23,7 +23,7 @@ export { EmprendimientoFullPage } from "./detalle-full-page/EmprendimientoFullPa
 
 // Carousel
 export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamientos';
-export { CarouselFullPage } from "./detalle-full-page/detalle-full-page-components/CarouselFullPageClient";
+export { CarouselImagenesFullPage } from './carousel-imagenes-full-page/CarouselImagenesFullPage';
 export { CarouselCards } from "./carousel-cards-propiedades/CarouselCards";
 export { CarouselComentarios } from "./carousel-comentarios/CarouselComentarios";
 

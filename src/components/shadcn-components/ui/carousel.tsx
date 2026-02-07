@@ -195,10 +195,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 xl:h-15 xl:w-15 sm:text-base md:text-lg",
-        orientation === "horizontal"
-          ? "left-4 -top-14 xl:top-1/2 xl:-left-18 lg:-translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+        "absolute size-8 rounded-full h-8 w-8 md:h-12 md:w-12 xl:h-15 xl:w-15 sm:text-base md:text-lg",
         className
       )}
       disabled={!canScrollPrev}
@@ -225,10 +222,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 xl:h-15 xl:w-15 sm:text-base md:text-lg",
-        orientation === "horizontal"
-          ? "right-4 -top-14 xl:top-1/2 xl:-right-18 lg:-translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+        "absolute size-8 rounded-full h-8 w-8 md:h-12 md:w-12 xl:h-15 xl:w-15 sm:text-base md:text-lg",
         className
       )}
       disabled={!canScrollNext}
@@ -288,7 +282,7 @@ function CarouselDots({
           key={index}
           type="button"
           className={cn(
-            "rounded-full transition-all",
+            "rounded-full transition-all shrink-0",
             index === selectedIndex
               ? `${classNameDotSelected}`
               : `${classNameDot}`
