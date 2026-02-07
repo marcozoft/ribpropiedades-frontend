@@ -18,6 +18,11 @@ npm run dev
 
 ## Variables de entorno
 
+## Construir
+```bash
+npm install
+npm run build
+```
 
 
 Breakpoint prefix	Minimum width	CSS

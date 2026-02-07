@@ -57,13 +57,13 @@ export const UbicacionCommand = ({ zonas, emprendimientos, setValue, zonaValue, 
         >
           {currentValue
             ? currentItem?.label
-            : "Buscar ubicación"}
+            : "Cualquier ubicación"}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-125 p-0">
         <Command>
-          <CommandInput placeholder="Ubicación" />
+          <CommandInput placeholder="Buscar ubicación" />
           <CommandList>
             <CommandGroup heading={(<p>Zona</p>)}>
               {/* <CommandSeparator /> */}

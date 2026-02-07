@@ -42,15 +42,16 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
                   {
                      faja_promocional && <FajaPromocional descripcion={faja_promocional} />
                   }
-                  <IndicadorBarrio barrio={zona} />
+                  {/*<IndicadorBarrio barrio={zona} />*/}
                </div>
 
                <div className="mt-4">
-
-                  {/* Tipo de operacion TODO: Agregar si es casa o depto ???*/}
+                  
+                  {/* Tipo de operacion */}
                   <IndicadorOperacion 
                      tipoDeInmueble={inmueble} 
                      tipoDeOperacion={operacion}
+                     zona={zona}
                   />
 
                   {/* Precio */}
@@ -62,7 +63,7 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
                      moneda='U$D'
                   />
                </div>
-               <div className="mt-4">
+               <div className="mt-2">
                   {/* Descripcion */}
                   <TituloDeVenta tituloVenta={titulo_venta} />
                </div>
