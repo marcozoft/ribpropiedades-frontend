@@ -4,10 +4,9 @@ import { LugaresRequest, PropiedadBasico } from "@/src/interfaces";
 import { useEffect, useRef, useState } from "react";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { MAPBOX_ACCESS_TOKEN, POLYGON_PILARA, ZOOM_FLY } from "@/src/constants/geo-constants";
-import Image from "next/image";
+import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, POLYGON_PILARA, ZOOM_FLY } from "@/src/constants/geo-constants";
 import { addFeaturesToLayer, createLayer, loadImage, propiedadesToGeoJSON, renderReactComponent } from "@/src/utils";
-import { PropiedadPopup, PlacePopup } from "@/src/components";
+import { PropiedadPopup, PlacePopup, CuadroReferencias } from "@/src/components";
 
 
 // Token de Mapbox
@@ -15,75 +14,16 @@ mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
 type Props = {
    propiedades: PropiedadBasico[]
+   className?: string;
 }
 
-/**
- * https://developers.google.com/maps/documentation/places/web-service/place-types
- */
-type CapaDeInteres = {
-   name: string;
-   includedPrimaryTypes: string[]; //
-   excludePrimaryTypes: string[];
-   icon: string;
-   label: string;
-   radius: number;
-   rankPreference: 'POPULARITY' | 'DISTANCE';
-}
 
-const capasDeInteres: CapaDeInteres[] = [
-   {
-      name: 'restaurants',
-      includedPrimaryTypes: ['restaurant'],
-      excludePrimaryTypes: [],
-      icon: '/markers/restaurant.png',
-      label: 'Gastronomía',
-      radius: 3000,
-      rankPreference: "POPULARITY"
-   },
-   {
-      name: 'shopping',
-      includedPrimaryTypes: ['shopping_mall'],
-      excludePrimaryTypes: [],
-      icon: '/markers/shoping.png',
-      label: 'Centros comerciales',
-      radius: 3000,
-      rankPreference: "POPULARITY"
-   },
-   {
-      name: 'salud',
-      includedPrimaryTypes: ['drugstore', 'hospital', 'medical_lab', 'pharmacy', 'dental_clinic'],
-      excludePrimaryTypes: [],
-      icon: '/markers/salud.png',
-      label: 'Centros de salud y farmacias',
-      radius: 3000,
-      rankPreference: "POPULARITY"
-   },
-   {
-      name: 'mascotas',
-      includedPrimaryTypes: ['pet_store', 'veterinary_care'],
-      excludePrimaryTypes: [],
-      icon: '/markers/mascotas.png',
-      label: 'Mascotas',
-      radius: 3000,
-      rankPreference: "POPULARITY"
-   },
-   {
-      name: 'deportes',
-      includedPrimaryTypes: ['sports_club', 'fitness_center', 'golf_course'],
-      excludePrimaryTypes: [],
-      icon: '/markers/deportes.png',
-      label: 'Deportes',
-      radius: 3000,
-      rankPreference: "POPULARITY"
-   },
-]
-
-export default function MapaPropiedadesClient({ propiedades }: Props) {
+export default function MapaPropiedadesClient({ propiedades, className }: Props) {
 
    const mapContainerRef = useRef<HTMLDivElement | null>(null);
    const mapRef = useRef<mapboxgl.Map | null>(null);
 
-   const [visibleReferencias, setVisibleReferencias] = useState(false);
+   const [visibleReferencias, setVisibleReferencias] = useState(true);
 
    /**
     * Creacion de mapa
@@ -123,11 +63,11 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
    const addCursorEvents = () => {
 
       // Cambiar cursor al pasar sobre el layer
-      mapRef.current!.on('mouseenter', [...capasDeInteres.map( capa => capa.name), 'propiedades'], () => {
+      mapRef.current!.on('mouseenter', [...CAPAS_INTERES.map( capa => capa.name), 'propiedades'], () => {
          mapRef.current!.getCanvas().style.cursor = 'pointer';
       });
 
-      mapRef.current!.on('mouseleave',[...capasDeInteres.map( capa => capa.name), 'propiedades'], () => {
+      mapRef.current!.on('mouseleave',[...CAPAS_INTERES.map( capa => capa.name), 'propiedades'], () => {
          mapRef.current!.getCanvas().style.cursor = '';
       });
 
@@ -225,13 +165,13 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
     */
    const initializeLayersPlaces = () => {
 
-      capasDeInteres.forEach(({ name, icon }) => {
+      CAPAS_INTERES.forEach(({ name, icon }) => {
          loadImage(mapRef.current!, icon, name)
          createLayer(mapRef.current!, name);
       });
 
       // Evento click en el layer para mostrar popup
-      mapRef.current?.on('click', capasDeInteres.map( capa => capa.name), (e) => {
+      mapRef.current?.on('click', CAPAS_INTERES.map( capa => capa.name), (e) => {
          if (!e.features || e.features.length === 0) return;
 
          const feature = e.features[0];
@@ -263,7 +203,7 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
     */
    const loadNearbySearchPlaces = async (coordinates: [number, number]) => {
 
-      capasDeInteres.forEach(async ({name, includedPrimaryTypes, excludePrimaryTypes, radius, rankPreference}) => {
+      CAPAS_INTERES.forEach(async ({name, includedPrimaryTypes, excludePrimaryTypes, radius, rankPreference}) => {
          const request: LugaresRequest = {
             results: 20,
             includedPrimaryTypes: includedPrimaryTypes,
@@ -306,7 +246,7 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
 
 
    return (
-      <div className="relative w-full h-full">
+      <div className={`${className}`}>
          {/* Mapa */}
          <div
             ref={mapContainerRef}
@@ -316,24 +256,7 @@ export default function MapaPropiedadesClient({ propiedades }: Props) {
          {/* Barra flotante de capas, inicialmente no visible, hasta la primer busqueda */}
          {
             visibleReferencias && (
-               <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
-                  <div className="flex flex-col gap-2 bg-white rounded-lg shadow-lg p-2">
-
-                     {/* Título */}
-                     <div className="flex items-center justify-center gap-2 px-2 py-1 border-b">
-                        {/* <Layers className="w-4 h-4" /> */}
-                        <span className="text-sm font-semibold">Referencias</span>
-                     </div>
-                     {
-                        capasDeInteres.map(({ icon, label }) => (
-                           <div key={label} className="flex items-center justify-start gap-2">
-                              <Image src={icon} alt={label} width={32} height={32} />
-                              <span className="text-sm">{label}</span>
-                           </div>)
-                        )
-                     }
-                  </div>
-               </div>
+               <CuadroReferencias capasDeInteres={CAPAS_INTERES} className="absolute left-4 top-1/2 -translate-y-1/2 z-10"/>
             )
          }
       </div>

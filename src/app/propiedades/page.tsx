@@ -63,7 +63,7 @@ export default async function Propiedades({
 
          {
             searchParamsBrowserBar.vista == 'mapa'
-               ? (<MapaPropiedades propiedades={propiedades} />)
+               ? (<MapaPropiedades propiedades={propiedades} className='col-span-4 top-16 h-screen'/>)
                : (vistaGrilla)
          }
          {

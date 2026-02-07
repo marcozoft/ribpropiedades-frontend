@@ -15,7 +15,7 @@ export { EmprendimientoCard } from "./cards/EmprendimientoCard";
 export { MapaPropiedades } from "./mapa-propiedades/MapaPropiedades";
 export { PropiedadPopup } from "./mapa-propiedades/PropiedadPopup";
 export { PlacePopup } from "./mapa-propiedades/PlacePopup";
-
+export { CuadroReferencias } from "./mapa-propiedades/CuadroReferencias";
 
 // Detalle full page
 export { PropiedadFullPage } from "./detalle-full-page/PropiedadFullPage";

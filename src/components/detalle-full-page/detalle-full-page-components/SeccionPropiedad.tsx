@@ -1,7 +1,7 @@
 import { secondaryFont } from "@/src/config/fonts";
 import { PropiedadDetalle } from "@/src/interfaces"
 import { DetallesGrid, YouTubeVideoCard, GoogleMapsCard } from '.';
-import { IndicadorNumerico, IndicadorPrecio } from "@/src/components";
+import { IndicadorNumerico, IndicadorPrecio, MapaPropiedades } from '@/src/components';
 
 type SeccionPropiedadProps = {
   propiedad: PropiedadDetalle
@@ -98,10 +98,12 @@ export const SeccionPropiedad = ({propiedad}: SeccionPropiedadProps) => {
       }
       {/* Google Maps */}
       <h2 className="font-bold text-black text-xl my-8"><span className="text-foreground">|&nbsp;</span>Ubicación</h2>
-      <GoogleMapsCard 
+      
+      <MapaPropiedades propiedades={[]} className="col-span-4 top-16 h-60" />
+      {/* <GoogleMapsCard 
         lng={mapa_longitud}
         lat={mapa_latitud}
-      />
+      /> */}
 
 
 
