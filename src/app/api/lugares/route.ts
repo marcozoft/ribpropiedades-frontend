@@ -1,10 +1,8 @@
 
+import { GOOGLE_PLACES_API_KEY } from "@/src/constants/constants";
 import { LugaresRequest, NearbySearchResponse } from "@/src/interfaces";
 import { nearbySearchToGeoJSON } from "@/src/utils";
 import { NextResponse } from "next/server";
-
-
-const GOOGLE_API_KEY = "AIzaSyD02kJX61Dq9rsFrlsLZuBql0K1S4JSD5Y";
 
 
 export async function POST(req: Request): Promise<NextResponse> {
@@ -27,7 +25,7 @@ export async function POST(req: Request): Promise<NextResponse> {
   const nearbySearchResponse: NearbySearchResponse = await fetch(url, {
     method: 'POST',
     headers: {
-      'X-Goog-Api-Key': GOOGLE_API_KEY,
+      'X-Goog-Api-Key': GOOGLE_PLACES_API_KEY,
       'X-Goog-FieldMask': fields.join()
     },
     body: JSON.stringify({
