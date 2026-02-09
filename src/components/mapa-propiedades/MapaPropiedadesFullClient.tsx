@@ -1,11 +1,11 @@
 "use client";
 
-import { LugaresRequest, PropiedadBasico } from "@/src/interfaces";
+import { PropiedadBasico } from "@/src/interfaces";
 import { useEffect, useRef, useState } from "react";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
-import { addFeaturesToLayer, createLayer, loadImage, propiedadesToGeoJSON, renderReactComponent } from "@/src/utils";
+import { createLayer, loadImage, loadNearbySearchPlaces, propiedadesToGeoJSON, renderReactComponent } from "@/src/utils";
 import { PropiedadPopup, PlacePopup, CuadroReferencias } from "@/src/components";
 import { CapaDeInteres } from '../../interfaces/CapaDeInteres';
 
@@ -87,7 +87,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
                   
          const feature = e.features![0];
          const coordinates = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
-         loadNearbySearchPlaces(coordinates);
+         loadNearbySearchPlaces(mapRef.current!, coordinates);
          setVisibleReferencias(true);
          
          const popupContent = renderReactComponent(
@@ -153,31 +153,6 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
             .addTo(map);
       });
    }
-
-
-   /**
-    * Función async para cargar lugares
-    */
-   const loadNearbySearchPlaces = async (coordinates: [number, number]) => {
-
-      CAPAS_INTERES.forEach(async ({name, includedPrimaryTypes, excludePrimaryTypes, radius, rankPreference}) => {
-         const request: LugaresRequest = {
-            results: 20,
-            includedPrimaryTypes: includedPrimaryTypes,
-            lat: coordinates[1],
-            lng: coordinates[0],
-            radius: radius,
-            excludedPrimaryTypes: excludePrimaryTypes,
-            rankPreference: rankPreference
-         };
-         const places = await fetch('api/lugares', {
-            method: 'POST',
-            body: JSON.stringify(request),
-         }).then(resp => resp.json()) as GeoJSON.FeatureCollection;
-
-         addFeaturesToLayer(mapRef.current!, name, places);
-      });
-   };
 
    useEffect(() => {
 

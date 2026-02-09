@@ -1,4 +1,3 @@
-import { CAPAS_INTERES } from "@/src/constants/geo-constants"
 import { CapaDeInteres } from "@/src/interfaces";
 import Image from "next/image"
 
