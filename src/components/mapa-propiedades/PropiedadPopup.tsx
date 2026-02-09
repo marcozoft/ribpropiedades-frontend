@@ -23,6 +23,9 @@ export const PropiedadPopup = ({ propiedad, className }: Props) => {
       sup_total,
    } = propiedad;
 
+   console.log({dormitorios});
+   
+
    return (
 
       <div className={`bg-white ${primaryFont.className} rounded-lg shadow-lg overflow-hidden w-70 hover:shadow-xl transition-shadow duration-200`}>
@@ -66,18 +69,22 @@ export const PropiedadPopup = ({ propiedad, className }: Props) => {
 
                {/* Características en fila */}
                <div className="flex items-center gap-3 text-xs text-gray-600">
-                  {dormitorios && dormitorios > 0 && (
-                     <div className="flex items-center gap-1">
-                        <i className="flaticon-bed text-gray-500"></i>
-                        <span>{dormitorios}</span>
-                     </div>
-                  )}
-                  {sup_total && sup_total > 0 && (
-                     <div className="flex items-center gap-1">
-                        <i className="flaticon-square-shape-design-interface-tool-symbol text-gray-500"></i>
-                        <span>{sup_total} m²</span>
-                     </div>
-                  )}
+                  {
+                     (dormitorios > 0) && (
+                        <div className="flex items-center gap-1">
+                           <i className="flaticon-bed text-gray-500"></i>
+                           <span>{dormitorios}</span>
+                        </div>
+                     )
+                  }
+                  {
+                     (sup_total > 0) && (
+                        <div className="flex items-center gap-1">
+                           <i className="flaticon-square-shape-design-interface-tool-symbol text-gray-500"></i>
+                           <span>{sup_total} m²</span>
+                        </div>
+                     )
+                  }
                </div>
             </Link>
          </div>
