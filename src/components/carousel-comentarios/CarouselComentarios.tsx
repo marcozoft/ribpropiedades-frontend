@@ -22,8 +22,8 @@ export const CarouselComentarios = ({ comentarios }: Props) => {
                   ))
                }
             </CarouselContent>
-         <CarouselPrevious className="hidden md:flex border border-background bg-white hover:bg-gray-300 hover:border-0" />
-         <CarouselNext className="hidden md:flex border bg-white hover:bg-gray-300" />
+         <CarouselPrevious className="hidden md:flex border border-background bg-white hover:bg-gray-300 hover:border-0 left-4 -top-14 xl:top-1/2 xl:-left-18 lg:-translate-y-1/2" />
+         <CarouselNext className="hidden md:flex border bg-white hover:bg-gray-300 right-4 -top-14 xl:top-1/2 xl:-right-18 lg:-translate-y-1/2" />
          <CarouselDots
             classNameDot="bg-foreground/50 w-1.5 h-1.5 sm:w-2 sm:h-2"
             classNameDotSelected="bg-foreground w-3 h-3 sm:w-4 sm:h-4"

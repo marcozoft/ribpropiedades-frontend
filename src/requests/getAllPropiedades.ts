@@ -1,4 +1,4 @@
-import { API_KEY, API_URL } from "../constants/constants";
+import { BACKEND_API_KEY, API_URL } from "../constants/constants";
 import { booleanFilters } from "../constants/form-constants";
 import { PropiedadesResponse, SearchParams } from "../interfaces";
 
@@ -25,7 +25,7 @@ export const getAllPropiedades = async (searchParams:SearchParams): Promise<Prop
       
    return fetch(`${API_URL}/propiedades?${queryParamsApi}`, {
       headers: {
-         'X-API-Key': API_KEY
+         'X-API-Key': BACKEND_API_KEY
       },
       next: {
          revalidate: 3600 //TODO: Ajustar para prod

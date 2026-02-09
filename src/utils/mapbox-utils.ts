@@ -1,3 +1,6 @@
+import { CAPAS_INTERES } from "../constants/geo-constants";
+import { LugaresRequest } from "../interfaces";
+
 /**
  * Load image
  * 
@@ -70,3 +73,27 @@ export const addFeaturesToLayer = (map: mapboxgl.Map, layerName: string, data: G
    source.setData(updatedData);
 }
 
+
+/**
+ * Función async para cargar lugares
+ */
+export const loadNearbySearchPlaces = async (map: mapboxgl.Map, coordinates: [number, number]) => {
+
+   CAPAS_INTERES.forEach(async ({ name, includedPrimaryTypes, excludePrimaryTypes, radius, rankPreference }) => {
+      const request: LugaresRequest = {
+         results: 20,
+         includedPrimaryTypes: includedPrimaryTypes,
+         lat: coordinates[1],
+         lng: coordinates[0],
+         radius: radius,
+         excludedPrimaryTypes: excludePrimaryTypes,
+         rankPreference: rankPreference
+      };
+      const places = await fetch('/api/lugares', {
+         method: 'POST',
+         body: JSON.stringify(request),
+      }).then(resp => resp.json()) as GeoJSON.FeatureCollection;
+
+      addFeaturesToLayer(map, name, places);
+   });
+};

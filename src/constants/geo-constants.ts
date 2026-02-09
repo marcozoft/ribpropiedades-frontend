@@ -1,14 +1,59 @@
+import { CapaDeInteres } from "../interfaces";
 
 export const LAT_INDEX =  -40.30887509643052;
 export const LNG_INDEX =  -70.13671875000001;
 
-// Mapbox token
-// public example
-// export const MAPBOX_ACCESS_TOKEN='pk.eyJ1IjoibXNhdWN6dWsiLCJhIjoiY205Zzc1N2Y5MDBxYjJrcHhvM2UzZGFwdCJ9.nr3FuvM9kfIcMVGN_4r9Pg';
-
-// rib_develop
-export const MAPBOX_ACCESS_TOKEN='pk.eyJ1IjoibXNhdWN6dWsiLCJhIjoiY21rYjlvang0MDFtcjNocHZ2OHBmb2RxeCJ9.2d_sc2IETainqYmKgx_sBQ';
+export const MAPBOX_ACCESS_TOKEN= process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN ||'';
 export const ZOOM_FLY = 14;
+
+// Capas de interes para mapas
+export const CAPAS_INTERES: CapaDeInteres[] = [
+   {
+      name: 'restaurants',
+      includedPrimaryTypes: ['restaurant'],
+      excludePrimaryTypes: [],
+      icon: '/markers/restaurant.png',
+      label: 'Gastronomía',
+      radius: 3000,
+      rankPreference: "POPULARITY"
+   },
+   {
+      name: 'shopping',
+      includedPrimaryTypes: ['shopping_mall'],
+      excludePrimaryTypes: [],
+      icon: '/markers/shoping.png',
+      label: 'Centros comerciales',
+      radius: 3000,
+      rankPreference: "POPULARITY"
+   },
+   {
+      name: 'salud',
+      includedPrimaryTypes: ['drugstore', 'hospital', 'medical_lab', 'pharmacy', 'dental_clinic'],
+      excludePrimaryTypes: [],
+      icon: '/markers/salud.png',
+      label: 'Centros de salud y farmacias',
+      radius: 3000,
+      rankPreference: "POPULARITY"
+   },
+   {
+      name: 'mascotas',
+      includedPrimaryTypes: ['pet_store', 'veterinary_care'],
+      excludePrimaryTypes: [],
+      icon: '/markers/mascotas.png',
+      label: 'Mascotas',
+      radius: 3000,
+      rankPreference: "POPULARITY"
+   },
+   {
+      name: 'deportes',
+      includedPrimaryTypes: ['sports_club', 'fitness_center', 'golf_course'],
+      excludePrimaryTypes: [],
+      icon: '/markers/deportes.png',
+      label: 'Deportes',
+      radius: 3000,
+      rankPreference: "POPULARITY"
+   },
+]
 
 
 export const POLYGON_PILARA: GeoJSON.FeatureCollection = {

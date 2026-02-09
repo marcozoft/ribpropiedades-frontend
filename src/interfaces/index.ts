@@ -32,6 +32,9 @@ export type { ItemFilter } from './FiltrosResponse';
 // Imagenes
 export type { Imagen } from './Imagen';
 
+// Geo
+export type { CapaDeInteres } from './CapaDeInteres';
+
 // API Google Nearby Search
 export type { LugaresRequest } from './api-google-places/LugaresRequest';
 export type { NearbySearchResponse } from './api-google-places/NearbySearchResponse';

@@ -1,5 +1,5 @@
 import { Imagen } from "@/src/interfaces"
-import { CarouselFullPage, LinkButton } from "@/src/components";
+import { CarouselImagenesFullPage, LinkButton } from "@/src/components";
 
 type SeccionImagenesProps = {
   titulo: string;
@@ -18,7 +18,7 @@ export const SeccionImagenes = ({ imagenes, titulo, operacion }: SeccionImagenes
       </div>
     
       <div className='w-full xl:basis-3/4'>
-        <CarouselFullPage imagenes={imagenes} />
+        <CarouselImagenesFullPage imagenes={imagenes}/>
       </div>
     </div>
   )
