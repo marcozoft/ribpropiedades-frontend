@@ -24,7 +24,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
    const mapContainerRef = useRef<HTMLDivElement | null>(null);
    const mapRef = useRef<mapboxgl.Map | null>(null);
 
-   const [visibleReferencias, setVisibleReferencias] = useState(true);
+   const [visibleReferencias, setVisibleReferencias] = useState(false);
 
    /**
     * Creacion de mapa
