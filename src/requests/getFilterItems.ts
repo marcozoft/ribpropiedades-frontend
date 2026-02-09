@@ -1,4 +1,4 @@
-import { API_KEY, API_URL } from "../constants/constants"
+import { BACKEND_API_KEY, API_URL } from "../constants/constants"
 import { FiltrosResponse } from "../interfaces"
 
 /**
@@ -8,7 +8,7 @@ export const getFilterItems = async (): Promise<FiltrosResponse> => {
 
    return fetch(`${API_URL}/filtros`, {
       headers: {
-         'X-API-Key': API_KEY
+         'X-API-Key': BACKEND_API_KEY
       },
 
    }).then(resp => resp.json())

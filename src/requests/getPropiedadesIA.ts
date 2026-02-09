@@ -1,5 +1,4 @@
-import { API_KEY, API_URL } from "../constants/constants";
-import { booleanFilters } from "../constants/form-constants";
+import { BACKEND_API_KEY, API_URL } from "../constants/constants";
 import { PropiedadesIAResponse, SearchParams } from "../interfaces";
 
 interface BusquedaIABody {
@@ -18,7 +17,7 @@ export const getPropiedadesIA = async (query: string): Promise<PropiedadesIAResp
    return fetch(`${API_URL}/buscador_inteligente`, {
       method: 'POST',
       headers: {
-         'X-API-Key': API_KEY,
+         'X-API-Key': BACKEND_API_KEY,
          'Content-Type': 'application/json'
       },
       body: JSON.stringify(body),

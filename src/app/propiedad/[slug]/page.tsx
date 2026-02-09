@@ -1,5 +1,5 @@
 import { PropiedadFullPage } from "@/src/components";
-import { API_KEY, API_URL } from "@/src/constants/constants";
+import { BACKEND_API_KEY, API_URL } from "@/src/constants/constants";
 import { PropiedadDetalleResponse } from "@/src/interfaces";
 import { extractIdFromSlug } from "@/src/utils";
 import { notFound } from "next/navigation";
@@ -9,7 +9,7 @@ const getPropertyById = async (id: number): Promise<PropiedadDetalleResponse> =>
 
    return fetch(`${API_URL}/propiedades/${id}`, {
       headers: {
-         'X-API-Key': API_KEY
+         'X-API-Key': BACKEND_API_KEY
       },
       cache: 'force-cache'
    }).then(resp => {
