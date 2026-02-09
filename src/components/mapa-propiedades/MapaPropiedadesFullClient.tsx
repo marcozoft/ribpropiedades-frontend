@@ -4,9 +4,10 @@ import { LugaresRequest, PropiedadBasico } from "@/src/interfaces";
 import { useEffect, useRef, useState } from "react";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, POLYGON_PILARA, ZOOM_FLY } from "@/src/constants/geo-constants";
+import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
 import { addFeaturesToLayer, createLayer, loadImage, propiedadesToGeoJSON, renderReactComponent } from "@/src/utils";
 import { PropiedadPopup, PlacePopup, CuadroReferencias } from "@/src/components";
+import { CapaDeInteres } from '../../interfaces/CapaDeInteres';
 
 
 // Token de Mapbox
@@ -87,7 +88,8 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
          const feature = e.features![0];
          const coordinates = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
          loadNearbySearchPlaces(coordinates);
-
+         setVisibleReferencias(true);
+         
          const popupContent = renderReactComponent(
             <PropiedadPopup 
                propiedad={propiedades[feature.properties!.index]} 
@@ -113,65 +115,20 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
 
    };
 
-   /**
-    * Prueba de concepto
-    */
-   const addPilaraPolygon = async() => {
-      mapRef.current!.addSource(`polygon-pilara-source`, {
-         type: 'geojson', 
-         data: POLYGON_PILARA 
-      });
-
-      mapRef.current!.addLayer({
-         id: 'polygon-pilara',
-         type: 'fill',
-         source: 'polygon-pilara-source',
-         layout: {},
-         paint: {
-          'line-color': '#037971',
-          'fill-color': '#037971',
-          'fill-opacity': 0.4,
-          'line-width': 1
-        }
-      });
-
-      // Create a popup, but don't add it to the map yet
-      const popup = new mapboxgl.Popup({
-         closeButton: false,
-         closeOnClick: true,
-         offset: [0, -20]
-      });
-      
-      // use addInteraction for quick access to the feature under the mouse
-      mapRef.current!.addInteraction('polygon-pilara-interaction', {
-        type: 'click',
-        target: {
-            layerId: 'polygon-pilara'
-        },
-        handler: (e) => {
-          // Position the popup at the cursor location and show it
-          popup
-            .setLngLat(e.lngLat)
-            .setHTML(`<p>Poligono de Pilará (prueba de concepto)</p>`)
-            .addTo(mapRef.current!);
-        }
-      });
-
-   }
 
    /**
     * Inicializar las capas de interes
     * segun el array capasDeInteres
     */
-   const initializeLayersPlaces = () => {
+   const initializeLayersPlaces = (map: mapboxgl.Map, capasDeInteres: CapaDeInteres[]) => {
 
-      CAPAS_INTERES.forEach(({ name, icon }) => {
-         loadImage(mapRef.current!, icon, name)
-         createLayer(mapRef.current!, name);
+      capasDeInteres.forEach(({ name, icon }) => {
+         loadImage(map, icon, name)
+         createLayer(map, name);
       });
 
       // Evento click en el layer para mostrar popup
-      mapRef.current?.on('click', CAPAS_INTERES.map( capa => capa.name), (e) => {
+      mapRef.current?.on('click', capasDeInteres.map( capa => capa.name), (e) => {
          if (!e.features || e.features.length === 0) return;
 
          const feature = e.features[0];
@@ -193,7 +150,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
          })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
-            .addTo(mapRef.current!);
+            .addTo(map);
       });
    }
 
@@ -218,7 +175,6 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
             body: JSON.stringify(request),
          }).then(resp => resp.json()) as GeoJSON.FeatureCollection;
 
-         setVisibleReferencias(true);
          addFeaturesToLayer(mapRef.current!, name, places);
       });
    };
@@ -232,8 +188,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
       addControlsToMap();
 
       mapRef.current!.on('load', () => {
-         addPilaraPolygon();
-         initializeLayersPlaces();
+         initializeLayersPlaces(mapRef.current!, CAPAS_INTERES);
          loadPropiedades();
          addCursorEvents();
       });
@@ -245,7 +200,9 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
    }, [])
 
 
+   console.log({className});
    return (
+
       <div className={`${className}`}>
          {/* Mapa */}
          <div

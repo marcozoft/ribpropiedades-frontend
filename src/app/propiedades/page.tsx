@@ -1,4 +1,4 @@
-import { ControlMapaGrilla, FiltersBar, MapaPropiedades, PropiedadCard, SinResultados } from '@/src/components';
+import { ControlMapaGrilla, FiltersBar, MapaPropiedadesFull, PropiedadCard, SinResultados } from '@/src/components';
 import { PropiedadBasico, SearchParams } from "@/src/interfaces";
 import { getAllPropiedades, getFilterItems, getPropiedadesIA } from '@/src/requests';
 import { TituloDescriptivo } from '@/src/components/filters/TituloDescriptivo';
@@ -63,7 +63,7 @@ export default async function Propiedades({
 
          {
             searchParamsBrowserBar.vista == 'mapa'
-               ? (<MapaPropiedades propiedades={propiedades} className='col-span-4 top-16 h-screen'/>)
+               ? (<MapaPropiedadesFull propiedades={propiedades} className='col-span-4 top-16 h-screen'/>)
                : (vistaGrilla)
          }
          {

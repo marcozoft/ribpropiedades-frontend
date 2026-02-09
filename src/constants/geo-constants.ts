@@ -3,9 +3,7 @@ import { CapaDeInteres } from "../interfaces";
 export const LAT_INDEX =  -40.30887509643052;
 export const LNG_INDEX =  -70.13671875000001;
 
-
-// rib_develop
-export const MAPBOX_ACCESS_TOKEN='pk.eyJ1IjoibXNhdWN6dWsiLCJhIjoiY21rYjlvang0MDFtcjNocHZ2OHBmb2RxeCJ9.2d_sc2IETainqYmKgx_sBQ';
+export const MAPBOX_ACCESS_TOKEN= process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN ||'';
 export const ZOOM_FLY = 14;
 
 // Capas de interes para mapas

@@ -12,7 +12,8 @@ export { SinResultados } from "./cards/SinResultados";
 export { EmprendimientoCard } from "./cards/EmprendimientoCard";
 
 // Mapas
-export { MapaPropiedades } from "./mapa-propiedades/MapaPropiedades";
+export { MapaPropiedadesFull } from "./mapa-propiedades/MapaPropiedadesFull";
+export { MapaPropiedad } from "./mapa-propiedades/MapaPropiedad";
 export { PropiedadPopup } from "./mapa-propiedades/PropiedadPopup";
 export { PlacePopup } from "./mapa-propiedades/PlacePopup";
 export { CuadroReferencias } from "./mapa-propiedades/CuadroReferencias";
