@@ -140,8 +140,6 @@ export default function MapaPropiedadClient({ latitud, longitud, className }: Pr
       }
    }, [])
 
-
-   console.log({className});
    return (
 
       <div className={`${className}`}>

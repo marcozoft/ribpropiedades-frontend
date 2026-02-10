@@ -1,8 +1,10 @@
 'use client';
 
 import { Button } from "@/src/components"
+import { hasWebGL } from "@/src/utils";
 import { Grid, Map } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react";
 
 type Props = {
    vista?: 'mapa' | 'grilla'
@@ -12,6 +14,11 @@ export const ControlMapaGrilla = ({vista}: Props) => {
 
    const router = useRouter();
    const searchParams = useSearchParams();
+   const [supported, setSupported] = useState<boolean | null>(null);
+   
+   useEffect(() => {
+      setSupported(hasWebGL());
+   }, []);
 
    const handleClick = () => {
       // Crear una nueva instancia de URLSearchParams con los parámetros actuales
@@ -29,7 +36,7 @@ export const ControlMapaGrilla = ({vista}: Props) => {
    };
 
    return (
-      <Button 
+      supported && <Button 
          variant='search' 
          className="fixed bottom-6 bg-foreground left-1/2 -translate-x-1/2 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 z-50"
          onClick={handleClick}

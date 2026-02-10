@@ -1,5 +1,6 @@
 import { BACKEND_API_KEY, API_URL } from "../constants/constants";
-import { PropiedadesIAResponse, SearchParams } from "../interfaces";
+import { REVALIDATE_PROPIEDADES_IA } from "../constants/revalidate-constants";
+import { PropiedadesIAResponse } from "../interfaces";
 
 interface BusquedaIABody {
    query: string;
@@ -23,7 +24,7 @@ export const getPropiedadesIA = async (query: string): Promise<PropiedadesIAResp
       body: JSON.stringify(body),
       
       next: {
-         revalidate: 3600 //TODO: Ajustar para prod
+         revalidate: REVALIDATE_PROPIEDADES_IA
       }
 
    }).then(resp => {

@@ -17,6 +17,7 @@ export { MapaPropiedad } from "./mapa-propiedades/MapaPropiedad";
 export { PropiedadPopup } from "./mapa-propiedades/PropiedadPopup";
 export { PlacePopup } from "./mapa-propiedades/PlacePopup";
 export { CuadroReferencias } from "./mapa-propiedades/CuadroReferencias";
+export { MapaNoSoportado } from "./mapa-propiedades/MapaNoSoportado";
 
 // Detalle full page
 export { PropiedadFullPage } from "./detalle-full-page/PropiedadFullPage";

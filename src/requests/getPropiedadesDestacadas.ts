@@ -1,4 +1,5 @@
 import { BACKEND_API_KEY, API_URL } from "../constants/constants";
+import { REVALIDATE_DESTACADAS } from "../constants/revalidate-constants";
 import { PropiedadesResponse } from "../interfaces";
 
 /**
@@ -11,7 +12,7 @@ export const getPropiedadesDestacadas = async (): Promise<PropiedadesResponse> =
          'X-API-Key': BACKEND_API_KEY
       },
       next: {
-         revalidate: 3600 //TODO: Ajustar para prod
+         revalidate: REVALIDATE_DESTACADAS
       }
 
    }).then(resp => resp.json())
