@@ -85,9 +85,3 @@ export const REVALIDATE_LANZAMIENTOS = DIA;
  * getPropiedadesDestacadas
  */
 export const REVALIDATE_DESTACADAS = DIA;
-
-
-
-
-
-
