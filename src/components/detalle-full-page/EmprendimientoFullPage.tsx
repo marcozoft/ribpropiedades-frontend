@@ -4,7 +4,7 @@ import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
 import { FormularioContactoLateral } from './detalle-full-page-components/FormularioContactoLateral';
-import { CarouselCards } from '@/src/components';
+import { CarouselCards, MapaPropiedad } from '@/src/components';
 
 
 type Props = {
@@ -38,12 +38,10 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
             <p className={`${secondaryFont.className} text-black text-lg`}>{emprendimiento.descripcion_larga}</p>
           </div>
           
-          {/* Google Maps */}
+          {/* Mapa */}
           <h2 className="font-bold text-black text-xl mt-8 mb-4"><span className="text-foreground">|&nbsp;</span>Ubicación</h2>
-          <GoogleMapsCard 
-            lng={emprendimiento.mapa_longitud}
-            lat={emprendimiento.mapa_latitud}
-          />
+          <MapaPropiedad latitud={+emprendimiento.mapa_latitud} longitud={+emprendimiento.mapa_longitud} className="h-80" />
+
         </section>
 
         {/* formulario de contacto */}

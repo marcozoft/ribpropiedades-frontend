@@ -9,3 +9,4 @@ export { Label } from "./ui/label";
 export { Popover, PopoverTrigger, PopoverContent } from "./ui/popover";
 export { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 export { Tooltip, TooltipContent, TooltipTrigger} from "./ui/tooltip";
+export { Field, FieldGroup, FieldLabel } from "./ui/field";

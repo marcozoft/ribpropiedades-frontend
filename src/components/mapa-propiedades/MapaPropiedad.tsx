@@ -1,10 +1,10 @@
 "use client"
 
 import dynamic from 'next/dynamic';
-import { PropiedadDetalle } from '@/src/interfaces';
 
 type Props = {
-   propiedad: PropiedadDetalle;
+   latitud: number;
+   longitud: number;
    className?: string;
 }
 

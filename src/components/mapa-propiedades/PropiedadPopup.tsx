@@ -10,7 +10,7 @@ type Props = {
    className?: string;
 }
 
-export const PropiedadPopup = ({ propiedad, className }: Props) => {
+export const PropiedadPopup = ({ propiedad }: Props) => {
 
    const {
       codigo,
@@ -22,8 +22,6 @@ export const PropiedadPopup = ({ propiedad, className }: Props) => {
       dormitorios,
       sup_total,
    } = propiedad;
-
-   console.log({dormitorios});
    
 
    return (

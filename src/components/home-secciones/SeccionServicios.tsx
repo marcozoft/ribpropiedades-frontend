@@ -17,7 +17,7 @@ const servicios: ServicioItem[] = [
          el mercado y el proceso de decidir sobre tu futuro.`,
       imageUrl: '',
       icon: 'flaticon-home-2',
-      href: '/propiedades'
+      href: '/emprendimientos?categoria=country&categoria=barrio_cerrado'
    },
    {
       titulo: `Proyectos de Inversión, Fracciones & Desarrollos`,
@@ -25,7 +25,7 @@ const servicios: ServicioItem[] = [
          Fracciones y Desarrollos de Zona Norte`,
       imageUrl: '',
       icon: 'flaticon-house',
-      href: '/emprendimientos'
+      href: '/emprendimientos?categoria=condominio&categoria=proyectos_de_inversin&categoria=edificio_de_oficinas_y_locales'
    },
    {
       titulo: `Tasaciones y Valoraciones Inmobiliarias`,

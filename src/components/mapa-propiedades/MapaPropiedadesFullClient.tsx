@@ -24,7 +24,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
    const mapContainerRef = useRef<HTMLDivElement | null>(null);
    const mapRef = useRef<mapboxgl.Map | null>(null);
 
-   const [visibleReferencias, setVisibleReferencias] = useState(true);
+   const [visibleReferencias, setVisibleReferencias] = useState(false);
 
    /**
     * Creacion de mapa
@@ -174,8 +174,6 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
       }
    }, [])
 
-
-   console.log({className});
    return (
 
       <div className={`${className}`}>
@@ -188,7 +186,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
          {/* Barra flotante de capas, inicialmente no visible, hasta la primer busqueda */}
          {
             visibleReferencias && (
-               <CuadroReferencias capasDeInteres={CAPAS_INTERES} className="absolute left-4 top-1/2 -translate-y-1/2 z-10"/>
+               <CuadroReferencias capasDeInteres={CAPAS_INTERES} className="hidden lg:block lg:absolute left-4 top-1/2 -translate-y-1/2 z-10"/>
             )
          }
       </div>

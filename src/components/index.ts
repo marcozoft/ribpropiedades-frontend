@@ -34,16 +34,20 @@ export { VideoPopupCardImage } from './ui/VideoPopupCardImage';
 export { Navbar} from "./navbar/Navbar";
 export { Footer } from "./footer/Footer";
 
-// Buscador, filtros, ordenamiento
-export { FiltersBar } from "./filters/FiltersBar";
-export { FiltersPopover } from './filters/FiltersPopover';
-export { AISearch } from './filters/AISearch';
-export { ClasicSearch } from './filters/ClasicSearch';
-export { SortPopover } from './filters/SortPopover';
+// Propiedades: Buscador, filtros, ordenamiento
+export { FiltersBar } from "./filters-propiedades/FiltersBar";
+export { FiltersPopover } from './filters-propiedades/FiltersPopover';
+export { AISearch } from './filters-propiedades/AISearch';
+export { ClasicSearch } from './filters-propiedades/ClasicSearch';
+export { SortPopover } from './filters-propiedades/SortPopover';
 export { ControlMapaGrilla } from './mapa-propiedades/ControlMapaGrilla';
+export { TituloDescriptivo } from "./filters-propiedades/TituloDescriptivo";
+export { UbicacionCommand } from './filters-propiedades/UbicacionCommand';
 
-export { TituloDescriptivo } from "./filters/TituloDescriptivo";
-export { UbicacionCommand } from './filters/UbicacionCommand';
+// Emprendimientos: Buscador, filtros, ordenamiento
+export { FiltersBarEmprendimientos } from "./filters-emprendimientos/FiltersBarEmprendimientos"
+export { TituloDescriptivoEmprendimientos } from'./filters-emprendimientos/TituloDescriptivoEmprendimientos';
+export { CategoriaEmprendimientoPopover } from './filters-emprendimientos/CategoriaEmprendimientoPopover';
 
 // Componentes UI varios
 export { LinkButton } from "./ui/buttons/LinkButton";
@@ -54,15 +58,18 @@ export { SocialNetworkItem } from "./ui/SocialNetworkItem";
 // Shadcn custom components
 export {
    Button,
-   Checkbox,
-   Command, 
-   CommandDialog,
    Carousel,
    CarouselContent,
+   CarouselDots,
    CarouselItem,
    CarouselNext,
    CarouselPrevious,
-   CarouselDots,
+   Checkbox,
+   Command, 
+   CommandDialog,
+   Field, 
+   FieldGroup, 
+   FieldLabel,
    Form, 
    FormControl, 
    FormDescription,

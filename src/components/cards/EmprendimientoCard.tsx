@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import { EmprendimientoBasico } from '@/src/interfaces'
-import { DescripcionCorta, FajaPromocional, IndicadorBarrio, IndicadorNumerico, NombreEmprendimiento } from './cards-components';
+import { DescripcionCorta, FajaPromocional, IndicadorBarrio, IndicadorCategoriaEmprendimiento, IndicadorNumerico, NombreEmprendimiento } from './cards-components';
 import { generateHrefEmprendimiento, generateSrcImage } from '@/src/utils';
 
 
@@ -12,7 +12,8 @@ export const EmprendimientoCard = ({
    id,
    descripcion_corta,
    zona,
-   cantidad_propiedades
+   cantidad_propiedades,
+   categoria_emprendimientos,
 }: EmprendimientoBasico) => {
 
    return (
@@ -34,9 +35,14 @@ export const EmprendimientoCard = ({
                </div>
                
                <div className="mt-4">
+                  
+                  {/* Categoria */}
+                  <IndicadorCategoriaEmprendimiento categoriaEmprendimiento={categoria_emprendimientos} />
+
                   {/* Nombre */}
                   <NombreEmprendimiento nombre={nombre} />
                </div>
+
 
                <div className="mt-4">
                   {/* Descripcion */}
