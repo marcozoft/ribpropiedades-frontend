@@ -5,6 +5,10 @@ export const BACKEND_API_KEY = process.env.BACKEND_API_KEY || '';
 export const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
 export const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY ||'';
 
+export const RECAPTCHA_CLIENT_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_API_KEY || '';
+export const RECAPTCHA_SERVER_API_KEY = process.env.GOOGLE_RECAPTCHA_SECRET_API_KEY || '';
+
+
 // Video full home
 export const YOUTUBE_ID_HOME = 'IxfRAd0QlRU';
 

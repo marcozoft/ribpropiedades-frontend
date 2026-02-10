@@ -1,9 +1,6 @@
 export function hasWebGL(): boolean {
   if (typeof window === "undefined") return false;
 
-   console.log('hasWebGL');
-   
-
   try {
     const canvas = document.createElement("canvas");
     return !!(
