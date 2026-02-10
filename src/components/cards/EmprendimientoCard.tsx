@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import { EmprendimientoBasico } from '@/src/interfaces'
-import { DescripcionCorta, FajaPromocional, IndicadorBarrio, IndicadorNumerico, NombreEmprendimiento } from './cards-components';
+import { DescripcionCorta, FajaPromocional, IndicadorBarrio, IndicadorCategoriaEmprendimiento, IndicadorNumerico, NombreEmprendimiento } from './cards-components';
 import { generateHrefEmprendimiento, generateSrcImage } from '@/src/utils';
 
 
@@ -35,9 +35,12 @@ export const EmprendimientoCard = ({
                </div>
                
                <div className="mt-4">
+                  
+                  {/* Categoria */}
+                  <IndicadorCategoriaEmprendimiento categoriaEmprendimiento={categoria_emprendimientos} />
+
                   {/* Nombre */}
                   <NombreEmprendimiento nombre={nombre} />
-                  <p>{categoria_emprendimientos}</p>
                </div>
 
 

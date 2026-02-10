@@ -1,28 +1,33 @@
 "use client";
 
 import { Filter } from "lucide-react";
-import { Button, Checkbox, FormField, FormItem, FormLabel, FormControl, Popover, PopoverContent, PopoverTrigger, Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "../shadcn-components";
 import { useState } from "react";
-import { Control } from "react-hook-form";
+import { Control, useWatch } from "react-hook-form";
 import { SearchParamsEmprendimientos } from "@/src/interfaces";
-import { Field, FieldGroup, FieldLabel } from "../shadcn-components/ui/field";
+import { Button, Checkbox, FormField, Popover, PopoverContent, PopoverTrigger, Field, FieldGroup, FieldLabel } from "@/src/components";
 import { CATEGORIAS_EMPRENDIMIENTOS } from "@/src/constants/form-constants";
 
 type Props = {
    control: Control<SearchParamsEmprendimientos>,
    disabled?: boolean,
-   onSubmit?: () => void,
+   onSubmit: (searchPararms: SearchParamsEmprendimientos) => void,
 }
 
-export function FiltersEmprendimientosPopover({
+export function CategoriaEmprendimientoPopover({
    control,
-   // onSubmit, 
+   onSubmit,
 }: Props) {
 
    const [open, setOpen] = useState(false)
 
+   // obtener valores actuales del formulario y pasarlos al callback
+   const categoriasSeleccionadas = useWatch({ control, name: 'categoria' }) as string[] | undefined;
+
    const onClickResultados = () => {
-      // onSubmit();
+      const payload: SearchParamsEmprendimientos = {
+         categoria: categoriasSeleccionadas || []
+      };
+      onSubmit(payload);
       setOpen(false);
    }
 

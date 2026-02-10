@@ -27,8 +27,6 @@ export const getPropiedadesIA = async (query: string): Promise<PropiedadesIAResp
       }
 
    }).then(resp => {
-      console.log(resp);
-      
       return resp.json()
    })
 

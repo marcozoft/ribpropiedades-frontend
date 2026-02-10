@@ -3,8 +3,6 @@ import { NearbySearchResponse, PropiedadBasico } from "../interfaces";
 
 export const nearbySearchToGeoJSON = ({ places }: NearbySearchResponse ): FeatureCollection<Point> => {
    
-   // console.log(places);
-
    return {
       type: "FeatureCollection",
       features: places.map(place => ({

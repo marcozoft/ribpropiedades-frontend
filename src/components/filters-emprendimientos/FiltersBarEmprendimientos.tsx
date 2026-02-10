@@ -1,38 +1,42 @@
 'use client'
 
-import { Button, Form, FormField, SelectTrigger } from "@/src/components";
+import { Button, Form, CategoriaEmprendimientoPopover } from "@/src/components";
 import { SearchParamsEmprendimientos } from "@/src/interfaces";
-import { Select, SelectContent, SelectGroup, SelectValue } from "@radix-ui/react-select";
-import { Loader2, Search, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
-import { FiltersEmprendimientosPopover } from "./FiltersEmprendimientosPopover";
 
 type Props = {
    filterValues: SearchParamsEmprendimientos;
    className?: string;
 }
 
-export const FiltersBarEmprendimientos = ({ className, ...rest }: Props) => {
+export const FiltersBarEmprendimientos = ({ className, filterValues }: Props) => {
 
-   const form = useForm<SearchParamsEmprendimientos>();
+   const form = useForm<SearchParamsEmprendimientos>({
+      defaultValues: filterValues
+   });
    const router = useRouter();
    const [isPending, startTransition] = useTransition();
 
    /**
     * Enviar formulario
-    * Toma los datos del hook 
+    * Toma los datos del hook y navega con los parámetros
    */
-   const onSubmit = (valuesForm?: SearchParamsEmprendimientos) => {
+   const onSubmit = (valuesForm: SearchParamsEmprendimientos) => {
+      const params = new URLSearchParams();
+      
+      if (valuesForm.categoria && valuesForm.categoria.length > 0) {
+         valuesForm.categoria.forEach(cat => {
+            params.append('categoria', cat);
+         });
+      }
 
-      // const params = filterSearchParams(values);
-
-      // startTransition(() => {
-      //    router.push(`/propiedades?${params}`);
-      // });
+      startTransition(() => {
+         router.push(`/emprendimientos?${params.toString()}`);
+      });
    }
-
 
    /**
     * Limpiar busqueda y recargar
@@ -48,14 +52,13 @@ export const FiltersBarEmprendimientos = ({ className, ...rest }: Props) => {
          <Form {...form}>
 
             {/* Activar para debug */}
-            <pre className="text-xs bg-muted p-2 rounded">
+            {/* <pre className="text-xs bg-muted p-2 rounded">
                {JSON.stringify(form.getValues(), null, 2)}
-            </pre> 
+            </pre>  */}
 
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col md:flex-row gap-4 grow animate-in fade-in fade-out">
 
-               {/* Selects grid*/}
-               <FiltersEmprendimientosPopover control={form.control} />
+               <CategoriaEmprendimientoPopover control={form.control} onSubmit={onSubmit}/>
 
                {/* Limpiar busqueda */}
                <Button
@@ -66,8 +69,6 @@ export const FiltersBarEmprendimientos = ({ className, ...rest }: Props) => {
                >
                   <Trash2 className="size-6" />
                </Button>
-
-
             </form>
          </Form>
       </div>

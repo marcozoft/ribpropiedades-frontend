@@ -174,8 +174,6 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
       }
    }, [])
 
-
-   console.log({className});
    return (
 
       <div className={`${className}`}>

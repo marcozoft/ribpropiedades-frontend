@@ -21,7 +21,6 @@ export default async function Emprendimientos({
       )
       : emprendimientos;
 
-   console.log(emprendimientosFiltrados);
    
    return (
       <div className="bg-white">
@@ -31,10 +30,9 @@ export default async function Emprendimientos({
                <TituloDescriptivoEmprendimientos params={searchParamsBrowserBar}/>
                <FiltersBarEmprendimientos filterValues={searchParamsBrowserBar} />
             </div>
-
          </div>
-            {/* { JSON.stringify(searchParams, null, 3) } */}
-         <div className="max-w-6xl mx-auto px-4 pb-15 bg-white mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+
+         <div className="max-w-6xl mx-auto px-4 pb-30 bg-white mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
          {
             emprendimientosFiltrados.map(prop => <EmprendimientoCard key={prop.id} {...prop} />)
          }
