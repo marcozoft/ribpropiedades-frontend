@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { CapaDeInteres, PropiedadDetalle } from "@/src/interfaces";
+import { CapaDeInteres } from "@/src/interfaces";
 import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
 import { createLayer, loadImage, renderReactComponent, latLngToGeoJSON, loadNearbySearchPlaces } from "@/src/utils";
 import { PlacePopup } from "@/src/components";
@@ -13,12 +13,13 @@ import { PlacePopup } from "@/src/components";
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
 type Props = {
-   propiedad: PropiedadDetalle
+   latitud: number,
+   longitud: number,
    className?: string;
 }
 
 
-export default function MapaPropiedadClient({ propiedad, className }: Props) {
+export default function MapaPropiedadClient({ latitud, longitud, className }: Props) {
 
    const mapContainerRef = useRef<HTMLDivElement | null>(null);
    const mapRef = useRef<mapboxgl.Map | null>(null);
@@ -36,7 +37,7 @@ export default function MapaPropiedadClient({ propiedad, className }: Props) {
                theme: "monochrome"
             },
          },
-         center: [+propiedad.mapa_longitud, +propiedad.mapa_latitud],
+         center: [longitud, latitud],
          zoom: ZOOM_FLY,
       });
    }
@@ -75,7 +76,7 @@ export default function MapaPropiedadClient({ propiedad, className }: Props) {
    const addPropiedadMarker = async () => {
 
       loadImage(mapRef.current!, '/markers/propiedad.png', 'propiedades');
-      createLayer(mapRef.current!, 'propiedades', latLngToGeoJSON(propiedad.mapa_latitud, propiedad.mapa_longitud));
+      createLayer(mapRef.current!, 'propiedades', latLngToGeoJSON(latitud, longitud));
    };
 
 
@@ -129,7 +130,7 @@ export default function MapaPropiedadClient({ propiedad, className }: Props) {
       mapRef.current!.on('load', () => {
          initializeLayersPlaces(mapRef.current!, CAPAS_INTERES);
          addPropiedadMarker();
-         loadNearbySearchPlaces(mapRef.current!, [+propiedad.mapa_longitud, +propiedad.mapa_latitud]);
+         loadNearbySearchPlaces(mapRef.current!, [longitud, latitud]);
          addCursorEvents();
       });
 

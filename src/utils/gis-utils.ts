@@ -45,7 +45,7 @@ export const propiedadesToGeoJSON = ( propiedades: PropiedadBasico[]): FeatureCo
    };
 }
 
-export const latLngToGeoJSON = ( lat: string, lng: string): FeatureCollection<Point> => {
+export const latLngToGeoJSON = ( lat: number, lng: number): FeatureCollection<Point> => {
    return {
       type: "FeatureCollection",
       features: [
@@ -54,8 +54,8 @@ export const latLngToGeoJSON = ( lat: string, lng: string): FeatureCollection<Po
             geometry: {
                type: "Point",
                coordinates: [
-                  +lng,
-                  +lat
+                  lng,
+                  lat
                ]
             },
             properties: { }

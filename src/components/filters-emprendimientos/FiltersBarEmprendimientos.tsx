@@ -12,7 +12,7 @@ type Props = {
    className?: string;
 }
 
-export const FiltersBarEmprendimientos = ({ className, filterValues }: Props) => {
+export const FiltersBarEmprendimientos = ({ filterValues }: Props) => {
 
    const form = useForm<SearchParamsEmprendimientos>({
       defaultValues: filterValues

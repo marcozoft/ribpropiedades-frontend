@@ -1,7 +1,6 @@
 import { getAllEmprendimientos } from '@/src/requests';
-import { EmprendimientoCard, FiltersPopover, TituloDescriptivoEmprendimientos } from '@/src/components';
+import { EmprendimientoCard, TituloDescriptivoEmprendimientos, FiltersBarEmprendimientos } from '@/src/components';
 import { SearchParamsEmprendimientos } from '@/src/interfaces';
-import { FiltersBarEmprendimientos } from '@/src/components';
 
 
 export default async function Emprendimientos({

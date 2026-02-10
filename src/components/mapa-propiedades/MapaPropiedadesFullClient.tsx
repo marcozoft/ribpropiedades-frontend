@@ -186,7 +186,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
          {/* Barra flotante de capas, inicialmente no visible, hasta la primer busqueda */}
          {
             visibleReferencias && (
-               <CuadroReferencias capasDeInteres={CAPAS_INTERES} className="absolute left-4 top-1/2 -translate-y-1/2 z-10"/>
+               <CuadroReferencias capasDeInteres={CAPAS_INTERES} className="hidden lg:block lg:absolute left-4 top-1/2 -translate-y-1/2 z-10"/>
             )
          }
       </div>
