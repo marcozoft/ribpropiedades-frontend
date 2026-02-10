@@ -14,3 +14,5 @@ export { loadImage, createLayer, addFeaturesToLayer, loadNearbySearchPlaces } fr
 // React client
 export { renderReactComponent } from './react-client-utils';
 
+// WebGL
+export { hasWebGL } from './hasWebGL';
