@@ -1,5 +1,5 @@
 import { EmprendimientoIdResponse } from '@/src/interfaces'
-import { GoogleMapsCard, SeccionImagenes } from './detalle-full-page-components'
+import { SeccionImagenes } from './detalle-full-page-components'
 import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';

@@ -1,6 +1,6 @@
 import { PropiedadBasico } from '@/src/interfaces'
 import Image from 'next/image'
-import { FajaPromocional, IndicadorBarrio, IndicadorNumerico, IndicadorOperacion, IndicadorPrecio, TituloDeVenta } from './cards-components';
+import { FajaPromocional, IndicadorNumerico, IndicadorOperacion, IndicadorPrecio, TituloDeVenta } from './cards-components';
 import Link from 'next/link';
 import { generateHrefPropiedad, generateSrcImage } from '@/src/utils';
 
@@ -42,7 +42,6 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
                   {
                      faja_promocional && <FajaPromocional descripcion={faja_promocional} />
                   }
-                  {/*<IndicadorBarrio barrio={zona} />*/}
                </div>
 
                <div className="mt-4">
