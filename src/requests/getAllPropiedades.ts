@@ -1,5 +1,6 @@
 import { BACKEND_API_KEY, API_URL } from "../constants/constants";
 import { booleanFilters } from "../constants/form-constants";
+import { REVALIDATE_PROPIEDADES } from "../constants/revalidate-constants";
 import { PropiedadesResponse, SearchParams } from "../interfaces";
 
 /**
@@ -28,7 +29,7 @@ export const getAllPropiedades = async (searchParams:SearchParams): Promise<Prop
          'X-API-Key': BACKEND_API_KEY
       },
       next: {
-         revalidate: 3600 //TODO: Ajustar para prod
+         revalidate: REVALIDATE_PROPIEDADES
       }
 
    }).then(resp => resp.json())

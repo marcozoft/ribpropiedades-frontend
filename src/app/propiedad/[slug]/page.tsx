@@ -1,33 +1,21 @@
 import { PropiedadFullPage } from "@/src/components";
-import { BACKEND_API_KEY, API_URL } from "@/src/constants/constants";
-import { PropiedadDetalleResponse } from "@/src/interfaces";
+import { getPropiedadById } from "@/src/requests";
 import { extractIdFromSlug } from "@/src/utils";
 import { notFound } from "next/navigation";
 
 
-const getPropertyById = async (id: number): Promise<PropiedadDetalleResponse> => {
-
-   return fetch(`${API_URL}/propiedades/${id}`, {
-      headers: {
-         'X-API-Key': BACKEND_API_KEY
-      },
-      cache: 'force-cache'
-   }).then(resp => {
-      return resp.status == 200
-         ? resp.json()
-         : notFound()
-   })
-
-
-}
-
 export default async function Page(props: PageProps<'/propiedad/[slug]'>) {
 
    const { slug } = await props.params;
-   const propiedad = await getPropertyById(extractIdFromSlug(slug));
+   const propiedadResponse = await getPropiedadById(extractIdFromSlug(slug))
+      .then(resp => {
+         return resp.status == 200
+            ? resp.json()
+            : notFound()
+      })
    
    return (
-      <PropiedadFullPage propiedadResponse={propiedad} />
+      <PropiedadFullPage propiedadResponse={propiedadResponse} />
    );
 
 }

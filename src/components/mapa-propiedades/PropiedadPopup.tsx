@@ -2,7 +2,6 @@ import { PropiedadBasico } from '@/src/interfaces'
 import Image from 'next/image'
 import Link from 'next/link';
 import { generateHrefPropiedad, generateSrcImage } from '@/src/utils';
-import { TituloDeVenta } from '../cards/cards-components';
 import { primaryFont } from '@/src/config/fonts';
 
 type Props = {

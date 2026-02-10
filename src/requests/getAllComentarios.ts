@@ -1,4 +1,5 @@
 import { BACKEND_API_KEY, API_URL } from "../constants/constants"
+import { REVALIDATE_COMENTARIOS } from "../constants/revalidate-constants"
 import { ComentariosResponse } from "../interfaces"
 
 /**
@@ -10,6 +11,9 @@ export const getAllComentarios = async (): Promise<ComentariosResponse> => {
       headers: {
          'X-API-Key': BACKEND_API_KEY
       },
+      next: {
+         revalidate: REVALIDATE_COMENTARIOS
+      }
 
    }).then(resp => resp.json())
 
