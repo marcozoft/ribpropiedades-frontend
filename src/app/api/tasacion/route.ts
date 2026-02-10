@@ -31,15 +31,13 @@ export async function POST(req: Request) {
     );
   } 
 
-  const resp = await fetch(`${API_URL}/contacto`, {
+  const resp = await fetch(`${API_URL}/tasacion`, {
     method: "POST",
     headers: {
       'X-API-Key': BACKEND_API_KEY,
     },
     body: JSON.stringify(data),
   }).then(resp => resp.json())
-
-  // console.log(resp);
   
   return NextResponse.json({ ok: true, resp});
 }
