@@ -12,7 +12,8 @@ export const EmprendimientoCard = ({
    id,
    descripcion_corta,
    zona,
-   cantidad_propiedades
+   cantidad_propiedades,
+   categoria_emprendimientos,
 }: EmprendimientoBasico) => {
 
    return (
@@ -36,7 +37,9 @@ export const EmprendimientoCard = ({
                <div className="mt-4">
                   {/* Nombre */}
                   <NombreEmprendimiento nombre={nombre} />
+                  <p>{categoria_emprendimientos}</p>
                </div>
+
 
                <div className="mt-4">
                   {/* Descripcion */}

@@ -1,7 +1,7 @@
 import { ControlMapaGrilla, FiltersBar, MapaPropiedadesFull, PropiedadCard, SinResultados } from '@/src/components';
 import { PropiedadBasico, SearchParams } from "@/src/interfaces";
 import { getAllPropiedades, getFilterItems, getPropiedadesIA } from '@/src/requests';
-import { TituloDescriptivo } from '@/src/components/filters/TituloDescriptivo';
+import { TituloDescriptivo } from '@/src/components/filters-propiedades/TituloDescriptivo';
 import { ambientesItemFilters, ordenes, booleanFilters } from '@/src/constants/form-constants';
 
 export default async function Propiedades({
