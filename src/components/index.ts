@@ -23,6 +23,11 @@ export { MapaNoSoportado } from "./mapa-propiedades/MapaNoSoportado";
 export { PropiedadFullPage } from "./detalle-full-page/PropiedadFullPage";
 export { EmprendimientoFullPage } from "./detalle-full-page/EmprendimientoFullPage";
 
+// Formularios
+export { FormularioContacto } from "./formularios/FormularioContacto";
+export { FormularioTasacion } from "./formularios/FormularioTasacion";
+
+
 // Carousel
 export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamientos';
 export { CarouselImagenesFullPage } from './carousel-imagenes-full-page/CarouselImagenesFullPage';

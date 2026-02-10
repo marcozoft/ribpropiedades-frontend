@@ -21,11 +21,8 @@ const servicios = [
    'Otro',
 ];
 
-// const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
 
-
-// TODO: Generalizar y usar un unico form
-export const FormularioContactoLateral = () => {
+export const FormularioContacto = () => {
 
    const [formData, setFormData] = useState<FormData>({
       nombre: '',
@@ -37,17 +34,20 @@ export const FormularioContactoLateral = () => {
    const [isSubmitted, setIsSubmitted] = useState(false);
    const [isLoading, setIsLoading] = useState(false);
 
-   // TODO: POST formulario
+
+   /**
+    *  POST Formulario
+    */
    const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
       setIsLoading(true);
       try {
-         console.log('Formulario lateral:', formData);
+         console.log('contacto_form:', formData);
          const token = await grecaptcha.execute(RECAPTCHA_CLIENT_API_KEY, {
-            action: "form_tasacion",
+            action: "contacto_form",
          });
 
-         await fetch("/api/tasacion", {
+         await fetch("/api/contacto", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -191,6 +191,8 @@ export const FormularioContactoLateral = () => {
                      <input
                         type="tel"
                         name="telefono"
+                        value={formData.telefono}
+                        onChange={handleChange}
                         placeholder="Tel/Cel*"
                         className="w-full px-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-foreground transition-colors"
                         required

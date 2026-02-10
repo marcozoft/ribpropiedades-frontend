@@ -7,7 +7,7 @@ export const SeccionMapa = () => {
   const lon = -58.865804;
   
   return (
-    <section className="relative h-[500px] md:h-[600px]">
+    <section className="relative h-125 md:h-150 md:mb-10">
       <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-2">
         {/* Google Maps - Mapa */}
         <div className="relative h-full">

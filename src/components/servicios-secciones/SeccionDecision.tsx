@@ -62,7 +62,7 @@ export const SeccionDecision = () => {
           {/* Columna Derecha - Contenido */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Has tomado la decisión. Estás listo para comprar o alquilar?
+              Has tomado la decisión. ¿Estás listo para comprar o alquilar?
             </h2>
             
             <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-foreground transition-colors duration-300">

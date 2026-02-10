@@ -3,8 +3,7 @@ import { SeccionImagenes } from './detalle-full-page-components'
 import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
-import { FormularioContactoLateral } from './detalle-full-page-components/FormularioContactoLateral';
-import { CarouselCards, MapaPropiedad } from '@/src/components';
+import { CarouselCards, MapaPropiedad, FormularioContacto } from '@/src/components';
 
 
 type Props = {
@@ -46,7 +45,7 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
 
         {/* formulario de contacto */}
         <section className='hidden xl:flex xl:basis-1/3 bg-background p-5'>
-          <FormularioContactoLateral />
+          <FormularioContacto />
         </section>
       </div>
 

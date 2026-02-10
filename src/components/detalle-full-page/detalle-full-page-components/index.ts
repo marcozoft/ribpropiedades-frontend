@@ -7,4 +7,3 @@ export { SeccionImagenes} from './SeccionImagenes';
 export { SeccionPropiedad } from './SeccionPropiedad';
 export { SeccionEmprendimiento } from "./DescripcionEmprendimiento";
 export { ImagenCard } from "./ImagenCard";
-export { FormularioContactoLateral } from "./FormularioContactoLateral";

@@ -1,4 +1,4 @@
-import { RECAPTCHA_SERVER_API_KEY } from "@/src/constants/constants";
+import { API_URL, BACKEND_API_KEY, RECAPTCHA_SERVER_API_KEY } from "@/src/constants/constants";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -19,12 +19,11 @@ export async function POST(req: Request) {
   );
 
   const result = await res.json();
-  console.log(result);
 
   if (
     !result.success ||
     result.score < 0.5 ||
-    result.action !== "contact_form"
+    result.action !== "contacto_form"
   ) {
     return NextResponse.json(
       { error: "Captcha inválido" },
@@ -32,8 +31,13 @@ export async function POST(req: Request) {
     );
   }
 
-  
+  const resp = await fetch(`${API_URL}/contacto`, {
+    method: "POST",
+    headers: {
+      'X-API-Key': BACKEND_API_KEY,
+    },
+    body: JSON.stringify(data),
+  }).then(resp => resp.json())
 
-  // 👉 Acá procesás el formulario (email, DB, etc.)
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, resp});
 }
