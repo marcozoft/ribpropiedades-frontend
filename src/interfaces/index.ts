@@ -15,6 +15,7 @@ export type { PropiedadesIAResponse } from './PropiedadesIAResponse';
 export type { ContenidoHome } from "./ContenidoHome";
 
 // Emprendimientos
+export type { SearchParamsEmprendimientos } from './SearchParamsEmprendimientos';
 export type { EmprendimientosResponse } from './emprendimientos/EmprendimientosResponse'
 export type { EmprendimientoBasico } from './emprendimientos/EmprendimientoBasico';
 export type { EmprendimientoIdResponse } from "./emprendimientos/EmprendimientoIdResponse";

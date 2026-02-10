@@ -36,12 +36,13 @@ export { Footer } from "./footer/Footer";
 
 // Buscador, filtros, ordenamiento
 export { FiltersBar } from "./filters/FiltersBar";
+export { FiltersBarEmprendimientos } from "./filters/FiltersBarEmprendimientos"
 export { FiltersPopover } from './filters/FiltersPopover';
 export { AISearch } from './filters/AISearch';
 export { ClasicSearch } from './filters/ClasicSearch';
 export { SortPopover } from './filters/SortPopover';
 export { ControlMapaGrilla } from './mapa-propiedades/ControlMapaGrilla';
-
+export { TituloDescriptivoEmprendimientos } from'./filters/TituloDescriptivoEmprendimientos';
 export { TituloDescriptivo } from "./filters/TituloDescriptivo";
 export { UbicacionCommand } from './filters/UbicacionCommand';
 
