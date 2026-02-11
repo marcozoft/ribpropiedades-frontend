@@ -53,8 +53,8 @@ export const TituloDescriptivo = ({
    const { zona, emprendimiento, operacion, ambientes, dormitorios, tipo_inmueble, orden, vista, queryAI, ...rest } = filterValues;   
 
    return (
-      <div className="max-w-6xl mx-auto flex flex-col justify-between pb-2 min-h-40">
-         <h1 className="text-3xl text-black font-bold">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col justify-between pb-2 pt-4 min-h-20 sm:min-h-40">
+         <h1 className="text-xl sm:text-3xl text-black font-bold">
             {length} {length === 1 ? 'propiedad' : 'propiedades'} {length === 1 ? 'encontrada' : 'encontradas'}
          </h1>
          <br />

@@ -5,10 +5,19 @@ export const SeccionContactanos = () => {
   return (
     <section>
       <div className="relative w-full h-140">
-        <Image className='absolute inset-0 object-cover w-full h-full' 
-          src={'/images/home-tu-proyecto-realidad.png'} 
+        {/* Desktop */}
+        <Image className='hidden sm:block absolute inset-0 object-cover w-full h-full' 
+          src={'/images/home-tu-proyecto-realidad.webp'} 
           width={1920} 
           height={560} 
+          alt="Hacemos tu proyecto realidad"
+        />
+
+        {/* Mobile */}
+        <Image className='block sm:hidden absolute inset-0 object-cover w-full h-full' 
+          src={'/images/home-tu-proyecto-realidad-mb.webp'} 
+          width={600} 
+          height={800} 
           alt="Hacemos tu proyecto realidad"
         />
 
