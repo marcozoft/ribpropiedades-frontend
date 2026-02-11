@@ -18,6 +18,8 @@ type Props = {
    ambientes?: ItemFilter[];
    tipos_inmueble: ItemFilter[];
    filterValues: SearchParams;
+   isExpanded?: boolean;
+   onToggleExpand?: (isExpanded: boolean) => void;
 }
 
 export const ClasicSearch = ({
@@ -27,7 +29,9 @@ export const ClasicSearch = ({
    tipos_inmueble,
    operaciones,
    filterValues,
-   dormitorios
+   dormitorios,
+   isExpanded = true,
+   onToggleExpand
 }: Props) => {
 
    const router = useRouter();
@@ -64,6 +68,9 @@ export const ClasicSearch = ({
 
       startTransition(() => {
          router.push(`/propiedades?${params}`);
+         if (onToggleExpand) {
+             onToggleExpand(false);
+         }
       });
    }
 
@@ -74,6 +81,14 @@ export const ClasicSearch = ({
       startTransition(() => {
          router.push('/propiedades');
       });
+   }
+   
+   const handleMainButtonClick = (e: React.MouseEvent) => {
+       if (!isExpanded && onToggleExpand) {
+           e.preventDefault();
+           onToggleExpand(true);
+       }
+       // Si esta expandido, hace submit normal (type="submit")
    }
 
    return (
@@ -86,7 +101,7 @@ export const ClasicSearch = ({
          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col md:flex-row gap-4 grow animate-in fade-in fade-out">
 
             {/* Selects grid*/}
-            <div className="grow grid grid-cols-1 md:grid-cols-12 items-center gap-4">
+            <div className={`grow grid grid-cols-1 md:grid-cols-12 items-center gap-4 ${!isExpanded ? 'hidden md:grid' : ''}`}>
                {/* Zona / Emprendimiento */}
                <div className={`flex justify-center col-span-1 md:col-span-4`}>
                   <UbicacionCommand
@@ -159,25 +174,36 @@ export const ClasicSearch = ({
 
 
             {/* Botones lupa */}
-            <div className={`flex justify-center items-center gap-2 ${!allControls ? 'md:col-span-2' : 'md:col-span-3'}`}>
+            <div className={`flex ${!isExpanded ? 'flex-row' : 'flex-col'} md:flex-row justify-center items-center gap-2 w-full md:w-auto ${!allControls ? 'md:col-span-2' : 'md:col-span-3'}`}>
 
-               <Button
-                  variant="search"
-                  type="submit"
-                  size="icon"
-                  disabled={isPending}
-               >
-                  {isPending ? (
-                     <Loader2 className="size-6 animate-spin" />
-                  ) : (
-                     <Search className="size-6" />
-                  )}
-               </Button>
+                {/* Boton Principal (BUSCADOR o icon Lupa) */}
+                <div className={`${!isExpanded ? 'grow md:grow-0' : 'w-full'} md:w-auto`}>
+                   <Button
+                      variant="search"
+                      type={isExpanded ? "submit" : "button"}
+                      disabled={isPending}
+                      onClick={handleMainButtonClick}
+                      className={`w-full h-10 md:p-0 md:w-12 ${!isExpanded && allControls ? 'px-4 uppercase tracking-widest text-sm' : ''}`}
+                   >
+                      {isPending ? (
+                         <Loader2 className="size-5 animate-spin" />
+                      ) : (
+                         <div className="flex items-center justify-center gap-2">
+                            {/* Texto solo visible en mobile */}
+                            <span className="md:hidden font-semibold">
+                                { !isExpanded ? 'BUSCADOR' : 'BUSCAR' }
+                            </span>
+                            <Search className="size-5" />
+                         </div>
+                      )}
+                   </Button>
+               </div>
 
-               {/* Controles opcionales, solo para paginado y filtros */}
+               {/* Controles opcionales: visibles si allControls es true */}
+               {/* En modo colapsado, tambien se muestran */}
                {
                   allControls && (
-                     <>
+                     <div className={`flex ${!isExpanded ? 'w-auto shrink-0' : 'w-full md:w-auto'} justify-center gap-2`}>
                         {/* filtros */}
                         <FiltersPopover
                            disabled={isPending}
@@ -208,7 +234,7 @@ export const ClasicSearch = ({
                         >
                            <Trash2 className="size-6" />
                         </Button>
-                     </>
+                     </div>
                   )
                }
             </div>
