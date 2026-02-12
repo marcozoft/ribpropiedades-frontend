@@ -23,7 +23,7 @@ export const CarouselLanzamientosSlide = ({ slider }: Props) => {
   
 
   return (
-    <div className={`w-full flex flex-col lg:flex-row grow-0 shrink-0 gap-3 sm:gap-4 lg:gap-5`}>
+    <div className={`w-full flex flex-col lg:flex-row grow-0 shrink-0 lg:gap-5 basis-4/5 lg:basis-full px-2 lg:px-0`}>
       {
         (isYoutubeLink && youtubeId) ? (
           <div className="flex-none w-full lg:max-w-160 aspect-video relative rounded overflow-hidden bg-background">
