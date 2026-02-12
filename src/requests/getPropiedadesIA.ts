@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { BACKEND_API_KEY, API_URL } from "../constants/constants";
 import { REVALIDATE_PROPIEDADES_IA } from "../constants/revalidate-constants";
 import { PropiedadesIAResponse } from "../interfaces";
@@ -10,11 +11,11 @@ interface BusquedaIABody {
  * Query principal, propiedades filtradas con IA
  */
 export const getPropiedadesIA = async (query: string): Promise<PropiedadesIAResponse> => {
-   
+
    const body: BusquedaIABody = {
       query
    };
-      
+
    return fetch(`${API_URL}/buscador_inteligente`, {
       method: 'POST',
       headers: {
@@ -22,13 +23,13 @@ export const getPropiedadesIA = async (query: string): Promise<PropiedadesIAResp
          'Content-Type': 'application/json'
       },
       body: JSON.stringify(body),
-      
       next: {
          revalidate: REVALIDATE_PROPIEDADES_IA
       }
-
    }).then(resp => {
-      return resp.json()
+      return resp.status == 200
+         ? resp.json()
+         : notFound()
    })
 
 }

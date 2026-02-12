@@ -2,9 +2,9 @@
 
 import { Button } from "@/src/components"
 import { hasWebGL } from "@/src/utils";
-import { Grid, Map } from "lucide-react"
+import { Grid, Loader2, Map } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 
 type Props = {
    vista?: 'mapa' | 'grilla'
@@ -15,6 +15,8 @@ export const ControlMapaGrilla = ({vista}: Props) => {
    const router = useRouter();
    const searchParams = useSearchParams();
    const [supported, setSupported] = useState<boolean | null>(null);
+   const [isPending, startTransition] = useTransition();
+   
    
    useEffect(() => {
       setSupported(hasWebGL());
@@ -31,20 +33,25 @@ export const ControlMapaGrilla = ({vista}: Props) => {
          params.set('vista', 'mapa');
       }
       
-      // Hacer push manteniendo todos los filtros
-      router.push(`?${params.toString()}`);
+      startTransition(() => {
+         // Hacer push manteniendo todos los filtros
+         router.push(`?${params.toString()}`);
+      });
    };
 
    return (
-      supported && <Button 
+      supported && <Button
+         disabled={isPending}
          variant='search' 
          className="fixed bottom-6 bg-foreground left-1/2 -translate-x-1/2 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 z-50"
          onClick={handleClick}
       >
       {
-         vista == 'mapa'
-            ? (<> <Grid />Ver grilla </>)
-            : (<> <Map />Ver mapa </>)
+         isPending
+         ? <><Loader2 className="size-5 animate-spin"/>Cargando</> 
+         :  vista == 'mapa'
+               ? (<> <Grid />Ver grilla </>)
+               : (<> <Map />Ver mapa </>)
       }
       </Button >
   )
