@@ -47,7 +47,7 @@ export const SeccionPropiedad = ({
         </div>
       </div>
 
-      <div className="mb-10 flex items-center justify-between gap-2">
+      <div className="mb-10 flex items-center justify-between gap-3">
         <h1 className="mt-4 text-xl font-semibold text-black lg:text-3xl xl:text-4xl">
           {titulo_venta}
         </h1>

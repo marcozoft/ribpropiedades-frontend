@@ -3,7 +3,6 @@ import Image from "next/image";
 import {
   FajaPromocional,
   IndicadorNumerico,
-  IndicadorOperacion,
   IndicadorPrecio,
   TituloDeVenta,
 } from "./cards-components";
@@ -29,7 +28,7 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
     sup_total,
     sup_terreno,
     titulo_venta,
-    zona,
+    emprendimiento,
   } = propiedad;
 
   return (
@@ -57,18 +56,17 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
             )}
           </div>
 
-          <div className="mt-1">
+          <div className="mt-1 flex justify-between">
+            <p className="text-foreground text-md uppercase">
+              {inmueble} - {operacion}
+            </p>
             <p className="text-right text-xs text-black">Código: {codigo}</p>
           </div>
 
-          <div className="mt-2">
-            {/* Tipo de operacion */}
-            <IndicadorOperacion
-              tipoDeInmueble={inmueble}
-              tipoDeOperacion={operacion}
-              zona={zona}
-            />
-
+          <div className="mt-1">
+            <p className="text-md font-foreground text-black">
+              {emprendimiento?.nombre ? `${emprendimiento.nombre}` : `-`}
+            </p>
             {/* Precio */}
             <IndicadorPrecio
               className="text-black"
