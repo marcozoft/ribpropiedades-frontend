@@ -7,7 +7,7 @@ import { filterSearchParams } from "@/src/utils";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
 import { useForm } from "react-hook-form";
 import { Loader2, Search, Trash2 } from "lucide-react";
-import { ambientesItemFilters, con_dormitorio_suiteItem, con_dos_cocherasItem, con_dos_plantasItem, con_piscinaItem, ordenes } from "@/src/constants/form-constants";
+import { ambientesItemFilters, con_dormitorio_suiteItem, con_dos_cocherasItem, con_unaPlantaItem, con_piscinaItem, ordenes } from "@/src/constants/form-constants";
 
 type Props = {
    allControls?: boolean;
@@ -53,7 +53,7 @@ export const ClasicSearch = ({
          ambientes: filterValues.ambientes ?? "",
          dormitorios: filterValues.dormitorios ?? "",
          con_piscina: filterValues.con_piscina ?? "",
-         con_dos_plantas: filterValues.con_dos_plantas ?? "",
+         con_una_planta: filterValues.con_una_planta ?? "",
          con_dormitorio_suite: filterValues.con_dormitorio_suite ?? "",
       });
    }, [filterValues, form]);
@@ -69,7 +69,7 @@ export const ClasicSearch = ({
       startTransition(() => {
          router.push(`/propiedades?${params}`);
          if (onToggleExpand) {
-             onToggleExpand(false);
+            onToggleExpand(false);
          }
       });
    }
@@ -82,13 +82,13 @@ export const ClasicSearch = ({
          router.push('/propiedades');
       });
    }
-   
+
    const handleMainButtonClick = (e: React.MouseEvent) => {
-       if (!isExpanded && onToggleExpand) {
-           e.preventDefault();
-           onToggleExpand(true);
-       }
-       // Si esta expandido, hace submit normal (type="submit")
+      if (!isExpanded && onToggleExpand) {
+         e.preventDefault();
+         onToggleExpand(true);
+      }
+      // Si esta expandido, hace submit normal (type="submit")
    }
 
    return (
@@ -176,27 +176,27 @@ export const ClasicSearch = ({
             {/* Botones lupa */}
             <div className={`flex ${!isExpanded ? 'flex-row' : 'flex-col'} md:flex-row justify-center items-center gap-2 w-full md:w-auto ${!allControls ? 'md:col-span-2' : 'md:col-span-3'}`}>
 
-                {/* Boton Principal (BUSCADOR o icon Lupa) */}
-                <div className={`${!isExpanded ? 'grow md:grow-0' : 'w-full'} md:w-auto`}>
-                   <Button
-                      variant="search"
-                      type={isExpanded ? "submit" : "button"}
-                      disabled={isPending}
-                      onClick={handleMainButtonClick}
-                      className={`w-full h-10 md:p-0 md:w-12 ${!isExpanded && allControls ? 'px-4 uppercase tracking-widest text-sm' : ''}`}
-                   >
-                      {isPending ? (
-                         <Loader2 className="size-5 animate-spin" />
-                      ) : (
-                         <div className="flex items-center justify-center gap-2">
-                            {/* Texto solo visible en mobile */}
-                            <span className="md:hidden font-semibold">
-                                { !isExpanded ? 'BUSCADOR' : 'BUSCAR' }
-                            </span>
-                            <Search className="size-5" />
-                         </div>
-                      )}
-                   </Button>
+               {/* Boton Principal (BUSCADOR o icon Lupa) */}
+               <div className={`${!isExpanded ? 'grow md:grow-0' : 'w-full'} md:w-auto`}>
+                  <Button
+                     variant="search"
+                     type={isExpanded ? "submit" : "button"}
+                     disabled={isPending}
+                     onClick={handleMainButtonClick}
+                     className={`w-full h-10 md:p-0 md:w-12 ${!isExpanded && allControls ? 'px-4 uppercase tracking-widest text-sm' : ''}`}
+                  >
+                     {isPending ? (
+                        <Loader2 className="size-5 animate-spin" />
+                     ) : (
+                        <div className="flex items-center justify-center gap-2">
+                           {/* Texto solo visible en mobile */}
+                           <span className="md:hidden font-semibold">
+                              {!isExpanded ? 'BUSCADOR' : 'BUSCAR'}
+                           </span>
+                           <Search className="size-5" />
+                        </div>
+                     )}
+                  </Button>
                </div>
 
                {/* Controles opcionales: visibles si allControls es true */}
@@ -212,7 +212,7 @@ export const ClasicSearch = ({
                            dormitorios={dormitorios}
                            ambientes={ambientesItemFilters}
                            con_piscinaItem={con_piscinaItem}
-                           con_dos_plantasItem={con_dos_plantasItem}
+                           con_unaPlantaItem={con_unaPlantaItem}
                            con_dos_cocherasItem={con_dos_cocherasItem}
                            con_dormitorio_suiteItem={con_dormitorio_suiteItem}
                         />

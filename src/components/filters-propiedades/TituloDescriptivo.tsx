@@ -1,5 +1,5 @@
 import { ItemFilter, SearchParams } from "@/src/interfaces"
-import { ArrowDownNarrowWideIcon, BedDouble, Car, HandshakeIcon, House, LampCeiling, MapPinIcon, TableCellsSplit, WavesLadder } from "lucide-react";
+import { ArrowDownFromLine, ArrowDownNarrowWideIcon, BedDouble, Car, HandshakeIcon, House, LampCeiling, MapPinIcon, WavesLadder } from "lucide-react";
 import { Item, ItemContent, ItemMedia, ItemTitle } from "@/src/components";
 
 
@@ -12,13 +12,13 @@ const icons: LabelIcon[] = [
    {
       label: 'con_piscina',
       icon: (<WavesLadder />)
-   },{
-      label: 'con_dos_plantas',
-      icon: (<TableCellsSplit />)
-   },{
+   }, {
+      label: 'con_una_planta',
+      icon: (<ArrowDownFromLine />)
+   }, {
       label: 'con_dormitorio_suite',
       icon: (<BedDouble />)
-   },{
+   }, {
       label: 'con_dos_cocheras',
       icon: (<Car />)
    },
@@ -50,7 +50,7 @@ export const TituloDescriptivo = ({
    zonas,
 }: Props) => {
 
-   const { zona, emprendimiento, operacion, ambientes, dormitorios, tipo_inmueble, orden, vista, queryAI, ...rest } = filterValues;   
+   const { zona, emprendimiento, operacion, ambientes, dormitorios, tipo_inmueble, orden, vista, queryAI, ...rest } = filterValues;
 
    return (
       <div className="max-w-6xl mx-auto px-4 flex flex-col justify-between pb-2 pt-4 min-h-20 sm:min-h-40">
@@ -111,7 +111,7 @@ export const TituloDescriptivo = ({
             }
             {
                ambientes && (
-                  <Item variant="muted"  className="shrink-0">
+                  <Item variant="muted" className="shrink-0">
                      <ItemMedia>
                         <LampCeiling />
 
@@ -142,7 +142,7 @@ export const TituloDescriptivo = ({
                Object.entries(rest).map(([key, value]) => {
                   const iconData = icons.find(icon => icon.label === key);
                   if (!iconData) return null;
-                  
+
                   return (
                      <Item variant="muted" key={key} className="shrink-0">
                         <ItemMedia>
