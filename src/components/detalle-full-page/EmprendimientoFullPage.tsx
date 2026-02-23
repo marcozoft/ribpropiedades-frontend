@@ -25,7 +25,7 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
       {/* Descripcion emprendimiento */}
       <div className='max-w-6xl mx-auto flex px-4 py-8 pb-20'>
         <section className='xl:basis-2/3 px-4 scroll-mt-33' id="descripcion">
-          <div className="flex justify-between mb-10 items-center">
+          <div className="flex flex-col sm:flex-row gap-2 justify-between mb-10 items-center">
             <h1 className="font-semibold text-4xl mt-4 text-black">{emprendimiento.nombre}</h1>
             {/* Logo del emprendimiento - opcional */}
             {

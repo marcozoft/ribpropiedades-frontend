@@ -12,25 +12,25 @@ type Props = {
    dormitorios: ItemFilter[],
    ambientes: ItemFilter[],
    con_piscinaItem: ItemFilter,
-   con_dos_plantasItem: ItemFilter,
+   con_unaPlantaItem: ItemFilter,
    con_dos_cocherasItem: ItemFilter,
    con_dormitorio_suiteItem: ItemFilter,
    onSubmit: () => void,
 }
 
-export function FiltersPopover({ 
-   control, 
-   disabled, 
-   onSubmit, 
-   dormitorios, 
-   ambientes, 
-   con_piscinaItem, 
-   con_dos_plantasItem, 
-   con_dos_cocherasItem, 
+export function FiltersPopover({
+   control,
+   disabled,
+   onSubmit,
+   dormitorios,
+   ambientes,
+   con_piscinaItem,
+   con_unaPlantaItem,
+   con_dos_cocherasItem,
    con_dormitorio_suiteItem,
 }: Props) {
 
-   const [open, setOpen] = useState(false)   
+   const [open, setOpen] = useState(false)
 
    const onClickResultados = () => {
       onSubmit();
@@ -72,7 +72,7 @@ export function FiltersPopover({
                               <SelectContent>
                                  <SelectGroup>
                                     {
-                                       ambientes.map( item => 
+                                       ambientes.map(item =>
                                           (<SelectItem key={item.valor} value={item.valor}>{item.label}</SelectItem>)
                                        )
                                     }
@@ -103,7 +103,7 @@ export function FiltersPopover({
                               <SelectContent>
                                  <SelectGroup>
                                     {
-                                       dormitorios.map( item => 
+                                       dormitorios.map(item =>
                                           (<SelectItem key={item.valor} value={item.valor}>{item.label}</SelectItem>)
                                        )
                                     }
@@ -143,7 +143,7 @@ export function FiltersPopover({
                   {/* Checkbox 2: 2 o mas plantas */}
                   <FormField
                      control={control}
-                     name="con_dos_plantas"
+                     name="con_una_planta"
                      render={({ field }) => (
                         <FormItem className="flex items-center space-x-2 space-y-0">
                            <FormControl>
@@ -154,7 +154,7 @@ export function FiltersPopover({
                               />
                            </FormControl>
                            <FormLabel className="text-sm font-normal cursor-pointer">
-                              {con_dos_plantasItem.label}
+                              {con_unaPlantaItem.label}
                            </FormLabel>
                         </FormItem>
                      )}
@@ -200,9 +200,9 @@ export function FiltersPopover({
                      )}
                   />
                </div>
-               
 
-             
+
+
 
                {/* Checkbox 3: Apto Profesional */}
                {/* <FormField
@@ -224,7 +224,7 @@ export function FiltersPopover({
                   )}
                /> */}
 
-               <Button variant="search" 
+               <Button variant="search"
                   onClick={onClickResultados}>VER RESULTADOS</Button>
             </div>
          </PopoverContent>

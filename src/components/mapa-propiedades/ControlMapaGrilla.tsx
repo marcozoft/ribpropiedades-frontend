@@ -2,7 +2,7 @@
 
 import { Button } from "@/src/components"
 import { hasWebGL } from "@/src/utils";
-import { Grid, Loader2, Map } from "lucide-react"
+import { ArrowLeft, Loader2, Map } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState, useTransition } from "react";
 
@@ -50,7 +50,7 @@ export const ControlMapaGrilla = ({vista}: Props) => {
          isPending
          ? <><Loader2 className="size-5 animate-spin"/>Cargando</> 
          :  vista == 'mapa'
-               ? (<> <Grid />Ver grilla </>)
+               ? (<> <ArrowLeft />Volver a listado</>)
                : (<> <Map />Ver mapa </>)
       }
       </Button >

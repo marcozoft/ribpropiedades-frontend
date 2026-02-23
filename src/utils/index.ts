@@ -16,3 +16,8 @@ export { renderReactComponent } from './react-client-utils';
 
 // WebGL
 export { hasWebGL } from './hasWebGL';
+
+// Sort utils
+export { sortEmprendimientosByNombre } from './sort-utils';
+export { sortPropiedadesByOrden } from './sort-utils';
+

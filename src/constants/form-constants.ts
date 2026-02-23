@@ -16,7 +16,7 @@ export const CATEGORIAS_EMPRENDIMIENTOS: ItemFilter[] = [
    {
       valor: 'edificio_de_oficinas_y_locales',
       label: 'Edificio de Oficinas y Locales'
-   }, 
+   },
    {
       valor: 'proyectos_de_inversin',
       label: 'Proyecto de Inversión'
@@ -48,9 +48,9 @@ export const con_piscinaItem: ItemFilter = {
    label: 'Con piscina'
 };
 
-export const con_dos_plantasItem: ItemFilter = {
-   valor: 'con_dos_plantas',
-   label: '2 plantas o más'
+export const con_unaPlantaItem: ItemFilter = {
+   valor: 'con_una_planta',
+   label: '1 planta'
 }
 
 export const con_dos_cocherasItem: ItemFilter = {
@@ -65,7 +65,7 @@ export const con_dormitorio_suiteItem: ItemFilter = {
 
 export const booleanFilters: ItemFilter[] = [
    con_piscinaItem,
-   con_dos_plantasItem,
+   con_unaPlantaItem,
    con_dos_cocherasItem,
    con_dormitorio_suiteItem
 ];

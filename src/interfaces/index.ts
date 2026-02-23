@@ -1,42 +1,43 @@
 // Comentarios
-export type { ComentariosResponse } from './ComentariosResponse';
-export type { Comentario } from './ComentariosResponse';
+export type { ComentariosResponse } from "./ComentariosResponse";
+export type { Comentario } from "./ComentariosResponse";
 
 // Responses propiedades
-export type { PropiedadesResponse } from './propiedades/PropiedadesResponse';
-export type { PropiedadDetalleResponse } from './propiedades/PropiedadDetalleResponse';
-export type { PropiedadDetalle } from './propiedades/PropiedadDetalle';
-export type { PropiedadBasico } from './propiedades/PropiedadBasico';
+export type { PropiedadesResponse } from "./propiedades/PropiedadesResponse";
+export type { PropiedadDetalleResponse } from "./propiedades/PropiedadDetalleResponse";
+export type { PropiedadDetalle } from "./propiedades/PropiedadDetalle";
+export type { PropiedadBasico } from "./propiedades/PropiedadBasico";
+export type { Detalle } from "./propiedades/Detalle";
 
 // Busqueda IA
-export type { PropiedadesIAResponse } from './PropiedadesIAResponse';
+export type { PropiedadesIAResponse } from "./PropiedadesIAResponse";
 
 // Otros reponses
 export type { ContenidoHome } from "./ContenidoHome";
 
 // Emprendimientos
-export type { SearchParamsEmprendimientos } from './SearchParamsEmprendimientos';
-export type { EmprendimientosResponse } from './emprendimientos/EmprendimientosResponse'
-export type { EmprendimientoBasico } from './emprendimientos/EmprendimientoBasico';
+export type { SearchParamsEmprendimientos } from "./SearchParamsEmprendimientos";
+export type { EmprendimientosResponse } from "./emprendimientos/EmprendimientosResponse";
+export type { EmprendimientoBasico } from "./emprendimientos/EmprendimientoBasico";
 export type { EmprendimientoIdResponse } from "./emprendimientos/EmprendimientoIdResponse";
-export type { EmprendimientoDetalle} from "./emprendimientos/EmprendimientoDetalle"
+export type { EmprendimientoDetalle } from "./emprendimientos/EmprendimientoDetalle";
 
 // Lanzamientos
-export type { LanzamientosResponse } from './LanzamientosResponse';
-export type { LanzamientoSlider } from './LanzamientosResponse';
+export type { LanzamientosResponse } from "./LanzamientosResponse";
+export type { LanzamientoSlider } from "./LanzamientosResponse";
 
 // Fitros y buscador
-export type { FiltrosResponse} from './FiltrosResponse';
-export type { SearchParams } from './SearchParams';
-export type { ItemFilter } from './FiltrosResponse';
+export type { FiltrosResponse } from "./FiltrosResponse";
+export type { SearchParams } from "./SearchParams";
+export type { ItemFilter } from "./FiltrosResponse";
 
 // Imagenes
-export type { Imagen } from './Imagen';
+export type { Imagen } from "./Imagen";
 
 // Geo
-export type { CapaDeInteres } from './CapaDeInteres';
+export type { CapaDeInteres } from "./CapaDeInteres";
 
 // API Google Nearby Search
-export type { LugaresRequest } from './api-google-places/LugaresRequest';
-export type { NearbySearchResponse } from './api-google-places/NearbySearchResponse';
-export type { Place } from './api-google-places/NearbySearchResponse';
+export type { LugaresRequest } from "./api-google-places/LugaresRequest";
+export type { NearbySearchResponse } from "./api-google-places/NearbySearchResponse";
+export type { Place } from "./api-google-places/NearbySearchResponse";
