@@ -56,25 +56,31 @@ export default async function Propiedades({
 
 
    return (
-      <div className="bg-white">
-         <div className="sticky z-10 top-20 -mt-21">
-            <FiltersBar 
-               filterValues={searchParamsBrowserBar} 
-               className='bg-background shadow-xl border-foreground' 
-               startCollapsed={true}
-               {...filtros} 
-               allControls 
-            />
+     <div className="bg-white">
+       {
+         ( searchParamsBrowserBar.vista !== 'mapa') &&
+         <div className="sticky top-20 z-10 -mt-21">
+           <FiltersBar
+             filterValues={searchParamsBrowserBar}
+             className="bg-background border-foreground shadow-xl"
+             startCollapsed={true}
+             {...filtros}
+             allControls
+           />
          </div>
+       }
 
-         {
-            searchParamsBrowserBar.vista == 'mapa'
-               ? (<MapaPropiedadesFull propiedades={propiedades} className='col-span-4 top-16 h-screen'/>)
-               : (vistaGrilla)
-         }
-         {
-            propiedades.length > 0 && <ControlMapaGrilla vista={searchParamsBrowserBar.vista} />
-         }
-      </div>
-   )
+       {searchParamsBrowserBar.vista == "mapa" ? (
+         <MapaPropiedadesFull
+           propiedades={propiedades}
+           className="top-16 col-span-4 h-screen"
+         />
+       ) : (
+         vistaGrilla
+       )}
+       {propiedades.length > 0 && (
+         <ControlMapaGrilla vista={searchParamsBrowserBar.vista} />
+       )}
+     </div>
+   );
 }

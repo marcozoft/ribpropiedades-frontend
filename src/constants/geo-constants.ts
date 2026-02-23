@@ -9,6 +9,15 @@ export const ZOOM_FLY = 14;
 // Capas de interes para mapas
 export const CAPAS_INTERES: CapaDeInteres[] = [
   {
+    name: "educacion",
+    includedPrimaryTypes: ["university", "school", "secondary_school"],
+    excludePrimaryTypes: [],
+    icon: "/markers/university.png",
+    label: "Colegios y universidades",
+    radius: 3000,
+    rankPreference: "POPULARITY",
+  },
+  {
     name: "restaurants",
     includedPrimaryTypes: ["restaurant"],
     excludePrimaryTypes: [],
@@ -56,15 +65,6 @@ export const CAPAS_INTERES: CapaDeInteres[] = [
     excludePrimaryTypes: [],
     icon: "/markers/deportes.png",
     label: "Deportes",
-    radius: 3000,
-    rankPreference: "POPULARITY",
-  },
-  {
-    name: "educacion",
-    includedPrimaryTypes: ["university", "school", "secondary_school"],
-    excludePrimaryTypes: [],
-    icon: "/markers/university.png",
-    label: "Colegios y universidades",
     radius: 3000,
     rankPreference: "POPULARITY",
   },
