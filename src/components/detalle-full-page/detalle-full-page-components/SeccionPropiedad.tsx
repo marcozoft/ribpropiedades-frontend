@@ -6,6 +6,7 @@ import {
   IndicadorPrecio,
   MapaPropiedad,
 } from "@/src/components";
+import { detallesPorTipoDeInmueble } from "@/src/constants/fichas-propiedad-constants";
 
 type SeccionPropiedadProps = {
   propiedadResponse: PropiedadDetalleResponse;
@@ -27,7 +28,11 @@ export const SeccionPropiedad = ({
     sup_terreno,
     zona,
     codigo,
+    tipo_inmueble,
   } = propiedadResponse.propiedad;
+
+  console.log(tipo_inmueble);
+  console.log(detallesPorTipoDeInmueble.get(tipo_inmueble));
 
   return (
     <section id="descripcion" className="scroll-mt-28">
@@ -96,18 +101,7 @@ export const SeccionPropiedad = ({
 
       <DetallesGrid
         propiedad={propiedadResponse.propiedad}
-        detalles={[
-          { descripcion: "Estilo", clave: "estilo" },
-          { descripcion: "Nro. de plantas", clave: "plantas" },
-          { descripcion: "Dormitorios", clave: "dormitorios" },
-          { descripcion: "Dormitorios en suite", clave: "dormitorio_suite" },
-          { descripcion: "Estado", clave: "estado" },
-          { descripcion: "Antiguedad", clave: "antiguedad" },
-          { descripcion: "Lote", clave: "lote" },
-          { descripcion: "Tipo de zona", clave: "tipo_zona" },
-          { descripcion: "Tipo de calefacción", clave: "calefaccion" },
-          { descripcion: "Aberturas", clave: "aberturas" },
-        ]}
+        detalles={detallesPorTipoDeInmueble.get(tipo_inmueble) ?? []}
       />
 
       {/* Descripcion */}
