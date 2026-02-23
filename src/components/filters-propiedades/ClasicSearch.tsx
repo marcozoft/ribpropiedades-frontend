@@ -19,7 +19,7 @@ import {
 import { filterSearchParams } from "@/src/utils";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
 import { useForm } from "react-hook-form";
-import { Loader2, Search, Trash2 } from "lucide-react";
+import { ArrowBigDown, Loader2, Search, Trash2 } from "lucide-react";
 import {
   ambientesItemFilters,
   con_dormitorio_suiteItem,
@@ -207,7 +207,7 @@ export const ClasicSearch = ({
               type={isExpanded ? "submit" : "button"}
               disabled={isPending}
               onClick={handleMainButtonClick}
-              className={`h-10 w-full md:w-12 md:p-0 ${!isExpanded && allControls ? "px-4 text-sm tracking-widest uppercase" : ""}`}
+              className={`md:hidden h-10 w-full md:w-12 md:p-0 ${!isExpanded && allControls ? "px-4 text-sm tracking-widest uppercase" : ""}`}
             >
               {isPending ? (
                 <Loader2 className="size-5 animate-spin" />
@@ -221,6 +221,26 @@ export const ClasicSearch = ({
                 </div>
               )}
             </Button>
+            
+            <Button
+              variant="search"
+              type="submit" 
+              disabled={isPending}
+              className={`hidden md:flex h-10 w-full md:w-12 md:p-0 ${!isExpanded && allControls ? "px-4 text-sm tracking-widest uppercase" : ""}`}
+            >
+              {isPending ? (
+                <Loader2 className="size-5 animate-spin" />
+              ) : (
+                <div className="flex items-center justify-center gap-2">
+                  {/* Texto solo visible en mobile */}
+                  <span className="font-semibold md:hidden">
+                    {!isExpanded ? "BUSCADOR" : "BUSCAR"}
+                  </span>
+                  <Search className="size-5" />
+                </div>
+              )}
+            </Button>
+
           </div>
 
           {/* Controles opcionales: visibles si allControls es true */}
