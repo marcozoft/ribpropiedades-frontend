@@ -21,6 +21,7 @@ export interface PropiedadBasico {
   inmueble: string;
   moneda: string;
   operacion: string;
+  orden: number;
   precio_publico: number;
   precio: number;
   sup_total: number;
