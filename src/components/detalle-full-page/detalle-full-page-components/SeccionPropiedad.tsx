@@ -26,7 +26,6 @@ export const SeccionPropiedad = ({
     mapa_longitud,
     sup_total,
     sup_terreno,
-    zona,
     codigo,
     tipo_inmueble,
   } = propiedadResponse.propiedad;
@@ -57,7 +56,7 @@ export const SeccionPropiedad = ({
           {titulo_venta}
         </h1>
       </div>
-      
+
       <div>
         <IndicadorPrecio
           precio={precio}
