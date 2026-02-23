@@ -8,52 +8,67 @@ export const ZOOM_FLY = 14;
 
 // Capas de interes para mapas
 export const CAPAS_INTERES: CapaDeInteres[] = [
-   {
-      name: 'restaurants',
-      includedPrimaryTypes: ['restaurant'],
-      excludePrimaryTypes: [],
-      icon: '/markers/restaurant.png',
-      label: 'Gastronomía',
-      radius: 3000,
-      rankPreference: "POPULARITY"
-   },
-   {
-      name: 'shopping',
-      includedPrimaryTypes: ['shopping_mall'],
-      excludePrimaryTypes: [],
-      icon: '/markers/shoping.png',
-      label: 'Centros comerciales',
-      radius: 3000,
-      rankPreference: "POPULARITY"
-   },
-   {
-      name: 'salud',
-      includedPrimaryTypes: ['drugstore', 'hospital', 'medical_lab', 'pharmacy', 'dental_clinic'],
-      excludePrimaryTypes: [],
-      icon: '/markers/salud.png',
-      label: 'Centros de salud y farmacias',
-      radius: 3000,
-      rankPreference: "POPULARITY"
-   },
-   {
-      name: 'mascotas',
-      includedPrimaryTypes: ['pet_store', 'veterinary_care'],
-      excludePrimaryTypes: [],
-      icon: '/markers/mascotas.png',
-      label: 'Mascotas',
-      radius: 3000,
-      rankPreference: "POPULARITY"
-   },
-   {
-      name: 'deportes',
-      includedPrimaryTypes: ['sports_club', 'fitness_center', 'golf_course'],
-      excludePrimaryTypes: [],
-      icon: '/markers/deportes.png',
-      label: 'Deportes',
-      radius: 3000,
-      rankPreference: "POPULARITY"
-   },
-]
+  {
+    name: "restaurants",
+    includedPrimaryTypes: ["restaurant"],
+    excludePrimaryTypes: [],
+    icon: "/markers/restaurant.png",
+    label: "Gastronomía",
+    radius: 3000,
+    rankPreference: "POPULARITY",
+  },
+  {
+    name: "shopping",
+    includedPrimaryTypes: ["shopping_mall"],
+    excludePrimaryTypes: [],
+    icon: "/markers/shoping.png",
+    label: "Centros comerciales",
+    radius: 3000,
+    rankPreference: "POPULARITY",
+  },
+  {
+    name: "salud",
+    includedPrimaryTypes: [
+      "drugstore",
+      "hospital",
+      "medical_lab",
+      "pharmacy",
+      "dental_clinic",
+    ],
+    excludePrimaryTypes: [],
+    icon: "/markers/salud.png",
+    label: "Centros de salud y farmacias",
+    radius: 3000,
+    rankPreference: "POPULARITY",
+  },
+  {
+    name: "mascotas",
+    includedPrimaryTypes: ["pet_store", "veterinary_care"],
+    excludePrimaryTypes: [],
+    icon: "/markers/mascotas.png",
+    label: "Mascotas",
+    radius: 3000,
+    rankPreference: "POPULARITY",
+  },
+  {
+    name: "deportes",
+    includedPrimaryTypes: ["sports_club", "fitness_center", "golf_course"],
+    excludePrimaryTypes: [],
+    icon: "/markers/deportes.png",
+    label: "Deportes",
+    radius: 3000,
+    rankPreference: "POPULARITY",
+  },
+  {
+    name: "educacion",
+    includedPrimaryTypes: ["university", "school", "secondary_school"],
+    excludePrimaryTypes: [],
+    icon: "/markers/university.png",
+    label: "Colegios y universidades",
+    radius: 3000,
+    rankPreference: "POPULARITY",
+  },
+];
 
 
 export const POLYGON_PILARA: GeoJSON.FeatureCollection = {
