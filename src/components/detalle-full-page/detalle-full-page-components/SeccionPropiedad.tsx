@@ -52,10 +52,13 @@ export const SeccionPropiedad = ({
         </div>
       </div>
 
-      <div className="mb-10 flex items-center justify-between gap-3">
+      <div className="mb-5 flex items-center justify-between gap-3">
         <h1 className="mt-4 text-xl font-semibold text-black lg:text-3xl xl:text-4xl">
           {titulo_venta}
         </h1>
+      </div>
+      
+      <div>
         <IndicadorPrecio
           precio={precio}
           precio_condicion={precio_publico}
@@ -71,13 +74,6 @@ export const SeccionPropiedad = ({
 
       <div className="justify-center">
         <div className="my-5 flex gap-2 divide-x overflow-hidden rounded-lg">
-          {/* Zona/localidad */}
-          <IndicadorNumerico
-            nombre={zona}
-            icono={<i className="flaticon-pin text-black"></i>}
-            unidad=""
-          />
-
           {/* superficie total m2 */}
           <IndicadorNumerico
             nombre="Sup. Total"

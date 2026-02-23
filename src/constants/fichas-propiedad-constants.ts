@@ -65,6 +65,11 @@ const banos: Detalle = {
   clave: "banos",
 };
 
+const piscina: Detalle = {
+  descripcion: "Piscina",
+  clave: "piscina",
+};
+
 export const detallesPorTipoDeInmueble = new Map<string, Detalle[]>();
 
 // Departamento
@@ -112,7 +117,7 @@ detallesPorTipoDeInmueble.set("casa", [
   tipoZona,
   calefaccion,
   aberturaas,
-  dormitorios,
   zonificacion,
+  piscina,
 ]);
 
