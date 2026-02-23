@@ -6,10 +6,12 @@ type Props = {
 }
 
 export const CarouselCards = ({ propiedades }: Props) => {
+   const isSmallSet = propiedades.length < 3;
+   
    return (
       <Carousel className="w-full mx-auto sm:max-w-2xl md:max-w-4xl lg:max-w-6xl px-2" autoplay={4000}
          opts={{ loop: true }}>
-            <CarouselContent>
+            <CarouselContent className={isSmallSet ? 'justify-center' : ''}>
                {
                   propiedades.map((propiedad, i) => (
                      <CarouselItem key={i} className="basis-4/5 sm:basis-1/2 lg:basis-1/3">

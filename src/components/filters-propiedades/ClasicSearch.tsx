@@ -19,7 +19,7 @@ import {
 import { filterSearchParams } from "@/src/utils";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
 import { useForm } from "react-hook-form";
-import { ArrowBigDown, Loader2, Search, Trash2 } from "lucide-react";
+import { Loader2, Search, Trash2 } from "lucide-react";
 import {
   ambientesItemFilters,
   con_dormitorio_suiteItem,
