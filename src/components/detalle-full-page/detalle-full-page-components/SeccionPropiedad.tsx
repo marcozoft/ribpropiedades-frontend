@@ -34,7 +34,7 @@ export const SeccionPropiedad = ({
 
 
   return (
-    <section id="descripcion" className="scroll-mt-28">
+    <section id="descripcion" className="">
       {/* Titulo, operacion, nombre del emprendimiento (si pertenece a un emprendimiento) y precio */}
       <div className="mb-8 flex justify-between">
         <div className="justify-between">

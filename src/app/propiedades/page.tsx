@@ -51,10 +51,7 @@ export default async function Propiedades({
                   </div>
                ) : (<SinResultados imageSrc='/images/propiedades-sin-resultados.jpg' />)
          }
-      </>
-
-      console.log(propiedades);
-      
+      </>      
 
    return (
      <div className="bg-white">

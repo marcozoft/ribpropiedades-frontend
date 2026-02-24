@@ -11,13 +11,13 @@ type Props = {
 export const CarouselImagenesFullPage = ({ imagenes }: Props) => {
 
   return (
-    <Carousel className="w-full h-max"
+    <Carousel className="w-full h-full"
       opts={{ loop: true }}>
       <CarouselContent>
         {
           imagenes.map((image, i) => (
             <div className="w-full flex shrink-0" key={i}>
-              <div className="relative w-full aspect-video overflow-hidden">
+              <div className="relative w-full aspect-16/6 overflow-hidden">
                 <Image
                   src={generateSrcImage(image.imagen)}
                   alt={`Slide ${i + 1}`}
@@ -26,7 +26,6 @@ export const CarouselImagenesFullPage = ({ imagenes }: Props) => {
                 />
               </div>
             </div>
-
           ))}
       </CarouselContent>
       <CarouselDots

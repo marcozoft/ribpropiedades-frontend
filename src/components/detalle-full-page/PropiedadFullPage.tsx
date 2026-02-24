@@ -1,37 +1,40 @@
-import { PropiedadDetalleResponse } from '@/src/interfaces'
-import { SeccionEmprendimiento, SeccionImagenes, SeccionPropiedad } from './detalle-full-page-components'
-import { FormularioContacto } from '@/src/components'
-
+import { PropiedadDetalleResponse } from "@/src/interfaces";
+import {
+  SeccionEmprendimiento,
+  SeccionPropiedad,
+} from "./detalle-full-page-components";
+import { CarouselImagenesFullPage, FormularioContacto } from "@/src/components";
 
 type PropiedadDetalleProps = {
-  propiedadResponse: PropiedadDetalleResponse
-}
+  propiedadResponse: PropiedadDetalleResponse;
+};
 
-export const PropiedadFullPage = ({ propiedadResponse }: PropiedadDetalleProps) => {
-
+export const PropiedadFullPage = ({
+  propiedadResponse,
+}: PropiedadDetalleProps) => {
   return (
-    <div className='bg-white pb-20'>
-      {/* Carouse imagenes + titulo + precio */}
-      <SeccionImagenes
-        imagenes={propiedadResponse.imagenes}
-        titulo={propiedadResponse.propiedad.titulo_venta}
-        operacion={propiedadResponse.propiedad.operacion}
-      />
+    <div className="bg-white pb-20">
+      {/* Carouse imagenes  */}
+      <div className="w-full">
+        <CarouselImagenesFullPage imagenes={propiedadResponse.imagenes} />
+      </div>
 
       {/* Secciones propiedad + emprendimiento */}
-      <div className='max-w-6xl mx-auto flex px-4 py-8 pb-20'>
-        <section className='xl:basis-2/3 px-4'>
+      <div className="mx-auto flex max-w-6xl px-4 py-8 pb-20">
+        <div className="px-4 xl:basis-2/3">
           <SeccionPropiedad propiedadResponse={propiedadResponse} />
-          {
-            propiedadResponse.emprendimiento && (<SeccionEmprendimiento emprendimiento={propiedadResponse.emprendimiento} />)
-          }
-        </section>
+          {propiedadResponse.emprendimiento && (
+            <SeccionEmprendimiento
+              emprendimiento={propiedadResponse.emprendimiento}
+            />
+          )}
+        </div>
 
         {/* formulario de contacto */}
-        <section className='hidden xl:flex xl:basis-1/3 bg-background p-5'>
+        <div className="bg-background hidden p-5 xl:flex xl:basis-1/3">
           <FormularioContacto />
-        </section>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
