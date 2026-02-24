@@ -3,7 +3,7 @@ import {
   SeccionEmprendimiento,
   SeccionPropiedad,
 } from "./detalle-full-page-components";
-import { CarouselImagenesFullPage, FormularioContacto } from "@/src/components";
+import { CarouselImagenes, FormularioContacto } from "@/src/components";
 
 type PropiedadDetalleProps = {
   propiedadResponse: PropiedadDetalleResponse;
@@ -16,7 +16,7 @@ export const PropiedadFullPage = ({
     <div className="bg-white pb-20">
       {/* Carousel imagenes  */}
       <div className="w-full">
-        <CarouselImagenesFullPage imagenes={propiedadResponse.imagenes} />
+        <CarouselImagenes imagenes={propiedadResponse.imagenes} />
       </div>
 
       {/* Secciones propiedad + emprendimiento */}

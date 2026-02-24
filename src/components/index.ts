@@ -30,7 +30,7 @@ export { FormularioTasacion } from "./formularios/FormularioTasacion";
 
 // Carousel
 export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamientos';
-export { CarouselImagenesFullPage } from './carousel-imagenes-full-page/CarouselImagenesFullPage';
+export { CarouselImagenes } from './carousel-imagenes/CarouselImagenes';
 export { CarouselCards } from "./carousel-cards-propiedades/CarouselCards";
 export { CarouselComentarios } from "./carousel-comentarios/CarouselComentarios";
 

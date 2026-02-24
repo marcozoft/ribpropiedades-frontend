@@ -2,7 +2,7 @@ import { EmprendimientoIdResponse } from '@/src/interfaces'
 import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
-import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenesFullPage } from '@/src/components';
+import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes } from '@/src/components';
 
 
 type Props = {
@@ -18,7 +18,7 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
 
       {/* Carousel imagenes  */}
       <div className="w-full">
-        <CarouselImagenesFullPage imagenes={emprendimientoResponse.imagenes} />
+        <CarouselImagenes imagenes={emprendimientoResponse.imagenes} />
       </div>
 
       {/* Descripcion emprendimiento */}
