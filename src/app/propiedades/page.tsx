@@ -2,7 +2,7 @@ import { ControlMapaGrilla, FiltersBar, MapaPropiedadesFull, PropiedadCard, SinR
 import { PropiedadBasico, SearchParams } from "@/src/interfaces";
 import { getAllPropiedades, getFilterItems, getPropiedadesIA } from '@/src/requests';
 import { TituloDescriptivo } from '@/src/components/filters-propiedades/TituloDescriptivo';
-import { ambientesItemFilters, ordenes, booleanFilters } from '@/src/constants/form-constants';
+import { ordenes, booleanFilters } from '@/src/constants/form-constants';
 
 export default async function Propiedades({
    searchParams
@@ -31,7 +31,6 @@ export default async function Propiedades({
             <TituloDescriptivo
                filterValues={filterValues}
                length={propiedades.length}
-               ambientesItemFilters={ambientesItemFilters}
                ordenes={ordenes}
                booleansFilters={booleanFilters}
                dormitoriosItemFilters={filtros.dormitorios}
@@ -54,6 +53,8 @@ export default async function Propiedades({
          }
       </>
 
+      console.log(propiedades);
+      
 
    return (
      <div className="bg-white">

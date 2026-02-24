@@ -19,7 +19,6 @@ export const getAllPropiedades = async (searchParams:SearchParams): Promise<Prop
       'emprendimiento' : searchParams.emprendimiento || '',
       'tipo_inmueble': searchParams.tipo_inmueble || '',
       'orden': searchParams.orden || '',
-      'ambientes': searchParams.ambientes || '',
       'dormitorios': searchParams.dormitorios || '',
       'caracteristicas': caracteristicas,
    });   

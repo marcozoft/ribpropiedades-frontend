@@ -21,7 +21,6 @@ import { ItemFilter, SearchParams } from "@/src/interfaces";
 import { useForm } from "react-hook-form";
 import { Loader2, Search, Trash2 } from "lucide-react";
 import {
-  ambientesItemFilters,
   con_dormitorio_suiteItem,
   con_dos_cocherasItem,
   con_unaPlantaItem,
@@ -69,7 +68,6 @@ export const ClasicSearch = ({
       operacion: filterValues.operacion ?? "",
       tipo_inmueble: filterValues.tipo_inmueble ?? "",
       orden: filterValues.orden ?? "",
-      ambientes: filterValues.ambientes ?? "",
       dormitorios: filterValues.dormitorios ?? "",
       con_piscina: filterValues.con_piscina ?? "",
       con_una_planta: filterValues.con_una_planta ?? "",
@@ -249,13 +247,12 @@ export const ClasicSearch = ({
             <div
               className={`flex ${!isExpanded ? "w-auto shrink-0" : "w-full md:w-auto"} justify-center gap-2`}
             >
-              {/* filtros */}
+              {/* filtros avanzados */}
               <FiltersPopover
                 disabled={isPending}
                 control={form.control}
                 onSubmit={onSubmit}
                 dormitorios={dormitorios}
-                ambientes={ambientesItemFilters}
                 con_piscinaItem={con_piscinaItem}
                 con_unaPlantaItem={con_unaPlantaItem}
                 con_dos_cocherasItem={con_dos_cocherasItem}
