@@ -14,12 +14,12 @@ const MES = 30 * DIA;
 /**
  * getAllPropiedades
  */
-export const REVALIDATE_PROPIEDADES = DIA;
+export const REVALIDATE_PROPIEDADES = 2 * HORA;
 
 /**
  * getPropiedadById
  */
-export const REVALIDATE_PROPIEDAD_ID = DIA;
+export const REVALIDATE_PROPIEDAD_ID = 2 * HORA;
 
 /**
  * getPropiedadesIA
