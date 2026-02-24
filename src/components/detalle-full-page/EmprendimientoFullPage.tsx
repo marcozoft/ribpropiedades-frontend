@@ -1,9 +1,8 @@
 import { EmprendimientoIdResponse } from '@/src/interfaces'
-import { SeccionImagenes } from './detalle-full-page-components'
 import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
-import { CarouselCards, MapaPropiedad, FormularioContacto } from '@/src/components';
+import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenesFullPage } from '@/src/components';
 
 
 type Props = {
@@ -12,15 +11,15 @@ type Props = {
 
 export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
 
-  const { emprendimiento, imagenes, propiedades } = emprendimientoResponse;
+  const { emprendimiento, propiedades } = emprendimientoResponse;
   
   return (
     <div className='bg-white'>
-      {/* Carouse imagenes + titulo + precio */}
-      <SeccionImagenes 
-        imagenes={imagenes} 
-        titulo={emprendimiento.nombre}
-      />
+
+      {/* Carousel imagenes  */}
+      <div className="w-full">
+        <CarouselImagenesFullPage imagenes={emprendimientoResponse.imagenes} />
+      </div>
 
       {/* Descripcion emprendimiento */}
       <div className='max-w-6xl mx-auto flex px-4 py-8 pb-20'>

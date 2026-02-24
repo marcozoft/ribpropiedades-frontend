@@ -14,7 +14,7 @@ export const PropiedadFullPage = ({
 }: PropiedadDetalleProps) => {
   return (
     <div className="bg-white pb-20">
-      {/* Carouse imagenes  */}
+      {/* Carousel imagenes  */}
       <div className="w-full">
         <CarouselImagenesFullPage imagenes={propiedadResponse.imagenes} />
       </div>
