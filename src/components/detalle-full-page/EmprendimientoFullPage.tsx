@@ -3,6 +3,7 @@ import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
 import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes } from '@/src/components';
+import { SeccionVideos } from './detalle-full-page-components';
 
 
 type Props = {
@@ -36,6 +37,11 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
             <p className={`${secondaryFont.className} text-black text-lg`}>{emprendimiento.descripcion_larga}</p>
           </div>
           
+          {/* Video/Videos (opcional) */}
+          {
+            <SeccionVideos videos={[emprendimiento.video, emprendimiento.video2]} />
+          }
+
           {/* Mapa */}
           <h2 className="font-bold text-black text-xl mt-8 mb-4"><span className="text-foreground">|&nbsp;</span>Ubicación</h2>
           <MapaPropiedad latitud={+emprendimiento.mapa_latitud} longitud={+emprendimiento.mapa_longitud} className="h-80" />

@@ -1,6 +1,6 @@
 import { secondaryFont } from "@/src/config/fonts";
 import { PropiedadDetalleResponse } from "@/src/interfaces";
-import { DetallesGrid, YouTubeVideoCard } from ".";
+import { DetallesGrid, SeccionVideos } from ".";
 import {
   IndicadorNumerico,
   IndicadorPrecio,
@@ -109,18 +109,9 @@ export const SeccionPropiedad = ({
         {descripcion_larga}
       </p>
 
-      {/* Videos (opcional) */}
+      {/* Video/Videos (opcional) */}
       {
-        video && (
-          <>
-            <h2 className="my-8 text-xl font-bold text-black">
-              <span className="text-foreground">|&nbsp;</span>Videos
-            </h2>
-            <YouTubeVideoCard youTubeId={video} />
-              {video2 && <YouTubeVideoCard youTubeId={video2} className="my-4"/>}
-              {video3 && <YouTubeVideoCard youTubeId={video3} className="my-4"/>}
-          </>
-        )
+        <SeccionVideos videos={[video, video2, video3]} />
       }
 
       {/* Map */}

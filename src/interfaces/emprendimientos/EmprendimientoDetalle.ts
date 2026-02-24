@@ -18,6 +18,7 @@ export interface EmprendimientoDetalle {
    imagen:                       string;
    logo:                         string;
    video:                        string;
+   video2:                       string;
    masterplan:                   string;
    pais:                         string;
    localidad:                    string;
