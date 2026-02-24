@@ -188,6 +188,8 @@ export interface PropiedadDetalle {
     unidades_pisos:        string;
     vestuarios:            string;
     video:                 string;
+    video2:                string;
+    video3:                string;
     vigencia:              string;
     visible_web:           string;
     vision360:             string;

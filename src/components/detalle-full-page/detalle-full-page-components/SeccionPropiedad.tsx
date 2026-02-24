@@ -22,6 +22,8 @@ export const SeccionPropiedad = ({
     precio,
     precio_publico,
     video,
+    video2,
+    video3,
     mapa_latitud,
     mapa_longitud,
     sup_total,
@@ -30,8 +32,6 @@ export const SeccionPropiedad = ({
     tipo_inmueble,
   } = propiedadResponse.propiedad;
 
-  console.log(tipo_inmueble);
-  console.log(detallesPorTipoDeInmueble.get(tipo_inmueble));
 
   return (
     <section id="descripcion" className="scroll-mt-28">
@@ -109,15 +109,20 @@ export const SeccionPropiedad = ({
         {descripcion_larga}
       </p>
 
-      {/* Video (opcional) */}
-      {video && (
-        <>
-          <h2 className="my-8 text-xl font-bold text-black">
-            <span className="text-foreground">|&nbsp;</span>Video
-          </h2>
-          <YouTubeVideoCard youTubeId={video} />
-        </>
-      )}
+      {/* Videos (opcional) */}
+      {
+        video && (
+          <>
+            <h2 className="my-8 text-xl font-bold text-black">
+              <span className="text-foreground">|&nbsp;</span>Videos
+            </h2>
+            <YouTubeVideoCard youTubeId={video} />
+              {video2 && <YouTubeVideoCard youTubeId={video2} className="my-4"/>}
+              {video3 && <YouTubeVideoCard youTubeId={video3} className="my-4"/>}
+          </>
+        )
+      }
+
       {/* Map */}
       <h2 className="my-8 text-xl font-bold text-black">
         <span className="text-foreground">|&nbsp;</span>Ubicación
