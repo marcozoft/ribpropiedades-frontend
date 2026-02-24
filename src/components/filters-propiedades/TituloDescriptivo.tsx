@@ -26,7 +26,6 @@ const icons: LabelIcon[] = [
 
 
 type Props = {
-   ambientesItemFilters: ItemFilter[];
    booleansFilters: ItemFilter[]; // Checkbox
    dormitoriosItemFilters: ItemFilter[];
    emprendimientos: ItemFilter[];
@@ -38,7 +37,6 @@ type Props = {
    zonas: ItemFilter[];
 }
 export const TituloDescriptivo = ({
-   ambientesItemFilters,
    booleansFilters,
    dormitoriosItemFilters,
    emprendimientos,
@@ -50,7 +48,7 @@ export const TituloDescriptivo = ({
    zonas,
 }: Props) => {
 
-   const { zona, emprendimiento, operacion, ambientes, dormitorios, tipo_inmueble, orden, vista, queryAI, ...rest } = filterValues;
+   const { zona, emprendimiento, operacion, dormitorios, tipo_inmueble, orden, vista, queryAI, ...rest } = filterValues;
 
    return (
       <div className="max-w-6xl mx-auto px-4 flex flex-col justify-between pb-2 pt-4 min-h-20 sm:min-h-40">
@@ -109,20 +107,6 @@ export const TituloDescriptivo = ({
                   </Item>
                )
             }
-            {
-               ambientes && (
-                  <Item variant="muted" className="shrink-0">
-                     <ItemMedia>
-                        <LampCeiling />
-
-                     </ItemMedia>
-                     <ItemContent>
-                        <ItemTitle>{ambientesItemFilters.find(item => item.valor === ambientes)?.label}</ItemTitle>
-                     </ItemContent>
-                  </Item>
-               )
-            }
-
             {
                dormitorios && (
                   <Item variant="muted" className="shrink-0">

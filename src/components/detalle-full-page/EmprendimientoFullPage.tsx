@@ -1,9 +1,9 @@
 import { EmprendimientoIdResponse } from '@/src/interfaces'
-import { SeccionImagenes } from './detalle-full-page-components'
 import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
-import { CarouselCards, MapaPropiedad, FormularioContacto } from '@/src/components';
+import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes } from '@/src/components';
+import { SeccionVideos } from './detalle-full-page-components';
 
 
 type Props = {
@@ -12,15 +12,15 @@ type Props = {
 
 export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
 
-  const { emprendimiento, imagenes, propiedades } = emprendimientoResponse;
+  const { emprendimiento, propiedades } = emprendimientoResponse;
   
   return (
     <div className='bg-white'>
-      {/* Carouse imagenes + titulo + precio */}
-      <SeccionImagenes 
-        imagenes={imagenes} 
-        titulo={emprendimiento.nombre}
-      />
+
+      {/* Carousel imagenes  */}
+      <div className="w-full">
+        <CarouselImagenes imagenes={emprendimientoResponse.imagenes} />
+      </div>
 
       {/* Descripcion emprendimiento */}
       <div className='max-w-6xl mx-auto flex px-4 py-8 pb-20'>
@@ -37,6 +37,11 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
             <p className={`${secondaryFont.className} text-black text-lg`}>{emprendimiento.descripcion_larga}</p>
           </div>
           
+          {/* Video/Videos (opcional) */}
+          {
+            <SeccionVideos videos={[emprendimiento.video, emprendimiento.video2]} />
+          }
+
           {/* Mapa */}
           <h2 className="font-bold text-black text-xl mt-8 mb-4"><span className="text-foreground">|&nbsp;</span>Ubicación</h2>
           <MapaPropiedad latitud={+emprendimiento.mapa_latitud} longitud={+emprendimiento.mapa_longitud} className="h-80" />

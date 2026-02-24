@@ -1,6 +1,6 @@
 import { secondaryFont } from "@/src/config/fonts";
 import { PropiedadDetalleResponse } from "@/src/interfaces";
-import { DetallesGrid, YouTubeVideoCard } from ".";
+import { DetallesGrid, SeccionVideos } from ".";
 import {
   IndicadorNumerico,
   IndicadorPrecio,
@@ -22,6 +22,8 @@ export const SeccionPropiedad = ({
     precio,
     precio_publico,
     video,
+    video2,
+    video3,
     mapa_latitud,
     mapa_longitud,
     sup_total,
@@ -30,11 +32,9 @@ export const SeccionPropiedad = ({
     tipo_inmueble,
   } = propiedadResponse.propiedad;
 
-  console.log(tipo_inmueble);
-  console.log(detallesPorTipoDeInmueble.get(tipo_inmueble));
 
   return (
-    <section id="descripcion" className="scroll-mt-28">
+    <section id="descripcion" className="">
       {/* Titulo, operacion, nombre del emprendimiento (si pertenece a un emprendimiento) y precio */}
       <div className="mb-8 flex justify-between">
         <div className="justify-between">
@@ -109,15 +109,11 @@ export const SeccionPropiedad = ({
         {descripcion_larga}
       </p>
 
-      {/* Video (opcional) */}
-      {video && (
-        <>
-          <h2 className="my-8 text-xl font-bold text-black">
-            <span className="text-foreground">|&nbsp;</span>Video
-          </h2>
-          <YouTubeVideoCard youTubeId={video} />
-        </>
-      )}
+      {/* Video/Videos (opcional) */}
+      {
+        <SeccionVideos videos={[video, video2, video3]} />
+      }
+
       {/* Map */}
       <h2 className="my-8 text-xl font-bold text-black">
         <span className="text-foreground">|&nbsp;</span>Ubicación
