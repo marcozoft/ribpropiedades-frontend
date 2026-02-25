@@ -78,3 +78,5 @@ export const searchAIExamples = [
    "casa con pileta y jardín",
    "oficina en microcentro"
 ];
+
+export const PROMPT_CONTACTO_WHATSAPP = 'Hola RIB, quiero consultar por esta propiedad'

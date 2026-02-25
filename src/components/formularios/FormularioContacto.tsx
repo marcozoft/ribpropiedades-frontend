@@ -3,6 +3,9 @@
 import { RECAPTCHA_CLIENT_API_KEY } from '@/src/constants/constants';
 import { useEffect, useState } from 'react';
 import { MensajeEnviado } from './MensajeEnviado';
+import { Button } from '@/src/components';
+import { Mail } from 'lucide-react';
+import Image from 'next/image';
 
 interface FormData {
    nombre: string;
@@ -64,6 +67,13 @@ export const FormularioContacto = () => {
          setIsLoading(false);
       }
    };
+
+   const onClickButtonWhattsap = (e: React.FormEvent) => {
+      handleSubmit(e);
+
+      console.log('ahora ws');
+      
+   }
 
    const handleChange = (
       e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -191,14 +201,27 @@ export const FormularioContacto = () => {
 
                   <p className="text-sm text-gray-500 mb-4">*Requeridos</p>
 
-                  {/* Botón */}
-                  <button
-                     type="submit"
-                     disabled={isLoading}
-                     className="w-full bg-foreground text-white px-8 py-3 rounded-lg cursor-pointer font-semibold uppercase hover:bg-foreground/90 transition-all duration-300 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                     {isLoading ? 'Enviando...' : 'Enviar'}
-                  </button>
+                  <div className='flex flex-col gap-2'>
+                     {/* Botón */}
+                     <Button
+                        type="submit"
+                        disabled={isLoading}
+                        className="w-full gap-2 bg-foreground hover:bg-foreground/80 text-white"
+                     >
+                        <Mail size={18} />
+                        {isLoading ? 'Enviando...' : 'Contactar por email'}
+                     </Button>
+
+                     {/* Botón Whattsapp */}
+                     <Button
+                        disabled={isLoading}
+                        onClick={ onClickButtonWhattsap }
+                        className="w-full gap-2 bg-foreground hover:bg-foreground/80 text-white"
+                     >
+                        <Image src="/images/navbar-whatsapp.svg" height={18} width={18} alt=''/>
+                        Contactar por WhatsApp
+                     </Button>
+                  </div>
                </form>
                )}
       </div>
