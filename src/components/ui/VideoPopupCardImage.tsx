@@ -43,8 +43,6 @@ export const VideoPopupCardImage = ({ youtubeId, imageSrc }: Props) => {
         {!isPlaying && (
           <button
             onClick={() => {
-              console.log("play in situ");
-
               setIsPlaying(true);
             }}
             className="group absolute inset-0 flex cursor-pointer items-center justify-center"
