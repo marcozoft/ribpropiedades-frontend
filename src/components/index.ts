@@ -60,6 +60,7 @@ export { LinkButton } from "./ui/buttons/LinkButton";
 export { ServicioCard } from "./ui/cards/ServicioCard";
 export { SocialNetworks } from "./ui/SocialNetworks";
 export { SocialNetworkItem } from "./ui/SocialNetworkItem";
+export { ShareDialog } from "./ui/ShareDialog";
 
 // Shadcn custom components
 export {
@@ -73,6 +74,12 @@ export {
    Checkbox,
    Command, 
    CommandDialog,
+   Dialog,
+   DialogContent,
+   DialogDescription,
+   DialogHeader,
+   DialogTitle,
+   DialogTrigger,
    Field, 
    FieldGroup, 
    FieldLabel,

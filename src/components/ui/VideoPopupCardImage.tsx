@@ -6,7 +6,7 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-} from "@/src/components/shadcn-components/ui/dialog";
+} from "@/src/components";
 
 type Props = {
   youtubeId: string;

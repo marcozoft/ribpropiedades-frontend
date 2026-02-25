@@ -2,11 +2,12 @@ import { secondaryFont } from "@/src/config/fonts";
 import { PropiedadDetalleResponse } from "@/src/interfaces";
 import { DetallesGrid, IndicadoresNumericos, SeccionVideos } from ".";
 import {
-  IndicadorNumerico,
   IndicadorPrecio,
   MapaPropiedad,
+  ShareDialog,
 } from "@/src/components";
 import { detallesPorTipoDeInmueble } from "@/src/constants/fichas-propiedad-constants";
+import { WHATSAPP_PROMPT_PROPIEDAD } from "@/src/constants/share-social-constants";
 
 type SeccionPropiedadProps = {
   propiedadResponse: PropiedadDetalleResponse;
@@ -61,6 +62,7 @@ export const SeccionPropiedad = ({
         <h1 className="mt-4 text-xl font-semibold text-black lg:text-3xl xl:text-4xl">
           {titulo_venta}
         </h1>
+        <ShareDialog promptWhatsApp={WHATSAPP_PROMPT_PROPIEDAD}/>
       </div>
 
       <div>
