@@ -2,8 +2,9 @@ import { EmprendimientoIdResponse } from '@/src/interfaces'
 import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
-import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes } from '@/src/components';
+import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes, ShareDialog } from '@/src/components';
 import { SeccionVideos } from './detalle-full-page-components';
+import { WHATSAPP_PROMPT_EMPRENDIMIENTO } from '@/src/constants/share-social-constants';
 
 
 type Props = {
@@ -15,62 +16,78 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
   const { emprendimiento, propiedades } = emprendimientoResponse;
   
   return (
-    <div className='bg-white'>
-
+    <div className="bg-white">
       {/* Carousel imagenes  */}
       <div className="w-full">
         <CarouselImagenes imagenes={emprendimientoResponse.imagenes} />
       </div>
 
       {/* Descripcion emprendimiento */}
-      <div className='max-w-6xl mx-auto flex px-4 py-8 pb-20'>
-        <section className='xl:basis-2/3 px-4 scroll-mt-33' id="descripcion">
-          <div className="flex flex-col sm:flex-row gap-2 justify-between mb-10 items-center">
-            <h1 className="font-semibold text-4xl mt-4 text-black">{emprendimiento.nombre}</h1>
+      <div className="mx-auto flex max-w-6xl px-4 py-8 pb-10">
+        <section className="scroll-mt-33 px-4 xl:basis-2/3" id="descripcion">
+          <div className="mb-10 flex flex-col items-center justify-between gap-2 sm:flex-row">
+            <h1 className="mt-4 text-4xl font-semibold text-black">
+              {emprendimiento.nombre}
+            </h1>
             {/* Logo del emprendimiento - opcional */}
-            {
-              emprendimiento.logo && <Image height={300} width={300} src={ generateSrcImage(emprendimiento.logo)} alt={`logo ${emprendimiento.nombre}`} />
-            }
+            {emprendimiento.logo && (
+              <Image
+                height={300}
+                width={300}
+                src={generateSrcImage(emprendimiento.logo)}
+                alt={`logo ${emprendimiento.nombre}`}
+              />
+            )}
           </div>
-          <div className="mt-10">
-            <h2 className="font-bold text-black text-xl mt-8 mb-4"><span className="text-foreground">|&nbsp;</span>Descripción</h2>
-            <p className={`${secondaryFont.className} text-black text-lg`}>{emprendimiento.descripcion_larga}</p>
+          <div className="mt-6">
+            <div className="flex justify-between items-center">
+              <h2 className="flex mt-8 mb-4 text-xl font-bold text-black">
+                <span className="text-foreground">|&nbsp;</span>Descripción
+              </h2>
+              <ShareDialog promptWhatsApp={WHATSAPP_PROMPT_EMPRENDIMIENTO}/>
+            </div>
+            <p className={`${secondaryFont.className} text-lg text-black`}>
+              {emprendimiento.descripcion_larga}
+            </p>
           </div>
-          
+
           {/* Video/Videos (opcional) */}
           {
-            <SeccionVideos videos={[emprendimiento.video, emprendimiento.video2]} />
+            <SeccionVideos
+              videos={[emprendimiento.video, emprendimiento.video2]}
+            />
           }
 
           {/* Mapa */}
-          <h2 className="font-bold text-black text-xl mt-8 mb-4"><span className="text-foreground">|&nbsp;</span>Ubicación</h2>
-          <MapaPropiedad latitud={+emprendimiento.mapa_latitud} longitud={+emprendimiento.mapa_longitud} className="h-80" />
-
+          <h2 className="mt-8 mb-4 text-xl font-bold text-black">
+            <span className="text-foreground">|&nbsp;</span>Ubicación
+          </h2>
+          <MapaPropiedad
+            latitud={+emprendimiento.mapa_latitud}
+            longitud={+emprendimiento.mapa_longitud}
+            className="h-80"
+          />
         </section>
 
         {/* formulario de contacto */}
-        <section className='hidden xl:flex xl:basis-1/3 bg-background p-5'>
+        <section className="bg-background hidden p-5 xl:flex xl:basis-1/3">
           <FormularioContacto />
         </section>
       </div>
 
-      
-
       {/* Porpiedades ubicadas en el emprendimiento. Pueden ser 0 */}
-      <div className='w-full mx-auto flex flex-col pb-30'>
-        {
-          propiedades.length > 0 && (
-            <>
-              <div className="flex justify-center mb-10 items-center">
-                <h1 className="font-semibold text-4xl mt-4 text-black">Propiedades en {emprendimiento.nombre}</h1>
-              </div>
-              <CarouselCards propiedades={propiedades} />
-            </>
-          )
-        }
-
+      <div className="mx-auto flex w-full flex-col pb-30">
+        {propiedades.length > 0 && (
+          <>
+            <div className="mb-10 flex items-center justify-center">
+              <h1 className="mt-4 text-4xl font-semibold text-black">
+                Propiedades en {emprendimiento.nombre}
+              </h1>
+            </div>
+            <CarouselCards propiedades={propiedades} />
+          </>
+        )}
       </div>
-
     </div>
-  )
+  );
 }

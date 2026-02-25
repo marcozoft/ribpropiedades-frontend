@@ -2,6 +2,7 @@ export { Button } from "./ui/button";
 export { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselDots } from "./ui/carousel";
 export { Checkbox } from "./ui/checkbox";
 export { Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from "./ui/command";
+export { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 export { Form, FormControl, FormDescription, FormMessage, FormField, FormItem, FormLabel } from "./ui/form";
 export { Input } from "./ui/input";
 export { Item, ItemContent, ItemMedia, ItemTitle, ItemDescription, ItemActions} from "./ui/item";

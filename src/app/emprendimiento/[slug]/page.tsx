@@ -1,7 +1,7 @@
 import { EmprendimientoFullPage } from "@/src/components";
 import { EmprendimientoIdResponse } from "@/src/interfaces";
 import { getEmprendimientoById } from "@/src/requests";
-import { extractIdFromSlug } from "@/src/utils";
+import { extractIdFromSlug, generateSrcImage } from "@/src/utils";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -34,7 +34,7 @@ export async function generateMetadata(
       title: title,
       description: description,
       images: [
-        emprendimientoResponse.emprendimiento.imagen
+        generateSrcImage(emprendimientoResponse.emprendimiento.imagen)
       ]
     }
   }
