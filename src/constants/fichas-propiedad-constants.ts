@@ -65,6 +65,11 @@ const zonificacion: Detalle = {
   clave: "zonificacion",
 };
 
+const orientacion: Detalle = {
+  descripcion: "Orientación",
+  clave: "orientacion",
+};
+
 const banos: Detalle = {
   descripcion: "Cantidad de baños",
   clave: "banos",
@@ -97,6 +102,10 @@ detallesPorTipoDeInmueble.set("departamento", [
 
 // Fraccion
 detallesPorTipoDeInmueble.set("fraccion", [zonificacion]);
+
+// Lote
+detallesPorTipoDeInmueble.set("lote", [zonificacion, orientacion]);
+
 
 // Oficina
 detallesPorTipoDeInmueble.set("oficina", [
