@@ -20,7 +20,6 @@ export default function HomePage() {
     <SeccionServicios />
     <SeccionComentarios />
     <SeccionContactanos />
-    
    </>
   )
 }

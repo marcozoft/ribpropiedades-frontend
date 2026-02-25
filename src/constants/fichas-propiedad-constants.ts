@@ -25,6 +25,11 @@ const dorm_suit: Detalle = {
   clave: "dormitorio_suite",
 };
 
+const altura_techo: Detalle = {
+  descripcion: "Altura del techo",
+  clave: "altura_techo"
+}
+
 const estado: Detalle = {
   descripcion: "Estado",
   clave: "estado",
@@ -65,6 +70,11 @@ const banos: Detalle = {
   clave: "banos",
 };
 
+const banos_servicio: Detalle = {
+  descripcion: "Baños de servicio",
+  clave: "banos_servicio",
+};
+
 const piscina: Detalle = {
   descripcion: "Piscina",
   clave: "piscina",
@@ -78,6 +88,7 @@ detallesPorTipoDeInmueble.set("departamento", [
   dormitorios,
   dorm_suit,
   estado,
+  altura_techo,
   aberturaas,
   antiguedad,
   calefaccion,
@@ -106,18 +117,20 @@ detallesPorTipoDeInmueble.set("oficina", [
 
 // Casa
 detallesPorTipoDeInmueble.set("casa", [
-  estilo,
-  plantas,
-  dormitorios,
-  dorm_suit,
-  banos,
-  estado,
-  antiguedad,
-  lote,
-  tipoZona,
-  calefaccion,
   aberturaas,
-  zonificacion,
+  altura_techo,
+  antiguedad,
+  banos,
+  banos_servicio,
+  calefaccion,
+  dorm_suit,
+  dormitorios,
+  estado,
+  estilo,
+  lote,
   piscina,
+  plantas,
+  tipoZona,
+  zonificacion,
 ]);
 

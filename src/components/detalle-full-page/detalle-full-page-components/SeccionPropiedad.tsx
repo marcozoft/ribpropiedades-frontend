@@ -1,6 +1,6 @@
 import { secondaryFont } from "@/src/config/fonts";
 import { PropiedadDetalleResponse } from "@/src/interfaces";
-import { DetallesGrid, SeccionVideos } from ".";
+import { DetallesGrid, IndicadoresNumericos, SeccionVideos } from ".";
 import {
   IndicadorNumerico,
   IndicadorPrecio,
@@ -16,22 +16,28 @@ export const SeccionPropiedad = ({
   propiedadResponse,
 }: SeccionPropiedadProps) => {
   const {
-    titulo_venta,
-    operacion,
+    codigo,
     descripcion_larga,
-    precio,
+    mapa_latitud,
+    mapa_longitud,
+    operacion,
     precio_publico,
+    precio,
+    sup_balcon,
+    sup_cubierta,
+    sup_frente,
+    sup_contrafrente,
+    sup_lateral_derecho,
+    sup_lateral_izquierdo,
+    sup_terreno,
+    sup_total,
+    sup_construible,
+    tipo_inmueble,
+    titulo_venta,
     video,
     video2,
     video3,
-    mapa_latitud,
-    mapa_longitud,
-    sup_total,
-    sup_terreno,
-    codigo,
-    tipo_inmueble,
   } = propiedadResponse.propiedad;
-
 
   return (
     <section id="descripcion" className="">
@@ -66,33 +72,67 @@ export const SeccionPropiedad = ({
         />
       </div>
 
-      {/* Detalles enumerados */}
+      {/* Detalles */}
       <h2 className="mt-8 mb-4 text-xl font-bold text-black">
         <span className="text-foreground">|&nbsp;</span>Detalles
       </h2>
 
-      <div className="justify-center">
-        <div className="my-5 flex gap-2 divide-x overflow-hidden rounded-lg">
-          {/* superficie total m2 */}
-          <IndicadorNumerico
-            nombre="Sup. Total"
-            valor={sup_total}
-            icono={
-              <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
-            }
-            unidad="m²"
-          />
-          {/* superficie terreno m2 */}
-          <IndicadorNumerico
-            nombre="Sup. Terreno"
-            valor={sup_terreno}
-            icono={
-              <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
-            }
-            unidad="m²"
-          />
-        </div>
-      </div>
+      <IndicadoresNumericos indicadores={[
+        {
+          nombre: "Sup. Total",
+          valor: sup_total,
+          icono: ( <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i> ),
+          unidad: "m²"
+        },
+        {
+          nombre: "Sup. Cubierta",
+          valor: sup_cubierta,
+          icono: ( <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i> ),
+          unidad: "m²"
+        },
+        {
+          nombre: "Sup. Balcón",
+          valor: sup_balcon,
+          icono: ( <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i> ),
+          unidad: "m²"
+        },
+        {
+          nombre: "Sup. Terreno",
+          valor: sup_terreno,
+          icono: ( <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i> ),
+          unidad: "m²"
+        },
+        {
+          nombre: "Frente",
+          valor: sup_frente,
+          icono: ( <i className="flaticon-expand text-black"></i>),
+          unidad: "m"
+        },
+        {
+          nombre: "Contrafrente",
+          valor: sup_contrafrente,
+          icono: ( <i className="flaticon-expand text-black"></i>),
+          unidad: "m"
+        },
+        {
+          nombre: "Lateral derecho",
+          valor: sup_lateral_derecho,
+          icono: ( <i className="flaticon-expand text-black"></i>),
+          unidad: "m"
+        },
+        {
+          nombre: "Lateral izquierdo",
+          valor: sup_lateral_izquierdo,
+          icono: ( <i className="flaticon-expand text-black"></i>),
+          unidad: "m"
+        },
+        {
+          nombre: "Superficie construible",
+          valor: sup_construible,
+          icono: ( <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i> ),
+          unidad: "m²"
+        },
+      ]}/>
 
       <DetallesGrid
         propiedad={propiedadResponse.propiedad}
