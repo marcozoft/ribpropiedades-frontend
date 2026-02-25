@@ -17,3 +17,12 @@ export const renderReactComponent = (children: ReactNode) => {
    return popupNode;
 
 }
+
+export const getOrCreateSessionId = () => {
+   let sessionId = localStorage.getItem('tracking_session_id');
+   if (!sessionId) {
+      sessionId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      localStorage.setItem('tracking_session_id', sessionId);
+   }
+   return sessionId;
+}

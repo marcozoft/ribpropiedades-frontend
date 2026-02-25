@@ -12,7 +12,7 @@ export { nearbySearchToGeoJSON, propiedadesToGeoJSON, latLngToGeoJSON } from './
 export { loadImage, createLayer, addFeaturesToLayer, loadNearbySearchPlaces } from './mapbox-utils';
 
 // React client
-export { renderReactComponent } from './react-client-utils';
+export { renderReactComponent, getOrCreateSessionId } from './react-client-utils';
 
 // WebGL
 export { hasWebGL } from './hasWebGL';

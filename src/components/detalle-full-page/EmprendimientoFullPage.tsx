@@ -2,7 +2,7 @@ import { EmprendimientoIdResponse } from '@/src/interfaces'
 import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
-import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes, ShareDialog } from '@/src/components';
+import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes, ShareDialog, TrackerEmprendimiento } from '@/src/components';
 import { SeccionVideos } from './detalle-full-page-components';
 import { WHATSAPP_PROMPT_EMPRENDIMIENTO } from '@/src/constants/share-social-constants';
 
@@ -88,6 +88,7 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
           </>
         )}
       </div>
+      <TrackerEmprendimiento emprendimientoId={emprendimiento.id} />
     </div>
   );
 }

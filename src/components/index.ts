@@ -62,6 +62,12 @@ export { SocialNetworks } from "./ui/SocialNetworks";
 export { SocialNetworkItem } from "./ui/SocialNetworkItem";
 export { ShareDialog } from "./ui/ShareDialog";
 
+
+// Tracking IA
+export { TrackerPropiedad } from "./tracking/TrackerPropiedad";
+export { TrackerEmprendimiento } from "./tracking/TrackerEmprendimiento";
+
+
 // Shadcn custom components
 export {
    Button,

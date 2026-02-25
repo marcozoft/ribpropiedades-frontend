@@ -3,7 +3,7 @@ import {
   SeccionEmprendimiento,
   SeccionPropiedad,
 } from "./detalle-full-page-components";
-import { CarouselImagenes, FormularioContacto } from "@/src/components";
+import { CarouselImagenes, FormularioContacto, TrackerPropiedad } from "@/src/components";
 
 type PropiedadDetalleProps = {
   propiedadResponse: PropiedadDetalleResponse;
@@ -35,6 +35,7 @@ export const PropiedadFullPage = ({
           <FormularioContacto />
         </div>
       </div>
+      <TrackerPropiedad propiedadId={propiedadResponse.propiedad.id}/>
     </div>
   );
 };
