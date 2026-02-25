@@ -6,7 +6,7 @@ import { MensajeEnviado } from './MensajeEnviado';
 import { Button } from '@/src/components';
 import { Mail } from 'lucide-react';
 import Image from 'next/image';
-import { PROMPT_CONTACTO_WHATSAPP } from '@/src/constants/form-constants';
+import { PROMPT_WHATSAPP_FICHA } from '@/src/constants/constants';
 
 interface FormData {
    nombre: string;
@@ -73,8 +73,7 @@ export const FormularioContacto = () => {
 
       handleSubmit(e);
       const link= typeof window !== 'undefined' ? window.location.href : '';
-      const mensaje = `${PROMPT_CONTACTO_WHATSAPP} ${encodeURIComponent(link)}`;
-      const whatsappUrl = `https://wa.me/?text=${mensaje}`;
+      const whatsappUrl = `${PROMPT_WHATSAPP_FICHA}${encodeURIComponent(link)}`;
       window.open(whatsappUrl, '_blank');
    }
 
