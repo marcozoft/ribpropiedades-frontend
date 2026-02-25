@@ -20,7 +20,7 @@ export const PropiedadFullPage = ({
       </div>
 
       {/* Secciones propiedad + emprendimiento */}
-      <div className="mx-auto flex max-w-6xl px-4 py-8 pb-20">
+      <div className="mx-auto flex flex-col lg:flex-row max-w-6xl px-4 py-8 pb-20">
         <div className="px-4 xl:basis-2/3">
           <SeccionPropiedad propiedadResponse={propiedadResponse} />
           {propiedadResponse.emprendimiento && (
@@ -31,7 +31,7 @@ export const PropiedadFullPage = ({
         </div>
 
         {/* formulario de contacto */}
-        <div className="bg-background hidden p-5 xl:flex xl:basis-1/3">
+        <div className="bg-background p-5 xl:basis-1/3">
           <FormularioContacto />
         </div>
       </div>
