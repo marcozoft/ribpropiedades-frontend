@@ -12,6 +12,11 @@ export type { Detalle } from "./propiedades/Detalle";
 // Busqueda IA
 export type { PropiedadesIAResponse } from "./PropiedadesIAResponse";
 
+// Tracking IA
+export type { TrackingRequest } from "./tracking/TrackingRequest";
+export type { TrackingResponse } from "./tracking/TrackingResponse";
+
+
 // Otros reponses
 export type { ContenidoHome } from "./ContenidoHome";
 

@@ -2,7 +2,7 @@ import { EmprendimientoIdResponse } from '@/src/interfaces'
 import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
-import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes, ShareDialog } from '@/src/components';
+import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes, ShareDialog, TrackerEmprendimiento } from '@/src/components';
 import { SeccionVideos } from './detalle-full-page-components';
 import { WHATSAPP_PROMPT_EMPRENDIMIENTO } from '@/src/constants/share-social-constants';
 
@@ -23,7 +23,7 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
       </div>
 
       {/* Descripcion emprendimiento */}
-      <div className="mx-auto flex max-w-6xl px-4 py-8 pb-10">
+      <div className="mx-auto flex flex-col lg:flex-row max-w-6xl px-4 py-8 pb-10">
         <section className="scroll-mt-33 px-4 xl:basis-2/3" id="descripcion">
           <div className="mb-10 flex flex-col items-center justify-between gap-2 sm:flex-row">
             <h1 className="mt-4 text-4xl font-semibold text-black">
@@ -70,7 +70,7 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
         </section>
 
         {/* formulario de contacto */}
-        <section className="bg-background hidden p-5 xl:flex xl:basis-1/3">
+        <section className="bg-background p-5 xl:basis-1/3">
           <FormularioContacto />
         </section>
       </div>
@@ -88,6 +88,7 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
           </>
         )}
       </div>
+      <TrackerEmprendimiento emprendimientoId={emprendimiento.id} />
     </div>
   );
 }

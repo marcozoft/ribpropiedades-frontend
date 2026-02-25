@@ -54,7 +54,7 @@ export const FiltersBar = ({className, startCollapsed = false, ...rest}: Props) 
             <Tooltip>
                <TooltipTrigger asChild>
                   <Button
-                     className="border border-foreground"
+                     className="border border-foreground mt-1"
                      variant="ghost"
                      type="submit"
                      size="icon"
