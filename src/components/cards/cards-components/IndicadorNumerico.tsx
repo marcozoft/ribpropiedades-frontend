@@ -11,7 +11,7 @@ type IndicadorProps = {
 
 export const IndicadorNumerico = ({nombre, valor, unidad, icono, className}:IndicadorProps) => {
       
-   return valor === 0 ? null : (
+   return (valor === 0 || valor == undefined ) ? null : (
       <div className={`text-black ${className} px-2 py-1`}>
          <div>
             <p className="flex items-center">

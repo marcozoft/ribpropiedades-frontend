@@ -6,3 +6,4 @@ export { SeccionVideos } from "./SeccionVideos";
 export { SeccionPropiedad } from './SeccionPropiedad';
 export { SeccionEmprendimiento } from "./DescripcionEmprendimiento";
 export { ImagenCard } from "./ImagenCard";
+export { IndicadoresNumericos } from "./IndicadoresNumericos";
