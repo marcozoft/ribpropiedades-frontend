@@ -45,7 +45,7 @@ const lote: Detalle = {
   clave: "lote",
 };
 
-const tipoZona: Detalle = {
+const tipo_zona: Detalle = {
   descripcion: "Tipo de zona",
   clave: "tipo_zona",
 };
@@ -55,7 +55,7 @@ const calefaccion: Detalle = {
   clave: "calefaccion",
 };
 
-const aberturaas: Detalle = {
+const aberturas: Detalle = {
   descripcion: "Aberturas",
   clave: "aberturas",
 };
@@ -85,6 +85,11 @@ const piscina: Detalle = {
   clave: "piscina",
 };
 
+const cocina: Detalle = {
+  descripcion: "Cocina",
+  clave: "cocina",
+}
+
 export const detallesPorTipoDeInmueble = new Map<string, Detalle[]>();
 
 // Departamento
@@ -94,7 +99,7 @@ detallesPorTipoDeInmueble.set("departamento", [
   dorm_suit,
   estado,
   altura_techo,
-  aberturaas,
+  aberturas,
   antiguedad,
   calefaccion,
   banos,
@@ -110,7 +115,7 @@ detallesPorTipoDeInmueble.set("lote", [zonificacion, orientacion]);
 // Oficina
 detallesPorTipoDeInmueble.set("oficina", [
   estado,
-  aberturaas,
+  aberturas,
   antiguedad,
   calefaccion,
   banos,
@@ -119,14 +124,16 @@ detallesPorTipoDeInmueble.set("oficina", [
 // Quinta
 detallesPorTipoDeInmueble.set("oficina", [
   estado,
+  aberturas,
   antiguedad,
-  dormitorios,
+  calefaccion,
   banos,
+  cocina,
 ]);
 
 // Casa
 detallesPorTipoDeInmueble.set("casa", [
-  aberturaas,
+  aberturas,
   altura_techo,
   antiguedad,
   banos,
@@ -139,7 +146,16 @@ detallesPorTipoDeInmueble.set("casa", [
   lote,
   piscina,
   plantas,
-  tipoZona,
+  zonificacion,
+]);
+
+// Quinta
+detallesPorTipoDeInmueble.set("quinta", [
+  estado,
+  antiguedad,
+  dormitorios,
+  banos,
+  piscina,
   zonificacion,
 ]);
 

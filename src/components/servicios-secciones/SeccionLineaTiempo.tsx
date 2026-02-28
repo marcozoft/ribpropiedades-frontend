@@ -17,7 +17,7 @@ const servicios: Servicio[] = [
     id: 1,
     tituloTab: 'Imagen',
     tituloCompleto: 'Imagen de excepción',
-    descripcion: 'Nuestro equipo multimedia visita la propiedad y toma las imágenes necesarias para realizar luego una galería de fotos, videos y tour 360º, los cuales serán colocados en nuestra página Web, visitada por centenares de potenciales Clientes en forma semanal.',
+    descripcion: 'Nuestro equipo multimedia visita la propiedad y toma las imágenes necesarias para realizar luego una galería de fotos y videos, los cuales serán colocados en nuestra página Web, visitada por centenares de potenciales Clientes en forma semanal.',
     imagen: 'imagen-excepcion.jpg',
   },
   {

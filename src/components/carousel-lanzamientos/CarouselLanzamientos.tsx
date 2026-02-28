@@ -8,7 +8,7 @@ type Props = {
 
 export const CarouselLanzamientos = ({ sliders }: Props) => {
    return (
-      <Carousel className="w-full sm:max-w-2xl md:max-w-4xl lg:max-w-6xl px-2 mb-20" autoplay={4000}
+      <Carousel className="w-full sm:max-w-2xl md:max-w-4xl lg:max-w-6xl px-2 mb-20"
          opts={{ loop: true }}>
             <div className="bg-white shadow-2xl rounded sm:px-3 md:px-4 p-2 sm:p-3 md:p-4">
                <CarouselContent>

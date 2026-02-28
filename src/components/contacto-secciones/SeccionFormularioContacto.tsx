@@ -32,16 +32,11 @@ export const SeccionFormularioContacto = () => {
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Móvil</h3>
-                <p className="text-gray-600"><a href="tel:+5491134201500" className="text-foreground hover:underline">(+549) 11 3420 1500</a></p>
-
-                <p>
-                  <Link href={WHATSAPP_LINK}>
-                    <Image src='/images/whatsapp-logo.svg' alt='whatsapp logo' height={35} width={35} className=''/>
-                  </Link>
-                </p>
-                
+              <div className='flex items-center gap-2'>
+                <Link href={WHATSAPP_LINK}>
+                  <Image src='/images/whatsapp-logo.svg' alt='whatsapp logo' height={35} width={35} className=''/>
+                </Link>
+                <p className="text-gray-600"><a href="tel:+5491134201500" className="text-foreground hover:underline">(+549) 11 3420 1500</a></p>                
               </div>
 
               <div>
