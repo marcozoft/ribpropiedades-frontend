@@ -23,7 +23,7 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
       </div>
 
       {/* Descripcion emprendimiento */}
-      <div className="mx-auto flex flex-col lg:flex-row max-w-6xl px-4 py-8 pb-10">
+      <div className="mx-auto flex flex-col gap-4 lg:flex-row max-w-6xl px-4 py-8 pb-10">
         <section className="scroll-mt-33 px-4 xl:basis-2/3" id="descripcion">
           <div className="mb-10 flex flex-col items-center justify-between gap-2 sm:flex-row">
             <h1 className="mt-4 text-4xl font-semibold text-black">
@@ -75,12 +75,12 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
         </section>
       </div>
 
-      {/* Porpiedades ubicadas en el emprendimiento. Pueden ser 0 */}
+      {/* Propiedades ubicadas en el emprendimiento. Pueden ser 0 */}
       <div className="mx-auto flex w-full flex-col pb-30">
         {propiedades.length > 0 && (
           <>
             <div className="mb-10 flex items-center justify-center">
-              <h1 className="mt-4 text-4xl font-semibold text-black">
+              <h1 className="mt-4 text-4xl font-semibold text-black mx-8">
                 Propiedades en {emprendimiento.nombre}
               </h1>
             </div>
