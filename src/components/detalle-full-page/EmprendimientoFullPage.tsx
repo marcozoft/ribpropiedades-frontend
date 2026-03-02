@@ -46,9 +46,12 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
               </h2>
               <ShareDialog promptWhatsApp={WHATSAPP_PROMPT_EMPRENDIMIENTO}/>
             </div>
-            <p className={`${secondaryFont.className} text-lg text-black`}>
-              {emprendimiento.descripcion_larga}
-            </p>
+
+            {/* Descripcion larga */}
+            <p className={`${secondaryFont.className} text-lg text-black`}
+              dangerouslySetInnerHTML={{ __html: emprendimiento.descripcion_larga }} 
+            />
+
           </div>
 
           {/* Video/Videos (opcional) */}
