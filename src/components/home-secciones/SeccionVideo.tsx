@@ -10,10 +10,10 @@ export const SeccionVideo = () => {
 
   return (
     <div className="w-full -mt-16 min-h-32">
-      <div className="sm:block h-[60vh] sm:h-[95vh] overflow-hidden relative">
+      <div className="sm:block h-[70vh] sm:h-[95vh] overflow-hidden relative">
         {/* iframe carga primero, por debajo */}
         <iframe
-          className="w-full h-full scale-[1.8] sm:scale-100 pointer-events-none origin-center"
+          className="w-full h-full scale-[1.8] md:scale-[1.3] pointer-events-none origin-center"
           src={`https://www.youtube.com/embed/${YOUTUBE_ID_HOME}?autoplay=1&mute=1&controls=0&loop=1&playlist=IxfRAd0QlRU&modestbranding=1&rel=0&fs=0&showinfo=0`}
           title="RIB Propiedades - Video"
           frameBorder="0"
