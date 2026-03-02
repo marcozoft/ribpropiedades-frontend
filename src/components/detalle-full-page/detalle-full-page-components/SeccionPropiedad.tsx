@@ -147,9 +147,10 @@ export const SeccionPropiedad = ({
       </h2>
 
       {/* Descripcion larga */}
-      <p className={`${secondaryFont.className} text-lg text-black`}>
-        {descripcion_larga}
-      </p>
+      <p 
+        className={`${secondaryFont.className} text-lg text-black`}
+        dangerouslySetInnerHTML={{ __html: descripcion_larga }}
+      />
 
       {/* Video/Videos (opcional) */}
       {
