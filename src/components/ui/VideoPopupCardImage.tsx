@@ -21,13 +21,15 @@ export const VideoPopupCardImage = ({ youtubeId, imageSrc }: Props) => {
     <>
       <div className="bg-background relative aspect-video w-full max-w-160 flex-none overflow-hidden rounded-lg">
         {/* Thumbnail del video */}
-        <iframe
-          className="absolute inset-0 h-full w-full"
-          src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
-          title="Video RIB Propiedades"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+        {isPlaying && (
+          <iframe
+            className="absolute inset-0 h-full w-full"
+            src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
+            title="Video RIB Propiedades"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        )}
         {!isPlaying && (
           <Image
             src={imageSrc}
