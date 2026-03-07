@@ -25,6 +25,11 @@ export const CATEGORIAS_EMPRENDIMIENTOS: ItemFilter[] = [
       valor: 'zona__barrio',
       label: 'Zona / Barrio'
    },
+   {
+      valor: 'club_de_campo',
+      label: 'Club de Campo'
+   },   
+   
 ];
 
 export const ordenes: ItemFilter[] = [
