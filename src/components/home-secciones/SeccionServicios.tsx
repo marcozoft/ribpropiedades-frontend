@@ -17,7 +17,7 @@ const servicios: ServicioItem[] = [
          el mercado y el proceso de decidir sobre tu futuro.`,
       imageUrl: '',
       icon: 'flaticon-home-2',
-      href: '/emprendimientos?categoria=country&categoria=barrio_cerrado'
+      href: '/emprendimientos?categoria=country&categoria=barrio_cerrado&categoria=club_de_campo'
    },
    {
       titulo: `Proyectos de Inversión, Fracciones & Desarrollos`,
