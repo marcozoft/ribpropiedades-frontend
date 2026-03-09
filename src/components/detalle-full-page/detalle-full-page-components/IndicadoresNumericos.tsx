@@ -12,7 +12,7 @@ type Props = {
 export const IndicadoresNumericos = ({ indicadores }: Props) => {
   return (
     <div className="justify-center">
-      <div className="my-5 flex gap-2 divide-x overflow-hidden rounded-lg">
+      <div className="my-5 flex flex-wrap md:divide-x gap-2 overflow-hidden rounded-lg">
         {indicadores.map(({ nombre, valor, icono, unidad }) => (
           <IndicadorNumerico
             key={nombre}
