@@ -56,11 +56,11 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
             )}
           </div>
 
-          <div className="mt-1 flex justify-between">
+          <div className="mt-1 flex justify-between items-center">
             <p className="text-foreground text-md uppercase">
               {inmueble} - {operacion}
             </p>
-            <p className="text-right text-xs text-black">Código: {codigo}</p>
+            <p className="text-right text-xs text-black">Cód: {codigo}</p>
           </div>
 
           <div className="mt-1">
