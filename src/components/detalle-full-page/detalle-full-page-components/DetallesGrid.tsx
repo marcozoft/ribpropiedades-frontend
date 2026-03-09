@@ -7,10 +7,6 @@ type Props = {
 
 export const DetallesGrid = ({ propiedad, detalles }: Props) => {
 
-  console.log(detalles);
-  console.log(propiedad);
-  
-
   return detalles.length > 0 ? (  
     <div className="bg-background grid-cols grid px-10 py-6 md:grid-cols-2">
       {detalles.map(

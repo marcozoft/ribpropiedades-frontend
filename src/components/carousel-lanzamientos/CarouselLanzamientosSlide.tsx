@@ -1,9 +1,8 @@
 import { secondaryFont } from "@/src/config/fonts";
 import { LinkButton } from '@/src/components';
 import { LanzamientoSlider } from "@/src/interfaces";
-import { generateSrcImage, isYouTubeVideoUrl } from "@/src/utils";
+import { generateSrcImage, isYouTubeVideoUrl, getYouTubeId } from "@/src/utils";
 import Image from "next/image";
-import { getYouTubeId } from "@/src/utils/media-src";
 
 type Position = "prev" | "next" | "active" | "other";
 

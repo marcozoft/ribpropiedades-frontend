@@ -14,7 +14,7 @@ export const CAPAS_INTERES: CapaDeInteres[] = [
     excludePrimaryTypes: [],
     icon: "/markers/university.png",
     label: "Colegios y universidades",
-    radius: 3000,
+    radius: 10000,
     rankPreference: "POPULARITY",
   },
   {
@@ -23,7 +23,7 @@ export const CAPAS_INTERES: CapaDeInteres[] = [
     excludePrimaryTypes: [],
     icon: "/markers/restaurant.png",
     label: "Gastronomía",
-    radius: 3000,
+    radius: 10000,
     rankPreference: "POPULARITY",
   },
   {
@@ -32,7 +32,7 @@ export const CAPAS_INTERES: CapaDeInteres[] = [
     excludePrimaryTypes: [],
     icon: "/markers/shoping.png",
     label: "Centros comerciales",
-    radius: 3000,
+    radius: 10000,
     rankPreference: "POPULARITY",
   },
   {
@@ -47,7 +47,7 @@ export const CAPAS_INTERES: CapaDeInteres[] = [
     excludePrimaryTypes: [],
     icon: "/markers/salud.png",
     label: "Centros de salud y farmacias",
-    radius: 3000,
+    radius: 10000,
     rankPreference: "POPULARITY",
   },
   {
@@ -56,7 +56,7 @@ export const CAPAS_INTERES: CapaDeInteres[] = [
     excludePrimaryTypes: [],
     icon: "/markers/mascotas.png",
     label: "Mascotas",
-    radius: 3000,
+    radius: 10000,
     rankPreference: "POPULARITY",
   },
   {
@@ -65,7 +65,7 @@ export const CAPAS_INTERES: CapaDeInteres[] = [
     excludePrimaryTypes: [],
     icon: "/markers/deportes.png",
     label: "Deportes",
-    radius: 3000,
+    radius: 10000,
     rankPreference: "POPULARITY",
   },
 ];

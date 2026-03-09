@@ -1,3 +1,4 @@
+import { getYouTubeId } from "@/src/utils";
 import { YouTubeVideoCard } from "./YouTubeVideoCard";
 
 type Props = {
@@ -17,7 +18,7 @@ export const SeccionVideos = ({ videos }: Props) => {
             {`Video${validVideos.length > 1 ? 's' : ''}`}
           </h2>
           {validVideos.map((video) => (
-            <YouTubeVideoCard key={video} youTubeId={video} className="my-4" />
+            <YouTubeVideoCard key={video} youTubeId={ getYouTubeId(video)} className="my-4" />
           ))}
         </>
       )}
