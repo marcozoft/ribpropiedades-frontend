@@ -19,7 +19,7 @@ import {
 import { filterSearchParams } from "@/src/utils";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
 import { useForm } from "react-hook-form";
-import { Loader2, Search, Trash2 } from "lucide-react";
+import { Loader2, Search, Trash2, X } from "lucide-react";
 import {
   con_dormitorio_suiteItem,
   con_dos_cocherasItem,
@@ -147,6 +147,18 @@ export const ClasicSearch = ({
                 >
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Todas las operaciones" />
+                    {values.operacion && (
+                      <span
+                        className="ml-auto mr-1 shrink-0 opacity-50 hover:opacity-100"
+                        onPointerDown={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          form.setValue("operacion", "");
+                        }}
+                      >
+                        <X className="size-4" />
+                      </span>
+                    )}
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
@@ -176,6 +188,18 @@ export const ClasicSearch = ({
                 >
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Tipo de inmueble" />
+                    {values.tipo_inmueble && (
+                      <span
+                        className="ml-auto mr-1 shrink-0 opacity-50 hover:opacity-100"
+                        onPointerDown={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          form.setValue("tipo_inmueble", "");
+                        }}
+                      >
+                        <X className="size-4" />
+                      </span>
+                    )}
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
