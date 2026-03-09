@@ -15,7 +15,7 @@ export const DetallesGrid = ({ propiedad, detalles }: Props) => {
           propiedad[clave] != null && (
             <p key={clave} className="my-2 text-sm text-black">
               {descripcion}:&nbsp;
-              <span className="font-bold">{propiedad[clave]}</span>
+              <span className="font-bold">{propiedad[clave] === 1 || propiedad[clave] === "si" || propiedad[clave] === "1" ? "Si" : propiedad[clave]}</span>
             </p>
           ),
       )}
