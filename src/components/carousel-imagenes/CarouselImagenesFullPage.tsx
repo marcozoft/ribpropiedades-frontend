@@ -1,16 +1,25 @@
 import { Carousel, CarouselContent, CarouselDots, CarouselNext, CarouselPrevious } from "@/src/components";
+import type { CarouselApi } from "@/src/components/shadcn-components/ui/carousel";
 import { Imagen } from "@/src/interfaces";
 import { generateSrcImage } from "@/src/utils";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 type Props = {
   imagenes: Imagen[];
+  initialIndex: number;
 }
 
-export const CarouselImagenesFullPage = ({imagenes}:Props) => {
+export const CarouselImagenesFullPage = ({imagenes, initialIndex}:Props) => {
+  const [api, setApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!api) return;
+    api.scrollTo(initialIndex, true);
+  }, [api, initialIndex]);
 
   return (
-    <Carousel className="h-full w-full" opts={{ loop: true }}>
+    <Carousel className="h-full w-full" opts={{ loop: true }} setApi={setApi}>
       <CarouselContent>
         {imagenes.map((image, i) => (
           <div className="flex w-full shrink-0" key={i}>

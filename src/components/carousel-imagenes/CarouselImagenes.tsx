@@ -9,38 +9,46 @@ import {
   Carousel,
   CarouselContent,
   CarouselDots,
+  CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/src/components";
 import { CarouselImagenesFullPage } from "./CarouselImagenesFullPage";
-import { X } from "lucide-react";
+import { Expand, X } from "lucide-react";
 
 type Props = {
   imagenes: Imagen[];
 };
 
 export const CarouselImagenes = ({ imagenes }: Props) => {
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <>
-      <Carousel className="h-full w-full" opts={{ loop: true }}>
+      <Carousel className="w-full" opts={{ loop: true, align: "center" }}>
         <CarouselContent>
           {imagenes.map((image, i) => (
-            <div
-              className="flex w-full shrink-0 cursor-pointer"
+            <CarouselItem
               key={i}
-              onClick={() => setIsFullscreen(true)}
+              className="basis-[70%] cursor-pointer px-1"
+              onClick={() => setActiveIndex(i)}
             >
-              <div className="relative aspect-16/6 w-full overflow-hidden">
+              <div className="group relative">
                 <Image
                   src={generateSrcImage(image.imagen)}
                   alt={`Slide ${i + 1}`}
-                  fill
-                  className="object-cover"
+                  width={0}
+                  height={0}
+                  sizes="70vw"
+                  className="h-auto w-full"
                 />
+                <div className="absolute inset-0 flex items-end justify-end p-3 opacity-0 transition-opacity group-hover:opacity-100">
+                  <div className="rounded-full bg-black/50 p-1.5">
+                    <Expand className="size-5 text-white" />
+                  </div>
+                </div>
               </div>
-            </div>
+            </CarouselItem>
           ))}
         </CarouselContent>
         <CarouselDots
@@ -53,12 +61,12 @@ export const CarouselImagenes = ({ imagenes }: Props) => {
       </Carousel>
 
       {/* Fullscreen Modal */}
-      {isFullscreen && (
+      {activeIndex !== null && (
         <div className="bg-opacity-95 fixed inset-0 z-50 flex items-center justify-center bg-black p-2">
           
           {/* Boton de salir */}
           <Button
-            onClick={() => setIsFullscreen(false)}
+            onClick={() => setActiveIndex(null)}
             variant="default"
             size="icon"
             className="absolute top-6 right-6 z-51 size-20 h-10 w-10 rounded-full bg-white text-3xl  hover:bg-gray-300 hover:opacity-80"
@@ -66,7 +74,7 @@ export const CarouselImagenes = ({ imagenes }: Props) => {
             <X className="text-foreground size-8" strokeWidth="3" />
           </Button>
 
-          <CarouselImagenesFullPage imagenes={imagenes} />
+          <CarouselImagenesFullPage imagenes={imagenes} initialIndex={activeIndex} />
         </div>
       )}
     </>
