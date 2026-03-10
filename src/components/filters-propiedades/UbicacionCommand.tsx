@@ -1,7 +1,7 @@
 "use client";
 
 import { ItemFilter, SearchParams } from "@/src/interfaces";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, X } from "lucide-react";
 import { useState } from "react";
 import {
   Button,
@@ -69,13 +69,40 @@ export const UbicacionCommand = ({
           aria-expanded={open}
           className="w-full justify-between"
         >
-          {currentValue ? currentItem?.label : "Ubicación"}
-          <ChevronsUpDown className="opacity-50" />
+          <span className="truncate">{currentValue ? currentItem?.label : "Ubicación"}</span>
+          {currentValue && (
+            <span
+              className="ml-auto mr-1 shrink-0 opacity-50 hover:opacity-100"
+              onPointerDown={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                setValue("zona", "");
+                setValue("emprendimiento", "");
+              }}
+            >
+              <X className="size-4" />
+            </span>
+          )}
+          <ChevronsUpDown className="shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-125 p-0">
         <Command>
-          <CommandInput placeholder="Buscar ubicación" />
+          <div className="relative">
+            <CommandInput placeholder="Buscar ubicación" />
+            {currentValue && (
+              <button
+                className="absolute right-2 top-1/2 -translate-y-1/2"
+                onClick={() => {
+                  setValue("zona", "");
+                  setValue("emprendimiento", "");
+                  setOpen(false);
+                }}
+              >
+                <X className="size-4 opacity-50 hover:opacity-100" />
+              </button>
+            )}
+          </div>
           <CommandList>
             <CommandGroup heading={<p>Zona</p>}>
               {/* <CommandSeparator /> */}

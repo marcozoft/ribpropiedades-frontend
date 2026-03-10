@@ -1,4 +1,4 @@
-export { generateSrcImage, isYouTubeVideoUrl } from './media-src';
+export { generateSrcImage, getYouTubeId, isYouTubeVideoUrl } from './media-src';
 export { generateHrefPropiedad, generateHrefEmprendimiento, extractIdFromSlug } from './generate-slug';
 export { filterSearchParams } from './form-utils';
 

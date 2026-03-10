@@ -7,10 +7,6 @@ type Props = {
 
 export const DetallesGrid = ({ propiedad, detalles }: Props) => {
 
-  console.log(detalles);
-  console.log(propiedad);
-  
-
   return detalles.length > 0 ? (  
     <div className="bg-background grid-cols grid px-10 py-6 md:grid-cols-2">
       {detalles.map(
@@ -19,7 +15,7 @@ export const DetallesGrid = ({ propiedad, detalles }: Props) => {
           propiedad[clave] != null && (
             <p key={clave} className="my-2 text-sm text-black">
               {descripcion}:&nbsp;
-              <span className="font-bold">{propiedad[clave]}</span>
+              <span className="font-bold">{propiedad[clave] === 1 || propiedad[clave] === "si" || propiedad[clave] === "1" ? "Si" : propiedad[clave]}</span>
             </p>
           ),
       )}
