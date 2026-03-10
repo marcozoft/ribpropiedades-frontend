@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Form, CategoriaEmprendimientoPopover } from "@/src/components";
-import { SearchParamsEmprendimientos } from "@/src/interfaces";
+import { ItemFilter, SearchParamsEmprendimientos } from "@/src/interfaces";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
@@ -10,9 +10,10 @@ import { useForm } from "react-hook-form";
 type Props = {
    filterValues: SearchParamsEmprendimientos;
    className?: string;
+   categorias: ItemFilter[];
 }
 
-export const FiltersBarEmprendimientos = ({ filterValues }: Props) => {
+export const FiltersBarEmprendimientos = ({ filterValues, categorias }: Props) => {
 
    const form = useForm<SearchParamsEmprendimientos>({
       defaultValues: filterValues
@@ -58,7 +59,7 @@ export const FiltersBarEmprendimientos = ({ filterValues }: Props) => {
 
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col md:flex-row gap-4 grow animate-in fade-in fade-out">
 
-               <CategoriaEmprendimientoPopover control={form.control} onSubmit={onSubmit}/>
+               <CategoriaEmprendimientoPopover control={form.control} onSubmit={onSubmit} categorias={categorias} />
 
                {/* Limpiar busqueda */}
                <Button

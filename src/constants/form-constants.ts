@@ -1,36 +1,5 @@
 import { ItemFilter } from "../interfaces";
 
-export const CATEGORIAS_EMPRENDIMIENTOS: ItemFilter[] = [
-   {
-      valor: 'barrio_cerrado',
-      label: 'Barrio Cerrado'
-   },
-   {
-      valor: 'country',
-      label: 'Country Club'
-   },
-   {
-      valor: 'condominio',
-      label: 'Condominio'
-   },
-   {
-      valor: 'edificio_de_oficinas_y_locales',
-      label: 'Edificio de Oficinas y Locales'
-   },
-   {
-      valor: 'proyectos_de_inversin',
-      label: 'Proyecto de Inversión'
-   },
-   {
-      valor: 'zona__barrio',
-      label: 'Zona / Barrio'
-   },
-   {
-      valor: 'club_de_campo',
-      label: 'Club de Campo'
-   },   
-   
-];
 
 export const ordenes: ItemFilter[] = [
    {

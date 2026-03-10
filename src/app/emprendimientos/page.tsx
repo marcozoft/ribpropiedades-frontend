@@ -1,8 +1,7 @@
 import { getAllEmprendimientos } from '@/src/requests';
 import { EmprendimientoCard, TituloDescriptivoEmprendimientos, FiltersBarEmprendimientos } from '@/src/components';
 import { SearchParamsEmprendimientos } from '@/src/interfaces';
-import { sortEmprendimientosByNombre } from '@/src/utils';
-
+import { sortEmprendimientosByNombre, getCategoriasEmprendimientos } from '@/src/utils';
 
 export default async function Emprendimientos({
    searchParams
@@ -13,6 +12,8 @@ export default async function Emprendimientos({
    const searchParamsBrowserBar = (await searchParams);
 
    const emprendimientos = sortEmprendimientosByNombre((await getAllEmprendimientos()).emprendimientos);
+
+   const categoriasEmprendimientos = getCategoriasEmprendimientos(emprendimientos);
 
    // Filtrar emprendimientos según categoría seleccionada
    const emprendimientosFiltrados = searchParamsBrowserBar.categoria && searchParamsBrowserBar.categoria.length > 0
@@ -27,8 +28,8 @@ export default async function Emprendimientos({
 
          <div className="bg-background">
             <div className="py-20 max-w-6xl mx-auto px-4 flex justify-between">
-               <TituloDescriptivoEmprendimientos params={searchParamsBrowserBar} />
-               <FiltersBarEmprendimientos filterValues={searchParamsBrowserBar} />
+               <TituloDescriptivoEmprendimientos params={searchParamsBrowserBar} categorias={categoriasEmprendimientos}/>
+               <FiltersBarEmprendimientos filterValues={searchParamsBrowserBar} categorias={categoriasEmprendimientos} />
             </div>
          </div>
 
