@@ -13,7 +13,7 @@ export const EmprendimientoCard = ({
    descripcion_corta,
    zona,
    cantidad_propiedades,
-   categoria_emprendimientos,
+   categoria_emprendimientos_nombre,
 }: EmprendimientoBasico) => {
 
    return (
@@ -37,7 +37,7 @@ export const EmprendimientoCard = ({
                <div className="mt-4">
                   
                   {/* Categoria */}
-                  <IndicadorCategoriaEmprendimiento categoriaEmprendimiento={categoria_emprendimientos} />
+                  <IndicadorCategoriaEmprendimiento categoriaEmprendimientoNombre={categoria_emprendimientos_nombre} />
 
                   {/* Nombre */}
                   <NombreEmprendimiento nombre={nombre} />

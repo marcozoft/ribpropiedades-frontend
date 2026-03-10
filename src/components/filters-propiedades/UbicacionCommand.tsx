@@ -86,7 +86,7 @@ export const UbicacionCommand = ({
           <ChevronsUpDown className="shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-125 p-0">
+      <PopoverContent className="w-125 p-0" side="bottom" avoidCollisions={false}>
         <Command>
           <div className="relative">
             <CommandInput placeholder="Buscar ubicación" />

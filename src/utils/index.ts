@@ -18,6 +18,5 @@ export { renderReactComponent, getOrCreateSessionId } from './react-client-utils
 export { hasWebGL } from './hasWebGL';
 
 // Sort utils
-export { sortEmprendimientosByNombre } from './sort-utils';
-export { sortPropiedadesByOrden } from './sort-utils';
+export { sortEmprendimientosByNombre, sortPropiedadesByOrden, getCategoriasEmprendimientos } from './sort-utils';
 

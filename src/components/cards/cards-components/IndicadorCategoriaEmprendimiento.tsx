@@ -1,12 +1,10 @@
-import { CATEGORIAS_EMPRENDIMIENTOS } from "@/src/constants/form-constants";
-
 type Props = {
-   categoriaEmprendimiento: string;
+   categoriaEmprendimientoNombre: string;
 }
-export const IndicadorCategoriaEmprendimiento = ({categoriaEmprendimiento}:Props) => {
+export const IndicadorCategoriaEmprendimiento = ({categoriaEmprendimientoNombre}:Props) => {
   return (
       <p className='text-foreground text-md uppercase'>
-         { CATEGORIAS_EMPRENDIMIENTOS.find(item => item.valor === categoriaEmprendimiento)?.label }
+         { categoriaEmprendimientoNombre }
       </p>
   )
 }

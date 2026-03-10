@@ -1,11 +1,12 @@
-import { CATEGORIAS_EMPRENDIMIENTOS } from "@/src/constants/form-constants"
-import { SearchParamsEmprendimientos } from "@/src/interfaces"
+// import { CATEGORIAS_EMPRENDIMIENTOS } from "@/src/constants/form-constants"
+import { ItemFilter, SearchParamsEmprendimientos } from "@/src/interfaces"
 
 type Props = {
-   params: SearchParamsEmprendimientos
+   params: SearchParamsEmprendimientos,
+   categorias: ItemFilter[]
 }
 
-export const TituloDescriptivoEmprendimientos = ({params}:Props) => {
+export const TituloDescriptivoEmprendimientos = ({params, categorias}:Props) => {
 
    // Normalizar `params.categoria` para que siempre sea un array de strings
    const paramsArray: string[] = (() => {
@@ -16,7 +17,7 @@ export const TituloDescriptivoEmprendimientos = ({params}:Props) => {
 
    // Mapear valores a etiquetas, con fallback al propio valor
    const labels = paramsArray
-      .map(val => CATEGORIAS_EMPRENDIMIENTOS.find(item => item.valor === val)?.label || val)
+      .map(val => categorias.find(item => item.valor === val)?.label || val)
       .filter(Boolean);
 
    return (

@@ -3,19 +3,20 @@
 import { Filter } from "lucide-react";
 import { useState } from "react";
 import { Control, useWatch } from "react-hook-form";
-import { SearchParamsEmprendimientos } from "@/src/interfaces";
-import { Button, Checkbox, FormField, Popover, PopoverContent, PopoverTrigger, Field, FieldGroup, FieldLabel } from "@/src/components";
-import { CATEGORIAS_EMPRENDIMIENTOS } from "@/src/constants/form-constants";
+import { ItemFilter, SearchParamsEmprendimientos } from '@/src/interfaces';
+import { Button, Checkbox, FormField, Popover, PopoverContent, PopoverTrigger, Field, FieldGroup, FieldLabel } from '@/src/components';
 
 type Props = {
    control: Control<SearchParamsEmprendimientos>,
    disabled?: boolean,
    onSubmit: (searchPararms: SearchParamsEmprendimientos) => void,
+   categorias: ItemFilter[],
 }
 
 export function CategoriaEmprendimientoPopover({
    control,
    onSubmit,
+   categorias,
 }: Props) {
 
    const [open, setOpen] = useState(false)
@@ -50,7 +51,7 @@ export function CategoriaEmprendimientoPopover({
                   render={({ field }) => (
                      <FieldGroup className="gap-3">
                         {
-                           CATEGORIAS_EMPRENDIMIENTOS.map(({ valor, label }) => (
+                           categorias.map(({ valor, label }) => (
                               <Field orientation="horizontal" key={valor}>
                                  <Checkbox
                                     id={valor}

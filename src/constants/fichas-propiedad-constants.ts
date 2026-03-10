@@ -46,7 +46,7 @@ const lote: Detalle = {
 };
 
 const lote_asfalto: Detalle = {
-  descripcion: "Asfalto",
+  descripcion: "Lote Asfalto",
   clave: "lote_asfalto",
 }
 
