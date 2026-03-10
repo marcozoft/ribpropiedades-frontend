@@ -3,7 +3,11 @@ export const API_URL = `https://admin.ribpropiedades.com.ar/api`;
 export const BACKEND_API_KEY = process.env.BACKEND_API_KEY || '';
 
 export const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
-export const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY ||'';
+export const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY || '';
+
+// Supabase
+export const SUPABASE_URL = process.env.SUPABASE_URL || '';
+export const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
 export const RECAPTCHA_CLIENT_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_API_KEY || '';
 export const RECAPTCHA_SERVER_API_KEY = process.env.GOOGLE_RECAPTCHA_SECRET_API_KEY || '';
