@@ -6,8 +6,6 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request): Promise<NextResponse> {
   const request: LugaresRequest = await req.json();
-  console.log(request);
-
   const url = `https://places.googleapis.com/v1/places:searchNearby`;
 
   const fields = [
