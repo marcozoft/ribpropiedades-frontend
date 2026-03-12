@@ -39,7 +39,8 @@ export const propiedadesToGeoJSON = ( propiedades: PropiedadBasico[]): FeatureCo
             ]
          },
          properties: {
-            index
+            index,
+            propiedadId: prop.id
          }
       }))
    };

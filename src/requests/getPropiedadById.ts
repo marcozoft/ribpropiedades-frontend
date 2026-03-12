@@ -8,7 +8,8 @@ export const getPropiedadById = async (id: number): Promise<Response> => {
          'X-API-Key': BACKEND_API_KEY
       },
       next: {
-         revalidate: REVALIDATE_PROPIEDAD_ID
+         revalidate: REVALIDATE_PROPIEDAD_ID,
+         tags: [`propiedad-${id}`]
       }
    });
 

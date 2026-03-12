@@ -8,6 +8,7 @@ import {
 } from "@/src/components";
 import { allFields, detallesPorTipoDeInmueble } from "@/src/constants/fichas-propiedad-constants";
 import { WHATSAPP_PROMPT_PROPIEDAD } from "@/src/constants/share-social-constants";
+import { mockPuntosDeInteres } from "@/src/constants/mockPuntosDeInteres";
 
 type SeccionPropiedadProps = {
   propiedadResponse: PropiedadDetalleResponse;
@@ -21,7 +22,6 @@ export const SeccionPropiedad = ({
     descripcion_larga,
     mapa_latitud,
     mapa_longitud,
-    
     operacion,
     precio_publico,
     precio,
@@ -41,6 +41,13 @@ export const SeccionPropiedad = ({
     video3,
     puntosDeInteres,
   } = propiedadResponse.propiedad;
+
+
+  console.log('Puntos de interes', puntosDeInteres);
+  
+  const puntosDeInteresMapa = puntosDeInteres == null
+    ? mockPuntosDeInteres
+    : puntosDeInteres;
 
   return (
     <section id="descripcion" className="">
@@ -167,7 +174,7 @@ export const SeccionPropiedad = ({
       <MapaPropiedad
         latitud={+mapa_latitud}
         longitud={+mapa_longitud}
-        puntosDeInteres={puntosDeInteres}
+        puntosDeInteres={puntosDeInteresMapa}
         className="h-80"
       />
     </section>

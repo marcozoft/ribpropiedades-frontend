@@ -1,6 +1,7 @@
 import { GOOGLE_PLACES_API_KEY } from "@/src/constants/constants";
 import { REVALIDATE_GOGLE_PLACES } from "@/src/constants/revalidate-constants";
-import { LugaresRequest, NearbySearchResponse } from "@/src/interfaces";
+import { FeatureCollectionExtended, LugaresRequest, NearbySearchResponse } from "@/src/interfaces";
+import { CapaDeInteresEspecificacion } from "@/src/interfaces/geo-interfaces/CapaDeInteresEspecificacion";
 import { nearbySearchToGeoJSON } from "@/src/utils";
 import { NextResponse } from "next/server";
 
@@ -58,3 +59,43 @@ export async function POST(req: Request): Promise<NextResponse> {
   }
   return NextResponse.json(nearbySearchToGeoJSON(nearbySearchResponse));
 }
+
+
+/**
+ * 
+ * @param capasDeInteres 
+ * @param latitud 
+ * @param longitud 
+ * @returns 
+ */
+const buildPlacesFromGoogle = (capasDeInteres: CapaDeInteresEspecificacion[], latitud: number, longitud: number): FeatureCollectionExtended[] => {
+  
+  capasDeInteres.forEach(async ({ name, includedPrimaryTypes, excludePrimaryTypes, radius, rankPreference }) => {
+    const request: LugaresRequest = {
+      results: 20,
+      includedPrimaryTypes: includedPrimaryTypes,
+      lat: latitud,
+      lng: longitud,
+      radius: radius,
+      excludedPrimaryTypes: excludePrimaryTypes,
+      rankPreference: rankPreference
+    };
+  })
+
+  return []
+
+}
+
+
+
+
+//  capasInteres.forEach(async ({ name, includedPrimaryTypes, excludePrimaryTypes, radius, rankPreference }) => {
+//       const request: LugaresRequest = {
+//          results: 20,
+//          includedPrimaryTypes: includedPrimaryTypes,
+//          lat: coordinates[1],
+//          lng: coordinates[0],
+//          radius: radius,
+//          excludedPrimaryTypes: excludePrimaryTypes,
+//          rankPreference: rankPreference
+//       };

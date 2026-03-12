@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
-import { createLayer, loadImage, loadNearbySearchPlaces, propiedadesToGeoJSON, renderReactComponent } from "@/src/utils";
+import { loadImage, loadNearbySearchPlaces, propiedadesToGeoJSON, renderReactComponent } from "@/src/utils";
 import { PropiedadPopup, PlacePopup, CuadroReferencias } from "@/src/components";
-import { CapaDeInteres } from '../../../interfaces/CapaDeInteres';
+import { CapaDeInteresEspecificacion } from '../../../interfaces/geo-interfaces/CapaDeInteresEspecificacion';
 
 
 // Token de Mapbox
@@ -80,7 +80,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
    const loadPropiedades = async () => {
 
       loadImage(mapRef.current!, '/markers/propiedad.png', 'propiedades');
-      createLayer(mapRef.current!, 'propiedades', propiedadesToGeoJSON(propiedades));
+      // createLayer(mapRef.current!, 'propiedades', propiedadesToGeoJSON(propiedades));
 
       // Evento click en el layer para mostrar popup
       mapRef.current?.on('click', 'propiedades', (e) => {
@@ -120,11 +120,11 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
     * Inicializar las capas de interes
     * segun el array capasDeInteres
     */
-   const initializeLayersPlaces = (map: mapboxgl.Map, capasDeInteres: CapaDeInteres[]) => {
+   const initializeLayersPlaces = (map: mapboxgl.Map, capasDeInteres: CapaDeInteresEspecificacion[]) => {
 
       capasDeInteres.forEach(({ name, icon }) => {
          loadImage(map, icon, name)
-         createLayer(map, name);
+         // createLayer(map, name);
       });
 
       // Evento click en el layer para mostrar popup

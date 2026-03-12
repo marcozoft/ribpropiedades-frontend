@@ -9,7 +9,14 @@ export { cn } from './utils';
 export { nearbySearchToGeoJSON, propiedadesToGeoJSON, latLngToGeoJSON } from './gis-utils';
 
 // Mapbox functions utils
-export { loadImage, createLayer, addFeaturesToLayer, loadNearbySearchPlaces } from './mapbox-utils';
+export { 
+  loadImage, 
+  createEmptyLayer,
+  createFeatureCollectionLayer, 
+  addFeaturesToLayer, 
+  loadNearbySearchPlaces,
+  addPropiedadMarker
+} from './mapbox-utils';
 
 // React client
 export { renderReactComponent, getOrCreateSessionId } from './react-client-utils';

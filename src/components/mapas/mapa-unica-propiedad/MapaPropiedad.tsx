@@ -5,11 +5,12 @@ import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { MapaNoSoportado } from '@/src/components';
 import { FeatureCollection } from 'geojson';
+import { FeatureCollectionExtended } from '@/src/interfaces';
 
 type Props = {
    latitud: number;
    longitud: number;
-   puntosDeInteres: FeatureCollection[];
+   puntosDeInteres: FeatureCollectionExtended[];
    className?: string;
 }
 
