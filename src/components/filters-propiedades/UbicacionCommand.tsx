@@ -61,8 +61,13 @@ export const UbicacionCommand = ({
   const currentItem = items.find((item) => item.valor === currentValue);
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild disabled={disabled}>
+    <>
+      {/* Mobile blur backdrop */}
+      {open && (
+        <div className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden" onClick={() => setOpen(false)} />
+      )}
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild disabled={disabled}>
         <Button
           variant="outline"
           role="combobox"
@@ -86,8 +91,8 @@ export const UbicacionCommand = ({
           <ChevronsUpDown className="shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-125 p-0" side="bottom" avoidCollisions={false}>
-        <Command>
+      <PopoverContent className="left-0 w-screen p-0 md:w-72 md:relative" side="bottom" avoidCollisions={false}>
+        <Command className="w-screen md:w-72">
           <div className="relative">
             <CommandInput placeholder="Buscar ubicación" />
             {currentValue && (
@@ -156,5 +161,6 @@ export const UbicacionCommand = ({
         </Command>
       </PopoverContent>
     </Popover>
+    </>
   );
 };
