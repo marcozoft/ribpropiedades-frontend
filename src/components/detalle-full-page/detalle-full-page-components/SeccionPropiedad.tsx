@@ -21,6 +21,7 @@ export const SeccionPropiedad = ({
     descripcion_larga,
     mapa_latitud,
     mapa_longitud,
+    
     operacion,
     precio_publico,
     precio,
@@ -38,6 +39,7 @@ export const SeccionPropiedad = ({
     video,
     video2,
     video3,
+    puntosDeInteres,
   } = propiedadResponse.propiedad;
 
   return (
@@ -165,6 +167,7 @@ export const SeccionPropiedad = ({
       <MapaPropiedad
         latitud={+mapa_latitud}
         longitud={+mapa_longitud}
+        puntosDeInteres={puntosDeInteres}
         className="h-80"
       />
     </section>

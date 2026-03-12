@@ -7,6 +7,7 @@ import { CapaDeInteres } from "@/src/interfaces";
 import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
 import { createLayer, loadImage, renderReactComponent, latLngToGeoJSON, loadNearbySearchPlaces } from "@/src/utils";
 import { PlacePopup } from "@/src/components";
+import { FeatureCollection } from "geojson";
 
 
 // Token de Mapbox
@@ -15,6 +16,7 @@ mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 type Props = {
    latitud: number,
    longitud: number,
+   puntosDeInteres: FeatureCollection[];
    className?: string;
 }
 
@@ -77,6 +79,7 @@ export default function MapaPropiedadClient({ latitud, longitud, className }: Pr
 
       loadImage(mapRef.current!, '/markers/propiedad.png', 'propiedades');
       createLayer(mapRef.current!, 'propiedades', latLngToGeoJSON(latitud, longitud));
+      
    };
 
 
@@ -84,10 +87,10 @@ export default function MapaPropiedadClient({ latitud, longitud, className }: Pr
     * Inicializar las capas de interes
     * segun el array capasDeInteres
     */
-   const initializeLayersPlaces = (map: mapboxgl.Map, capasDeInteres: CapaDeInteres[]) => {
+   const initializeLayersPlaces = (map: mapboxgl.Map, capasDeInteres: FeatureCollection[]) => {
 
-      capasDeInteres.forEach(({ name, icon }) => {
-         loadImage(map, icon, name)
+      capasDeInteres.forEach(featureCollection => {
+         loadImage(map, featureCollection., name)
          createLayer(map, name);
       });
 
@@ -130,7 +133,7 @@ export default function MapaPropiedadClient({ latitud, longitud, className }: Pr
       mapRef.current!.on('load', () => {
          initializeLayersPlaces(mapRef.current!, CAPAS_INTERES);
          addPropiedadMarker();
-         loadNearbySearchPlaces(mapRef.current!, [longitud, latitud]);
+         loadNearbySearchPlaces(mapRef.current!, feature.properties!.propiedadId);
          addCursorEvents();
       });
 

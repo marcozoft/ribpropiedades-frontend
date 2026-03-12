@@ -7,7 +7,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
 import { createLayer, loadImage, loadNearbySearchPlaces, propiedadesToGeoJSON, renderReactComponent } from "@/src/utils";
 import { PropiedadPopup, PlacePopup, CuadroReferencias } from "@/src/components";
-import { CapaDeInteres } from '../../interfaces/CapaDeInteres';
+import { CapaDeInteres } from '../../../interfaces/CapaDeInteres';
 
 
 // Token de Mapbox
@@ -87,7 +87,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
                   
          const feature = e.features![0];
          const coordinates = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
-         loadNearbySearchPlaces(mapRef.current!, coordinates);
+         loadNearbySearchPlaces(mapRef.current!, feature.properties!.propiedadId);
          setVisibleReferencias(true);
          
          const popupContent = renderReactComponent(
