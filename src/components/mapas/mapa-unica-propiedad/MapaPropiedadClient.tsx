@@ -57,7 +57,7 @@ export default function MapaPropiedadClient({ latitud, longitud, id, tipo, class
    }
 
    /**
-    * 
+    * Buscar las capas con los puntos relacionados
     */
    const loadCapasRelacionadasById = async(map: Map, tipo: 'propiedades' | 'emprendimientos', id: number) => {
 

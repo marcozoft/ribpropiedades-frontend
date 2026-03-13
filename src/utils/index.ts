@@ -27,3 +27,5 @@ export { hasWebGL } from './hasWebGL';
 // Sort utils
 export { sortEmprendimientosByNombre, sortPropiedadesByOrden, getCategoriasEmprendimientos } from './sort-utils';
 
+// Google Places utils
+export { generateCapasDeInteres, getCapaInteresByEspecificacion } from './google-places-utils';

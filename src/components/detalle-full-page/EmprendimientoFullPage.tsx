@@ -65,14 +65,14 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
           <h2 className="mt-8 mb-4 text-xl font-bold text-black">
             <span className="text-foreground">|&nbsp;</span>Ubicación
           </h2>
-          {
-            //TODO
-          }
-          {/* <MapaPropiedad
+
+          <MapaPropiedad
             latitud={+emprendimiento.mapa_latitud}
             longitud={+emprendimiento.mapa_longitud}
+            tipo="emprendimientos"
+            id={emprendimiento.id}
             className="h-80"
-          /> */}
+          />
         </section>
 
         {/* formulario de contacto */}

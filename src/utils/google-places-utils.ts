@@ -1,48 +1,7 @@
-import { GOOGLE_PLACES_API_KEY } from "@/src/constants/constants";
-import { REVALIDATE_GOGLE_PLACES } from "@/src/constants/revalidate-constants";
-import { FeatureCollectionExtended, NearbySearchResponse, PropiedadDetalleResponse, CapaDeInteresEspecificacion } from "@/src/interfaces";
-import { getPropiedadById, putPuntosDeInteresById } from "@/src/requests";
-import { revalidateTag } from "next/cache";
-import { NextResponse } from "next/server";
-import { CAPAS_INTERES } from "@/src/constants/geo-constants";
-
-
-export async function GET(
-  request: Request,
-  { params }: { params: Promise<{ id: string, tipo: string }> }
-): Promise<NextResponse> {
-
-  const { id, tipo } = await params;
-
-  if (tipo !== 'propiedades' && tipo !== 'emprendimientos') {
-    return NextResponse.json(
-      { error: 'Tipo inválido. Debe ser "propiedades" o "emprendimientos"' },
-      { status: 400 }
-    );
-  }
-
-  const propiedadResponse: PropiedadDetalleResponse = await getPropiedadById(+id)
-    .then((resp) => resp.json());
-  
-    
-  let puntosDeInteres: FeatureCollectionExtended[] = [];
-
-  if(propiedadResponse.propiedad.puntosDeInteres == null) { // No hay en base de datos
-    console.info('Llamar a Google...');
-    puntosDeInteres = await generateCapasDeInteres(+propiedadResponse.propiedad.mapa_latitud, +propiedadResponse.propiedad.mapa_longitud);
-    await putPuntosDeInteresById(+id, tipo, puntosDeInteres);
-    revalidateTag(`${tipo}-${id}`);
-  } else {
-    console.log('Respuesta desde el backend cantidad de capas:' , propiedadResponse.propiedad.puntosDeInteres.length);
-    puntosDeInteres = propiedadResponse.propiedad.puntosDeInteres;
-  }
-
-  // console.log(JSON.stringify(puntosDeInteres));
-  return NextResponse.json(puntosDeInteres);
-  
-}
-
-
+import { GOOGLE_PLACES_API_KEY } from "../constants/constants";
+import { CAPAS_INTERES } from "../constants/geo-constants";
+import { REVALIDATE_GOGLE_PLACES } from "../constants/revalidate-constants";
+import { CapaDeInteresEspecificacion, FeatureCollectionExtended, NearbySearchResponse } from "../interfaces";
 
 /**
  * Generar grupos de capas de interés basados en especificaciones
@@ -56,7 +15,7 @@ export async function GET(
  * 
  * @returns {Promise<FeatureCollectionExtended[]>} Array con todas las capas de interés válidas
  */
-const generateCapasDeInteres = async(lat: number, lng: number): Promise<FeatureCollectionExtended[]> => {
+export const generateCapasDeInteres = async(lat: number, lng: number): Promise<FeatureCollectionExtended[]> => {
   
   const capas = await Promise.all(
     CAPAS_INTERES.map((capaDefinion) => 
@@ -71,7 +30,44 @@ const generateCapasDeInteres = async(lat: number, lng: number): Promise<FeatureC
 }
 
 
-const getCapaInteresByEspecificacion = async(especificacion: CapaDeInteresEspecificacion, lat: number, lng: number): Promise<FeatureCollectionExtended | null> => {
+/**
+ * Obtiene una capa de puntos de interés desde Google Places API
+ * 
+ * Realiza una búsqueda cercana a una ubicación específica utilizando la Google Places API.
+ * Filtra los resultados según las especificaciones de la capa (tipos de lugares incluidos/excluidos,
+ * radio de búsqueda, etc.) y retorna los datos en formato GeoJSON FeatureCollection.
+ * 
+ * @async
+ * @param {CapaDeInteresEspecificacion} especificacion - Configuración de la capa de interés que incluye:
+ *   - name: Identificador único de la capa (ej: "restaurantes", "escuelas")
+ *   - label: Etiqueta legible para mostrar en UI
+ *   - icon: Ícono asociado a la capa
+ *   - includedPrimaryTypes: Tipos de lugares a incluir en la búsqueda
+ *   - excludedPrimaryTypes: Tipos de lugares a excluir
+ *   - rankPreference: Preferencia de ranking ("DISTANCE", "RELEVANCE", etc.)
+ *   - radius: Radio de búsqueda en metros
+ * @param {number} lat - Latitud del punto central de búsqueda
+ * @param {number} lng - Longitud del punto central de búsqueda
+ * 
+ * @returns {Promise<FeatureCollectionExtended | null>} 
+ *   - FeatureCollectionExtended: Colección de features GeoJSON con puntos de interés si la búsqueda es exitosa
+ *   - null: Si ocurre un error en la API o no hay resultados
+ * 
+ * @example
+ * const especificacion = {
+ *   name: "hospitales",
+ *   label: "Hospitales",
+ *   icon: "hospital-icon",
+ *   includedPrimaryTypes: ["hospital"],
+ *   excludedPrimaryTypes: [],
+ *   rankPreference: "DISTANCE",
+ *   radius: 2000
+ * };
+ * const capa = await getCapaInteresByEspecificacion(especificacion, -34.9011, -56.1645);
+ * 
+ * @throws {Error} No lanza explícitamente, pero registra errores en consola si falla la conexión o parsing
+ */
+export const getCapaInteresByEspecificacion = async(especificacion: CapaDeInteresEspecificacion, lat: number, lng: number): Promise<FeatureCollectionExtended | null> => {
   
   try {
     const url = `https://places.googleapis.com/v1/places:searchNearby`;
@@ -156,5 +152,3 @@ const getCapaInteresByEspecificacion = async(especificacion: CapaDeInteresEspeci
   }
 
 }
-
-
