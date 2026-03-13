@@ -28,7 +28,7 @@ export const CarouselLanzamientosSlide = ({ slider }: Props) => {
           <div className="flex-none w-full lg:max-w-160 aspect-video relative rounded overflow-hidden bg-background">
             <iframe
               className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
+              src={`https://www.youtube.com/embed/${youtubeId}?rel=0`}
               title="Video RIB Propiedades"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
