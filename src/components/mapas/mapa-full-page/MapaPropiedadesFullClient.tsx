@@ -4,7 +4,7 @@ import { FeatureCollectionExtended, PropiedadBasico } from "@/src/interfaces";
 import { useEffect, useRef, useState } from "react";
 import mapboxgl, { Map } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
+import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
 import { createFeatureCollectionLayer, propiedadesToFeatureCollectionExtended, renderReactComponent } from "@/src/utils";
 import { PropiedadPopup, PlacePopup, CuadroReferencias } from "@/src/components";
 
@@ -170,8 +170,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
          {/* Barra flotante de capas, inicialmente no visible, hasta la primer busqueda */}
          {
             visibleReferencias && (
-               <></>
-               // <CuadroReferencias capasDeInteres={CAPAS_INTERES} className="hidden lg:block lg:absolute left-4 top-1/2 -translate-y-1/2 z-10"/>
+               <CuadroReferencias capasDeInteres={CAPAS_INTERES} />
             )
          }
       </div>

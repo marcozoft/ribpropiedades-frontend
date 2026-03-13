@@ -20,7 +20,7 @@ export const loadImage = (map: mapboxgl.Map, imageUrl: string, layerName: string
 
    // Validar si la imagen ya existe
    if (map.hasImage(imageName)) {
-      console.log(`✅ Imagen "${imageName}" ya cargada`);
+      // console.log(`✅ Imagen "${imageName}" ya cargada`);
       return;
    }
 
@@ -36,7 +36,7 @@ export const loadImage = (map: mapboxgl.Map, imageUrl: string, layerName: string
       }
 
       map.addImage(imageName, image);
-      console.log(`✅ Imagen cargada: "${imageName}"`);
+      // console.log(`✅ Imagen cargada: "${imageName}"`);
    })
 
 }

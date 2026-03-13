@@ -1,5 +1,5 @@
 import { secondaryFont } from "@/src/config/fonts";
-import { FeatureCollectionExtended, PropiedadDetalleResponse } from "@/src/interfaces";
+import { PropiedadDetalleResponse } from "@/src/interfaces";
 import { DetallesGrid, IndicadoresNumericos, SeccionVideos } from ".";
 import {
   IndicadorPrecio,

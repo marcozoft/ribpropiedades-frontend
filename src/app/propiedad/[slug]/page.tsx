@@ -1,7 +1,6 @@
 import { PropiedadFullPage } from "@/src/components";
-import { mockPuntosDeInteres } from "@/src/constants/mockPuntosDeInteres";
 import { PropiedadDetalleResponse } from "@/src/interfaces";
-import { getPropiedadById, putPuntosDeInteresById } from "@/src/requests";
+import { getPropiedadById } from "@/src/requests";
 import { extractIdFromSlug, generateSrcImage } from "@/src/utils";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
