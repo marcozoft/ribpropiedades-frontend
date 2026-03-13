@@ -1,3 +1,5 @@
+import { FeatureCollectionExtended } from "../geo-interfaces/FeatureCollectionExtended";
+
 export interface EmprendimientoDetalle {
    id:                                 number;
    nombre:                             string;
@@ -31,4 +33,5 @@ export interface EmprendimientoDetalle {
    texto_complementario_boton:         string;
    destacado:                          number;
    orden_destacado:                    number;
+   puntosDeInteres:                    FeatureCollectionExtended[];
 }

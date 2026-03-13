@@ -8,14 +8,16 @@ import { MapaNoSoportado } from '@/src/components';
 type Props = {
    latitud: number;
    longitud: number;
+   id: number,
+   tipo: 'propiedades' | 'emprendimientos'
    className?: string;
 }
 
 export const MapaPropiedad = ({ className, ...props }: Props) => {
-   
+      
    const [supported, setSupported] = useState<boolean | null>(null);
-   const MapaPropiedadClient = dynamic(() => import('@/src/components/mapa-propiedades/MapaPropiedadClient'), { ssr: false });
-
+   const MapaPropiedadClient = dynamic(() => import('@/src/components/mapas/mapa-unica-propiedad/MapaPropiedadClient'), { ssr: false });
+   
    useEffect(() => {
       setSupported(hasWebGL());
    }, []);

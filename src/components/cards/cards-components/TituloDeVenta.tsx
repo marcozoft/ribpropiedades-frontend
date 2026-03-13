@@ -1,4 +1,4 @@
-import { primaryFont, secondaryFont } from "@/src/config/fonts";
+import { primaryFont } from "@/src/config/fonts";
 
 type Props = {
   tituloVenta: string;

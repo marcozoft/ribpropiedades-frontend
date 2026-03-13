@@ -1,3 +1,4 @@
+export { putPuntosDeInteresById } from "./putPuntosDeInteresById";
 export { getAllEmprendimientos } from "./getAllEmprendimientos";
 export { getAllPropiedades } from "./getAllPropiedades";
 export { getPropiedadById } from "./getPropiedadById";

@@ -5,17 +5,17 @@ import { extractIdFromSlug, generateSrcImage } from "@/src/utils";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata(  
-  props: PageProps<'/propiedad/[slug]'>
+// Metadata
+export async function generateMetadata(
+  props: PageProps<"/propiedad/[slug]">,
 ): Promise<Metadata> {
-
   const { slug } = await props.params;
 
-  const propiedadResponse: PropiedadDetalleResponse = await getPropiedadById( extractIdFromSlug(slug) ).then(resp => {
-    return resp.status == 200
-      ? resp.json()
-      : notFound()
-  })
+  const propiedadResponse: PropiedadDetalleResponse = await getPropiedadById(
+    extractIdFromSlug(slug),
+  ).then((resp) => {
+    return resp.status == 200 ? resp.json() : notFound();
+  });
 
   const title = propiedadResponse.propiedad.titulo_venta;
   const description = propiedadResponse.propiedad.descripcion_corta;
@@ -26,25 +26,24 @@ export async function generateMetadata(
     openGraph: {
       title: title,
       description: description,
-      images: [
-        generateSrcImage(propiedadResponse.imagenes[0].imagen)
-      ]
-    }
-  }
+      images: [generateSrcImage(propiedadResponse.imagenes[0].imagen)],
+    },
+  };
 }
 
-export default async function Page(props: PageProps<'/propiedad/[slug]'>) {
+// Page
+export default async function Page(props: PageProps<"/propiedad/[slug]">) {
+  
+  const { slug } = await props.params;
+  const id = extractIdFromSlug(slug);
+  const propiedadResponse: PropiedadDetalleResponse = await getPropiedadById(id)
+    .then((resp) => {
+      return resp.status == 200 
+        ? resp.json() 
+        : notFound();
+    });
 
-   const { slug } = await props.params;
-   const propiedadResponse = await getPropiedadById(extractIdFromSlug(slug))
-      .then(resp => {
-         return resp.status == 200
-            ? resp.json()
-            : notFound()
-      })
-   
-   return (
-      <PropiedadFullPage propiedadResponse={propiedadResponse} />
-   );
-
+  return (
+    <PropiedadFullPage propiedadResponse={propiedadResponse} />
+  );
 }

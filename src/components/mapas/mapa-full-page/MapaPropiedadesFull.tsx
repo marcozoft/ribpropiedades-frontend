@@ -15,7 +15,7 @@ type Props = {
 export const MapaPropiedadesFull = ({ className, ...props }: Props) => {
 
    const [supported, setSupported] = useState<boolean>(true);
-   const MapaPropiedadesFullClient = dynamic(() => import('@/src/components/mapa-propiedades/MapaPropiedadesFullClient'), { ssr: false });
+   const MapaPropiedadesFullClient = dynamic(() => import('@/src/components/mapas/mapa-full-page/MapaPropiedadesFullClient'), { ssr: false });
    const router = useRouter();
 
    useEffect(() => {

@@ -8,7 +8,8 @@ export const getEmprendimientoById = (id: number): Promise<Response> => {
          'X-API-Key': BACKEND_API_KEY
       },
       next: {
-         revalidate: REVALIDATE_EMPRENDIMIENTOS_ID
+         revalidate: REVALIDATE_EMPRENDIMIENTOS_ID,
+         tags: [`emprendimientos-${id}`]
       }
    });
 

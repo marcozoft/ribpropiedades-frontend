@@ -12,12 +12,12 @@ export { SinResultados } from "./cards/SinResultados";
 export { EmprendimientoCard } from "./cards/EmprendimientoCard";
 
 // Mapas
-export { MapaPropiedadesFull } from "./mapa-propiedades/MapaPropiedadesFull";
-export { MapaPropiedad } from "./mapa-propiedades/MapaPropiedad";
-export { PropiedadPopup } from "./mapa-propiedades/PropiedadPopup";
-export { PlacePopup } from "./mapa-propiedades/PlacePopup";
-export { CuadroReferencias } from "./mapa-propiedades/CuadroReferencias";
-export { MapaNoSoportado } from "./mapa-propiedades/MapaNoSoportado";
+export { MapaPropiedadesFull } from "./mapas/mapa-full-page/MapaPropiedadesFull";
+export { MapaPropiedad } from "./mapas/mapa-unica-propiedad/MapaPropiedad";
+export { PropiedadPopup } from "./mapas/PropiedadPopup";
+export { PlacePopup } from "./mapas/PlacePopup";
+export { CuadroReferencias } from "./mapas/CuadroReferencias";
+export { MapaNoSoportado } from "./mapas/MapaNoSoportado";
 
 // Detalle full page
 export { PropiedadFullPage } from "./detalle-full-page/PropiedadFullPage";
@@ -46,7 +46,7 @@ export { FiltersPopover } from './filters-propiedades/FiltersPopover';
 export { AISearch } from './filters-propiedades/AISearch';
 export { ClasicSearch } from './filters-propiedades/ClasicSearch';
 export { SortPopover } from './filters-propiedades/SortPopover';
-export { ControlMapaGrilla } from './mapa-propiedades/ControlMapaGrilla';
+export { ControlMapaGrilla } from './mapas/ControlMapaGrilla';
 export { TituloDescriptivo } from "./filters-propiedades/TituloDescriptivo";
 export { UbicacionCommand } from './filters-propiedades/UbicacionCommand';
 

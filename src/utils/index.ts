@@ -6,10 +6,17 @@ export { filterSearchParams } from './form-utils';
 export { cn } from './utils';
 
 // GIS Utils
-export { nearbySearchToGeoJSON, propiedadesToGeoJSON, latLngToGeoJSON } from './gis-utils';
+export { 
+  propiedadesToFeatureCollectionExtended, 
+  latLngToFeatureCollectionExtended 
+} from './gis-utils';
 
 // Mapbox functions utils
-export { loadImage, createLayer, addFeaturesToLayer, loadNearbySearchPlaces } from './mapbox-utils';
+export { 
+  loadImage,
+  createFeatureCollectionLayer, 
+  loadNearbySearchPlaces,
+} from './mapbox-utils';
 
 // React client
 export { renderReactComponent, getOrCreateSessionId } from './react-client-utils';
@@ -20,3 +27,5 @@ export { hasWebGL } from './hasWebGL';
 // Sort utils
 export { sortEmprendimientosByNombre, sortPropiedadesByOrden, getCategoriasEmprendimientos } from './sort-utils';
 
+// Google Places utils
+export { generateCapasDeInteres, getCapaInteresByEspecificacion } from './google-places-utils';

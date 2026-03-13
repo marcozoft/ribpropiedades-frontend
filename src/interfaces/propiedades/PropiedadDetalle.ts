@@ -1,3 +1,5 @@
+import { FeatureCollectionExtended } from '../geo-interfaces/FeatureCollectionExtended';
+
 export interface PropiedadDetalle {
     aberturas:             string;
     acceso:                string;
@@ -196,4 +198,5 @@ export interface PropiedadDetalle {
     vivienda_anexa:        number;
     zona:                  string;
     zonificacion:          string;
+    puntosDeInteres:       FeatureCollectionExtended[];
 }

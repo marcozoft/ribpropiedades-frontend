@@ -1,13 +1,12 @@
 "use client";
 
-import { PropiedadBasico } from "@/src/interfaces";
+import { FeatureCollectionExtended, PropiedadBasico } from "@/src/interfaces";
 import { useEffect, useRef, useState } from "react";
-import mapboxgl from 'mapbox-gl';
+import mapboxgl, { Map } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
-import { createLayer, loadImage, loadNearbySearchPlaces, propiedadesToGeoJSON, renderReactComponent } from "@/src/utils";
+import { createFeatureCollectionLayer, propiedadesToFeatureCollectionExtended, renderReactComponent } from "@/src/utils";
 import { PropiedadPopup, PlacePopup, CuadroReferencias } from "@/src/components";
-import { CapaDeInteres } from '../../interfaces/CapaDeInteres';
 
 
 // Token de Mapbox
@@ -57,37 +56,21 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
 
    }
 
-   /**
-    * Eventos del cursor para ver Pointer
-    * al pasar por un marcador
-    */
-   const addCursorEvents = () => {
-
-      // Cambiar cursor al pasar sobre el layer
-      mapRef.current!.on('mouseenter', [...CAPAS_INTERES.map( capa => capa.name), 'propiedades'], () => {
-         mapRef.current!.getCanvas().style.cursor = 'pointer';
-      });
-
-      mapRef.current!.on('mouseleave',[...CAPAS_INTERES.map( capa => capa.name), 'propiedades'], () => {
-         mapRef.current!.getCanvas().style.cursor = '';
-      });
-
-   }
 
    /**
     * Función async para cargar lugares
     */
    const loadPropiedades = async () => {
 
-      loadImage(mapRef.current!, '/markers/propiedad.png', 'propiedades');
-      createLayer(mapRef.current!, 'propiedades', propiedadesToGeoJSON(propiedades));
-
+      createFeatureCollectionLayer(mapRef.current!, propiedadesToFeatureCollectionExtended(propiedades, '/markers/propiedad.png', 'propiedades', {}));
+      
       // Evento click en el layer para mostrar popup
       mapRef.current?.on('click', 'propiedades', (e) => {
                   
          const feature = e.features![0];
          const coordinates = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
-         loadNearbySearchPlaces(mapRef.current!, coordinates);
+         // loadNearbySearchPlaces(mapRef.current!, feature.properties!.propiedadId);
+         loadCapasRelacionadasById(mapRef.current!, 'propiedades', feature.properties!.propiedadId)
          setVisibleReferencias(true);
          
          const popupContent = renderReactComponent(
@@ -117,18 +100,20 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
 
 
    /**
-    * Inicializar las capas de interes
-    * segun el array capasDeInteres
+    * 
     */
-   const initializeLayersPlaces = (map: mapboxgl.Map, capasDeInteres: CapaDeInteres[]) => {
+   const loadCapasRelacionadasById = async(map: Map, tipo: 'propiedades' | 'emprendimientos', id: number) => {
 
-      capasDeInteres.forEach(({ name, icon }) => {
-         loadImage(map, icon, name)
-         createLayer(map, name);
+      const capasDeInteres: FeatureCollectionExtended[] = (await fetch(
+        `/api/lugares/${tipo}/${id}`,
+      ).then((resp) => resp.json()));
+
+      capasDeInteres.forEach( featureCollection => {
+         createFeatureCollectionLayer(map, featureCollection);
       });
 
       // Evento click en el layer para mostrar popup
-      mapRef.current?.on('click', capasDeInteres.map( capa => capa.name), (e) => {
+      mapRef.current?.on('click', capasDeInteres.map( capa => capa.layerName), (e) => {
          if (!e.features || e.features.length === 0) return;
 
          const feature = e.features[0];
@@ -163,9 +148,8 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
       addControlsToMap();
 
       mapRef.current!.on('load', () => {
-         initializeLayersPlaces(mapRef.current!, CAPAS_INTERES);
          loadPropiedades();
-         addCursorEvents();
+         // initializeLayersPlaces(mapRef.current!, CAPAS_INTERES);
       });
 
       return () => {
@@ -186,7 +170,7 @@ export default function MapaPropiedadesClient({ propiedades, className }: Props)
          {/* Barra flotante de capas, inicialmente no visible, hasta la primer busqueda */}
          {
             visibleReferencias && (
-               <CuadroReferencias capasDeInteres={CAPAS_INTERES} className="hidden lg:block lg:absolute left-4 top-1/2 -translate-y-1/2 z-10"/>
+               <CuadroReferencias capasDeInteres={CAPAS_INTERES} />
             )
          }
       </div>
