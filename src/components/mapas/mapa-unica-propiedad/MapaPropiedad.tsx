@@ -4,13 +4,12 @@ import { hasWebGL } from '@/src/utils';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { MapaNoSoportado } from '@/src/components';
-import { FeatureCollectionExtended } from '@/src/interfaces';
 
 type Props = {
    latitud: number;
    longitud: number;
    id: number,
-   tipo: 'propiedad' | 'emprendimiento'
+   tipo: 'propiedades' | 'emprendimientos'
    className?: string;
 }
 

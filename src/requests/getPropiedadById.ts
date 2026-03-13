@@ -23,7 +23,7 @@ export const getPropiedadById = async (id: number): Promise<Response> => {
       },
       next: {
          revalidate: REVALIDATE_PROPIEDAD_ID,
-         tags: [`propiedad-${id}`]
+         tags: [`propiedades-${id}`]
       }
    });
 

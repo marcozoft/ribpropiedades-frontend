@@ -1,8 +1,8 @@
-import { CapaDeInteres } from "@/src/interfaces";
+import { FeatureCollectionExtended } from "@/src/interfaces";
 import Image from "next/image"
 
 type Props = {
-   capasDeInteres: CapaDeInteres[];
+   capasDeInteres: FeatureCollectionExtended[];
    className?: string;
 }
 export const CuadroReferencias = ({capasDeInteres, className}: Props) => {

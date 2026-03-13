@@ -5,7 +5,7 @@ import mapboxgl, { Map } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { FeatureCollectionExtended } from "@/src/interfaces";
 import { MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
-import { renderReactComponent, createFeatureCollectionLayer, loadNearbySearchPlaces } from "@/src/utils";
+import { renderReactComponent, createFeatureCollectionLayer } from "@/src/utils";
 import { PlacePopup } from "@/src/components";
 import { latLngToFeatureCollectionExtended } from "@/src/utils/gis-utils";
 
@@ -17,7 +17,7 @@ type Props = {
    latitud: number,
    longitud: number,
    id: number,
-   tipo: 'propiedad' | 'emprendimiento'
+   tipo: 'propiedades' | 'emprendimientos'
    className?: string;
 }
 
@@ -59,7 +59,7 @@ export default function MapaPropiedadClient({ latitud, longitud, id, tipo, class
    /**
     * 
     */
-   const initializeLayersPlaces = async(map: Map) => {
+   const loadCapasRelacionadasById = async(map: Map, tipo: 'propiedades' | 'emprendimientos', id: number) => {
 
       const capasDeInteres: FeatureCollectionExtended[] = (await fetch(
         `/api/lugares/${tipo}/${id}`,
@@ -106,7 +106,7 @@ export default function MapaPropiedadClient({ latitud, longitud, id, tipo, class
       
       mapRef.current!.on('load', () => {
          createFeatureCollectionLayer(mapRef.current!, latLngToFeatureCollectionExtended(latitud, longitud, '/markers/propiedad.png', 'propiedad', {}));
-         initializeLayersPlaces(mapRef.current!);
+         loadCapasRelacionadasById(mapRef.current!, tipo, id);
       });
 
       return () => {

@@ -47,6 +47,34 @@ export const propiedadesToGeoJSON = ( propiedades: PropiedadBasico[]): FeatureCo
 }
 
 
+export const propiedadesToFeatureCollectionExtended = (
+   propiedades: PropiedadBasico[],
+   icon: string,
+   layerName: string,
+   { label }: { label?: string }
+): FeatureCollectionExtended => {
+   return {
+     type: "FeatureCollection",
+     layerName: layerName,
+     label: label?? '',
+     icon: icon,
+     features: propiedades.map((prop, index) => ({
+         type: "Feature",
+         geometry: {
+            type: "Point",
+            coordinates: [
+               +prop.mapa_longitud,
+               +prop.mapa_latitud
+            ]
+         },
+         properties: {
+            index,
+            propiedadId: prop.id
+         }
+      }))
+   };
+}
+
 /**
  * Convertir coordenadas de latitud/longitud a FeatureCollectionExtended
  * 
@@ -90,7 +118,7 @@ export const latLngToFeatureCollectionExtended = (
 ): FeatureCollectionExtended => {
    return {
      type: "FeatureCollection",
-     layerName: layerName?? '',
+     layerName: layerName,
      label: label?? '',
      icon,
      features: [

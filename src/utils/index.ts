@@ -6,14 +6,16 @@ export { filterSearchParams } from './form-utils';
 export { cn } from './utils';
 
 // GIS Utils
-export { nearbySearchToGeoJSON, propiedadesToGeoJSON, latLngToFeatureCollectionExtended } from './gis-utils';
+export { 
+  nearbySearchToGeoJSON, 
+  propiedadesToFeatureCollectionExtended, 
+  latLngToFeatureCollectionExtended 
+} from './gis-utils';
 
 // Mapbox functions utils
 export { 
-  loadImage, 
-  createEmptyLayer,
+  loadImage,
   createFeatureCollectionLayer, 
-  addFeaturesToLayer, 
   loadNearbySearchPlaces,
 } from './mapbox-utils';
 

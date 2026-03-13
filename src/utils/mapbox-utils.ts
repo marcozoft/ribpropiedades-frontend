@@ -1,48 +1,45 @@
-import { FeatureCollectionExtended, LugaresRequest } from "../interfaces";
+import { FeatureCollectionExtended } from "../interfaces";
 
 /**
- * Load image
+ * Cargar imagen para un marcador en el mapa
  * 
- * @param map Mapbox map
- * @param imageUrl Image to load
- * @param layerName Name of layer
+ * Carga una imagen desde una URL y la registra en el mapa de Mapbox.
+ * Valida si la imagen ya existe antes de cargarla (evita duplicados).
+ * 
+ * @param {mapboxgl.Map} map - Instancia del mapa de Mapbox
+ * @param {string} imageUrl - URL de la imagen a cargar (ej: '/markers/propiedad.png')
+ * @param {string} layerName - Identificador único para la imagen (generalmente el nombre de la capa)
+ * 
+ * @returns {void} No retorna ningún valor.
+ * 
+ * @throws {Error} Si hay un error al cargar la imagen desde la URL
  */
 export const loadImage = (map: mapboxgl.Map, imageUrl: string, layerName: string): void => {
 
+   const imageName = `${layerName}-image`;
+
+   // Validar si la imagen ya existe
+   if (map.hasImage(imageName)) {
+      console.log(`✅ Imagen "${imageName}" ya cargada`);
+      return;
+   }
+
    map.loadImage(imageUrl, (error, image) => {
-      if (error) throw error;
-      map.addImage(`${layerName}-image`, image!);
+      if (error) {
+         console.error(`❌ Error cargando imagen "${imageUrl}":`, error);
+         throw error;
+      }
+
+      if (!image) {
+         console.error(`❌ La imagen "${imageUrl}" es nula`);
+         return;
+      }
+
+      map.addImage(imageName, image);
+      console.log(`✅ Imagen cargada: "${imageName}"`);
    })
 
 }
-
-
-/**
- * 
- * @param map 
- * @param layerName 
- * @param data 
- */
-export const createEmptyLayer = (map: mapboxgl.Map, layerName: string, data?: GeoJSON.FeatureCollection): void => {
-
-   map.addSource(`${layerName}-source`, {
-      type: 'geojson', data: data ? data : {
-         type: "FeatureCollection",
-         features: []
-      }
-   });
-
-   map.addLayer({
-      id: layerName,
-      type: 'symbol',
-      source: `${layerName}-source`,
-      layout: {
-         'icon-image': `${layerName}-image`,
-         'icon-size': 1
-      }
-   });
-}
-
 
 /**
  * Crear una capa usando FeatureCollection en el mapa
@@ -78,57 +75,53 @@ export const createEmptyLayer = (map: mapboxgl.Map, layerName: string, data?: Ge
 export const createFeatureCollectionLayer = (map: mapboxgl.Map, data: FeatureCollectionExtended): void => {
    
    const layerName = data.layerName;
+   const sourceId = `${layerName}-source`;
+   const layerId = layerName;
 
-   map.addSource(`${layerName}-source`, {
-      type: 'geojson',
-      data: data
-   });
+   // Validar si la source ya existe
+   const sourceExists = map.getSource(sourceId) !== undefined;
 
-   loadImage(map, data.icon, layerName );
+   if (sourceExists) {
+      const layerName = data.layerName;
+      const source = map.getSource(`${layerName}-source`) as mapboxgl.GeoJSONSource;
+
+      // Obtener data actual
+      const currentData = source._data as GeoJSON.FeatureCollection;
+
+      // Combinar con nuevos points
+      const updatedData: GeoJSON.FeatureCollection = {
+         type: 'FeatureCollection',
+         features: [...currentData.features, ...data.features]
+      };
+
+      source.setData(updatedData);
+      return;
+   }
+
+   // Agregar source si no existe
+   if (!sourceExists) {
+      map.addSource(sourceId, {
+         type: 'geojson',
+         data: data
+      });
+   }
+
+   // Cargar imagen del icono
+   loadImage(map, data.icon, layerName);
 
    map.addLayer({
-      id: layerName,
+      id: layerId,
       type: 'symbol',
-      source: `${layerName}-source`,
+      source: sourceId,
       layout: {
          'icon-image': `${layerName}-image`,
          'icon-size': 1
       }
    });
    
-   addCursorEvents(map, layerName);
+   addCursorEvents(map, layerId);
 }
 
-
-/**
- * Add features to existent layer
- * 
- * @param map 
- * @param layerName 
- * @param data 
- * @returns 
- */
-export const addFeaturesToLayer = (map: mapboxgl.Map, data: FeatureCollectionExtended): void => {
-
-   const layerName = data.layerName;
-   const source = map.getSource(`${layerName}-source`) as mapboxgl.GeoJSONSource;
-
-   if (!source) {
-      console.warn(`Source ${layerName} not found`);
-      return;
-   }
-
-   // Obtener data actual
-   const currentData = source._data as GeoJSON.FeatureCollection;
-
-   // Combinar con nuevos points
-   const updatedData: GeoJSON.FeatureCollection = {
-      type: 'FeatureCollection',
-      features: [...currentData.features, ...data.features]
-   };
-
-   source.setData(updatedData);
-}
 
 
 /**
@@ -141,8 +134,6 @@ export const loadNearbySearchPlaces = async (map: mapboxgl.Map, propiedadId: num
 
    console.log('Capas de interes (GeoJSON):', capasInteres);
    
-   // capasInteres.forEach(capaFeatureCollection => addFeaturesToLayer(map, capaFeatureCollection));
-
 }
 
 /**

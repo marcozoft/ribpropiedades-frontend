@@ -170,7 +170,7 @@ export const SeccionPropiedad = async ({
       <MapaPropiedad
         latitud={+mapa_latitud}
         longitud={+mapa_longitud}
-        tipo="propiedad"
+        tipo="propiedades"
         id={id}
         className="h-80"
       />
