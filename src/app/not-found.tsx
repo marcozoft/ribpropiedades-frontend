@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
       <div className="relative w-full h-140">
         <Image className='absolute inset-0 object-cover w-full h-full' 
-          src={'/images/home-tu-proyecto-realidad.png'} 
+          src={'/images/home-tu-proyecto-realidad.webp'}
           width={1920} 
           height={560} 
           alt="Hacemos tu proyecto realidad"

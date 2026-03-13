@@ -1,5 +1,4 @@
 import { FeatureCollectionExtended, LugaresRequest } from "../interfaces";
-import { latLngToGeoJSON } from "./gis-utils";
 
 /**
  * Load image
@@ -16,30 +15,6 @@ export const loadImage = (map: mapboxgl.Map, imageUrl: string, layerName: string
    })
 
 }
-
-   /**
-    * Agregar marcador único de propiedad en el mapa
-    * 
-    * Esta función carga y renderiza un marcador de propiedad en el mapa de Mapbox.
-    * Realiza dos pasos principales:
-    * 1. Carga la imagen del marcador desde la carpeta `/public/markers/`
-    * 2. Crea una capa en el mapa con los datos geoespaciales de la propiedad
-    * 
-    * @param {mapboxgl.Map} map - Instancia del mapa de Mapbox donde se agregará el marcador
-    * @param {number} latitud - Coordenada de latitud de la propiedad (rango: -90 a 90)
-    * @param {number} longitud - Coordenada de longitud de la propiedad (rango: -180 a 180)
-    * 
-    * @returns {void} No retorna ningún valor. Realiza operaciones de mutación del mapa.
-    * 
-    * @example
-    * addPropiedadMarker(mapRef.current, -34.6037, -58.3816); // Buenos Aires
-    */
-   export const addPropiedadMarker = (map: mapboxgl.Map, latitud: number, longitud: number) => {
-
-      loadImage(map, '/markers/propiedad.png', 'propiedades');
-      createEmptyLayer(map, 'propiedades', latLngToGeoJSON(latitud, longitud));
-      
-   };
 
 
 /**
@@ -119,7 +94,9 @@ export const createFeatureCollectionLayer = (map: mapboxgl.Map, data: FeatureCol
          'icon-image': `${layerName}-image`,
          'icon-size': 1
       }
-   });   
+   });
+   
+   addCursorEvents(map, layerName);
 }
 
 
@@ -160,7 +137,7 @@ export const addFeaturesToLayer = (map: mapboxgl.Map, data: FeatureCollectionExt
 export const loadNearbySearchPlaces = async (map: mapboxgl.Map, propiedadId: number) => {
 
    // La coleccion entera llega en un solo llamado
-   const capasInteres = await fetch(`/api/lugares/${propiedadId}`).then(resp => resp.json()) as GeoJSON.FeatureCollection[];
+   const capasInteres = await fetch(`/api/lugares/propiedad/${propiedadId}`).then(resp => resp.json()) as GeoJSON.FeatureCollection[];
 
    console.log('Capas de interes (GeoJSON):', capasInteres);
    
@@ -168,4 +145,39 @@ export const loadNearbySearchPlaces = async (map: mapboxgl.Map, propiedadId: num
 
 }
 
+/**
+ * Agregar interactividad visual del cursor al pasar sobre una capa de marcadores
+ * 
+ * Esta función vincula eventos de entrada y salida del mouse a una capa específica del mapa.
+ * Cuando el usuario pasa el cursor sobre cualquier feature de la capa, el cursor cambia a 'pointer' (dedito)
+ * (indicando que el elemento es clickeable). Cuando el cursor sale de la capa, el cursor vuelve
+ * a su estado normal.
+ * 
+ * Eventos manipulados:
+ * - mouseenter: Se dispara cuando el cursor entra en la capa (cambia a pointer)
+ * - mouseleave: Se dispara cuando el cursor sale de la capa (restaura cursor normal)
+ * 
+ * @param {mapboxgl.Map} map - Instancia del mapa de Mapbox donde está registrada la capa
+ * @param {string} layerName - Identificador único de la capa a la que agregar los eventos
+ *                             Debe coincidir con el ID de una capa ya existente en el mapa
+ * 
+ * @returns {void} No retorna ningún valor. Realiza operaciones de suscripción a eventos.
+ * 
+ * 
+ * @note Esta función debe llamarse después de agregar la capa al mapa, ya que requiere que
+ *       el layerId ya exista en la instancia del mapa para registrar los listeners.
+ * 
+ */
+export const addCursorEvents = (map: mapboxgl.Map, layerName: string ) => {
+
+   // Cambiar cursor al pasar sobre el layer
+   map.on('mouseenter', layerName, () => {
+      map.getCanvas().style.cursor = 'pointer';
+   });
+
+   map.on('mouseleave', layerName, () => {
+      map.getCanvas().style.cursor = '';
+   });
+
+}
    

@@ -1,4 +1,4 @@
-import { FeatureCollection } from 'geojson';
+import { FeatureCollectionExtended } from '../geo-interfaces/FeatureCollectionExtended';
 
 export interface PropiedadDetalle {
     aberturas:             string;
@@ -198,5 +198,5 @@ export interface PropiedadDetalle {
     vivienda_anexa:        number;
     zona:                  string;
     zonificacion:          string;
-    puntosDeInteres:       FeatureCollection[];
+    puntosDeInteres:       FeatureCollectionExtended[];
 }

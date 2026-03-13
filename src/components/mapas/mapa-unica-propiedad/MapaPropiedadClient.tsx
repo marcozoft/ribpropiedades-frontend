@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import mapboxgl from 'mapbox-gl';
+import mapboxgl, { Map } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { FeatureCollectionExtended } from "@/src/interfaces";
-import { CAPAS_INTERES, MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
-import { renderReactComponent, latLngToGeoJSON, loadNearbySearchPlaces, addPropiedadMarker, createFeatureCollectionLayer } from "@/src/utils";
+import { MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
+import { renderReactComponent, createFeatureCollectionLayer, loadNearbySearchPlaces } from "@/src/utils";
 import { PlacePopup } from "@/src/components";
+import { latLngToFeatureCollectionExtended } from "@/src/utils/gis-utils";
 
 
 // Token de Mapbox
@@ -15,20 +16,20 @@ mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 type Props = {
    latitud: number,
    longitud: number,
-   puntosDeInteres: FeatureCollectionExtended[];
+   id: number,
+   tipo: 'propiedad' | 'emprendimiento'
    className?: string;
 }
 
-
-
-export default function MapaPropiedadClient({ latitud, longitud, className, puntosDeInteres }: Props) {
+export default function MapaPropiedadClient({ latitud, longitud, id, tipo, className }: Props) {
    
    const mapContainerRef = useRef<HTMLDivElement | null>(null);
    const mapRef = useRef<mapboxgl.Map | null>(null);
    
+
    /**
     * Creacion de mapa
-    * mapa base + bounds inicial
+    * mapa base + center
     */
    const createMapboxMap = () => {
       mapRef.current = new mapboxgl.Map({
@@ -56,29 +57,13 @@ export default function MapaPropiedadClient({ latitud, longitud, className, punt
    }
 
    /**
-    * Eventos del cursor para ver Pointer
-    * al pasar por un marcador
+    * 
     */
-   const addCursorEvents = () => {
+   const initializeLayersPlaces = async(map: Map) => {
 
-      // TODO:
-      // // Cambiar cursor al pasar sobre el layer
-      // mapRef.current!.on('mouseenter', [...CAPAS_INTERES.map( capa => capa.name)], () => {
-      //    mapRef.current!.getCanvas().style.cursor = 'pointer';
-      // });
-
-      // mapRef.current!.on('mouseleave',[...CAPAS_INTERES.map( capa => capa.name)], () => {
-      //    mapRef.current!.getCanvas().style.cursor = '';
-      // });
-
-   }
-
-
-
-   const initializeLayersPlaces = (map: mapboxgl.Map, capasDeInteres: FeatureCollectionExtended[]) => {
-
-      console.log(puntosDeInteres);
-
+      const capasDeInteres: FeatureCollectionExtended[] = (await fetch(
+        `/api/lugares/${tipo}/${id}`,
+      ).then((resp) => resp.json()));
 
       capasDeInteres.forEach( featureCollection => {
          createFeatureCollectionLayer(map, featureCollection);
@@ -91,7 +76,6 @@ export default function MapaPropiedadClient({ latitud, longitud, className, punt
          const feature = e.features[0];
          const coordinates = (feature.geometry as GeoJSON.Point).coordinates as [number, number];;
          const { displayName, formattedAddress, primaryType, types } = feature.properties!;
-
 
          const popupContent = renderReactComponent(
             <PlacePopup 
@@ -119,12 +103,10 @@ export default function MapaPropiedadClient({ latitud, longitud, className, punt
 
       createMapboxMap();
       addControlsToMap();
-
+      
       mapRef.current!.on('load', () => {
-         addPropiedadMarker(mapRef.current!, latitud, longitud);
-         initializeLayersPlaces(mapRef.current!, puntosDeInteres);
-         // loadNearbySearchPlaces(mapRef.current!, feature.properties!.propiedadId);
-         addCursorEvents();
+         createFeatureCollectionLayer(mapRef.current!, latLngToFeatureCollectionExtended(latitud, longitud, '/markers/propiedad.png', 'propiedad', {}));
+         initializeLayersPlaces(mapRef.current!);
       });
 
       return () => {

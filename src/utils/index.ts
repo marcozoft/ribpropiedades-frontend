@@ -6,7 +6,7 @@ export { filterSearchParams } from './form-utils';
 export { cn } from './utils';
 
 // GIS Utils
-export { nearbySearchToGeoJSON, propiedadesToGeoJSON, latLngToGeoJSON } from './gis-utils';
+export { nearbySearchToGeoJSON, propiedadesToGeoJSON, latLngToFeatureCollectionExtended } from './gis-utils';
 
 // Mapbox functions utils
 export { 
@@ -15,7 +15,6 @@ export {
   createFeatureCollectionLayer, 
   addFeaturesToLayer, 
   loadNearbySearchPlaces,
-  addPropiedadMarker
 } from './mapbox-utils';
 
 // React client

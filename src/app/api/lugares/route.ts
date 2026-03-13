@@ -70,14 +70,14 @@ export async function POST(req: Request): Promise<NextResponse> {
  */
 const buildPlacesFromGoogle = (capasDeInteres: CapaDeInteresEspecificacion[], latitud: number, longitud: number): FeatureCollectionExtended[] => {
   
-  capasDeInteres.forEach(async ({ name, includedPrimaryTypes, excludePrimaryTypes, radius, rankPreference }) => {
+  capasDeInteres.forEach(async ({ name, includedPrimaryTypes, excludedPrimaryTypes, radius, rankPreference }) => {
     const request: LugaresRequest = {
       results: 20,
       includedPrimaryTypes: includedPrimaryTypes,
       lat: latitud,
       lng: longitud,
       radius: radius,
-      excludedPrimaryTypes: excludePrimaryTypes,
+      excludedPrimaryTypes: excludedPrimaryTypes,
       rankPreference: rankPreference
     };
   })

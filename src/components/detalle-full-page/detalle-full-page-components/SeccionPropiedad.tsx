@@ -1,5 +1,5 @@
 import { secondaryFont } from "@/src/config/fonts";
-import { PropiedadDetalleResponse } from "@/src/interfaces";
+import { FeatureCollectionExtended, PropiedadDetalleResponse } from "@/src/interfaces";
 import { DetallesGrid, IndicadoresNumericos, SeccionVideos } from ".";
 import {
   IndicadorPrecio,
@@ -8,16 +8,17 @@ import {
 } from "@/src/components";
 import { allFields, detallesPorTipoDeInmueble } from "@/src/constants/fichas-propiedad-constants";
 import { WHATSAPP_PROMPT_PROPIEDAD } from "@/src/constants/share-social-constants";
-import { mockPuntosDeInteres } from "@/src/constants/mockPuntosDeInteres";
+
 
 type SeccionPropiedadProps = {
   propiedadResponse: PropiedadDetalleResponse;
 };
 
-export const SeccionPropiedad = ({
+export const SeccionPropiedad = async ({
   propiedadResponse,
 }: SeccionPropiedadProps) => {
   const {
+    id,
     codigo,
     descripcion_larga,
     mapa_latitud,
@@ -39,16 +40,11 @@ export const SeccionPropiedad = ({
     video,
     video2,
     video3,
-    puntosDeInteres,
+    // puntosDeInteres,
   } = propiedadResponse.propiedad;
 
-
-  console.log('Puntos de interes', puntosDeInteres);
   
-  const puntosDeInteresMapa = puntosDeInteres == null
-    ? mockPuntosDeInteres
-    : puntosDeInteres;
-
+  
   return (
     <section id="descripcion" className="">
       {/* Titulo, operacion, nombre del emprendimiento (si pertenece a un emprendimiento) y precio */}
@@ -174,7 +170,8 @@ export const SeccionPropiedad = ({
       <MapaPropiedad
         latitud={+mapa_latitud}
         longitud={+mapa_longitud}
-        puntosDeInteres={puntosDeInteresMapa}
+        tipo="propiedad"
+        id={id}
         className="h-80"
       />
     </section>
