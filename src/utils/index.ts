@@ -7,7 +7,6 @@ export { cn } from './utils';
 
 // GIS Utils
 export { 
-  nearbySearchToGeoJSON, 
   propiedadesToFeatureCollectionExtended, 
   latLngToFeatureCollectionExtended 
 } from './gis-utils';

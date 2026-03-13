@@ -1,4 +1,4 @@
-import { getAllPropiedades, putPuntosDeInteresById } from "@/src/requests";
+import { getAllPropiedades } from "@/src/requests";
 import { NextResponse } from "next/server";
 
 /**

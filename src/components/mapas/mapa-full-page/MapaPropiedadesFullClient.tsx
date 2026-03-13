@@ -5,9 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import mapboxgl, { Map } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_ACCESS_TOKEN, ZOOM_FLY } from "@/src/constants/geo-constants";
-import { createFeatureCollectionLayer, loadImage, loadNearbySearchPlaces, propiedadesToFeatureCollectionExtended, renderReactComponent } from "@/src/utils";
+import { createFeatureCollectionLayer, propiedadesToFeatureCollectionExtended, renderReactComponent } from "@/src/utils";
 import { PropiedadPopup, PlacePopup, CuadroReferencias } from "@/src/components";
-import { CapaDeInteresEspecificacion } from '../../../interfaces/geo-interfaces/CapaDeInteresEspecificacion';
 
 
 // Token de Mapbox

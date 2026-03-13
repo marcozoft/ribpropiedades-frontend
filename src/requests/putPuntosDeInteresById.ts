@@ -1,4 +1,3 @@
-import { revalidateTag } from "next/cache";
 import { API_URL, BACKEND_API_KEY } from "../constants/constants"
 import { FeatureCollectionExtended } from "../interfaces";
 
