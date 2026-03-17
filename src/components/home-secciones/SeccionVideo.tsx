@@ -14,7 +14,7 @@ export const SeccionVideo = () => {
         {/* iframe carga primero, por debajo */}
         <iframe
           className="w-full h-full scale-[1.8] md:scale-[1.3] pointer-events-none origin-center"
-          src={`https://www.youtube.com/embed/${YOUTUBE_ID_HOME}?autoplay=1&mute=1&controls=0&loop=1&playlist=IxfRAd0QlRU&modestbranding=1&rel=0&fs=0&showinfo=0`}
+          src={`https://www.youtube.com/embed/${YOUTUBE_ID_HOME}?autoplay=1&mute=1&controls=0&loop=1&playlist=${YOUTUBE_ID_HOME}&modestbranding=1&rel=0&fs=0&showinfo=0`}
           title="RIB Propiedades - Video"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
