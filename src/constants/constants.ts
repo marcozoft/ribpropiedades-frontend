@@ -10,7 +10,7 @@ export const RECAPTCHA_SERVER_API_KEY = process.env.GOOGLE_RECAPTCHA_SECRET_API_
 
 
 // Video full home
-export const YOUTUBE_ID_HOME = 'Becdct5qLcE';
+export const YOUTUBE_ID_HOME = 'UicMRkJKZXI';
 
 // Email
 export const EMAIL = 'info@ribpropiedades.com.ar';
