@@ -31,4 +31,4 @@ export const TELEFONO_LINK = 'tel:+5491134201500';
 export const WHATSAPP_TASACION = 'https://api.whatsapp.com/send?phone=5491134201500&text=Hola,%20quiero%20solicitar%20una%20tasación'
 
 // Contacto form
-export const PROMPT_WHATSAPP_FICHA = 'https://api.whatsapp.com/send?phone=5491134201500&text=Hola,%20quiero%consultar%20por%20una%20propiedad%20'
+export const PROMPT_WHATSAPP_FICHA = 'https://api.whatsapp.com/send?phone=5491134201500&text=Hola,%20quiero%20consultar%20por%20una%20propiedad%20:'

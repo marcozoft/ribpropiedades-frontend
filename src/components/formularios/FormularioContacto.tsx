@@ -39,24 +39,26 @@ export const FormularioContacto = () => {
    const [formData, setFormData] = useState<FormData>(formInitialData);
    const [isSubmitted, setIsSubmitted] = useState(false);
    const [isLoading, setIsLoading] = useState(false);
-
-
+   
+   
    /**
     *  POST Formulario
-    */
-   const handleSubmit = async (e: React.FormEvent) => {
-      e.preventDefault();
-      setIsLoading(true);
-      try {
-         const token = await grecaptcha.execute(RECAPTCHA_CLIENT_API_KEY, {
-            action: "contacto_form",
+   */
+  const handleSubmit = async (e: React.FormEvent) => {
+     e.preventDefault();
+     setIsLoading(true);
+     try {
+        const token = await grecaptcha.execute(RECAPTCHA_CLIENT_API_KEY, {
+           action: "contacto_form",
          });
-
+         
+         const urlCurrent = window.location.href;
          await fetch("/api/contacto", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                ...formData,
+               servicio: `${formData.servicio}: ${urlCurrent}`,
                recaptchaToken: token,
             }),
          });
@@ -72,8 +74,8 @@ export const FormularioContacto = () => {
    const onClickButtonWhattsap = (e: React.FormEvent) => {
 
       handleSubmit(e);
-      const link= typeof window !== 'undefined' ? window.location.href : '';
-      const whatsappUrl = `${PROMPT_WHATSAPP_FICHA}${encodeURIComponent(link)}`;
+      const urlCurrent = window.location.href;
+      const whatsappUrl = `${PROMPT_WHATSAPP_FICHA}${encodeURIComponent(urlCurrent)}`;
       window.open(whatsappUrl, '_blank');
    }
 
