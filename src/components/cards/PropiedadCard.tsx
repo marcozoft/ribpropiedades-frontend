@@ -72,7 +72,7 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
               className="text-black"
               precio={precio}
               precio_condicion={precio_publico}
-              sinEspecificar="Consultar"
+              sinEspecificar="Consultar precio"
               moneda="U$D"
             />
           </div>

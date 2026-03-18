@@ -54,7 +54,9 @@ export const PropiedadPopup = ({ propiedad }: Props) => {
                <div className="flex items-center justify-between">
                   <div className="flex items-baseline gap-1">
                      <span className="text-lg font-semibold text-gray-900">
-                        U$D {precio?.toLocaleString() || precio_publico || 'Consultar'}
+                        {
+                           precio_publico == 1 ?  `U$D ${precio.toLocaleString("es-AR")}` : `Consultar precio` 
+                        }
                      </span>
                   </div>
                </div>

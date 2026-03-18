@@ -75,7 +75,7 @@ export const SeccionPropiedad = async ({
           precio={precio}
           precio_condicion={precio_publico}
           moneda="U$D"
-          sinEspecificar="Consultar"
+          sinEspecificar="Consultar precio"
         />
       </div>
 
