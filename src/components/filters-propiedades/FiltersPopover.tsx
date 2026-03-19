@@ -17,6 +17,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  Input,
 } from "../shadcn-components";
 import { useState } from "react";
 import { Control } from "react-hook-form";
@@ -62,10 +63,10 @@ export function FiltersPopover({
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="leading-none font-medium">Filtros avanzados</h4>
-                  <p className="text-muted-foreground text-sm">
-                     Seleccione uno o más filtros
-                  </p>
-               </div>
+            <p className="text-muted-foreground text-sm">
+              Seleccione uno o más filtros
+            </p>
+          </div>
 
           {/* Dormitorios */}
           <FormField
@@ -97,6 +98,29 @@ export function FiltersPopover({
               </FormItem>
             )}
           />
+
+          {/* Codigo */}
+          {/* <div className="col-span-1 flex justify-center md:col-span-4"> */}
+          <FormField
+            control={control}
+            name="codigo"
+            render={({ field }) => (
+              <FormItem className="grid grid-cols-3 items-center gap-4">
+                <FormLabel className="font-normal">Código</FormLabel>
+                <FormControl className="col-span-2">
+                  <Input
+                    name={field.name}
+                    value={field.value ?? ""}
+                    placeholder="Código"
+                    onChange={field.onChange}
+                    disabled={disabled}
+                    className="w-full border-foreground"
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+          {/* </div> */}
 
           {/* Checkbox */}
           <div className="space-y-2">
@@ -189,26 +213,6 @@ export function FiltersPopover({
               )}
             />
           </div>
-
-          {/* Checkbox 3: Apto Profesional */}
-          {/* <FormField
-                  control={control}
-                  name="aptoProfesional"
-                  render={({ field }) => (
-                     <FormItem className="flex items-center space-x-2 space-y-0">
-                        <FormControl>
-                           <Checkbox
-                              checked={field.value}
-                              onCheckedChange={field.onChange}
-                              disabled={disabled}
-                           />
-                        </FormControl>
-                        <FormLabel className="text-sm font-normal cursor-pointer">
-                           Apto profesional
-                        </FormLabel>
-                     </FormItem>
-                  )}
-               /> */}
 
           <Button variant="search" onClick={onClickResultados}>
             VER RESULTADOS

@@ -69,6 +69,7 @@ export const ClasicSearch = ({
       tipo_inmueble: filterValues.tipo_inmueble ?? "",
       orden: filterValues.orden ?? "",
       dormitorios: filterValues.dormitorios ?? "",
+      codigo: filterValues.codigo ?? "",
       con_piscina: filterValues.con_piscina ?? "",
       con_una_planta: filterValues.con_una_planta ?? "",
       con_dormitorio_suite: filterValues.con_dormitorio_suite ?? "",
@@ -111,15 +112,15 @@ export const ClasicSearch = ({
     <Form {...form}>
       {/* Activar para debug */}
       {/* <pre className="text-xs bg-muted p-2 rounded">
-            {JSON.stringify(values, null, 2)}
-         </pre>  */}
+        {JSON.stringify(values, null, 2)}
+      </pre> */}
+
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="animate-in fade-in fade-out flex grow flex-col gap-4 md:flex-row"
       >
         {/* Selects grid*/}
-        <div
-          className={`grid grow grid-cols-1 items-center gap-4 md:grid-cols-12 ${!isExpanded ? "hidden md:grid" : ""}`}
+        <div className={`grid grow grid-cols-1 items-center gap-4 md:grid-cols-12 ${!isExpanded ? "hidden md:grid" : ""}`}
         >
           {/* Zona / Emprendimiento */}
           <div className={`col-span-1 flex justify-center md:col-span-4`}>
