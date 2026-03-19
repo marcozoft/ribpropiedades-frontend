@@ -26,21 +26,20 @@ export const CarouselImagenes = ({ imagenes }: Props) => {
   return (
     <>
       <Carousel className="w-full" opts={{ loop: true, align: "center" }}>
-        <CarouselContent>
+        <CarouselContent className="items-center">
           {imagenes.map((image, i) => (
             <CarouselItem
               key={i}
-              className="basis-[70%] cursor-pointer px-1"
+              className="basis-[90%] cursor-pointer px-px sm:basis-[80%] lg:basis-[70%] xl:basis-[60%]"
               onClick={() => setActiveIndex(i)}
             >
-              <div className="group relative">
+              <div className="group relative aspect-video lg:max-h-[70vh]">
                 <Image
                   src={generateSrcImage(image.imagen)}
                   alt={`Slide ${i + 1}`}
-                  width={0}
-                  height={0}
-                  sizes="70vw"
-                  className="h-[70vh] w-full object-cover"
+                  fill
+                  sizes="(max-width: 640px) 90vw, 70vw"
+                  className="object-contain"
                 />
                 <div className="absolute inset-0 flex items-end justify-end p-3">
                   <div className="rounded-full bg-black/50 p-2.5">
