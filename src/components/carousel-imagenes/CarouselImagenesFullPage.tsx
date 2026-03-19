@@ -20,17 +20,17 @@ export const CarouselImagenesFullPage = ({imagenes, initialIndex}:Props) => {
 
   return (
     <Carousel className="h-full w-full" opts={{ loop: true }} setApi={setApi}>
-      <CarouselContent>
+      <CarouselContent className="items-center">
         {imagenes.map((image, i) => (
-          <div className="flex w-full shrink-0" key={i}>
-            <div className="relative h-screen w-full overflow-hidden">
-              <Image
-                src={generateSrcImage(image.imagen)}
-                alt={`Slide ${i + 1}`}
-                fill
-                className="object-cover"
-              />
-            </div>
+          <div className="flex h-screen w-full shrink-0 items-center justify-center" key={i}>
+            <Image
+              src={generateSrcImage(image.imagen)}
+              alt={`Slide ${i + 1}`}
+              width={1240}
+              height={698}
+              sizes="100vw"
+              className="max-h-screen w-full object-contain"
+            />
           </div>
         ))}
       </CarouselContent>
