@@ -42,9 +42,9 @@ export const CarouselImagenes = ({ imagenes }: Props) => {
                   sizes="70vw"
                   className="h-[70vh] w-full object-cover"
                 />
-                <div className="absolute inset-0 flex items-end justify-end p-3 opacity-0 transition-opacity group-hover:opacity-100">
-                  <div className="rounded-full bg-black/50 p-1.5">
-                    <Expand className="size-5 text-white" />
+                <div className="absolute inset-0 flex items-end justify-end p-3">
+                  <div className="rounded-full bg-black/50 p-2.5">
+                    <Expand className="size-8 text-white" />
                   </div>
                 </div>
               </div>
