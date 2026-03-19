@@ -8,6 +8,7 @@ import {
 } from "@/src/components";
 import { allFields, detallesPorTipoDeInmueble } from "@/src/constants/fichas-propiedad-constants";
 import { WHATSAPP_PROMPT_PROPIEDAD } from "@/src/constants/share-social-constants";
+import { CarouselPlanos } from '../../carousel-planos/CarouselPlanos';
 
 
 type SeccionPropiedadProps = {
@@ -40,7 +41,6 @@ export const SeccionPropiedad = async ({
     video,
     video2,
     video3,
-    // puntosDeInteres,
   } = propiedadResponse.propiedad;
 
   
@@ -67,7 +67,7 @@ export const SeccionPropiedad = async ({
         <h1 className="mt-4 text-xl font-semibold text-black lg:text-3xl xl:text-4xl">
           {titulo_venta}
         </h1>
-        <ShareDialog promptWhatsApp={WHATSAPP_PROMPT_PROPIEDAD}/>
+        <ShareDialog promptWhatsApp={WHATSAPP_PROMPT_PROPIEDAD} />
       </div>
 
       <div>
@@ -75,7 +75,7 @@ export const SeccionPropiedad = async ({
           precio={precio}
           precio_condicion={precio_publico}
           moneda="U$D"
-          sinEspecificar="Consultar"
+          sinEspecificar="Consultar precio"
         />
       </div>
 
@@ -84,86 +84,109 @@ export const SeccionPropiedad = async ({
         <span className="text-foreground">|&nbsp;</span>Detalles
       </h2>
 
-      <IndicadoresNumericos indicadores={[
-        {
-          nombre: "Sup. Total",
-          valor: sup_total,
-          icono: ( <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i> ),
-          unidad: "m²"
-        },
-        {
-          nombre: "Sup. Cubierta",
-          valor: sup_cubierta,
-          icono: ( <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i> ),
-          unidad: "m²"
-        },
-        {
-          nombre: "Sup. Balcón",
-          valor: sup_balcon,
-          icono: ( <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i> ),
-          unidad: "m²"
-        },
-        {
-          nombre: "Sup. Terreno",
-          valor: sup_terreno,
-          icono: ( <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i> ),
-          unidad: "m²"
-        },
-        {
-          nombre: "Frente",
-          valor: sup_frente,
-          icono: ( <i className="flaticon-expand text-black"></i>),
-          unidad: "m"
-        },
-        {
-          nombre: "Contrafrente",
-          valor: sup_contrafrente,
-          icono: ( <i className="flaticon-expand text-black"></i>),
-          unidad: "m"
-        },
-        {
-          nombre: "Lateral derecho",
-          valor: sup_lateral_derecho,
-          icono: ( <i className="flaticon-expand text-black"></i>),
-          unidad: "m"
-        },
-        {
-          nombre: "Lateral izquierdo",
-          valor: sup_lateral_izquierdo,
-          icono: ( <i className="flaticon-expand text-black"></i>),
-          unidad: "m"
-        },
-        {
-          nombre: "Superficie construible",
-          valor: sup_construible,
-          icono: ( <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i> ),
-          unidad: "m²"
-        },
-      ]}/>
+      <IndicadoresNumericos
+        indicadores={[
+          {
+            nombre: "Sup. Total",
+            valor: sup_total,
+            icono: (
+              <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
+            ),
+            unidad: "m²",
+          },
+          {
+            nombre: "Sup. Cubierta",
+            valor: sup_cubierta,
+            icono: (
+              <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
+            ),
+            unidad: "m²",
+          },
+          {
+            nombre: "Sup. Balcón",
+            valor: sup_balcon,
+            icono: (
+              <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
+            ),
+            unidad: "m²",
+          },
+          {
+            nombre: "Sup. Terreno",
+            valor: sup_terreno,
+            icono: (
+              <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
+            ),
+            unidad: "m²",
+          },
+          {
+            nombre: "Frente",
+            valor: sup_frente,
+            icono: <i className="flaticon-expand text-black"></i>,
+            unidad: "m",
+          },
+          {
+            nombre: "Contrafrente",
+            valor: sup_contrafrente,
+            icono: <i className="flaticon-expand text-black"></i>,
+            unidad: "m",
+          },
+          {
+            nombre: "Lateral derecho",
+            valor: sup_lateral_derecho,
+            icono: <i className="flaticon-expand text-black"></i>,
+            unidad: "m",
+          },
+          {
+            nombre: "Lateral izquierdo",
+            valor: sup_lateral_izquierdo,
+            icono: <i className="flaticon-expand text-black"></i>,
+            unidad: "m",
+          },
+          {
+            nombre: "Superficie construible",
+            valor: sup_construible,
+            icono: (
+              <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
+            ),
+            unidad: "m²",
+          },
+        ]}
+      />
 
       <DetallesGrid
         propiedad={propiedadResponse.propiedad}
-        detalles={ [...detallesPorTipoDeInmueble.get(tipo_inmueble) ?? [], ...allFields]}
+        detalles={[
+          ...(detallesPorTipoDeInmueble.get(tipo_inmueble) ?? []),
+          ...allFields,
+        ]}
       />
 
-      {/* Descripcion */}
+      {/* | Descripcion */}
       <h2 className="mt-8 mb-4 text-xl font-bold text-black">
         <span className="text-foreground">|&nbsp;</span>Descripción
       </h2>
 
       {/* Descripcion larga */}
-      <p 
+      <p
         className={`${secondaryFont.className} text-lg text-black`}
         dangerouslySetInnerHTML={{ __html: descripcion_larga }}
       />
 
+      {/* | Planos */}
+      {propiedadResponse.planos.length > 0 && (
+        <>
+          <h2 className="mt-8 mb-4 text-xl font-bold text-black">
+            <span className="text-foreground">|&nbsp;</span>Planos
+          </h2>
+          <CarouselPlanos imagenes={propiedadResponse.planos} />
+        </>
+      )}
+
       {/* Video/Videos (opcional) */}
-      {
-        <SeccionVideos videos={[video, video2, video3]} />
-      }
+      {<SeccionVideos videos={[video, video2, video3]} />}
 
       {/* Map */}
-      <h2 className="my-8 text-xl font-bold text-black">
+      <h2 className="mt-8 mb-4 text-xl font-bold text-black">
         <span className="text-foreground">|&nbsp;</span>Ubicación
       </h2>
 

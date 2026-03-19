@@ -20,6 +20,7 @@ export const getAllPropiedades = async (searchParams:SearchParams): Promise<Prop
       'tipo_inmueble': searchParams.tipo_inmueble || '',
       'orden': searchParams.orden || '',
       'dormitorios': searchParams.dormitorios || '',
+      'codigo': searchParams.codigo || '',
       'caracteristicas': caracteristicas,
    });   
       

@@ -13,7 +13,7 @@ export const SeccionVideos = ({ videos }: Props) => {
     <>
       {validVideos.length > 0 && (
         <>
-          <h2 className="my-8 text-xl font-bold text-black">
+          <h2 className="mt-8 mb-4 text-xl font-bold text-black">
             <span className="text-foreground">|&nbsp;</span>
             {`Video${validVideos.length > 1 ? 's' : ''}`}
           </h2>

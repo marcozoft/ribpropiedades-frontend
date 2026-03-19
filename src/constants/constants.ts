@@ -10,7 +10,7 @@ export const RECAPTCHA_SERVER_API_KEY = process.env.GOOGLE_RECAPTCHA_SECRET_API_
 
 
 // Video full home
-export const YOUTUBE_ID_HOME = 'Becdct5qLcE';
+export const YOUTUBE_ID_HOME = 'UicMRkJKZXI';
 
 // Email
 export const EMAIL = 'info@ribpropiedades.com.ar';
@@ -31,4 +31,4 @@ export const TELEFONO_LINK = 'tel:+5491134201500';
 export const WHATSAPP_TASACION = 'https://api.whatsapp.com/send?phone=5491134201500&text=Hola,%20quiero%20solicitar%20una%20tasación'
 
 // Contacto form
-export const PROMPT_WHATSAPP_FICHA = 'https://api.whatsapp.com/send?phone=5491134201500&text=Hola,%20quiero%consultar%20por%20una%20propiedad%20'
+export const PROMPT_WHATSAPP_FICHA = 'https://api.whatsapp.com/send?phone=5491134201500&text=Hola,%20quiero%20consultar%20por%20una%20propiedad%20:'

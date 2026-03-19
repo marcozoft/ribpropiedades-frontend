@@ -13,14 +13,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/src/components";
-import { CarouselImagenesFullPage } from "./CarouselImagenesFullPage";
+import { CarouselPlanosFullPage } from "./CarouselIPlanosFullPage";
 import { Expand, X } from "lucide-react";
 
 type Props = {
   imagenes: Imagen[];
 };
 
-export const CarouselImagenes = ({ imagenes }: Props) => {
+export const CarouselPlanos = ({ imagenes }: Props) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
@@ -30,7 +30,6 @@ export const CarouselImagenes = ({ imagenes }: Props) => {
           {imagenes.map((image, i) => (
             <CarouselItem
               key={i}
-              className="basis-[70%] cursor-pointer px-1"
               onClick={() => setActiveIndex(i)}
             >
               <div className="group relative">
@@ -39,12 +38,11 @@ export const CarouselImagenes = ({ imagenes }: Props) => {
                   alt={`Slide ${i + 1}`}
                   width={0}
                   height={0}
-                  sizes="70vw"
-                  className="h-[70vh] w-full object-cover"
+                  className="w-full object-contain"
                 />
                 <div className="absolute inset-0 flex items-end justify-end p-3">
-                  <div className="rounded-full bg-black/50 p-2.5">
-                    <Expand className="size-8 text-white" />
+                  <div className="rounded-full bg-black/50 p-1.5">
+                    <Expand className="size-5 text-white" />
                   </div>
                 </div>
               </div>
@@ -56,8 +54,12 @@ export const CarouselImagenes = ({ imagenes }: Props) => {
           classNameDot="bg-white/50 w-1.5 h-1.5 sm:w-2 sm:h-2"
           classNameDotSelected="bg-white w-3 h-3 sm:w-4 sm:h-4"
         />
-        <CarouselPrevious className="text-foreground -top-14 left-4 hidden translate-x-20 bg-white hover:bg-gray-300 sm:top-1/2 sm:-left-18 sm:flex sm:-translate-y-1/2" />
-        <CarouselNext className="-top-14 right-4 hidden -translate-x-20 bg-white hover:bg-gray-300 sm:top-1/2 sm:-right-18 sm:flex sm:-translate-y-1/2" />
+        {imagenes.length > 1 && (
+          <>
+            <CarouselPrevious className="text-foreground -top-14 left-4 hidden translate-x-20 bg-white hover:bg-gray-300 sm:top-1/2 sm:-left-18 sm:flex sm:-translate-y-1/2" />
+            <CarouselNext className="-top-14 right-4 hidden -translate-x-20 bg-white hover:bg-gray-300 sm:top-1/2 sm:-right-18 sm:flex sm:-translate-y-1/2" />
+          </>
+        )}
       </Carousel>
 
       {/* Fullscreen Modal */}
@@ -74,7 +76,7 @@ export const CarouselImagenes = ({ imagenes }: Props) => {
             <X className="text-foreground size-8" strokeWidth="3" />
           </Button>
 
-          <CarouselImagenesFullPage imagenes={imagenes} initialIndex={activeIndex} />
+          <CarouselPlanosFullPage imagenes={imagenes} initialIndex={activeIndex} />
         </div>
       )}
     </>

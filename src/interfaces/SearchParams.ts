@@ -3,6 +3,7 @@ export type SearchParams = {
    emprendimiento?: string;
    tipo_inmueble?: string;
    dormitorios?: string;
+   codigo?: string;
    zona?: string;
    queryAI?: string;
    vista?: 'mapa' | 'grilla';

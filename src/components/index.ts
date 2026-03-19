@@ -1,3 +1,4 @@
+
 // Skeletons (loaders)
 export { SkeletonCard } from "./skeletons/SkeletonCard";
 export { SkeletonFilterBar } from "./skeletons/SkeletonFilterBar";
@@ -33,6 +34,7 @@ export { CarouselLanzamientos } from './carousel-lanzamientos/CarouselLanzamient
 export { CarouselImagenes } from './carousel-imagenes/CarouselImagenes';
 export { CarouselCards } from "./carousel-cards-propiedades/CarouselCards";
 export { CarouselComentarios } from "./carousel-comentarios/CarouselComentarios";
+export { CarouselPlanos } from "./carousel-planos/CarouselPlanos";
 
 // Componentes reutilizables
 export { YouTubeVideoCard } from "./detalle-full-page/detalle-full-page-components";
