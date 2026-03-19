@@ -16,10 +16,10 @@ export const SeccionEmprendimiento = ({emprendimiento}: SeccionEmprendimientoPro
   } = emprendimiento;  
 
   return (
-    <div className="mt-10">
-      <h2 className="font-bold text-black text-xl my-4"><span className="text-foreground">|&nbsp;</span>Acerca de {nombre}</h2>
+    <>
+      <h2 className="font-bold text-black text-xl mt-8 mb-4"><span className="text-foreground">|&nbsp;</span>Acerca de {nombre}</h2>
       <p className={`${secondaryFont.className} text-black text-lg`}>{descripcion_corta}</p>
       <LinkButton className='my-4' href={generateHrefEmprendimiento(id, nombre)} text="Conocé el barrio"/>
-    </div>
+    </>
   )
 }
