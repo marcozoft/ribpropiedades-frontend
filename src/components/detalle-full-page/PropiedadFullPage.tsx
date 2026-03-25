@@ -32,7 +32,10 @@ export const PropiedadFullPage = ({
 
         {/* formulario de contacto */}
         <div className="bg-background p-5 xl:basis-1/3">
-          <FormularioContacto />
+          <FormularioContacto
+            propiedadId={propiedadResponse.propiedad.id}
+            propiedadCodigo={propiedadResponse.propiedad.codigo}
+          />
         </div>
       </div>
       <TrackerPropiedad propiedadId={propiedadResponse.propiedad.id}/>

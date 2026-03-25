@@ -34,12 +34,15 @@ const formInitialData = {
    mensaje: '',
 }
 
-export const FormularioContacto = () => {
+type Props = {
+   propiedadId?: number;
+   propiedadCodigo?: string;
+}
+export const FormularioContacto = ({propiedadId, propiedadCodigo}: Props) => {
 
    const [formData, setFormData] = useState<FormData>(formInitialData);
    const [isSubmitted, setIsSubmitted] = useState(false);
    const [isLoading, setIsLoading] = useState(false);
-   
    
    /**
     *  POST Formulario
@@ -51,14 +54,14 @@ export const FormularioContacto = () => {
         const token = await grecaptcha.execute(RECAPTCHA_CLIENT_API_KEY, {
            action: "contacto_form",
          });
-         
-         const urlCurrent = window.location.href;
          await fetch("/api/contacto", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                ...formData,
-               servicio: `${formData.servicio}: ${urlCurrent}`,
+               propiedad_id: propiedadId,
+               propiedad_codigo: propiedadCodigo,
+               servicio: `${formData.servicio}`,
                recaptchaToken: token,
             }),
          });
