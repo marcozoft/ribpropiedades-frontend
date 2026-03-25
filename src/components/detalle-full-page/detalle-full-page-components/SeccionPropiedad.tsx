@@ -6,8 +6,9 @@ import {
   MapaPropiedad,
   ShareDialog,
 } from "@/src/components";
-import { camposPorTipoInmueble } from "@/src/constants/fichas-propiedad-constants";
+import { camposPorTipoInmueble, descripcionCamposPropiedad } from "@/src/constants/fichas-propiedad-constants";
 import { WHATSAPP_PROMPT_PROPIEDAD } from "@/src/constants/share-social-constants";
+import { removeAccents } from "@/src/utils";
 import { CarouselPlanos } from '../../carousel-planos/CarouselPlanos';
 
 
@@ -36,7 +37,9 @@ export const SeccionPropiedad = async ({
     sup_terreno,
     sup_total,
     sup_construible,
+    sup_semi_cubierta,
     tipo_inmueble,
+    inmueble,
     titulo_venta,
     video,
     video2,
@@ -87,7 +90,7 @@ export const SeccionPropiedad = async ({
       <IndicadoresNumericos
         indicadores={[
           {
-            nombre: "Sup. Total",
+            nombre: descripcionCamposPropiedad.sup_total,
             valor: sup_total,
             icono: (
               <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
@@ -95,7 +98,7 @@ export const SeccionPropiedad = async ({
             unidad: "m²",
           },
           {
-            nombre: "Sup. Cubierta",
+            nombre: descripcionCamposPropiedad.sup_cubierta,
             valor: sup_cubierta,
             icono: (
               <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
@@ -103,7 +106,7 @@ export const SeccionPropiedad = async ({
             unidad: "m²",
           },
           {
-            nombre: "Sup. Balcón",
+            nombre: descripcionCamposPropiedad.sup_balcon,
             valor: sup_balcon,
             icono: (
               <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
@@ -111,7 +114,7 @@ export const SeccionPropiedad = async ({
             unidad: "m²",
           },
           {
-            nombre: "Sup. Terreno",
+            nombre: descripcionCamposPropiedad.sup_terreno,
             valor: sup_terreno,
             icono: (
               <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
@@ -119,32 +122,40 @@ export const SeccionPropiedad = async ({
             unidad: "m²",
           },
           {
-            nombre: "Frente",
+            nombre: descripcionCamposPropiedad.sup_frente,
             valor: sup_frente,
             icono: <i className="flaticon-expand text-black"></i>,
             unidad: "m",
           },
           {
-            nombre: "Contrafrente",
+            nombre: descripcionCamposPropiedad.sup_contrafrente,
             valor: sup_contrafrente,
             icono: <i className="flaticon-expand text-black"></i>,
             unidad: "m",
           },
           {
-            nombre: "Lateral derecho",
+            nombre: descripcionCamposPropiedad.sup_lateral_derecho,
             valor: sup_lateral_derecho,
             icono: <i className="flaticon-expand text-black"></i>,
             unidad: "m",
           },
           {
-            nombre: "Lateral izquierdo",
+            nombre: descripcionCamposPropiedad.sup_lateral_izquierdo,
             valor: sup_lateral_izquierdo,
             icono: <i className="flaticon-expand text-black"></i>,
             unidad: "m",
           },
           {
-            nombre: "Superficie construible",
+            nombre: descripcionCamposPropiedad.sup_construible,
             valor: sup_construible,
+            icono: (
+              <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
+            ),
+            unidad: "m²",
+          },
+          {
+            nombre: descripcionCamposPropiedad.sup_semi_cubierta,
+            valor: sup_semi_cubierta,
             icono: (
               <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
             ),
@@ -157,7 +168,7 @@ export const SeccionPropiedad = async ({
         propiedad={propiedadResponse.propiedad}
         detalles={[
           ...(camposPorTipoInmueble.get('todos') ?? []),
-          ...(camposPorTipoInmueble.get(tipo_inmueble) ?? []),
+          ...(camposPorTipoInmueble.get(tipo_inmueble) ?? camposPorTipoInmueble.get(removeAccents(inmueble)) ?? []),
         ]}
       />
 

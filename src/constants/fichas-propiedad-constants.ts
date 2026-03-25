@@ -159,12 +159,12 @@ export const descripcionCamposPropiedad = {
   sucursal: "NA",
   suelos: "Suelos",
   sum: "S.U.M.",
-  sup_balcon: "Sup. Balcón (m²)",                     //icono
+  sup_balcon: "Sup. Balcón",                     //icono
   sup_baulera: "Sup. Baulera (m²)",
   sup_cochera: "Sup. Cochera (m²)",
-  sup_construible: "Sup. Construible (m²)",           //icono
-  sup_contrafrente: "Sup. Contrafrente (m²)",         //icono
-  sup_cubierta: "Sup. Cubierta (m²)",                 //icono
+  sup_construible: "Sup. Construible",           //icono
+  sup_contrafrente: "Contrafrente",         //icono
+  sup_cubierta: "Sup. Cubierta",                     //icono
   sup_descubierta: "Sup. Descubierta (m²)",
   sup_despachos: "Sup. Despachos (m²)",
   sup_edificable: "Sup. Edificable (m²)",
@@ -172,9 +172,9 @@ export const descripcionCamposPropiedad = {
   sup_fondo: "Sup. Fondo (m²)",
   sup_frente: "Sup. Frente (m²)",                     //icono
   sup_hectareas: 'Sup. hectáreas',
-  sup_lateral_derecho: "Lateral derecho (m)",        //icono
-  sup_lateral_izquierdo: "Lateral izquierdo (m)",    //icono
-  sup_semi_cubierta: "Sup. semi cubierta (m²)",
+  sup_lateral_derecho: "Lateral derecho",             //icono
+  sup_lateral_izquierdo: "Lateral izquierdo",         //icono
+  sup_semi_cubierta: "Sup. semi cubierta",            //icono
   sup_terreno: "Sup. Terreno",                        //icono
   sup_tierras_altas: "Sup. tierras altas",
   sup_tierras_bajas: "Sup. tierras bajas",    
@@ -249,6 +249,7 @@ export const camposSiNo:(keyof PropiedadDetalle)[] = [
   'quincho',
   'riego',
   'sembrado',
+  'sum',
   'silos',
   'sol_jardin',
   'suelos',
@@ -291,7 +292,6 @@ camposPorTipoInmueble.set("chacra", [
   'casa_principal',
   'casa_casero', 
   'sup_hectareas',
-  'sup_semi_cubierta',
   'sup_tierras_bajas',
   'sup_tierras_altas',
 ]);
@@ -359,7 +359,6 @@ camposPorTipoInmueble.set('casa', [
   'toilette',
   'sup_descubierta',
   'sup_fondo',
-  'sup_semi_cubierta',
 ]);
 
 // 03 Departamento
@@ -411,64 +410,6 @@ camposPorTipoInmueble.set("departamento", [
   'piso',
   'quincho',
   'sum',
-  'sup_semi_cubierta',
-  'sup_descubierta',
-  'sup_balcon',
-  'tipo_pisos',
-  'toilette',
-  'unidades_pisos',
-]);
-
-// 03 Loft (departamento)
-camposPorTipoInmueble.set("loft", [
-  'aberturas',
-  'aire_acondicionado',
-  'altura_techo',
-  'ambientes',
-  'amueblada',
-  'antiguedad',
-  'arquitecto',
-  'balcones',
-  'banos_servicio',
-  'banos',
-  'baulera',
-  'cable',
-  'calefaccion',
-  'chimenea',
-  'cochera_tipo',
-  'cochera',
-  'cocheras',
-  'cocina',
-  'comedor_diario',
-  'dependencia_servicio',
-  'direccion_unidad',
-  'dormitorio_suite',
-  'dormitorios',
-  'edificio_ascensores',
-  'edificio_estado',
-  'edificio_pisos',
-  'edificio_tipo',
-  'entrada_servicio',
-  'escaleras',
-  'escritorio',
-  'estado',
-  'expensas_ano',
-  'expensas_mes',
-  'family',
-  'galeria',
-  'gimnasio',
-  'hall_entrada',
-  'lavadero',
-  'lote_vista',
-  'luminosidad',
-  'orientacion',
-  'parrilla',
-  'patio',
-  'piscina',
-  'piso',
-  'quincho',
-  'sum',
-  'sup_semi_cubierta',
   'sup_descubierta',
   'sup_balcon',
   'tipo_pisos',
@@ -516,7 +457,6 @@ camposPorTipoInmueble.set("fraccion", [
   'casa_principal',
   'casa_casero',
   'sup_hectareas',
-  'sup_semi_cubierta',
   'sup_tierras_altas',
   'sup_tierras_bajas',
   'zonificacion',
@@ -527,7 +467,6 @@ camposPorTipoInmueble.set("fraccion", [
 camposPorTipoInmueble.set("local", [
   'piso',
   'direccion_unidad',
-  'sup_semi_cubierta',
   'sup_descubierta',
   'sup_balcon',
   'expensas_mes',
@@ -544,6 +483,7 @@ camposPorTipoInmueble.set("local", [
   'aire_acondicionado',
   'aberturas',
   'cocina',
+  'banos',
 ]);
 
 
@@ -554,8 +494,8 @@ camposPorTipoInmueble.set("oficina", [
   'expensas_mes',
   'expensas_ano',
   'cable',
-  'edificio_tipo',
-  'edificio_estado',
+  // 'edificio_tipo', 
+  // 'edificio_estado',
   'edificio_ascensores',
   'piscina',
   'hall_entrada',
@@ -596,7 +536,6 @@ camposPorTipoInmueble.set("quinta", [
   'antiguedad',
   'lote',
   'lote_vista',
-  'sup_semi_cubierta',
   'sup_descubierta',
   'sup_fondo',
   'sup_frente',
@@ -668,7 +607,6 @@ camposPorTipoInmueble.set("edificio", [
   'antiguedad',
   'lote_vista',
   'orientacion',
-  'sup_semi_cubierta',
   'sup_balcon',
   'expensas_mes',
   'expensas_ano',

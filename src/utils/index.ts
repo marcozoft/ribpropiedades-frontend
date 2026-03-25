@@ -1,5 +1,5 @@
 export { generateSrcImage, getYouTubeId, isYouTubeVideoUrl } from './media-src';
-export { generateHrefPropiedad, generateHrefEmprendimiento, extractIdFromSlug } from './generate-slug';
+export { generateHrefPropiedad, generateHrefEmprendimiento, extractIdFromSlug, removeAccents } from './generate-slug';
 export { filterSearchParams } from './form-utils';
 
 // Shadcn components

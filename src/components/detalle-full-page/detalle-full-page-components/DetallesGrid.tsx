@@ -1,5 +1,5 @@
 import { camposSiNo, descripcionCamposPropiedad } from "@/src/constants/fichas-propiedad-constants";
-import { Detalle, PropiedadDetalle } from "@/src/interfaces";
+import { PropiedadDetalle } from "@/src/interfaces";
 
 type Props = {
   propiedad: PropiedadDetalle;
