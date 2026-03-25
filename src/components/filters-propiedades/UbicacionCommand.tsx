@@ -1,7 +1,7 @@
 "use client";
 
 import { ItemFilter, SearchParams } from "@/src/interfaces";
-import { Check, ChevronsUpDown, X } from "lucide-react";
+import { Check, ChevronsUpDown, Search, X } from "lucide-react";
 import { useState } from "react";
 import {
   Button,
@@ -54,7 +54,13 @@ export const UbicacionCommand = ({
   );
 
   const [open, setOpen] = useState(false);
+  const [searchEnabled, setSearchEnabled] = useState(false);
   const items = [...zonasItems, ...emprendimientosItems];
+
+  const handleOpenChange = (value: boolean) => {
+    setOpen(value);
+    if (!value) setSearchEnabled(false);
+  };
 
   // Determinar el valor actual mostrado
   const currentValue = zonaValue || emprendimientoValue;
@@ -64,9 +70,9 @@ export const UbicacionCommand = ({
     <>
       {/* Mobile blur backdrop */}
       {open && (
-        <div className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden" onClick={() => setOpen(false)} />
+        <div className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden" onClick={() => handleOpenChange(false)} />
       )}
-      <Popover open={open} onOpenChange={setOpen}>
+      <Popover open={open} onOpenChange={handleOpenChange}>
         <PopoverTrigger asChild disabled={disabled}>
         <Button
           variant="outline"
@@ -94,9 +100,20 @@ export const UbicacionCommand = ({
       <PopoverContent className="left-0 w-screen p-0 md:w-72 md:relative" side="bottom" avoidCollisions={false}>
         <Command className="w-screen md:w-72">
           <div className="relative">
-            <CommandInput placeholder="Buscar ubicación" />
-            {currentValue && (
+            {searchEnabled
+              ? <CommandInput placeholder="Buscar ubicación" autoFocus />
+              : <button
+                  type="button"
+                  className="flex w-full items-center gap-2 border-b px-3 py-2 text-sm text-muted-foreground hover:text-foreground"
+                  onClick={() => setSearchEnabled(true)}
+                >
+                  <Search className="size-4 shrink-0" />
+                  <span>Buscar ubicación</span>
+                </button>
+            }
+            {currentValue && !searchEnabled && (
               <button
+                type="button"
                 className="absolute right-2 top-1/2 -translate-y-1/2"
                 onClick={() => {
                   setValue("zona", "");
