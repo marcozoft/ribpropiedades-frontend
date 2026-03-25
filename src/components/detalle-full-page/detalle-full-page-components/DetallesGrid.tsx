@@ -1,33 +1,37 @@
+import { camposSiNo, descripcionCamposPropiedad } from "@/src/constants/fichas-propiedad-constants";
 import { Detalle, PropiedadDetalle } from "@/src/interfaces";
 
 type Props = {
   propiedad: PropiedadDetalle;
-  detalles: Detalle[];
+  detalles: (keyof PropiedadDetalle)[];
 };
 
 export const DetallesGrid = ({ propiedad, detalles }: Props) => {
 
-  return detalles.length > 0 ? (  
+  return (
     <div className="bg-background grid-cols grid px-10 py-6 md:grid-cols-2">
       {detalles.map(
-        ({ clave, descripcion }) => {
-          const valor = propiedad[clave as keyof PropiedadDetalle];
+        ( item ) => {
+          
+          const valor = propiedad[item];          
           
           // Validar que el valor existe y no es un array
-          if (valor == 0 || valor == null || Array.isArray(valor)) {
+          if (valor === "" || valor == null || valor === 0 ) {
             return null;
           }
-          
+
           return (
-            <p key={clave} className="my-2 text-sm text-black">
-              {descripcion}:&nbsp;
-              <span className="font-bold">
-                {valor === 1 || valor === "si" || valor === "1" ? "Si" : String(valor)}
+            <p key={item} className="my-2 text-sm text-black">
+              {descripcionCamposPropiedad[item]}:&nbsp;
+              <span className="font-bold capitalize">
+                {
+                  ( camposSiNo.includes(item) && valor === 1 ) ? 'Si' : String(propiedad[item])
+                }
               </span>
             </p>
           );
         },
       )}
     </div>
-  ) : null;
+  )
 };

@@ -1,334 +1,371 @@
-import { Detalle } from "../interfaces";
+import { PropiedadDetalle } from "../interfaces";
 
-const ambientes: Detalle = { 
-  descripcion: "Ambientes", 
-  clave: "ambientes" 
-};
-
-const estilo: Detalle = { 
-  descripcion: "Estilo", 
-  clave: "estilo"
-};
-
-const dormitorios: Detalle = {
-  descripcion: "Dormitorios",
-  clave: "dormitorios",
-};
-
-const plantas: Detalle = {
-  descripcion: "Nro. de plantas",
-  clave: "plantas",
-};
-
-const dorm_suit: Detalle = {
-  descripcion: "Dormitorios en suite",
-  clave: "dormitorio_suite",
-};
-
-const altura_techo: Detalle = {
-  descripcion: "Altura del techo",
-  clave: "altura_techo"
-}
-
-const estado: Detalle = {
-  descripcion: "Estado",
-  clave: "estado",
-};
-
-const antiguedad: Detalle = {
-  descripcion: "Antiguedad",
-  clave: "antiguedad",
-};
-
-const lote: Detalle = {
-  descripcion: "Lote",
-  clave: "lote",
-};
-
-const lote_asfalto: Detalle = {
-  descripcion: "Lote Asfalto",
-  clave: "lote_asfalto",
-}
-
-const lote_ubicacion: Detalle = {
-  descripcion: "Ubicación de lote",
-  clave: "lote_ubicacion",
-}
-
-
-const tipo_zona: Detalle = {
-  descripcion: "Tipo de zona",
-  clave: "tipo_zona",
-};
-
-const calefaccion: Detalle = {
-  descripcion: "Tipo de calefacción",
-  clave: "calefaccion",
-};
-
-const aberturas: Detalle = {
-  descripcion: "Aberturas",
-  clave: "aberturas",
-};
-
-const zonificacion: Detalle = {
-  descripcion: "Zonificación",
-  clave: "zonificacion",
-};
-
-const orientacion: Detalle = {
-  descripcion: "Orientación",
-  clave: "orientacion",
-};
-
-const banos: Detalle = {
-  descripcion: "Cantidad de baños",
-  clave: "banos",
-};
-
-const banos_servicio: Detalle = {
-  descripcion: "Baños de servicio",
-  clave: "banos_servicio",
-};
-
-const piscina: Detalle = {
-  descripcion: "Piscina",
-  clave: "piscina",
-};
-
-const cocina: Detalle = {
-  descripcion: "Cocina",
-  clave: "cocina",
-}
-
-const cocina_detalles: Detalle = {
-  descripcion: "Detalles de cocina",
-  clave: "cocina_detalles",
-}
-
-const cocina_muebles: Detalle = {
-  descripcion: "Muebles de cocina",
-  clave: "cocina_muebles",
-}
-
-const gas: Detalle = {
-  descripcion: "Gas natural",
-  clave: "gas"
-}
-
-const obra_sanitaria: Detalle = {
-  descripcion: "Obra sanitaria",
-  clave: "obra_sanitaria",
-}
-
-const telefono: Detalle = {
-  descripcion: "Servicio de teléfono",
-  clave: "telefono",
-}
-
-const internet: Detalle = {
-  descripcion: "Servicio de internet",
-  clave: "internet",
-}
-
-const cable: Detalle = {
-  descripcion: "Servicio de cable",
-  clave: "cable",
-}
-
-const electricidad: Detalle = {
-  descripcion: "Servicio de electricidad",
-  clave: "electricidad"
-}
-
-const asfalto: Detalle = {
-  descripcion: "Asfalto",
-  clave: "asfalto",
-}
-
-const agua_corriente: Detalle = {
-  descripcion: "Agua corriente",
-  clave: "agua_corriente",
-}
-
-const agua_caliente: Detalle = {
-  descripcion: "Agua caliente",
-  clave: "agua_caliente",
-}
-
-const seguridad: Detalle = {
-  descripcion: "Seguridad",
-  clave: "seguridad",
-}
-
-const demolicion: Detalle = {
-  descripcion: "Demolición",
-  clave: "demolicion",
-}
-
-const comedor_empleados: Detalle = {
-  descripcion: "Comedor para empleados",
-  clave: "comedor_empleados",
-}
-
-const tipo_pisos: Detalle = {
-  descripcion: "Tipo de piso",
-  clave: "tipo_pisos",
-}
-
-const vestuarios: Detalle = {
-  descripcion: "Vestuarios",
-  clave: "vestuarios",
-}
-
-const oficinas: Detalle = {
-  descripcion: "Oficinas",
-  clave: "oficinas",
-}
-
-const banos_por_genero: Detalle = {
-  descripcion: "Baños por género",
-  clave: "banos_por_genero",
-}
-
-const vivienda_anexa: Detalle = {
-  descripcion: "Vivienda anexa",
-  clave: "vivienda_anexa",
-}
-
-const of_cocina: Detalle = {
-  descripcion: "Cocina",
-  clave: "of_cocina",
-}
-
-const of_ducha: Detalle = {
-  descripcion: "Ducha",
-  clave: "of_ducha",
-}
-
-const bano_toilette_check: Detalle = {
-  descripcion: "Toilette",
-  clave: "bano_toilette_check"
-}
-
-const bano_servicio_check: Detalle = {
-  descripcion: "Baño de servicio",
-  clave: "bano_servicio_check"
-}
-
-const bano_servicio: Detalle = {
-  descripcion: "Baño de servicio",
-  clave: "banos_servicio",
-}
-
-const bano_externo_check: Detalle = {
-  descripcion: "Baño externo",
-  clave: "bano_externo_check",
-}
-
-const banos_texto: Detalle = {
-  descripcion: "Baño",
-  clave: "banos_texto",
-}
+export const descripcionCamposPropiedad = {
+  aberturas: "Aberturas",
+  acceso: "Acceso",
+  activo: "",
+  agua_caliente: "Agua caliente",
+  agua_corriente: "Agua corriente",
+  aire_acondicionado: "Aire acondicionado",
+  alambrado_perimetral: "Alambrado Perimetral",
+  altura_techo: "Altura de techo",
+  ambientes: "Ambientes",
+  amueblada: "Amueblada",
+  antiguedad: "Antigüedad",
+  apto_profesional: "",
+  arquitecto: "",
+  asfalto: "Asfalto",
+  balanza: "Balanza",
+  balcones: "Balcones",
+  bano_check: "Baño",
+  bano_externo_check: "Baño externo",
+  bano_servicio_check: "Baño de servicio",
+  bano_toilette_check: "Toilette",
+  banos_por_genero: "Baños por género",
+  banos_servicio: "Baños de servicio",
+  banos_texto: "Baños",
+  banos: "",
+  baulera: "Baulera",
+  bebederos: "Bebederos",
+  caballerizas: "Caballerizas",
+  cable: "Servicio de cable",
+  calefaccion: "Calefacción",
+  casa_casero: "Casa de casero",
+  casa_huespedes: "Casa de huéspedes",
+  casa_principal: "Casa principal",
+  cerca_ruta: "Cernanía a la ruta",
+  chimenea: "Chimenea",
+  cochera_tipo: "Tipo de chimenea",
+  cochera: "Cochera",
+  cocheras: "Cantidad de cocheras",
+  cocina_detalles: "NA",
+  cocina_muebles: "NA",
+  cocina: "Cocina",
+  codigo: "Código",
+  comedor_diario: "Comedor diario",
+  comedor_empleados: "Comedor para empleados",
+  demolicion: "Demolición",
+  dependencia_servicio: "Dependencia servicios",
+  deposito: "Depósito",
+  descripcion_corta: "",
+  descripcion_larga: "",
+  despachos: "Despachos",
+  destacado: "",
+  direccion_altura: "",
+  direccion_exacta: "",
+  direccion_publica: "",
+  direccion_unidad: "Dirección unidad",
+  dormitorio_suite: "Dormitorios en suite",
+  dormitorios: "Dormitorios",
+  edificio_ascensores: "",
+  edificio_estado: "",
+  edificio_pisos: "",
+  edificio_tipo: "",
+  electricidad: "Servicio de electricidad",
+  entrada_servicio: "Entrada de servicio",
+  entrada_vehiculos: "",
+  entrepiso: "",
+  escaleras: "",
+  escritorio: "Escritorio",
+  estado_edificio: "",
+  estado_habitacional: "Estado habitacional",
+  estado: "Estado",
+  estilo: "Estilo",
+  exclusiva: "",
+  expensas_ano: "Expensas anual",
+  expensas_detalles: "Detalle de expensas",
+  expensas_incluidas: "Expensas incluidas",
+  expensas_mes: "Expensas mensual",
+  expensas_monto: "Monto de expensas",
+  expensas: "Expensas",
+  faja_promocional: "",
+  family: "Family",
+  financiacion_detalles: "",
+  financiacion: "",
+  fuerza_motriz: "",
+  galeria: "Galería",
+  galpones: "Galpones",
+  gas: "Gas natural",
+  gimnasio: "Gimnasio",
+  hall_entrada: "Hall de entrada",
+  id_emprendimiento: "",
+  id_usuario: "",
+  id: "",
+  imagen_principal: "",
+  inmueble: "",
+  internet: "Servicio de internet",
+  lagunas: "",
+  lavadero: "Lavadero",
+  living: "Living",
+  local_en: "",
+  localidad: "",
+  lote_asfalto: "Lote Asfalto", // No
+  lote_ubicacion: "",
+  lote_vista: "Lote vista",
+  lote: "Lote",
+  luminosidad: "",
+  manga: "Manga",
+  mapa_latitud: "",
+  mapa_longitud: "",
+  maquinas: "",
+  molinos: "",
+  moneda: "",
+  montacargas: "",
+  motores: "",
+  naves: "",
+  obra_sanitaria: "Obra sanitaria",
+  of_cocina: "Cocina",
+  of_ducha: "Ducha",
+  oficinas: "Oficinas",
+  operacion: "",
+  orden_destacado: "",
+  orden: "",
+  orientacion: "",
+  pais: "",
+  pallier: "",
+  parrilla: "Parrilla",
+  pastura_perenne: "",
+  patio: "Patio",
+  picadero: "Picadero",
+  piscina_calefaccion: "Calefacción en piscina",
+  piscina_cerco: "Cerco en piscina",
+  piscina_medidas: "Medidas de piscina",
+  piscina_tipo: "Tipo de piscina",
+  piscina_vista: "Piscina vista",
+  piscina: "Piscina",
+  piso: "Piso",
+  planta_libre: "Planta libre",
+  plantas: "Nro. de plantas",
+  porche: "Porche",
+  porton_medidas: "",
+  porton_tipo: "",
+  potreros: "",
+  precio_publico: "",
+  precio: "",
+  produccion: "",
+  propietario_nota: "",
+  puntosDeInteres: "",
+  quincho: "Quincho",
+  revestimiento: "Revestimientos",
+  riego: "Riego",
+  rubro_permitido: "",
+  sala_reuniones: "",
+  seguridad: "Seguridad",
+  sembrado: "Sembrado",
+  silos: "Silos",
+  sol_jardin: "Sol en jardín",
+  subbarrio: "",
+  subdivisiones: "",
+  sucursal: "",
+  suelos: "Suelos",
+  sum: "S.U.M.",
+  sup_balcon: "Sup. Balcón",
+  sup_baulera: "",
+  sup_cochera: "",
+  sup_construible: "",
+  sup_contrafrente: "",
+  sup_cubierta: "",
+  sup_descubierta: "",
+  sup_despachos: "",
+  sup_edificable: "",
+  sup_entrepiso: "",
+  sup_fondo: "",
+  sup_frente: "",
+  sup_hectareas: 'Superficie hectareas',
+  sup_lateral_derecho: "",
+  sup_lateral_izquierdo: "",
+  sup_semi_cubierta: "",
+  sup_terreno: "",
+  sup_tierras_altas: "",
+  sup_tierras_bajas: "",
+  sup_total: "",
+  techo: "Techo",
+  telefono: "",
+  terraza: "Terraza",
+  tipo_entrada: "",
+  tipo_inmueble: "",
+  tipo_pisos: "Tipo de piso",
+  tipo_zona: "",
+  titulo_venta: "",
+  toilette: "Toilette",
+  unidades_pisos: "",
+  vestuarios: "Vestuarios",
+  video: "",
+  video2: "",
+  video3: "",
+  vigencia: "",
+  visible_web: "",
+  vision360: "",
+  vivienda_anexa: "Vivienda anexa",
+  zona: "",
+  zonificacion: "",
+} satisfies Record<keyof PropiedadDetalle, string>
 
 
-export const detallesPorTipoDeInmueble = new Map<string, Detalle[]>();
 
-// Departamento
-detallesPorTipoDeInmueble.set("departamento", [
-  dormitorios,
-  dorm_suit,
-  estado,
-  altura_techo,
-  aberturas,
-  antiguedad,
-  calefaccion,
-]);
+// Campos que se convierte 1 por Si
+export const camposSiNo:(keyof PropiedadDetalle)[] = [
+  'agua_corriente',
+  'amueblada',
+  'asfalto',
+  'balcones',
+  'bano_externo_check',
+  'bano_servicio_check',
+  'bano_toilette_check',
+  'baulera',
+  'cable',
+  'casa_casero',
+  'casa_huespedes',
+  'chimenea',
+  'comedor_diario',
+  'dependencia_servicio',
+  'deposito',
+  'entrada_servicio',
+  'escritorio',
+  'family', 
+  'galeria',
+  'hall_entrada',
+  'internet', 
+  'lavadero',
+  'living',
+  'parrilla',
+  'patio',
+  'porche',
+  'quincho',
+  'riego',
+  'sol_jardin',
+  'terraza',
+]
 
-// Fraccion
-detallesPorTipoDeInmueble.set("fraccion", [zonificacion]);
+export const camposPorTipoInmueble = new Map<string, (keyof PropiedadDetalle)[]>();
 
-// Lote
-detallesPorTipoDeInmueble.set("lote", [zonificacion, orientacion]);
-
-
-// Oficina
-detallesPorTipoDeInmueble.set("oficina", [
-  estado,
-  aberturas,
-  antiguedad,
-  calefaccion,
-]);
-
-// Quinta
-detallesPorTipoDeInmueble.set("oficina", [
-  estado,
-  aberturas,
-  antiguedad,
-  calefaccion,
-  cocina,
+// Aplica a todos los inmuebles
+camposPorTipoInmueble.set('todos', [
+  'agua_corriente',
+  'estado_habitacional',
+  'gas',
+  'internet',
+  'obra_sanitaria',
+  'seguridad',
 ]);
 
 // Casa
-detallesPorTipoDeInmueble.set("casa", [
-  aberturas,
-  altura_techo,
-  antiguedad,
-  banos,
-  banos_servicio,
-  calefaccion,
-  dorm_suit,
-  dormitorios,
-  estado,
-  estilo,
-  lote,
-  piscina,
-  plantas,
-  zonificacion,
+camposPorTipoInmueble.set('casa', [
+  'aberturas',
+  'aire_acondicionado',
+  'ambientes',
+  'amueblada',
+  'antiguedad',
+  'asfalto',
+  'balcones',
+  'bano_externo_check',
+  'bano_servicio_check',
+  'bano_toilette_check',
+  'banos_texto',
+  'baulera',
+  'cable',
+  'calefaccion',
+  'casa_casero',
+  'casa_huespedes',
+  'chimenea',
+  'cochera',
+  'cochera_tipo',
+  'cocheras',
+  'cocina',
+  'comedor_diario',
+  'dependencia_servicio',
+  'deposito',
+  'direccion_unidad',
+  'dormitorio_suite',
+  'dormitorios',
+  'entrada_servicio',
+  'escritorio',
+  'estado',
+  'estilo',
+  'expensas_ano',
+  'expensas_detalles',
+  'expensas_mes',
+  'family',
+  'galeria',
+  'hall_entrada',
+  'lavadero',
+  'living',
+  'lote',
+  'lote_vista',
+  'parrilla',
+  'patio',
+  'piscina',
+  'piscina_calefaccion',
+  'piscina_cerco',
+  'piscina_medidas',
+  'piscina_tipo',
+  'piscina_vista',
+  'piso',
+  'plantas',
+  'porche',
+  'quincho',
+  'revestimiento',
+  'riego',
+  'sol_jardin',
+  'techo',
+  'terraza',
+  'tipo_pisos',
+  'toilette',
+]);
+
+// Departamento
+// detallesPorTipoDeInmueble.set("departamento", [
+//   dormitorios,
+//   dormitorio_suite,
+//   estado,
+//   altura_techo,
+//   aberturas,
+//   antiguedad,
+//   calefaccion,
+// ]);
+
+
+
+// Oficina
+camposPorTipoInmueble.set("oficina", [
+
+]);
+
+// Deposito
+camposPorTipoInmueble.set("deposito", [
+
+]);
+
+
+// Edificio
+camposPorTipoInmueble.set("edificio", [
+  
 ]);
 
 // Quinta
-detallesPorTipoDeInmueble.set("quinta", [
-  estado,
-  antiguedad,
-  dormitorios,
-  piscina,
-  zonificacion,
+camposPorTipoInmueble.set("quinta", [
+  
 ]);
 
 
-export const allFields: Detalle[] = [
-  lote_ubicacion,
-  lote_asfalto,
-  ambientes,
-  tipo_zona,
-  obra_sanitaria,
-  gas,
-  telefono,
-  internet,
-  cable,
-  electricidad,
-  asfalto,
-  agua_corriente,
-  agua_caliente,
-  seguridad,
-  demolicion,
-  altura_techo,
-  comedor_empleados,
-  tipo_pisos,
-  vestuarios,
-  oficinas,
-  banos_por_genero,
-  vivienda_anexa,
-  cocina,
-  cocina_detalles,
-  cocina_muebles,
-  of_cocina,
-  of_ducha,
-  banos,
-  bano_toilette_check,
-  bano_servicio_check,
-  bano_servicio,
-  bano_externo_check,
-  banos_texto,
-]
+
+// Quinta
+// detallesPorTipoDeInmueble.set("oficina", [
+//   estado,
+//   aberturas,
+//   antiguedad,
+//   calefaccion,
+//   cocina,
+// ]);
+
+
+// Quinta
+// detallesPorTipoDeInmueble.set("quinta", [
+//   estado,
+//   antiguedad,
+//   dormitorios,
+//   piscina,
+//   zonificacion,
+// ]);
+
+

@@ -1,6 +1,7 @@
 import { FeatureCollectionExtended } from '../geo-interfaces/FeatureCollectionExtended';
 
 export interface PropiedadDetalle {
+    imagen_principal:      string;
     aberturas:             string;
     acceso:                string;
     activo:                null;
@@ -91,7 +92,6 @@ export interface PropiedadDetalle {
     id_emprendimiento:     number;
     id_usuario:            number;
     id:                    number;
-    // imagen_principal:      string;
     inmueble:              string;
     internet:              number;
     lagunas:               number;
@@ -144,6 +144,7 @@ export interface PropiedadDetalle {
     precio:                number;
     produccion:            string;
     propietario_nota:      number;
+    puntosDeInteres:       FeatureCollectionExtended[];
     quincho:               number;
     revestimiento:         string;
     riego:                 number;
@@ -198,5 +199,4 @@ export interface PropiedadDetalle {
     vivienda_anexa:        number;
     zona:                  string;
     zonificacion:          string;
-    puntosDeInteres:       FeatureCollectionExtended[];
 }

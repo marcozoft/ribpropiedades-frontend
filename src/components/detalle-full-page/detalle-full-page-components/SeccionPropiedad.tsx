@@ -6,7 +6,7 @@ import {
   MapaPropiedad,
   ShareDialog,
 } from "@/src/components";
-import { allFields, detallesPorTipoDeInmueble } from "@/src/constants/fichas-propiedad-constants";
+import { camposPorTipoInmueble } from "@/src/constants/fichas-propiedad-constants";
 import { WHATSAPP_PROMPT_PROPIEDAD } from "@/src/constants/share-social-constants";
 import { CarouselPlanos } from '../../carousel-planos/CarouselPlanos';
 
@@ -156,8 +156,8 @@ export const SeccionPropiedad = async ({
       <DetallesGrid
         propiedad={propiedadResponse.propiedad}
         detalles={[
-          ...(detallesPorTipoDeInmueble.get(tipo_inmueble) ?? []),
-          ...allFields,
+          ...(camposPorTipoInmueble.get('todos') ?? []),
+          ...(camposPorTipoInmueble.get(tipo_inmueble) ?? []),
         ]}
       />
 
