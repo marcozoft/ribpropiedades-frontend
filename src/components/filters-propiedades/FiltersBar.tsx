@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Lottie from 'lottie-react';
 import { AISearch, Button, ClasicSearch, Tooltip, TooltipContent, TooltipTrigger } from "@/src/components";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
@@ -24,6 +24,11 @@ export const FiltersBar = ({className, startCollapsed = false, ...rest}: Props) 
 
    const [iaModeActive, setIaModeActive] = useState(!!rest.filterValues.queryAI);
    const [isExpanded, setIsExpanded] = useState(!startCollapsed);
+   const containerRef = useRef<HTMLDivElement>(null);
+
+   const scrollToCenter = () => {
+      containerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+   };
 
    const toggleIaMode = () => {
       setIaModeActive(!iaModeActive);
@@ -34,7 +39,7 @@ export const FiltersBar = ({className, startCollapsed = false, ...rest}: Props) 
    }
 
    return (
-      <div className={`flex flex-col md:flex-row items-stretch md:items-center justify-center rounded-xl shadow-xl z-20 gap-4 px-4 py-4 md:px-6 md:py-5 max-w-5xl mx-auto ${className}`}>
+      <div ref={containerRef} onClick={!rest.allControls ? scrollToCenter : undefined} className={`flex flex-col md:flex-row items-stretch md:items-center justify-center rounded-xl shadow-xl z-20 gap-4 px-4 py-4 md:px-6 md:py-5 max-w-5xl mx-auto ${className}`}>
          {
             iaModeActive
                ? <AISearch initialQuery={rest.filterValues.queryAI}/>
@@ -42,6 +47,7 @@ export const FiltersBar = ({className, startCollapsed = false, ...rest}: Props) 
                   {...rest} 
                   isExpanded={isExpanded}
                   onToggleExpand={handleExpanded}
+                  onInteraction={!rest.allControls ? scrollToCenter : undefined}
                  />
          }
 

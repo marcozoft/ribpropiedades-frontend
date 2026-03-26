@@ -1,25 +1,27 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import {
   Button,
   FiltersPopover,
   Form,
-  FormField,
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
   SortPopover,
   UbicacionCommand,
 } from "@/src/components";
-import { filterSearchParams } from "@/src/utils";
+import {
+  Command,
+  CommandGroup,
+  CommandItem,
+  CommandList,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/src/components/shadcn-components";
+import { filterSearchParams, cn } from "@/src/utils";
 import { ItemFilter, SearchParams } from "@/src/interfaces";
 import { useForm } from "react-hook-form";
-import { Loader2, Search, Trash2, X } from "lucide-react";
+import { Loader2, Search, Trash2, X, Check, ChevronsUpDown } from "lucide-react";
 import {
   con_dormitorio_suiteItem,
   con_dos_cocherasItem,
@@ -39,6 +41,7 @@ type Props = {
   filterValues: SearchParams;
   isExpanded?: boolean;
   onToggleExpand?: (isExpanded: boolean) => void;
+  onInteraction?: () => void;
 };
 
 export const ClasicSearch = ({
@@ -51,11 +54,14 @@ export const ClasicSearch = ({
   dormitorios,
   isExpanded = true,
   onToggleExpand,
+  onInteraction,
 }: Props) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const form = useForm<SearchParams>();
   const values = form.watch();
+  const [openOperacion, setOpenOperacion] = useState(false);
+  const [openTipoInmueble, setOpenTipoInmueble] = useState(false);
 
   /**
    *  Actualizar formulario cuando cambian los filterValues
@@ -117,6 +123,7 @@ export const ClasicSearch = ({
 
       <form
         onSubmit={form.handleSubmit(onSubmit)}
+        onClick={onInteraction}
         className="animate-in fade-in fade-out flex grow flex-col gap-4 md:flex-row"
       >
         {/* Selects grid*/}
@@ -136,84 +143,120 @@ export const ClasicSearch = ({
 
           {/* operacion */}
           <div className="col-span-1 flex justify-center md:col-span-4">
-            <FormField
-              control={form.control}
-              name="operacion"
-              render={({ field }) => (
-                <Select
-                  name={field.name}
-                  value={field.value}
-                  onValueChange={field.onChange}
-                  disabled={isPending}
+            {openOperacion && (
+              <div className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden" onClick={() => setOpenOperacion(false)} />
+            )}
+            <Popover open={openOperacion} onOpenChange={setOpenOperacion}>
+              <PopoverTrigger asChild disabled={isPending}>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  aria-expanded={openOperacion}
+                  className="w-full justify-between"
                 >
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Todas las operaciones" />
-                    {values.operacion && (
-                      <span
-                        className="ml-auto mr-1 shrink-0 opacity-50 hover:opacity-100"
-                        onPointerDown={(e) => {
-                          e.stopPropagation();
-                          e.preventDefault();
-                          form.setValue("operacion", "");
-                        }}
-                      >
-                        <X className="size-4" />
-                      </span>
-                    )}
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
+                  <span className="truncate">
+                    {values.operacion
+                      ? operaciones.find((item) => item.valor === values.operacion)?.label
+                      : "Todas las operaciones"}
+                  </span>
+                  {values.operacion && (
+                    <span
+                      className="ml-auto mr-1 shrink-0 opacity-50 hover:opacity-100"
+                      onPointerDown={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        form.setValue("operacion", "");
+                      }}
+                    >
+                      <X className="size-4" />
+                    </span>
+                  )}
+                  <ChevronsUpDown className="shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="left-0 w-screen p-0 md:w-64 md:relative" side="bottom" avoidCollisions={false}>
+                <Command className="w-screen md:w-64">
+                  {/* <CommandInput placeholder="Buscar operación" /> */}
+                  <CommandList>
+                    <CommandGroup>
                       {operaciones.map((item) => (
-                        <SelectItem key={item.valor} value={item.valor}>
+                        <CommandItem
+                          key={item.valor}
+                          value={item.valor}
+                          keywords={[item.label]}
+                          onSelect={(val) => {
+                            form.setValue("operacion", val);
+                            setOpenOperacion(false);
+                          }}
+                        >
                           {item.label}
-                        </SelectItem>
+                          <Check className={cn("ml-auto", values.operacion === item.valor ? "opacity-100" : "opacity-0")} />
+                        </CommandItem>
                       ))}
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              )}
-            />
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            </Popover>
           </div>
 
           {/* tipo de inmueble */}
           <div className="col-span-1 flex justify-center md:col-span-4">
-            <FormField
-              control={form.control}
-              name="tipo_inmueble"
-              render={({ field }) => (
-                <Select
-                  name={field.name}
-                  value={field.value}
-                  onValueChange={field.onChange}
-                  disabled={isPending}
+            {openTipoInmueble && (
+              <div className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm md:hidden" onClick={() => setOpenTipoInmueble(false)} />
+            )}
+            <Popover open={openTipoInmueble} onOpenChange={setOpenTipoInmueble}>
+              <PopoverTrigger asChild disabled={isPending}>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  aria-expanded={openTipoInmueble}
+                  className="w-full justify-between"
                 >
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Tipo de inmueble" />
-                    {values.tipo_inmueble && (
-                      <span
-                        className="ml-auto mr-1 shrink-0 opacity-50 hover:opacity-100"
-                        onPointerDown={(e) => {
-                          e.stopPropagation();
-                          e.preventDefault();
-                          form.setValue("tipo_inmueble", "");
-                        }}
-                      >
-                        <X className="size-4" />
-                      </span>
-                    )}
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
+                  <span className="truncate">
+                    {values.tipo_inmueble
+                      ? tipos_inmueble.find((item) => item.valor === values.tipo_inmueble)?.label
+                      : "Tipo de inmueble"}
+                  </span>
+                  {values.tipo_inmueble && (
+                    <span
+                      className="ml-auto mr-1 shrink-0 opacity-50 hover:opacity-100"
+                      onPointerDown={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        form.setValue("tipo_inmueble", "");
+                      }}
+                    >
+                      <X className="size-4" />
+                    </span>
+                  )}
+                  <ChevronsUpDown className="shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="left-0 w-screen p-0 md:w-64 md:relative" side="bottom" avoidCollisions={false}>
+                <Command className="w-screen md:w-64">
+                  {/* <CommandInput placeholder="Buscar tipo de inmueble" /> */}
+                  <CommandList>
+                    <CommandGroup>
                       {tipos_inmueble.map((item) => (
-                        <SelectItem key={item.valor} value={item.valor}>
+                        <CommandItem
+                          key={item.valor}
+                          value={item.valor}
+                          keywords={[item.label]}
+                          onSelect={(val) => {
+                            form.setValue("tipo_inmueble", val);
+                            setOpenTipoInmueble(false);
+                          }}
+                        >
                           {item.label}
-                        </SelectItem>
+                          <Check className={cn("ml-auto", values.tipo_inmueble === item.valor ? "opacity-100" : "opacity-0")} />
+                        </CommandItem>
                       ))}
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              )}
-            />
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
 

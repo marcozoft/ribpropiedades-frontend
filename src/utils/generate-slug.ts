@@ -1,3 +1,7 @@
+export const removeAccents = (str: string): string => {
+  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 const generateSlug = (id: number, title: string):string => {
    const cleanTitle = title
       .toLowerCase()
