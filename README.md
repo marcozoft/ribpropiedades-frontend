@@ -1,7 +1,6 @@
 # RIB Propiedades - Frontend
 
 
-
 ## Stack utilizado
 
 
