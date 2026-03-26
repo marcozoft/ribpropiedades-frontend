@@ -435,6 +435,7 @@ sup_semi_cubierta int(11)
 sup_tierras_bajas smallint(6)
 sup_tierras_altas smallint(6)
 
+
 # Fraccion (campos adicionales)
 
 estado varchar(50)
