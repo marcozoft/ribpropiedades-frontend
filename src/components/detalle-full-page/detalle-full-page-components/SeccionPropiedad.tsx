@@ -38,6 +38,8 @@ export const SeccionPropiedad = async ({
     sup_total,
     sup_construible,
     sup_semi_cubierta,
+    sup_descubierta,
+    sup_edificable,
     tipo_inmueble,
     inmueble,
     titulo_venta,
@@ -106,6 +108,22 @@ export const SeccionPropiedad = async ({
             unidad: "m²",
           },
           {
+            nombre: descripcionCamposPropiedad.sup_descubierta,
+            valor: sup_descubierta,
+            icono: (
+              <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
+            ),
+            unidad: "m²",
+          },
+          {
+            nombre: descripcionCamposPropiedad.sup_semi_cubierta,
+            valor: sup_semi_cubierta,
+            icono: (
+              <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
+            ),
+            unidad: "m²",
+          },
+          {
             nombre: descripcionCamposPropiedad.sup_balcon,
             valor: sup_balcon,
             icono: (
@@ -154,8 +172,8 @@ export const SeccionPropiedad = async ({
             unidad: "m²",
           },
           {
-            nombre: descripcionCamposPropiedad.sup_semi_cubierta,
-            valor: sup_semi_cubierta,
+            nombre: descripcionCamposPropiedad.sup_edificable,
+            valor: sup_edificable,
             icono: (
               <i className="flaticon-square-shape-design-interface-tool-symbol text-black"></i>
             ),

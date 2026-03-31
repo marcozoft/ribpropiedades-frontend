@@ -35,7 +35,7 @@ export const descripcionCamposPropiedad = {
   casa_principal: "Casa principal",
   cerca_ruta: "Cernanía a la ruta",
   chimenea: "Chimenea",
-  cochera_tipo: "Tipo de chimenea",
+  cochera_tipo: "Tipo de cochera",
   cochera: "Cochera",
   cocheras: "Cantidad de cocheras",
   cocina_detalles: "NA",
@@ -146,7 +146,7 @@ export const descripcionCamposPropiedad = {
   propietario_nota: "NA",
   puntosDeInteres: "NA",
   quincho: "Quincho",
-  revestimiento: "Revestimientos",
+  revestimiento: "Revestimiento Ext.",
   riego: "Riego",
   rubro_permitido: "Rubro permitido",
   sala_reuniones: "Sala de reuniones",
@@ -165,20 +165,20 @@ export const descripcionCamposPropiedad = {
   sup_construible: "Sup. Construible",           //icono
   sup_contrafrente: "Contrafrente",         //icono
   sup_cubierta: "Sup. Cubierta",                     //icono
-  sup_descubierta: "Sup. Descubierta (m²)",
+  sup_descubierta: "Sup. Descubierta",               //icono
   sup_despachos: "Sup. Despachos (m²)",
-  sup_edificable: "Sup. Edificable (m²)",
-  sup_entrepiso: "Sup. Entrepiso (m²)",
-  sup_fondo: "Sup. Fondo (m²)",
-  sup_frente: "Sup. Frente (m²)",                     //icono
-  sup_hectareas: 'Sup. hectáreas',
-  sup_lateral_derecho: "Lateral derecho",             //icono
-  sup_lateral_izquierdo: "Lateral izquierdo",         //icono
-  sup_semi_cubierta: "Sup. semi cubierta",            //icono
+  sup_edificable: "Sup. Edificable",
+  sup_entrepiso: "Sup. Entrepiso",
+  sup_fondo: "Fondo",                                 //icono
+  sup_frente: "Frente",                               //icono
+  sup_hectareas: 'Sup. Hectáreas',
+  sup_lateral_derecho: "Lateral Derecho",             //icono
+  sup_lateral_izquierdo: "Lateral Izquierdo",         //icono
+  sup_semi_cubierta: "Sup. Semi Cubierta",            //icono
   sup_terreno: "Sup. Terreno",                        //icono
   sup_tierras_altas: "Sup. tierras altas",
   sup_tierras_bajas: "Sup. tierras bajas",    
-  sup_total: "Sup. total",                            //icono
+  sup_total: "Sup. Total",                            //icono
   techo: "Techo",
   telefono: "",
   terraza: "Terraza",
@@ -309,13 +309,14 @@ camposPorTipoInmueble.set('casa', [
   'bano_servicio_check',
   'bano_toilette_check',
   'banos_texto',
+  'banos',
   'baulera',
   'cable',
   'calefaccion',
   'casa_casero',
   'casa_huespedes',
   'chimenea',
-  'cochera',
+  // 'cochera',
   'cochera_tipo',
   'cocheras',
   'cocina',
@@ -335,11 +336,11 @@ camposPorTipoInmueble.set('casa', [
   'galeria',
   'hall_entrada',
   'lavadero',
-  'living',
+  // 'living',
   'lote',
   'lote_vista',
   'parrilla',
-  'patio',
+  // 'patio',
   'piscina',
   'piscina_calefaccion',
   'piscina_cerco',
@@ -352,13 +353,13 @@ camposPorTipoInmueble.set('casa', [
   'quincho',
   'revestimiento',
   'riego',
-  'sol_jardin',
+  // 'sol_jardin',
   'techo',
   'terraza',
   'tipo_pisos',
   'toilette',
-  'sup_descubierta',
-  'sup_fondo',
+  // 'sup_descubierta',
+  // 'sup_fondo',
 ]);
 
 // 03 Departamento
@@ -410,8 +411,8 @@ camposPorTipoInmueble.set("departamento", [
   'piso',
   'quincho',
   'sum',
-  'sup_descubierta',
-  'sup_balcon',
+  // 'sup_descubierta',
+  // 'sup_balcon',
   'tipo_pisos',
   'toilette',
   'unidades_pisos',
@@ -467,8 +468,8 @@ camposPorTipoInmueble.set("fraccion", [
 camposPorTipoInmueble.set("local", [
   'piso',
   'direccion_unidad',
-  'sup_descubierta',
-  'sup_balcon',
+  // 'sup_descubierta',
+  // 'sup_balcon',
   'expensas_mes',
   'expensas_ano',
   'edificio_tipo',
@@ -536,9 +537,9 @@ camposPorTipoInmueble.set("quinta", [
   'antiguedad',
   'lote',
   'lote_vista',
-  'sup_descubierta',
-  'sup_fondo',
-  'sup_frente',
+  // 'sup_descubierta',
+  // 'sup_fondo',
+  // 'sup_frente',
   'expensas_mes',
   'expensas_ano',
   'asfalto',
@@ -579,8 +580,9 @@ camposPorTipoInmueble.set("quinta", [
 // 09 Lote
 camposPorTipoInmueble.set("lote", [
   'direccion_unidad',
-  'sup_construible',
-  'sup_edificable',
+  'lote_ubicacion',
+  // 'sup_construible',
+  // 'sup_edificable',
   'expensas_mes',
   'expensas_ano',
   'asfalto',
@@ -607,7 +609,7 @@ camposPorTipoInmueble.set("edificio", [
   'antiguedad',
   'lote_vista',
   'orientacion',
-  'sup_balcon',
+  // 'sup_balcon',
   'expensas_mes',
   'expensas_ano',
   'edificio_tipo',
