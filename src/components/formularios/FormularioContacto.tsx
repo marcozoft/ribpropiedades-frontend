@@ -36,9 +36,10 @@ const formInitialData = {
 
 type Props = {
    propiedadId?: number;
+   emprendimientoId?: number;
    propiedadCodigo?: string;
 }
-export const FormularioContacto = ({propiedadId, propiedadCodigo}: Props) => {
+export const FormularioContacto = ({propiedadId, propiedadCodigo, emprendimientoId}: Props) => {
 
    const [formData, setFormData] = useState<FormData>(formInitialData);
    const [isSubmitted, setIsSubmitted] = useState(false);
@@ -61,6 +62,7 @@ export const FormularioContacto = ({propiedadId, propiedadCodigo}: Props) => {
                ...formData,
                propiedad_id: propiedadId,
                propiedad_codigo: propiedadCodigo,
+               emprendimiento: emprendimientoId,
                servicio: `${formData.servicio}`,
                recaptchaToken: token,
             }),

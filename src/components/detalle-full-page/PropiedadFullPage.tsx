@@ -35,6 +35,7 @@ export const PropiedadFullPage = ({
           <FormularioContacto
             propiedadId={propiedadResponse.propiedad.id}
             propiedadCodigo={propiedadResponse.propiedad.codigo}
+            emprendimientoId={propiedadResponse.emprendimiento?.id}
           />
         </div>
       </div>
