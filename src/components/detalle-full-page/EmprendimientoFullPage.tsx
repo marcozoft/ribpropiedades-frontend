@@ -78,8 +78,8 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
         {/* formulario de contacto */}
         <section className="bg-background p-5 xl:basis-1/3">
           <FormularioContacto 
-            propiedadId={emprendimiento.id}
             emprendimientoId={emprendimiento.id}
+            emprendimientoNombre={emprendimiento.nombre}
           />
         </section>
       </div>
