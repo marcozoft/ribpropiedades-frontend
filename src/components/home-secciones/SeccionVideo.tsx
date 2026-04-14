@@ -21,7 +21,7 @@ export const SeccionVideo = () => {
           allowFullScreen
           onLoad={() => {
             // Dar tiempo para que el video comience a reproducirse
-            setTimeout(() => setIsVideoLoaded(true), 1000)
+            setTimeout(() => setIsVideoLoaded(true), 200)
           }}
         ></iframe>
 
