@@ -1,5 +1,6 @@
 export const BASE_URL = `https://ribpropiedades.com.ar`;
-export const API_URL = `https://admin.ribpropiedades.com.ar/api`;
+export const API_URL = process.env.API_URL || `http://admin.ribpropiedades.com.ar/api`;
+export const RECURSOS_URL = process.env.RECURSOS_URL || `http://recursos.ribpropiedades.com.ar`;
 export const BACKEND_API_KEY = process.env.BACKEND_API_KEY || '';
 
 export const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';

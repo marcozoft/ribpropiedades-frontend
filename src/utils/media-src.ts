@@ -1,8 +1,8 @@
-import { BASE_URL } from "@/src/constants/constants";
+import { BASE_URL, RECURSOS_URL } from "@/src/constants/constants";
 
 export function generateSrcImage(urlImg:string): string {
 
-   return `${BASE_URL}/${urlImg}`;
+   return `${RECURSOS_URL}/${urlImg}`;
 
 }
 
