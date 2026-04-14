@@ -36,6 +36,7 @@ export const PropiedadFullPage = ({
             propiedadId={propiedadResponse.propiedad.id}
             propiedadCodigo={propiedadResponse.propiedad.codigo}
             emprendimientoId={propiedadResponse.emprendimiento?.id}
+            emprendimientoNombre={propiedadResponse.emprendimiento?.nombre}
           />
         </div>
       </div>
