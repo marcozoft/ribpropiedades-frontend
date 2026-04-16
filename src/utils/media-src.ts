@@ -2,7 +2,8 @@ import { BASE_URL, RECURSOS_URL } from "@/src/constants/constants";
 
 export function generateSrcImage(urlImg:string): string {
 
-   return `${RECURSOS_URL}/${urlImg}`;
+  if (urlImg.startsWith('https://')) return urlImg;
+  return `${RECURSOS_URL}/${urlImg}`;
 
 }
 
