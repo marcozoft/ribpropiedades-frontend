@@ -86,12 +86,13 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
           </div>
 
           {/* Video/Videos (opcional) */}
-          {
-            <SeccionVideos
-              videos={[emprendimiento.video, emprendimiento.video2]}
-              className="no-print"
-            />
-          }
+          <div className="no-print">
+            {
+              <SeccionVideos
+                videos={[emprendimiento.video, emprendimiento.video2]}
+              />
+            }
+          </div>
 
           {/* Mapa */}
           <h2 className="mt-8 mb-4 text-xl font-bold text-black no-print">
@@ -126,13 +127,13 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
               </h1>
             </div>
             <div className="print:hidden no-print">
-              <CarouselCards propiedades={propiedades} className="carousel-propiedades-emprendimiento" />
+              <CarouselCards propiedades={propiedades}/>
             </div>
             <PrintPropiedadesEmprendimiento propiedades={propiedades} nombre={emprendimiento.nombre} />
           </>
         )}
       </div>
-      <TrackerEmprendimiento emprendimientoId={emprendimiento.id} className="tracker-propiedad no-print" />
+      <TrackerEmprendimiento emprendimientoId={emprendimiento.id} />
     </div>
   );
 }
