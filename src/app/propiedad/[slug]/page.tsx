@@ -19,6 +19,9 @@ export async function generateMetadata(
 
   const title = propiedadResponse.propiedad.titulo_venta;
   const description = propiedadResponse.propiedad.descripcion_corta;
+  
+  // Validar si hay imágenes disponibles
+  const imagenPrincipal = propiedadResponse.imagenes?.[0]?.imagen;
 
   return {
     title: title,
@@ -26,7 +29,7 @@ export async function generateMetadata(
     openGraph: {
       title: title,
       description: description,
-      images: [generateSrcImage(propiedadResponse.imagenes[0].imagen)],
+      images: imagenPrincipal ? [generateSrcImage(imagenPrincipal)] : [],
     },
   };
 }
