@@ -63,6 +63,9 @@ export { ServicioCard } from "./ui/cards/ServicioCard";
 export { SocialNetworks } from "./ui/SocialNetworks";
 export { SocialNetworkItem } from "./ui/SocialNetworkItem";
 export { ShareDialog } from "./ui/ShareDialog";
+export { PrintGallery } from "./ui/PrintGallery";
+export { PrintPlanos } from "./ui/PrintPlanos";
+export { PrintPropiedadesEmprendimiento } from "./ui/PrintPropiedadesEmprendimiento";
 
 
 // Tracking IA
