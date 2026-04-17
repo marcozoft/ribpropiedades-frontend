@@ -2,7 +2,7 @@ import { BASE_URL, RECURSOS_URL } from "@/src/constants/constants";
 
 export function generateSrcImage(urlImg: string | null | undefined): string {
   // Si no hay URL, retornar una imagen placeholder
-  if (!urlImg) return '/images/placeholder.png';
+  if (!urlImg) return '/images/propiedades-sin-resultados.jpg';
   
   if (urlImg.startsWith('https://')) return urlImg;
   return `${RECURSOS_URL}/${urlImg}`;
