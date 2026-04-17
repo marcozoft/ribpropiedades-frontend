@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../shadcn-components/ui/dialog";
 import { Button } from "../shadcn-components/ui/button";
-import { Share2 } from "lucide-react";
+import { Share2, Printer } from "lucide-react";
 
 
 type Props = {
@@ -41,6 +41,75 @@ export const ShareDialog = ({promptWhatsApp}: Props) => {
     setTimeout(() => setCopied(false), 1500);
   };
 
+  const handlePrint = async () => {
+    setOpen(false);
+    
+    // Esperar a que el dialog se cierre
+    setTimeout(async () => {
+      try {
+        // Obtener el contenedor principal (propiedad o emprendimiento)
+        const container = document.querySelector(".propiedad-full-page, .emprendimiento-full-page") as HTMLElement;
+        if (!container) {
+          console.error("No se encontró el contenedor para imprimir");
+          return;
+        }
+
+        // Obtener todas las imágenes (visibles y ocultas)
+        const images = Array.from(container.querySelectorAll("img")) as HTMLImageElement[];
+        
+        if (images.length === 0) {
+          window.print();
+          return;
+        }
+
+        // Crear promesas para cargar cada imagen
+        const imageLoadPromises = images.map(img => {
+          return new Promise<void>((resolve) => {
+            // Si la imagen ya está cargada
+            if (img.complete) {
+              resolve();
+              return;
+            }
+
+            // Si la imagen tiene loading="lazy", cambiar a eager
+            if (img.loading === "lazy") {
+              img.loading = "eager";
+            }
+
+            // Forzar carga de la imagen
+            const onLoad = () => {
+              img.removeEventListener("load", onLoad);
+              img.removeEventListener("error", onLoad);
+              resolve();
+            };
+
+            img.addEventListener("load", onLoad);
+            img.addEventListener("error", onLoad);
+
+            // Si la imagen no tiene src pero tiene data-src, copiar
+            if (!img.src && img.dataset.src) {
+              img.src = img.dataset.src;
+            }
+
+            // Timeout de seguridad (5 segundos por imagen)
+            setTimeout(() => resolve(), 5000);
+          });
+        });
+
+        // Esperar a que todas las imágenes se carguen
+        await Promise.all(imageLoadPromises);
+
+        // Pequeño delay extra para asegurar que todo esté renderizado
+        setTimeout(() => {
+          window.print();
+        }, 500);
+      } catch (error) {
+        console.error("Error preparando impresión:", error);
+        window.print();
+      }
+    }, 200);
+  };
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -72,6 +141,13 @@ export const ShareDialog = ({promptWhatsApp}: Props) => {
           >
             <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
             <span className="text-sm">{copied ? "¡Copiado!" : "Copiar link"}</span>
+          </button>
+          <button
+            onClick={handlePrint}
+            className="flex items-center gap-2 px-3 py-2 rounded hover:bg-accent transition text-left w-full text-foreground"
+          >
+            <Printer size={20} />
+            <span className="text-sm">Imprimir ficha</span>
           </button>
         </div>
       </DialogContent>

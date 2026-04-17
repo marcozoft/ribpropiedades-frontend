@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import "@/src/styles/print.css";
 import { Navbar, Footer } from "../components";
 import { primaryFont } from "../config/fonts";
 import "@/src/styles/flat-icon/flaticon.css";
