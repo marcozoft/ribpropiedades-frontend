@@ -55,7 +55,8 @@ export const UbicacionCommand = ({
 
   const [open, setOpen] = useState(false);
   const [searchEnabled, setSearchEnabled] = useState(false);
-  const items = [...zonasItems, ...emprendimientosItems];
+  //const items = [...zonasItems, ...emprendimientosItems];
+  const items = [...emprendimientosItems];
 
   const handleOpenChange = (value: boolean) => {
     setOpen(value);
@@ -126,8 +127,10 @@ export const UbicacionCommand = ({
             )}
           </div>
           <CommandList>
+            {/* OCULTAMOS ZONAS 
             <CommandGroup heading={<p>Zona</p>}>
-              {/* <CommandSeparator /> */}
+              {// <CommandSeparator /> }
+              
               {zonasItems.map((item) => (
                 <CommandItem
                   key={item.valor}
@@ -149,6 +152,7 @@ export const UbicacionCommand = ({
                 </CommandItem>
               ))}
             </CommandGroup>
+            */}
 
             <CommandGroup heading={<p>Emprendimientos</p>}>
               {emprendimientosItems.map((item) => (
