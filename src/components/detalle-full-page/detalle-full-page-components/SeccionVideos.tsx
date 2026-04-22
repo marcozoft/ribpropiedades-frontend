@@ -13,12 +13,12 @@ export const SeccionVideos = ({ videos }: Props) => {
     <>
       {validVideos.length > 0 && (
         <>
-          <h2 className="mt-8 mb-4 text-xl font-bold text-black">
+          <h2 className="mt-8 mb-4 text-xl font-bold text-black no-print">
             <span className="text-foreground">|&nbsp;</span>
             {`Video${validVideos.length > 1 ? 's' : ''}`}
           </h2>
           {validVideos.map((video) => (
-            <YouTubeVideoCard key={video} youTubeId={ getYouTubeId(video)} className="my-4" />
+            <YouTubeVideoCard key={video} youTubeId={ getYouTubeId(video)} className="my-4 no-print" />
           ))}
         </>
       )}

@@ -19,14 +19,22 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
     <div className="emprendimiento-full-page bg-white">
       {/* Logo RIB para impresión - HEADER */}
       <div className="print-header hidden print:block">
-        <Image
-          src="/images/navbar-logo.png"
-          alt="RIB Inmobiliaria"
-          width={180}
-          height={60}
-          priority
-          className="print-header-logo"
-        />
+        <div className="print-header-inner p-3">
+          <Image
+            src="/images/logo-rib-print.png"
+            alt="RIB Inmobiliaria"
+            width={180}
+            height={60}
+            priority
+            className="print-header-logo"
+          />
+          <div className="print-header-contact">
+            <p>Tel. 0230 4384500</p>
+            <p>Cel. 15 3420 1500</p>
+            <p>info@ribpropiedades.com.ar</p>
+            <p>Matrícula: CSI 5901 Osvaldo Sobico</p>
+          </div>
+        </div>        
       </div>
 
       {/* Carousel imagenes (visible en pantalla) */}
@@ -133,6 +141,14 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
           </>
         )}
       </div>
+
+
+      {/* Footer de impresión */}
+      <div className="print-footer">
+        <p>RIB PROPIEDADES</p>
+        <p>Matrícula: CSI 5901. Osvaldo Sobico - Copyright 2026 - Todos los derechos reservados.</p>
+      </div>
+            
       <TrackerEmprendimiento emprendimientoId={emprendimiento.id} />
     </div>
   );
