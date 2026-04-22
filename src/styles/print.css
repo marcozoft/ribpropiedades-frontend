@@ -62,29 +62,48 @@
   [class*="InfoContainer"],
   [class*="DescripcionPropiedad"],
   [class*="DetallePropiedad"] {
-    padding: 0 8pt !important;
-    margin: 8pt 0 !important;
-    page-break-inside: avoid !important;
+    padding: 0 0pt !important;
+    margin: 0pt 0 !important;
+    
   }
 
   /* ===== LOGO RIB HEADER ===== */
   .print-header {
     display: block !important;
-    text-align: center;
     margin: 0 !important;
-    padding: 12pt 0 !important;
+    padding: 10pt 0pt !important;
     page-break-after: avoid;
-    background: #5f021f !important;
-    position: relative;
+    border-bottom: 1px solid #ccc !important;
+    width: 100% !important;
+  }
+
+  .print-header-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     width: 100% !important;
   }
 
   .print-header-logo {
-    max-width: 120px;
+    max-width: 180px;
     height: auto;
     display: block;
-    margin: 0 auto !important;
-    filter: brightness(0) invert(1);
+  }
+
+  .print-header-contact {
+    text-align: right !important;
+    font-size: 9pt !important;
+    color: #5f021f !important;
+    line-height: 1.6 !important;
+  }
+
+  .print-header-contact p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 9pt !important;
+    color: #5f021f !important;
+    text-align: right !important;
   }
 
   .print-logo {
@@ -94,15 +113,33 @@
   .propiedad-seccion-print {
     max-width: 100% !important;
     width: 100% !important;
-    padding: 0 8pt !important;
+    padding: 10pt 10pt !important;
     margin: 0 !important;
-    page-break-inside: avoid !important;
+    
+  }
+
+  /* ===== IMAGEN PRINCIPAL DE IMPRESIÓN ===== */
+  .print-main-image {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+  }
+
+  .print-main-image img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 380pt !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   /* ===== IMAGEN PRINCIPAL ===== */
   .carousel-container {
     /*display: block !important;*/
-    page-break-inside: avoid;
+    
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
@@ -141,15 +178,15 @@
     object-fit: cover !important;
     margin: 0 !important;
     padding: 0 !important;
-    page-break-inside: avoid !important;
+    
   }
 
   /* ===== GALERÍA DE IMPRESIÓN (PrintGallery) ===== */
   .print-gallery-container {
     display: block !important;
-    page-break-inside: avoid;
+    
     margin: 10pt 0 !important;
-    padding: 0 8pt !important;
+    padding: 0 0pt !important;
     width: 100% !important;
   }
 
@@ -166,7 +203,7 @@
   .print-gallery-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8pt !important;
+    gap: 0pt !important;
     width: 100% !important;
     margin: 0 !important;
   }
@@ -174,7 +211,7 @@
   .print-gallery-item {
     display: block !important;
     width: 100% !important;
-    page-break-inside: avoid !important;
+    
   }
 
   .print-gallery-item img {
@@ -190,8 +227,8 @@
   .print-planos-container {
     display: block !important;
     margin: 10pt 0 !important;
-    page-break-inside: avoid;
-    padding: 0 8pt !important;
+    
+    padding: 0 0pt !important;
     width: 100% !important;
   }
 
@@ -207,7 +244,7 @@
   .print-planos-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8pt !important;
+    gap: 0pt !important;
     width: 100% !important;
     margin: 0 !important;
   }
@@ -215,7 +252,7 @@
   .print-plano-item {
     display: block !important;
     width: 100% !important;
-    page-break-inside: avoid !important;
+    
   }
 
   .print-plano-item img {
@@ -230,28 +267,28 @@
   /* ===== SECCIONES ===== */
   .seccion-propiedad,
   .seccion-emprendimiento {
-    page-break-inside: avoid;
-    margin-bottom: 8pt;
-    padding: 0 8pt !important;
+    
+    margin-bottom: 0pt;
+    padding: 1pt 2pt !important;
   }
 
   /* ===== TÍTULOS ===== */
   h1 {
     font-size: 13pt !important;
     font-weight: 900 !important;
-    margin: 8pt 0 4pt 0 !important;
+    margin: 0pt 0 4pt 0 !important;
     page-break-after: avoid !important;
     color: #000 !important;
   }
 
   h2 {
-    font-size: 10pt !important;
+    font-size: 16pt !important;
     font-weight: bold !important;
-    margin: 6pt 0 3pt 0 !important;
+    margin: 8pt 0 4pt 0 !important;
     page-break-after: avoid !important;
     border-bottom: 1px solid #999 !important;
     padding-bottom: 2pt !important;
-    color: #000 !important;
+    color: #5f021f !important;
   }
 
   h3 {
@@ -279,9 +316,9 @@
   .precio-operacion {
     background: #f0f0f0 !important;
     padding: 6pt !important;
-    margin: 6pt 8pt !important;
+    margin: 6pt 0pt !important;
     border-left: 4pt solid #c41e3a !important;
-    page-break-inside: avoid !important;
+    
   }
 
   /* ===== INDICADORES (CARACTERÍSTICAS) ===== */
@@ -290,8 +327,8 @@
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 4pt !important;
-    margin: 6pt 8pt !important;
-    page-break-inside: avoid !important;
+    margin: 6pt 0pt !important;
+    
   }
 
   [class*="IndicadoresNumericos"] > *,
@@ -300,8 +337,8 @@
     padding: 4pt !important;
     border: 1px solid #ddd !important;
     text-align: center !important;
-    page-break-inside: avoid !important;
-    font-size: 8pt !important;
+    
+    font-size: 0pt !important;
   }
 
   [class*="IndicadoresNumericos"] strong,
@@ -325,8 +362,8 @@
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 4pt !important;
-    margin: 6pt 8pt !important;
-    page-break-inside: avoid !important;
+    margin: 6pt 0pt !important;
+    
     padding: 6pt !important;
     border: 1px solid #ddd !important;
     background: #fafafa !important;
@@ -334,16 +371,16 @@
 
   [class*="DetallesGrid"] p,
   .detalles-grid p {
-    font-size: 8pt !important;
+    font-size: 0pt !important;
     margin: 2pt 0 !important;
-    page-break-inside: avoid !important;
+    
     line-height: 1.3;
   }
 
   [class*="DetallesGrid"] strong {
     font-weight: bold !important;
     display: block !important;
-    font-size: 8pt !important;
+    font-size: 0pt !important;
   }
 
   /* ===== PLANOS ===== */
@@ -351,7 +388,7 @@
   .carousel-planos {
     display: block !important;
     margin: 15pt 0 !important;
-    page-break-inside: avoid !important;
+    
   }
 
   [class*="CarouselPlanos"] [role="group"],
@@ -379,7 +416,7 @@
     max-height: 280px !important;
     object-fit: contain !important;
     border: 1px solid #ccc !important;
-    page-break-inside: avoid !important;
+    
   }
 
   /* ===== DESCRIPCIÓN ===== */
@@ -387,7 +424,7 @@
     text-align: justify !important;
     line-height: 1.6 !important;
     margin: 10pt 0 !important;
-    page-break-inside: avoid !important;
+    
   }
 
   /* ===== TABLAS ===== */
@@ -395,7 +432,7 @@
     width: 100% !important;
     border-collapse: collapse !important;
     margin: 10pt 0 !important;
-    page-break-inside: avoid !important;
+    
   }
 
   th,
@@ -431,9 +468,9 @@
   /* ===== CARRUSEL DE PROPIEDADES (EMPRENDIMIENTO) ===== */
   .carousel-propiedades-emprendimiento {
     /*display: block !important;*/
-    page-break-inside: avoid !important;
+    
     margin: 10pt 0 !important;
-    padding: 0 8pt !important;
+    padding: 0 0pt !important;
   }
 
   .carousel-propiedades-emprendimiento [role="group"],
@@ -441,7 +478,7 @@
   .carousel-propiedades-emprendimiento [class*="carousel-content"] {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8pt !important;
+    gap: 0pt !important;
     width: 100% !important;
   }
 
@@ -451,28 +488,28 @@
     /*display: block !important;*/
     width: 100% !important;
     flex: none !important;
-    page-break-inside: avoid !important;
+    
   }
 
   .carousel-propiedades-emprendimiento [class*="Card"],
   .carousel-propiedades-emprendimiento [class*="card"] {
     /*display: block !important;*/
-    page-break-inside: avoid !important;
+    
   }
 
   /* ===== PROPIEDADES EMPRENDIMIENTO (PRINT) ===== */
   .print-propiedades-emprendimiento {
     display: block !important;
-    page-break-inside: avoid;
+    
     margin: 10pt 0 !important;
-    padding: 0 8pt !important;
+    padding: 0 0pt !important;
     width: 100% !important;
   }
 
   .print-propiedades-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8pt !important;
+    gap: 0pt !important;
     width: 100% !important;
     margin: 0 !important;
   }
@@ -480,13 +517,13 @@
   .print-propiedad-item {
     display: block !important;
     width: 100% !important;
-    page-break-inside: avoid !important;
+    
   }
 
   .print-propiedad-item [class*="PropiedadCard"],
   .print-propiedad-item [class*="card"] {
     display: block !important;
-    page-break-inside: avoid !important;
+    
   }
 
   /* ===== CONFIGURACIÓN DE PÁGINA ===== */
@@ -500,7 +537,7 @@
   }
 
   .importante {
-    page-break-inside: avoid !important;
+    
   }
 
   /* ===== ESTILOS VARIOS ===== */
@@ -519,6 +556,23 @@
     border-top: 1px solid #999 !important;
     margin: 10pt 0 !important;
   }
+
+  /* ===== FOOTER DE IMPRESIÓN ===== */
+  .print-footer {
+    display: block !important;
+    text-align: center !important;
+    border-top: 1px solid #ccc !important;
+    padding: 8pt 0 !important;
+    margin-top: 16pt !important;
+  }
+
+  .print-footer p {
+    margin: 2pt 0 !important;
+    padding: 0 !important;
+    font-size: 8pt !important;
+    color: #333 !important;
+    text-align: center !important;
+  }
 }
 
 /* Pantalla - ocultar elementos de impresión */
@@ -528,7 +582,8 @@
   }
 
   .print-gallery-container,
-  .print-planos-container {
+  .print-planos-container,
+  .print-footer {
     display: none !important;
   }
 }
