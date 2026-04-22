@@ -18,14 +18,22 @@ export const PropiedadFullPage = ({
     <div className="propiedad-full-page bg-white pb-20">
       {/* Logo RIB para impresión - HEADER */}
       <div className="print-header hidden print:block">
-        <Image
-          src="/images/navbar-logo.png"
-          alt="RIB Inmobiliaria"
-          width={180}
-          height={60}
-          priority
-          className="print-header-logo"
-        />
+        <div className="print-header-inner">
+          <Image
+            src="/images/logo-rib-print.png"
+            alt="RIB Inmobiliaria"
+            width={180}
+            height={60}
+            priority
+            className="print-header-logo"
+          />
+          <div className="print-header-contact">
+            <p>Tel. 0230 4384500</p>
+            <p>Cel. 15 3420 1500</p>
+            <p>info@ribpropiedades.com.ar</p>
+            <p>Matrícula: CSI 5901 Osvaldo Sobico</p>
+          </div>
+        </div>        
       </div>
 
       {/* Carousel imagenes (visible en pantalla) */}
@@ -35,7 +43,7 @@ export const PropiedadFullPage = ({
 
       {/* Primera imagen para impresión (fullscreen) */}
       {propiedadResponse.imagenes.length > 0 && (
-        <div className="hidden print:block w-full h-full">
+        <div className="hidden print:block w-full">
           <Image
             src={generateSrcImage(propiedadResponse.imagenes[0].imagen)}
             alt="Imagen principal"
@@ -74,20 +82,28 @@ export const PropiedadFullPage = ({
         </div>
       </div>
 
-      {/* Galería de imágenes (DESPUÉS de toda la información) */}
+      {/* Galería de imágenes (DESPUÉS de toda la información) 
       <div className="mx-auto max-w-6xl px-4 pb-20 propiedad-seccion-print">
         <PrintGallery imagenes={propiedadResponse.imagenes} />
       </div>
+      */}
 
-      {/* Galería de planos (solo en print) */}
+      {/* Galería de planos (solo en print) 
       {propiedadResponse.planos.length > 0 && (
         <div className="mx-auto max-w-6xl px-4 pb-20 propiedad-seccion-print">
           <PrintPlanos imagenes={propiedadResponse.planos} />
         </div>
       )}
+      */}
 
       <div className="tracker-propiedad no-print">
         <TrackerPropiedad propiedadId={propiedadResponse.propiedad.id}/>
+      </div>
+
+      {/* Footer de impresión */}
+      <div className="print-footer">
+        <p>RIB PROPIEDADES</p>
+        <p>Matrícula: CSI 5901. Osvaldo Sobico - Copyright 2026 - Todos los derechos reservados.</p>
       </div>
     </div>
   );
