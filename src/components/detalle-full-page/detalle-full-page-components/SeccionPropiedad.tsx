@@ -215,7 +215,7 @@ export const SeccionPropiedad = async ({
       {<SeccionVideos videos={[video, video2, video3]} />}
 
       {/* Map */}
-      <h2 className="mt-8 mb-4 text-xl font-bold text-black">
+      <h2 className="mt-8 mb-4 text-xl font-bold text-black no-print">
         <span className="text-foreground">|&nbsp;</span>Ubicación
       </h2>
 
@@ -224,7 +224,7 @@ export const SeccionPropiedad = async ({
         longitud={+mapa_longitud}
         tipo="propiedades"
         id={id}
-        className="h-80"
+        className="h-80 no-print"
       />
     </section>
   );

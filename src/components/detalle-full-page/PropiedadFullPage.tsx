@@ -18,7 +18,7 @@ export const PropiedadFullPage = ({
     <div className="propiedad-full-page bg-white pb-20">
       {/* Logo RIB para impresión - HEADER */}
       <div className="print-header hidden print:block">
-        <div className="print-header-inner">
+        <div className="print-header-inner p-3">
           <Image
             src="/images/logo-rib-print.png"
             alt="RIB Inmobiliaria"
@@ -43,7 +43,7 @@ export const PropiedadFullPage = ({
 
       {/* Primera imagen para impresión (fullscreen) */}
       {propiedadResponse.imagenes.length > 0 && (
-        <div className="hidden print:block w-full">
+        <div className="hidden print:block w-full px-2">
           <Image
             src={generateSrcImage(propiedadResponse.imagenes[0].imagen)}
             alt="Imagen principal"

@@ -53,7 +53,7 @@
   .emprendimiento-full-page {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 !important;
+    padding: 10pt !important;
     margin: 0 !important;
     background: white !important;
   }
@@ -83,6 +83,7 @@
     align-items: center !important;
     justify-content: space-between !important;
     width: 100% !important;
+    padding: 0 10pt !important;
   }
 
   .print-header-logo {
@@ -274,7 +275,7 @@
 
   /* ===== TÍTULOS ===== */
   h1 {
-    font-size: 13pt !important;
+    font-size: 18pt !important;
     font-weight: 900 !important;
     margin: 0pt 0 4pt 0 !important;
     page-break-after: avoid !important;
