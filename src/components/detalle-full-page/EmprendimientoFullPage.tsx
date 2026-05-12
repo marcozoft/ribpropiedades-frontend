@@ -135,7 +135,7 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
               </h1>
             </div>
             <div className="print:hidden no-print">
-              <CarouselCards propiedades={propiedades}/>
+              <CarouselCards propiedades={propiedades} emprendimientoNombre={emprendimiento.nombre} />
             </div>
             <PrintPropiedadesEmprendimiento propiedades={propiedades} nombre={emprendimiento.nombre} />
           </>
