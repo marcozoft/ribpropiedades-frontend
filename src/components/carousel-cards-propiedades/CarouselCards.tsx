@@ -2,10 +2,11 @@ import { Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, Ca
 import { PropiedadBasico } from "@/src/interfaces"
 
 type Props = {
-   propiedades: PropiedadBasico[]
+   propiedades: PropiedadBasico[],
+   emprendimientoNombre?: string
 }
 
-export const CarouselCards = ({ propiedades }: Props) => {
+export const CarouselCards = ({ propiedades, emprendimientoNombre }: Props) => {
    const isSmallSet = propiedades.length < 3;
    
    return (
@@ -17,7 +18,7 @@ export const CarouselCards = ({ propiedades }: Props) => {
                   propiedades.map((propiedad, i) => (
                      <CarouselItem key={i} className="basis-4/5 sm:basis-1/2 lg:basis-1/3">
                         <div className="p-1 sm:p-2">
-                           <PropiedadCard propiedad={propiedad} />
+                           <PropiedadCard propiedad={propiedad} emprendimientoNombre={emprendimientoNombre} />
                         </div>                     
                      </CarouselItem>
                   ))

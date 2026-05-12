@@ -15,12 +15,12 @@ const MES = 30 * DIA;
 /**
  * getAllPropiedades
  */
-export const REVALIDATE_PROPIEDADES = 1 * MINUTO;
+export const REVALIDATE_PROPIEDADES = 10 * MINUTO;
 
 /**
  * getPropiedadById
  */
-export const REVALIDATE_PROPIEDAD_ID = 1 * MINUTO;
+export const REVALIDATE_PROPIEDAD_ID = 15 * MINUTO;
 
 /**
  * getPropiedadesIA
@@ -35,13 +35,13 @@ export const REVALIDATE_PROPIEDADES_IA = DIA;
 /**
  * getAllEmprendimientos
  */
-export const REVALIDATE_EMPRENDIMIENTOS = 1 * MINUTO;
+export const REVALIDATE_EMPRENDIMIENTOS = 15 * MINUTO;
 
 
 /**
  * getEmprendimientoById
  */
-export const REVALIDATE_EMPRENDIMIENTOS_ID = 1 * MINUTO;
+export const REVALIDATE_EMPRENDIMIENTOS_ID = 15 * MINUTO;
 
 
 /**
@@ -57,7 +57,7 @@ export const REVALIDATE_COMENTARIOS = 1 * HORA;
 /**
  * getFilterItems
  */
-export const REVALIDATE_FILTERS = 3 * MES;
+export const REVALIDATE_FILTERS = 15 * MINUTO;
 
 
 /**
@@ -75,14 +75,14 @@ export const REVALIDATE_GOGLE_PLACES = 3 * MES;
  * getHomeContenido
  * Video nosotros
  */
-export const REVALIDATE_HOME_CONTENIDO = 3 * MES;
+export const REVALIDATE_HOME_CONTENIDO = 15 * MINUTO;
 
 /**
  * getLanzamientos
  */
-export const REVALIDATE_LANZAMIENTOS = 1 * MINUTO;;
+export const REVALIDATE_LANZAMIENTOS = 15 * MINUTO;;
 
 /**
  * getPropiedadesDestacadas
  */
-export const REVALIDATE_DESTACADAS = 1 * MINUTO;;
+export const REVALIDATE_DESTACADAS = 15 * MINUTO;;

@@ -12,9 +12,10 @@ import { generateHrefPropiedad, generateSrcImage } from "@/src/utils";
 type Props = {
   propiedad: PropiedadBasico;
   className?: string;
+  emprendimientoNombre?: string;
 };
 
-export const PropiedadCard = ({ propiedad, className }: Props) => {
+export const PropiedadCard = ({ propiedad, className, emprendimientoNombre }: Props) => {
   const {
     codigo,
     dormitorios,
@@ -65,7 +66,7 @@ export const PropiedadCard = ({ propiedad, className }: Props) => {
 
           <div className="mt-1">
             <p className="text-md font-foreground text-black">
-              {emprendimiento?.nombre ? `${emprendimiento.nombre}` : `-`}
+              {emprendimiento?.nombre ? `${emprendimiento.nombre}` : `${emprendimientoNombre}`}
             </p>
             {/* Precio */}
             <IndicadorPrecio
