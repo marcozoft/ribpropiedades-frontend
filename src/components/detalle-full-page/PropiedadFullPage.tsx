@@ -3,7 +3,7 @@ import {
   SeccionEmprendimiento,
   SeccionPropiedad,
 } from "./detalle-full-page-components";
-import { CarouselImagenes, FormularioContacto, TrackerPropiedad, PrintGallery, PrintPlanos } from "@/src/components";
+import { CarouselImagenes, FormularioContacto, TrackerPropiedad } from "@/src/components";
 import Image from "next/image";
 import { generateSrcImage } from "@/src/utils";
 
