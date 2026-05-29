@@ -2,7 +2,8 @@ import { EmprendimientoIdResponse } from '@/src/interfaces'
 import { secondaryFont } from '@/src/config/fonts'
 import Image from 'next/image';
 import { generateSrcImage } from '@/src/utils';
-import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes, ShareDialog, TrackerEmprendimiento, PrintPropiedadesEmprendimiento } from '@/src/components';
+import { CarouselCards, MapaPropiedad, FormularioContacto, CarouselImagenes, ShareDialog, TrackerEmprendimiento, PrintPropiedadesEmprendimiento, PrintPlanos } from '@/src/components';
+import { CarouselPlanos } from '../carousel-planos/CarouselPlanos';
 import { SeccionVideos } from './detalle-full-page-components';
 import { WHATSAPP_PROMPT_EMPRENDIMIENTO } from '@/src/constants/share-social-constants';
 
@@ -13,7 +14,7 @@ type Props = {
 
 export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
 
-  const { emprendimiento, propiedades } = emprendimientoResponse;
+  const { emprendimiento, propiedades, planos } = emprendimientoResponse;
   
   return (
     <div className="emprendimiento-full-page bg-white">
@@ -92,6 +93,20 @@ export const EmprendimientoFullPage = ({emprendimientoResponse}: Props) => {
             />
 
           </div>
+          {/* Galería de planos */}
+          {planos.length > 0 && (
+            <>
+              <h2 className="mt-8 mb-4 text-xl font-bold text-black">
+                <span className="text-foreground">|&nbsp;</span>Planos
+              </h2>
+              <div className="no-print">
+                <CarouselPlanos imagenes={planos} />
+              </div>
+              <div className="hidden print:block">
+                <PrintPlanos imagenes={planos} />
+              </div>
+            </>
+          )}
 
           {/* Video/Videos (opcional) */}
           <div className="no-print">

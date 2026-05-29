@@ -3,6 +3,6 @@ import { PropiedadBasico, EmprendimientoDetalle, Imagen } from '@/src/interfaces
 export interface EmprendimientoIdResponse {
    emprendimiento: EmprendimientoDetalle;
    imagenes:       Imagen[];
-   // planos:         any[];
+   planos:         any[];
    propiedades:    PropiedadBasico[];
 }
