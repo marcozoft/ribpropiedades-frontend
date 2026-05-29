@@ -583,7 +583,6 @@
   }
 
   .print-gallery-container,
-  .print-planos-container,
   .print-footer {
     display: none !important;
   }

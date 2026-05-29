@@ -10,11 +10,10 @@ type Props = {
 
 export const PrintPlanos = ({ imagenes }: Props) => {
   return (
-    <div className="print-planos-container hidden print:block">
-      <h2 className="print-section-title">| Planos</h2>
-      <div className="print-planos-grid">
+    <div className="print-planos-container">
+      <div className="grid grid-cols-2 gap-4 print-planos-grid">
         {imagenes.map((imagen, index) => (
-          <div key={index} className="print-plano-item">
+          <div key={index} className="print-plano-item border border-gray-200 overflow-hidden">
             <Image
               src={generateSrcImage(imagen.imagen)}
               alt={`Plano ${index + 1}`}
